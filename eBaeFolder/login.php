@@ -1,5 +1,6 @@
 <?php
 echo "this is php"
+require 'db.php';
 ?>
 
 <!doctype html>
