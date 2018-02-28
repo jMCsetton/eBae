@@ -1,6 +1,5 @@
 <?php
 echo "this is php"
-require 'config.php'
 ?>
 
 <!doctype html>
