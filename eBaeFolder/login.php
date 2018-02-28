@@ -1,5 +1,5 @@
 <?php
-echo "this is php"
+//echo "this is php"
 ?>
 
 <!doctype html>
