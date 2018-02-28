@@ -1,5 +1,7 @@
 <?php 
 echo "This is PHP"
+require 'db.php';
+session_start();
 ?>
 
 <!doctype html>
