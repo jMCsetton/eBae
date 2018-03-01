@@ -42,6 +42,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "failed connection";
     }
 
+    echo "entering if";
+
     $myusername = mysqli_real_escape_string($db,$_POST['username']);
     $mypassword = mysqli_real_escape_string($db,$_POST['password']); 
     
