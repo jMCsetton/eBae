@@ -63,7 +63,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     // If result matched $myusername and $mypassword, table row must be 1 row
       
     if($count >= 1) {
-        if (role == 'admin') {
+        if (role == "admin") {
         
         //$row = $result->fetch_assoc()
         //$row=mysqli_fetch_assoc($result);
