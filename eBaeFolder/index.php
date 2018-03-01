@@ -50,7 +50,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     //$myrole = $_POST['role'];
     
    
-    $sql = "SELECT * FROM user WHERE username = '$myusername' and password = '$mypassword' and role = 'admin' ";
+    $sql = "SELECT * FROM user WHERE username = '$myusername' and password = '$mypassword' and role = "admin" ";
     // $sql = "SELECT * FROM user WHERE username = '{$_POST['username']}' and password = '{$_POST['password']}'";
     $result = $conn->query($sql);
     //$row = mysqli_fetch_array($result,MYSQLI_ASSOC);
@@ -83,7 +83,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
        
     
         
-    $sql2 = "SELECT * FROM user WHERE username = '$myusername' and password = '$mypassword' and role = 'buyer_seller'  ";
+    $sql2 = "SELECT * FROM user WHERE username = '$myusername' and password = '$mypassword' and role = "buyer_seller"  ";
     $result2 = $conn->query($sql);
     $count2 = mysqli_num_rows($result2);
     if($count2 >= 1) {
