@@ -47,9 +47,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $myusername = $_POST['username'];
     $mypassword = $_POST['password']; 
+    $myrole = $_POST['role'];
     
     $sql = "SELECT * FROM user WHERE username = '$myusername' and password = '$mypassword'";
-   // $sql = "SELECT * FROM user WHERE username = '{$_POST['username']}' and password = '{$_POST['password']}'";
+    // $sql = "SELECT * FROM user WHERE username = '{$_POST['username']}' and password = '{$_POST['password']}'";
     $result = $conn->query($sql);
     //$row = mysqli_fetch_array($result,MYSQLI_ASSOC);
     //$active = $row['active'];
@@ -59,12 +60,19 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     // If result matched $myusername and $mypassword, table row must be 1 row
       
     if($count >= 1) {
+        $sql = "SELECT * FROM user WHERE role = '$myrole'";
+        if ($_POST['role']=="admin"){
+            header("Location: adminHomepage.php");
+            } else{
+            header("Location: homepage.php");
        //session_register("myusername");
        //$_SESSION['login_user'] = $myusername;
        
        //header("Location: https://www.youtube.com/?hl=en-GB&gl=GB");
-       header("Location: homepage.php");
-    }else {
+               //header("Location: homepage.php");
+            }
+    }
+    else {
        $error = "Your Login Name or Password is invalid";
     }
  }
