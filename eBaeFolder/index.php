@@ -49,7 +49,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     $mypassword = $_POST['password']; 
     //$myrole = $_POST['role'];
     
-    $sql = "SELECT * FROM user WHERE username = '$myusername' and password = '$mypassword'";
+    $sql = "SELECT username, password, role FROM user WHERE username = '$myusername' and password = '$mypassword'";
     // $sql = "SELECT * FROM user WHERE username = '{$_POST['username']}' and password = '{$_POST['password']}'";
     $result = $conn->query($sql);
     //$row = mysqli_fetch_array($result,MYSQLI_ASSOC);
@@ -60,10 +60,14 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     // If result matched $myusername and $mypassword, table row must be 1 row
       
     if($count >= 1) {
-        $sql2 = "SELECT * FROM user WHERE firstName = 'Shabri'";
-        $result2 = $conn->query($sql2);
-        $count2 = mysqli_num_rows($result2);
-        if($count2 >= 1) {
+        
+        //$row = $result->fetch_assoc()
+        $row=mysqli_fetch_assoc($result);
+       //$sql2 = "SELECT * FROM user WHERE firstName = 'Shabri'";
+        //$result2 = $conn->query($sql2);
+        //$count2 = mysqli_num_rows($result2);
+       // if($count2 >= 1) {
+            if($row[2] = 'admin') {
         
             header("Location: adminHomepage.php");
             //echo "ADMIN";
