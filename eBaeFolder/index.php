@@ -59,9 +59,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
        $_SESSION['login_user'] = $myusername;
        
        header("location: homepage.php");
-    }/*else {
+    }else {
        echo "Your Login Name or Password is invalid";
-    }*/
+    }
  }
 /*if ($_SERVER['REQUEST_METHOD'] == 'POST') 
 {
