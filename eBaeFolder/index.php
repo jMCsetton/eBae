@@ -62,7 +62,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
 
 
                  
-                               <!-- <form  action="index_php.php" method="post" autocomplete="off"> -->
+                                <form  action="index_php.php" method="post" autocomplete="off">
                                     <label style="color: #B33C12">Username</label>
                                     <input name="username" type="text" required autocomplete="off" class="form-control" style="background-color: #e5e5e5" placeholder="Username">
 
@@ -71,7 +71,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
                                     <button class="btn btn-danger btn-block btn-round" name="login">Login</button>
                                
                                     <button class="btn btn-danger btn-block btn-round" name = "register">Register New Account</button>
-                                
+                                </form>
                                     </div>
                         </div>
                     </div>
