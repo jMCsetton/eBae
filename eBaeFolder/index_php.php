@@ -8,7 +8,7 @@
 
 // Escape email to protect against SQL injections
 //$email = $conn->escape_string($_POST['email']);
-$result = $conn->query("SELECT * FROM users WHERE username='$username'");
+/*$result = $conn->query("SELECT * FROM users WHERE username='$username'");
 
 if ( $result->num_rows == 0 ){ // User doesn't exist
     $_SESSION['message'] = "User with that username does not exist!";
@@ -26,7 +26,7 @@ else { // User exists
         //$_SESSION['last_name'] = $user['last_name'];
         $_SESSION['active'] = $user['active'];
         
-        // Set logged_in variable to true to allow going to next page without loggin in again
+        // Set logged_in variable to true to allow going to next page without logging in again
         $_SESSION['logged_in'] = true;
 
         if ($_SESSION['active'] == 0){
@@ -43,5 +43,8 @@ else { // User exists
         $_SESSION['message'] = "You have entered wrong password, try again!";
         header("location: error.php");
     }
-}
+}*/
+
+
+
 ?>

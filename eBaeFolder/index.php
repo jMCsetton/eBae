@@ -32,14 +32,39 @@ require 'config.php';
 </head>
 
 <?php 
-if ($_SERVER['REQUEST_METHOD'] == 'POST') 
+
+if($_SERVER["REQUEST_METHOD"] == "POST") {
+    // username and password sent from form 
+    
+    $myusername = mysqli_real_escape_string($db,$_POST['username']);
+    $mypassword = mysqli_real_escape_string($db,$_POST['password']); 
+    
+    $sql = "SELECT id FROM admin WHERE username = '$myusername' and passcode = '$mypassword'";
+    $result = mysqli_query($db,$sql);
+    $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
+    $active = $row['active'];
+    
+    $count = mysqli_num_rows($result);
+    
+    // If result matched $myusername and $mypassword, table row must be 1 row
+      
+    if($count == 1) {
+       session_register("myusername");
+       $_SESSION['login_user'] = $myusername;
+       
+       header("location: homepage.php");
+    }else {
+       $error = "Your Login Name or Password is invalid";
+    }
+ }
+/*if ($_SERVER['REQUEST_METHOD'] == 'POST') 
 {
     //User log in page
     if (isset($_POST['login'])) {
 
         require 'index_php.php';
         
-    }
+    }*/
     
    //  Register page
    // elseif (isset($_POST['register'])) {
@@ -62,9 +87,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
 
 
                  
-                                <!---<form method="post"  class = "register-form">-->
+                                <!--<form method="post"  class = "register-form">-->
+                                <form action  = "" method="post"  class = "register-form">
                                     <label style="color: #B33C12">Username</label>
-                                    <input type="text" required  class="form-control" style="background-color: #e5e5e5" placeholder="Username"/>
+                                    <input type="text" name = "username"  class="form-control" style="background-color: #e5e5e5" placeholder="Username"/>
 
                                     <label style="color: #B33C12">Password</label>
                                     <input name="password" type="password" class="form-control" style="background-color: #e5e5e5" placeholder="Password"/>
@@ -72,7 +98,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
                                
                                     <button class="btn btn-danger btn-block btn-round" name = "register"><a href="https://gc06team37db.azurewebsites.net/UserRegistration.php#">Register User New Account</a></button>
                                     <button class="btn btn-danger btn-block btn-round" name = "register"><a href="https://gc06team37db.azurewebsites.net/AdminRegistration.php#">Register Admin New Account</a></button> 
-                               <!--- </form>-->
+                               </form>
                                     </div>
                         </div>
                     </div>
