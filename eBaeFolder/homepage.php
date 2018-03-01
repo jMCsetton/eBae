@@ -2,8 +2,6 @@
 ?>
 
 <html>
-<h1> Welcome to eBae!!!! </h1>
-
 <title>W3.CSS Template</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
