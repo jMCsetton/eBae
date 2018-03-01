@@ -28,6 +28,66 @@
 
 </head>
 <body>
+
+<?php
+// define variables and set to empty values
+$firstnameErr = $lastnameErr = $firstnameErr = $DOBErr = $genderErr = $passwordErr = "";
+$firstname = $lastname = $dob = $address = $email = $gender = $password "";
+
+// error messages if not filled in
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  if (empty($_POST["firstname"])) {
+    $firstnameErr = "First name is required";
+  } else {
+    $firstname = test_input($_POST["firstname"]);
+  }
+
+   if (empty($_POST["lastname"])) {
+    $lastnameErr = "Last name is required";
+  } else {
+    $lastnamename = test_input($_POST["lastname"]);
+  }
+
+  if (empty($_POST["email"])) {
+    $emailErr = "Email is required";
+  } else {
+    $email = test_input($_POST["email"]);
+  }
+    
+  if (empty($_POST["address"])) {
+    $address = "";
+  } else {
+    $address = test_input($_POST["website"]);
+  }
+
+  if (empty($_POST["dob"])) {
+    $DOBErr = "";
+  } else {
+    $dob = test_input($_POST["dob"]);
+  }
+
+  if (empty($_POST["gender"])) {
+    $genderErr = "Gender is required";
+  } else {
+    $gender = test_input($_POST["gender"]);
+  }
+ 
+ if (empty($_POST["password"])) {
+    $passwordErr = "Password is required";
+  } else {
+    $password = test_input($_POST["Password"]);
+  }
+
+}
+
+function test_input($data) {
+  $data = trim($data);
+  $data = stripslashes($data);
+  $data = htmlspecialchars($data);
+  return $data;
+}
+?>
+
     <nav class="navbar navbar-expand-md fixed-top navbar-transparent">
         <div class="container">
             <div class="navbar-translate">
@@ -50,15 +110,15 @@
                         <div class="col-lg-4 ml-auto mr-auto">
                             <div class="card card-register">
                                 <h3 class="title">Please fill out the form below to register:</h3>
-                                <form class="register-form">
+                                <form class="register-form"  method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
                                     <label>First Name</label>
-                                    <input type="text" class="form-control" placeholder="First Name">
+                                    <input type="text" firstname="firstname" class="form-control" placeholder="First Name"><span class="error">* <?php echo $firstnameErr;?></span>
 
                                     <label>Last Name</label>
-                                    <input type="text" class="form-control" placeholder="Last Name">
+                                    <input type="text" lastname = "lastname" class="form-control" placeholder="Last Name"><span class="error">* <?php echo $lastnameErr;?></span>
 
                                     <label>Date of Birth</label>
-                                    <input type="text" class="form-control" placeholder="dd/mm/yyyy">
+                                    <input type="text" class="form-control" dob="dob" placeholder="dd/mm/yyyy"><span class="error">* <?php echo $DOBErr;?></span>
 
                                     <label>Address:</label>
                                     <input type="text" class="form-control" placeholder="First Line of Address">
@@ -68,29 +128,17 @@
                                     <input type="text" class="form-control" placeholder="Post Code">
 
                                     <label>Gender</label>
-                                    <input type="text" class="form-control" placeholder="Email">
+                                    <input type="text" class="form-control" gender="gender" placeholder="Gender"><span class="error">* <?php echo $genderErr;?></span>
 
                                     <label>Email</label>
-                                    <input type="text" class="form-control" placeholder="Email">
+                                    <input type="text" class="form-control" email = "email" placeholder="Email"><span class="error">* <?php echo $emailErr;?></span>
 
                                     <label>Password</label>
-                                    <input type="password" class="form-control" placeholder="Password">
+                                    <input type="password" class="form-control" password="password" placeholder="Password"><span class="error">* <?php echo $passwordErr;?></span>
 
                                      <label>Confirm Password</label>
                                     <input type="password" class="form-control" placeholder="Confirm Password">
-                                      <label>Role:</label>
-                                   
-                                    <form class="form-inline">
-                                    <div class="form-group">
-                                        <input type="checkbox" id="checkbox104">
-                                        <label for="checkbox104">User</label>
-                                    </div>
-                                     <div class="form-group">
-                                        <input type="checkbox" id="checkbox105">
-                                        <label for="checkbox105">Admin</label>
-                                    </div>
-                                    </form>
-
+                                    
                                     <button class="btn btn-danger btn-block btn-round">Register</button>
 
                                   
