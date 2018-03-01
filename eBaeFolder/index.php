@@ -1,6 +1,6 @@
 <?php 
-echo "This is PHP"
-//require 'config.php';
+//echo "This is PHP"
+require 'config.php';
 //session_start();
 ?>
 
