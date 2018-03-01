@@ -9,4 +9,4 @@ $dbname     = "auction37gc06";
 
 // Establish connection
 $conn = mysqli_connect($host, $username, $password, $dbname) or die($conn->connect_error);
-
+?>

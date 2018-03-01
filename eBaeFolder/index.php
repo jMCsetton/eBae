@@ -1,7 +1,7 @@
 <?php 
 //echo "This is PHP"
 require 'config.php';
-//session_start();
+session_start();
 ?>
 
 <!doctype html>
@@ -39,7 +39,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     $myusername = mysqli_real_escape_string($db,$_POST['username']);
     $mypassword = mysqli_real_escape_string($db,$_POST['password']); 
     
-    $sql = "SELECT id FROM admin WHERE username = '$myusername' and passcode = '$mypassword'";
+    $sql = "SELECT userID FROM user WHERE username = '$myusername' and password = '$mypassword'";
     $result = mysqli_query($db,$sql);
     $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
     $active = $row['active'];
@@ -72,7 +72,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
       //  require 'login.php';
         
    //} 
-}
+//}
 ?>
 <body>
     <div class="wrapper">
