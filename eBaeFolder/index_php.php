@@ -31,7 +31,7 @@ else { // User exists
 
         if ($_SESSION['active'] == 0){
             mysqli_close($conn);
-            header("location: index.php");
+            header("location: homepage.php");
         } else {
             mysqli_close($conn);
             header("location: homepage.php");
