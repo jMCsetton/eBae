@@ -68,11 +68,20 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
 
                                     <label style="color: #B33C12">Password</label>
                                     <input name="password" type="password" class="form-control" style="background-color: #e5e5e5" placeholder="Password">
+<<<<<<< HEAD
+                                    <button class="btn btn-danger btn-block btn-round">Login</button>
+                                <!--</form>-->
+                                    <button class="btn btn-danger btn-block btn-round">Register New User Account</button>
+                                    
+                            </div>
+=======
                                     <button class="btn btn-danger btn-block btn-round" name="login">Login</button>
                                
-                                    <button class="btn btn-danger btn-block btn-round" name = "register">Register New Account</button>
+                                    <button class="btn btn-danger btn-block btn-round" name = "register">Register User New Account</button>
+                                    <button class="btn btn-danger btn-block btn-round" name = "register">Register Admin New Account</button>
                                 </form>
                                     </div>
+>>>>>>> fe30f862ae425943ca17cd49ce774b1e1cdaf405
                         </div>
                     </div>
                                                                                                                                             
