@@ -33,6 +33,8 @@ session_start();
 
 <?php 
 
+if (isset($_POST['submit'])) {
+
 if($_SERVER["REQUEST_METHOD"] == "POST") {
     // username and password sent from form 
     
@@ -127,6 +129,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         
    //} 
 //}
+   }
 ?>
 <body>
     <div class="wrapper">
@@ -148,7 +151,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 
                                     <label style="color: #B33C12">Password</label>
                                     <input name="password" type="password" class="form-control" style="background-color: #e5e5e5" placeholder="Password"/>
-                                    <button class="btn btn-danger btn-block btn-round" />Login</button>
+                                    <button class="btn btn-danger btn-block btn-round" name = "submit"/>Login</button>
                                     <!--input type = "submit" value = " Submit "/><br /-->
                                    
                                </form>
