@@ -36,7 +36,7 @@ session_start();
 if($_SERVER["REQUEST_METHOD"] == "POST") {
     // username and password sent from form 
     
-    $conn = new mysqli($host, $username, $password);
+    $conn = new mysqli($host, $username, $password, $dbname);
     
     if ($conn->connect_error) {
         echo "failed connection";
