@@ -62,7 +62,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
 
 
                  
-                                <form  action="index_php.php" method="post" autocomplete="off" class = "register-form">
+                                <form   method="post" autocomplete="off" class = "register-form">
                                     <label style="color: #B33C12">Username</label>
                                     <input name="username" type="text" required autocomplete="off" class="form-control" style="background-color: #e5e5e5" placeholder="Username"/>
 
