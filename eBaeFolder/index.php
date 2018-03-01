@@ -63,6 +63,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         $sql = "SELECT * FROM user WHERE role = '$myrole'";
         if ($_POST['role']=="admin"){
             header("Location: adminHomepage.php");
+            echo "ADMIN";
             } else{
             header("Location: homepage.php");
        //session_register("myusername");
