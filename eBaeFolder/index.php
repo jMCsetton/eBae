@@ -42,15 +42,15 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "failed connection";
     }
 
-    echo "entering if, connection not failed";
+    echo "entering if, connection not failed ";
 
     $myusername = mysqli_real_escape_string($db,$_POST['username']);
     $mypassword = mysqli_real_escape_string($db,$_POST['password']); 
     
     $sql = "SELECT * FROM user WHERE username = '$myusername' AND password = '$mypassword'";
-    $result = mysqli_query($db,$sql);
-    $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
-    $active = $row['active'];
+    $result = $conn->query($sql);
+    //$row = mysqli_fetch_array($result,MYSQLI_ASSOC);
+    //$active = $row['active'];
     
     $count = mysqli_num_rows($result);
     
