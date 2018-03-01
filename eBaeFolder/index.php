@@ -1,6 +1,6 @@
 <?php 
 //echo "This is PHP"
-require 'config.php';
+include("config.php");
 session_start();
 ?>
 
@@ -39,7 +39,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     $myusername = mysqli_real_escape_string($db,$_POST['username']);
     $mypassword = mysqli_real_escape_string($db,$_POST['password']); 
     
-    $sql = "SELECT * FROM user WHERE username = '$myusername' and password = '$mypassword'";
+    $sql = "SELECT * FROM user WHERE username = '$myusername' AND password = '$mypassword'";
     $result = mysqli_query($db,$sql);
     $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
     $active = $row['active'];
@@ -88,7 +88,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 
                  
                                 <!--<form method="post"  class = "register-form">-->
-                                <form action  = "" method="post"  class = "register-form">
+                                <form action  = "" method="post"  >
                                     <label style="color: #B33C12">Username</label>
                                     <input type="text" name = "username"  class="form-control" style="background-color: #e5e5e5" placeholder="Username"/>
 
