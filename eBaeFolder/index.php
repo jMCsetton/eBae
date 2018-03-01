@@ -81,8 +81,18 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
                //header("Location: homepage.php");
         
        
-    }
+    
         
+    $sql2 = "SELECT * FROM user WHERE username = '$myusername' and password = '$mypassword'  ";
+    $result2 = $conn->query($sql);
+    $count2 = mysqli_num_rows($result2);
+    if($count2 >= 1) {
+
+        header("Location: homepage.php");
+        
+    }
+    
+}
     
     else {
        $error = "Your Login Name or Password is invalid";
@@ -91,18 +101,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
  
 
 
-    $sql2 = "SELECT * FROM user WHERE username = '$myusername' and password = '$mypassword' and role = 'admin' ";
-    $result2 = $conn->query($sql);
-    $count2 = mysqli_num_rows($result2);
-    if($count2 >= 1) {
-
-        header("Location: homepage.php");
-        
-    }
-    else {
-        $error = "Your Login Name or Password is invalid";
-     }
-     
+  
 
 
 
