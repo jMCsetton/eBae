@@ -67,7 +67,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         //$result2 = $conn->query($sql2);
         //$count2 = mysqli_num_rows($result2);
        // if($count2 >= 1) {
-            if($row[2] = 'admin') {
+            if($row[2] == 'admin') {
         
             header("Location: adminHomepage.php");
             //echo "ADMIN";
