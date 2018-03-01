@@ -64,13 +64,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
                  
                                <!-- <form  action="index_php.php" method="post" autocomplete="off"> -->
                                     <label style="color: #B33C12">Username</label>
-                                    <input name="username" type="text" class="form-control" style="background-color: #e5e5e5" placeholder="Username">
+                                    <input name="username" type="text" required autocomplete="off" class="form-control" style="background-color: #e5e5e5" placeholder="Username">
 
                                     <label style="color: #B33C12">Password</label>
                                     <input name="password" type="password" class="form-control" style="background-color: #e5e5e5" placeholder="Password">
-                                    <button class="btn btn-danger btn-block btn-round">Login</button>
+                                    <button class="btn btn-danger btn-block btn-round" name="login">Login</button>
                                
-                                    <button class="btn btn-danger btn-block btn-round">Register New Account</button>
+                                    <button class="btn btn-danger btn-block btn-round" name = "register">Register New Account</button>
                                 
                                     </div>
                         </div>
