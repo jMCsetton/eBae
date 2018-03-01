@@ -43,7 +43,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "failed connection";
     }
 
-    echo "entering if, connection not failed ";
+    //echo "entering if, connection not failed ";
 
     $myusername = mysqli_real_escape_string($db,$_POST['username']);
     $mypassword = mysqli_real_escape_string($db,$_POST['password']); 
@@ -63,7 +63,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
        
        header("location: homepage.php");
     }else {
-       echo "Your Login Name or Password is invalid";
+       $error = "Your Login Name or Password is invalid";
     }
  }
 /*if ($_SERVER['REQUEST_METHOD'] == 'POST') 
