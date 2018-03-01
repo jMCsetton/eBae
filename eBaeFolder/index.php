@@ -95,8 +95,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 }
     
     else {
-       //$error = "Your Login Name or Password is invalid";
-       alert("invalid username or password");
+       $error = "Your Login Name or Password is invalid";
+       //alert("invalid username or password");
     }
     
  
