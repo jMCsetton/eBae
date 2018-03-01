@@ -56,7 +56,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     
     // If result matched $myusername and $mypassword, table row must be 1 row
       
-    if($count == 1) {
+    if($count >= 1) {
        session_register("myusername");
        $_SESSION['login_user'] = $myusername;
        
@@ -102,7 +102,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 
                                     <label style="color: #B33C12">Password</label>
                                     <input name="password" type="password" class="form-control" style="background-color: #e5e5e5" placeholder="Password"/>
-                                    <!--button class="btn btn-danger btn-block btn-round" />Login</button--><input type = "submit" value = " Submit "/><br />
+                                    <button class="btn btn-danger btn-block btn-round" />Login</button><!--input type = "submit" value = " Submit "/><br /-->
                 
                                </form>
                                     <button class="btn btn-danger btn-block btn-round" name = "register"><a href="https://gc06team37db.azurewebsites.net/UserRegistration.php#">Register User New Account</a></button>
