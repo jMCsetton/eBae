@@ -48,7 +48,8 @@ session_start();
                                     <input name="password" type="password" class="form-control" style="background-color: #e5e5e5" placeholder="Password">
                                     <button class="btn btn-danger btn-block btn-round">Login</button>
                                 <!--</form>-->
-                                    <button class="btn btn-danger btn-block btn-round">Register New Account</button>
+                                    <button class="btn btn-danger btn-block btn-round">Register New User Account</button>
+                                    
                             </div>
                         </div>
                     </div>
