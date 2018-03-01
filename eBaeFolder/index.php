@@ -59,10 +59,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     // If result matched $myusername and $mypassword, table row must be 1 row
       
     if($count >= 1) {
-       session_register("myusername");
-       $_SESSION['login_user'] = $myusername;
+       //session_register("myusername");
+       //$_SESSION['login_user'] = $myusername;
        
-       header("location: homepage.php");
+       header("Location: homepage.php");
     }else {
        $error = "Your Login Name or Password is invalid";
     }
