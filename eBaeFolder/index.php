@@ -80,7 +80,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     else {
        $error = "Your Login Name or Password is invalid";
     }
- }
+ 
 /*if ($_SERVER['REQUEST_METHOD'] == 'POST') 
 {
     //User log in page
