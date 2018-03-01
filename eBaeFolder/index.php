@@ -100,6 +100,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
       else {
         
         $error = "Your Login Name or Password is invalid";
+        echo "<script type='text/javascript'>alert('$error');</script>";
      
      }
      
