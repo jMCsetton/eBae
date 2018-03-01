@@ -95,16 +95,18 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 
       //  header("Location: homepage.php");
         
-    //}
+   
+      //}
+      else {
+        
+        $error = "Your Login Name or Password is invalid";
+     
+     }
+     
     
 }
     
-    else {
-        
-       $error = "Your Login Name or Password is invalid";
-    
-    }
-    
+   
  
 
 
