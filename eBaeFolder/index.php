@@ -74,7 +74,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         }
         else {
             echo $row[8];
-            header("Location: homepage.php");
+            header("Location: index.php");
        //session_register("myusername");
        //$_SESSION['login_user'] = $myusername;
        
