@@ -2,7 +2,7 @@
 ?>
 
 <html>
-<title>W3.CSS Template</title>
+<title>eBae</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -20,13 +20,16 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
       <i class="fa fa-remove"></i>
     </a>
     <img src="/w3images/avatar_g2.jpg" style="width:45%;" class="w3-round"><br><br>
-    <h4><b>PORTFOLIO</b></h4>
+    <h4><b>eBae</b></h4>
     <p class="w3-text-grey">Template by W3.CSS</p>
   </div>
   <div class="w3-bar-block">
-    <a href="#portfolio" onclick="w3_close()" class="w3-bar-item w3-button w3-padding w3-text-teal"><i class="fa fa-th-large fa-fw w3-margin-right"></i>PORTFOLIO</a> 
-    <a href="#about" onclick="w3_close()" class="w3-bar-item w3-button w3-padding"><i class="fa fa-user fa-fw w3-margin-right"></i>ABOUT</a> 
-    <a href="#contact" onclick="w3_close()" class="w3-bar-item w3-button w3-padding"><i class="fa fa-envelope fa-fw w3-margin-right"></i>CONTACT</a>
+    <a href="#portfolio" onclick="w3_close()" class="w3-bar-item w3-button w3-padding w3-text-teal"><i class="fa fa-th-large fa-fw w3-margin-right"></i>MY AUCTIONS</a> 
+    <a href="#about" onclick="w3_close()" class="w3-bar-item w3-button w3-padding"><i class="fa fa-user fa-fw w3-margin-right"></i>LIVE AUCTIONS</a> 
+    <a href="#contact" onclick="w3_close()" class="w3-bar-item w3-button w3-padding"><i class="fa fa-envelope fa-fw w3-margin-right"></i>MY BIDS</a>
+    <a href="#contact" onclick="w3_close()" class="w3-bar-item w3-button w3-padding"><i class="fa fa-envelope fa-fw w3-margin-right"></i>CREATE AUCTION</a>
+    <a href="#contact" onclick="w3_close()" class="w3-bar-item w3-button w3-padding"><i class="fa fa-envelope fa-fw w3-margin-right"></i>WATCHLIST</a>
+
   </div>
   <div class="w3-panel w3-large">
     <i class="fa fa-facebook-official w3-hover-opacity"></i>
@@ -49,7 +52,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
     <a href="#"><img src="/w3images/avatar_g2.jpg" style="width:65px;" class="w3-circle w3-right w3-margin w3-hide-large w3-hover-opacity"></a>
     <span class="w3-button w3-hide-large w3-xxlarge w3-hover-text-grey" onclick="w3_open()"><i class="fa fa-bars"></i></span>
     <div class="w3-container">
-    <h1><b>My Portfolio</b></h1>
+    <h1><b>Welcome to eBae!</b></h1>
     <div class="w3-section w3-bottombar w3-padding-16">
       <span class="w3-margin-right">Filter:</span> 
       <button class="w3-button w3-black">ALL</button>
