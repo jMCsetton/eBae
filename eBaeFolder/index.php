@@ -73,6 +73,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
             //echo "ADMIN";
         }
         else {
+            echo $row[8];
             header("Location: homepage.php");
        //session_register("myusername");
        //$_SESSION['login_user'] = $myusername;
