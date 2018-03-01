@@ -61,6 +61,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
       
     if($count >= 1) {
         $sql = "SELECT * FROM user WHERE role = '$myrole'";
+        $result2 = $conn->query($sql);
+        $count2 = mysqli_num_rows($result2);
+        if($count2 >= 1) {
         if ($_POST['role']=="admin"){
             header("Location: adminHomepage.php");
             echo "ADMIN";
@@ -72,6 +75,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
        //header("Location: https://www.youtube.com/?hl=en-GB&gl=GB");
                //header("Location: homepage.php");
             }
+        }
     }
     else {
        $error = "Your Login Name or Password is invalid";
