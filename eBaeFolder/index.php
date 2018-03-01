@@ -45,10 +45,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 
     //echo "entering if, connection not failed ";
 
-    $myusername = mysqli_real_escape_string($db,$_POST['username']);
-    $mypassword = mysqli_real_escape_string($db,$_POST['password']); 
+    //$myusername = mysqli_real_escape_string($_POST['username']);
+   // $mypassword = mysqli_real_escape_string($_POST['password']); 
     
-    $sql = "SELECT * FROM user WHERE username = '$myusername' and password = '$mypassword'";
+    //$sql = "SELECT * FROM user WHERE username = '$myusername' and password = '$mypassword'";
+    $sql = "SELECT * FROM user WHERE username = '{$_POST['username']}' and password = '{$_POST['password']}'";
     $result = $conn->query($sql);
     //$row = mysqli_fetch_array($result,MYSQLI_ASSOC);
     //$active = $row['active'];
@@ -58,10 +59,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     // If result matched $myusername and $mypassword, table row must be 1 row
       
     if($count >= 1) {
-       session_register("myusername");
-       $_SESSION['login_user'] = $myusername;
+       //session_register("myusername");
+       //$_SESSION['login_user'] = $myusername;
        
-       header("location: homepage.php");
+       //header("Location: https://www.youtube.com/?hl=en-GB&gl=GB");
+       header("Location: homepage.php");
     }else {
        $error = "Your Login Name or Password is invalid";
     }
