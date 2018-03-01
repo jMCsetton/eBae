@@ -45,11 +45,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 
     //echo "entering if, connection not failed ";
 
-    //$myusername = mysqli_real_escape_string($_POST['username']);
-   // $mypassword = mysqli_real_escape_string($_POST['password']); 
+    $myusername = mysqli_real_escape_string($_POST['username']);
+    $mypassword = mysqli_real_escape_string($_POST['password']); 
     
-    //$sql = "SELECT * FROM user WHERE username = '$myusername' and password = '$mypassword'";
-    $sql = "SELECT * FROM user WHERE username = '{$_POST['username']}' and password = '{$_POST['password']}'";
+    $sql = "SELECT * FROM user WHERE username = '$myusername' and password = '$mypassword'";
+   // $sql = "SELECT * FROM user WHERE username = '{$_POST['username']}' and password = '{$_POST['password']}'";
     $result = $conn->query($sql);
     //$row = mysqli_fetch_array($result,MYSQLI_ASSOC);
     //$active = $row['active'];
