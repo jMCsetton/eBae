@@ -52,7 +52,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     //$myrole = $_POST['role'];
     
    
-    $sql = "SELECT username, password, role FROM user WHERE username = '$myusername' and password = '$mypassword'  ";
+    $sql = "SELECT username, password, role into a,b,c FROM user WHERE username = '$myusername' and password = '$mypassword'  ";
     // $sql = "SELECT * FROM user WHERE username = '{$_POST['username']}' and password = '{$_POST['password']}'";
     $result = $conn->query($sql);
     //$row = mysqli_fetch_array($result,MYSQLI_ASSOC);
@@ -63,7 +63,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     // If result matched $myusername and $mypassword, table row must be 1 row
       
     if($count >= 1) {
-        if (role == "admin") {
+        if (c == "admin") {
         
         //$row = $result->fetch_assoc()
         //$row=mysqli_fetch_assoc($result);
