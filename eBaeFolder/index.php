@@ -95,8 +95,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 }
     
     else {
+        header("Location: index.php?err=1");
        $error = "Your Login Name or Password is invalid";
-       echo "<script type='text/javascript'>alert('$error');</script>";
+        "<script type='text/javascript'>alert('$error');</script>";
        //alert("invalid username or password");
     }
     
@@ -147,7 +148,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
                                     <input name="password" type="password" class="form-control" style="background-color: #e5e5e5" placeholder="Password"/>
                                     <button class="btn btn-danger btn-block btn-round" />Login</button>
                                     <!--input type = "submit" value = " Submit "/><br /-->
-                
+                                    <?php $err=$_GET['err'];
+            if($err==1){echo "<p style=\"color:red\">Invalid username or password. Please contact the Administrator to find or update your username/password</p>";} ?>
                                </form>
                                     <button class="btn btn-danger btn-block btn-round" name = "register"><a href="https://gc06team37db.azurewebsites.net/UserRegistration.php#">Register User New Account</a></button>
                                     <button class="btn btn-danger btn-block btn-round" name = "register"><a href="https://gc06team37db.azurewebsites.net/AdminRegistration.php#">Register Admin New Account</a></button>
