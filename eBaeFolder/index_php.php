@@ -44,3 +44,4 @@ else { // User exists
         header("location: error.php");
     }
 }
+?>
