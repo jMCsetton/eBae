@@ -22,7 +22,7 @@ session_start();
     <link href="paper-kit.css?v=2.1.0" rel="stylesheet"/>
 
     <!--  CSS for Demo Purpose, don't include it in your project     -->
-    <link href="demo.css" rel="stylesheet" />
+    <!--link href="demo.css" rel="stylesheet" /-->
 
     <!--     Fonts and icons     -->
     <!--link href='http://fonts.googleapis.com/css?family=Montserrat:400,300,700' rel='stylesheet' type='text/css'>
