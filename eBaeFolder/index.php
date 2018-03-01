@@ -30,6 +30,25 @@ session_start();
     <link href="nucleo-icons.css" rel="stylesheet">
 
 </head>
+
+<?php 
+if ($_SERVER['REQUEST_METHOD'] == 'POST') 
+{
+    //User log in page
+    if (isset($_POST['login'])) {
+
+        require 'index_php.php';
+        
+    }
+    
+    // Register page
+    elseif (isset($_POST['register'])) {
+        
+        require 'login.php';
+        
+    }
+}
+?>
 <body>
     <div class="wrapper">
         <div class="page-header" style="background-color: #FFFFFF">
@@ -39,7 +58,10 @@ session_start();
                         <div class="col-lg-4 ml-auto mr-auto" style="float-right: 50%">
                             <div class="card card-register">
                                 <h2 class="title" style="font-size: 48px; font-weight: bold; color: #000197">eBae</h2>
-                                                                                                                                                                                                                                
+
+
+
+
                                 <!--<form method="post" action="/login" class="register-form">-->
                                     <label style="color: #B33C12">Username</label>
                                     <input name="uname" type="text" class="form-control" style="background-color: #e5e5e5" placeholder="Username">
@@ -49,7 +71,8 @@ session_start();
                                     <button class="btn btn-danger btn-block btn-round">Login</button>
                                 <!--</form>-->
                                     <button class="btn btn-danger btn-block btn-round">Register New Account</button>
-                            </div>
+                                
+                                    </div>
                         </div>
                     </div>
                                                                                                                                             
