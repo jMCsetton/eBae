@@ -80,16 +80,6 @@
                                     <input type="password" class="form-control" placeholder="Confirm Password">
                                       <label>Role:</label>
                                    
-                                    <form class="form-inline">
-                                    <div class="form-group">
-                                        <input type="checkbox" id="checkbox104">
-                                        <label for="checkbox104">User</label>
-                                    </div>
-                                     <div class="form-group">
-                                        <input type="checkbox" id="checkbox105">
-                                        <label for="checkbox105">Admin</label>
-                                    </div>
-                                    </form>
 
                                     <button class="btn btn-danger btn-block btn-round">Register</button>
 

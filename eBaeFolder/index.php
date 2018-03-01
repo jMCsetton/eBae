@@ -77,8 +77,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
 =======
                                     <button class="btn btn-danger btn-block btn-round" name="login">Login</button>
                                
-                                    <button class="btn btn-danger btn-block btn-round" name = "register">Register User New Account</button>
-                                    <button class="btn btn-danger btn-block btn-round" name = "register">Register Admin New Account</button>
+                                    <button class="btn btn-danger btn-block btn-round" name = "register"><a href="https://gc06team37db.azurewebsites.net/UserRegistration.php#">Register User New Account</a></button>
+                                    <button class="btn btn-danger btn-block btn-round" name = "register"><a href="https://gc06team37db.azurewebsites.net/AdminRegistration.php#">Register Admin New Account</a></button>
                                 </form>
                                     </div>
 >>>>>>> fe30f862ae425943ca17cd49ce774b1e1cdaf405
