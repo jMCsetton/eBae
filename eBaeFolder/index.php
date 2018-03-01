@@ -1,7 +1,7 @@
 <?php 
 echo "This is PHP"
 //require 'config.php';
-session_start();
+//session_start();
 ?>
 
 <!doctype html>
