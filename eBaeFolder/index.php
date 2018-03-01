@@ -47,7 +47,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $myusername = $_POST['username'];
     $mypassword = $_POST['password']; 
-    $myrole = $_POST['role'];
+    //$myrole = $_POST['role'];
     
     $sql = "SELECT * FROM user WHERE username = '$myusername' and password = '$mypassword'";
     // $sql = "SELECT * FROM user WHERE username = '{$_POST['username']}' and password = '{$_POST['password']}'";
@@ -60,14 +60,14 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     // If result matched $myusername and $mypassword, table row must be 1 row
       
     if($count >= 1) {
-        $sql = "SELECT * FROM user WHERE role = '$myrole'";
+        $sql = "SELECT * FROM user WHERE role = 'admin'";
         $result2 = $conn->query($sql);
         $count2 = mysqli_num_rows($result2);
         if($count2 >= 1) {
-        if ($_POST['role']=="admin"){
+        
             header("Location: adminHomepage.php");
-            echo "ADMIN";
-            } else{
+            //echo "ADMIN";
+        }else {
             header("Location: homepage.php");
        //session_register("myusername");
        //$_SESSION['login_user'] = $myusername;
