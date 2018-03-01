@@ -41,12 +41,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
         
     }
     
-    // Register page
+   //  Register page
    // elseif (isset($_POST['register'])) {
         
       //  require 'login.php';
         
-    //}
+   //} 
 }
 ?>
 <body>
