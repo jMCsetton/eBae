@@ -62,7 +62,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
        //session_register("myusername");
        //$_SESSION['login_user'] = $myusername;
        
-       header("Location: https://www.youtube.com/?hl=en-GB&gl=GB");
+       //header("Location: https://www.youtube.com/?hl=en-GB&gl=GB");
+       header("Location: homepage.php");
     }else {
        $error = "Your Login Name or Password is invalid";
     }
