@@ -60,8 +60,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     // If result matched $myusername and $mypassword, table row must be 1 row
       
     if($count >= 1) {
-        $sql = "SELECT * FROM user WHERE role = 'admin'";
-        $result2 = $conn->query($sql);
+        $sql2 = "SELECT * FROM user WHERE role = 'admin'";
+        $result2 = $conn->query($sql2);
         $count2 = mysqli_num_rows($result2);
         if($count2 >= 1) {
         
