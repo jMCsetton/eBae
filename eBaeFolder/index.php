@@ -60,14 +60,15 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     // If result matched $myusername and $mypassword, table row must be 1 row
       
     if($count >= 1) {
-        $sql2 = "SELECT * FROM user WHERE role = 'admin'";
+        $sql2 = "SELECT * FROM user WHERE firstName = 'Shabri'";
         $result2 = $conn->query($sql2);
         $count2 = mysqli_num_rows($result2);
         if($count2 >= 1) {
         
             header("Location: adminHomepage.php");
             //echo "ADMIN";
-        }else {
+        }
+        else {
             header("Location: homepage.php");
        //session_register("myusername");
        //$_SESSION['login_user'] = $myusername;
