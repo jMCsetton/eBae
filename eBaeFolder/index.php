@@ -35,7 +35,7 @@ session_start();
 $conn = new mysqli($host, $username, $password);
 
 if ($conn->connect_error) {
-    echo "failed connection"
+    echo "failed connection";
 }
 
 if($_SERVER["REQUEST_METHOD"] == "POST") {
