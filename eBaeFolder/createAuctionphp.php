@@ -18,8 +18,10 @@ if (isset($_POST['submit']))
  
   
   $username1 = $_SESSION['username'];
-  $sql = "SELECT userID  FROM user WHERE username = '$username1'";
-  echo $_SESSION['username'];
+  $sql = "SELECT userID INTO a FROM user WHERE username = 'sameen'";
+  //echo $_SESSION['username'];
+  $result = $conn->query($sql);
+  echo $result;
   //print "$username1";
 
   
