@@ -79,7 +79,7 @@ if (isset($_POST['submit']))
   /*$sql = "INSERT INTO product (category, productName, productInfo, productImage, endDate, reservePrice, userID, quantity, condition')
   VALUES ('".$_POST["category"]."', '".$_POST["productName"]."', '".$_POST["productInfo"]."', '".$_POST["productImage"]."', '".$_POST["endDate"]."',
   '".$_POST["reservePrice"]."', '".$_POST["$user"]."', '".$_POST["quantity"]."', '".$_POST["condition"]."')";*/
-  $sql = "INSERT INTO product (productName) VALUES ('".$POST["productName"]."')";
+  $sql = "INSERT INTO product (productName) VALUES ('Jake')";
 }
 
 ?>  
