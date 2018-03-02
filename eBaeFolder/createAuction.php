@@ -101,9 +101,8 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
         </select>
       </div>
       <div class="w3-section">
-        <textarea rows="4" cols="50" name="productInfo">
-        Enter description here
-        </textarea>
+        <p>Enter description here</p>
+        <textarea rows="4" cols="50" name="productInfo"/>
       </div>
       <div class="w3-section">
         <label>Reserve Price</label>
