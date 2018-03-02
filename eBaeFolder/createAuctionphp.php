@@ -1,6 +1,6 @@
 <?php
 session_start();
-$user = $_SESSION['userID'];
+//$user = $_SESSION['userID'];
 if (isset($_POST['submit']))
 {
   require "config.php";
@@ -15,14 +15,33 @@ if (isset($_POST['submit']))
   VALUES ('".$_POST["category"]."', '".$_POST["productName"]."', '".$_POST["productInfo"]."', '".$_POST["productImage"]."', '".$_POST["endDate"]."',
   '".$_POST["reservePrice"]."', '".$_POST["$user"]."', '".$_POST["quantity"]."', '".$_POST["condition"]."')";*/
   
-  
-  $sql = "INSERT INTO product (productName, userID) VALUES ('".$_POST["productName"]."','".$_SESSION["$user"]."')";
+
+
+  $sql2 = "SELECT * FROM user WHERE username = '$myusername' and password = '$mypassword' and role = 'buyer_seller'  ";
+  $result2 = $conn->query($sql2);
+  $count2 = mysqli_num_rows($result2);
+  if($count2 >= 1) {
+
+      header("Location: homepage.php");
+      $_SESSION['username'] = $user['username'];
+      $_SESSION['userID'] = $user['userID'];
+      $_SESSION['active'] = $user['active'];
+      $_SESSION['logged_in'] = true;  
+
+
+
+        
+  $sql = "INSERT INTO product (productName, userID) VALUES ('".$_POST["productName"]."','".$_SESSION["$userID"]."')";
 
   if ($conn->query($sql) === TRUE) {
     echo "New record created successfully";
 } else {
     echo "Error: " . $sql . "<br>" . $conn->error;
 }
+
+    }
+
+
 }
 
 
