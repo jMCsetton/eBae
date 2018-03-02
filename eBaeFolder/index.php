@@ -54,7 +54,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
    
     $sql = "SELECT * FROM user WHERE username = '$myusername' and password = '$mypassword' and role = 'admin'  ";
     $result = $conn->query($sql);
-    $row = mysqli_fetch_array($result);
+    $row = mysqli_fetch_assoc($result);
     $count = mysqli_num_rows($result);
     
     // If result matched $myusername and $mypassword, table row must be 1 row
@@ -63,7 +63,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         ob_start();
         header("Location: adminHomepage.php");
         $_SESSION['username'] = $myusername;
-        $_SESSION['userID'] = $row[0];
+        $_SESSION['userID'] = $row['userID'];
         $_SESSION['active'] = $user['active'];
         $_SESSION['logged_in'] = true;
         }
