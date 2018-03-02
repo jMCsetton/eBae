@@ -1,5 +1,6 @@
 <?php 
 session_start();
+$user = $_SESSION['userID'];
 
 if (!isset($_SESSION['logged_in'])) {
 	header ('Location: index.php');
@@ -121,10 +122,27 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
     </form>
   </div>
 
+<?php
+if (isset($_POST['submit']))
+{
+  require "config.php";
+  $conn =  new mysqli($host, $username, $password, $dbname);
+
+  // Check connection
+  if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+  }
+
+  $sql = "INSERT INTO product (category, productName, productInfo, productImage, endDate, reservePrice, userID, quantity, condition')
+  VALUES ('".$_POST["category"]."', '".$_POST["productName"]."', '".$_POST["productInfo"]."', '".$_POST["productImage"]."', '".$_POST["endDate"]."',
+  '".$_POST["reservePrice"]."', '".$_POST["$user"]."', '".$_POST["quantity"]."', '".$_POST["condition"]."')";
+}
+
+?>
   <!-- Footer -->
   <footer class="w3-container w3-padding-32 w3-dark-grey">
     <div>
-      <h3>Thanks very much for visiting eBae, the auction site that slaps the bass hard and delivers the swellest hottest shiz off the shelves. Made by Shabri Sameen and their slave Jake (plus Amelia maybe idk)</h3>
+      <h3>Thanks very much for visiting eBae, the auction site that slaps the bass hard and delivers the swellest hottest shiz off the shelves. Made by Shabri Sameen and their slave Jake</h3>
     </div>
 
   </div>
