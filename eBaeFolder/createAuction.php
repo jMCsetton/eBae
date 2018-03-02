@@ -86,7 +86,7 @@ if (isset($_POST['submit']))
   
   <!-- Create Auction Section -->
   <div class="w3-container w3-padding-large w3-grey">
-    <h4 id="contact"><b>Item Information!</b></h4>
+    <h4 id="contact"><b>Item Information!!</b></h4>
     <hr class="w3-opacity">
     <!--form action="" method="post" target="_blank"-->
     <form action="" method="post" >
@@ -132,11 +132,11 @@ if (isset($_POST['submit']))
         <label>End Date</label>
         <input type="date" name="endDate" required/>
       </div>
-      <div class="w3-section">
+      <!--div class="w3-section">
         <label>Upload Image of Item:</label>
         <br>
         <input type="file" name="productImage" required/>
-      </div>
+      </div-->
       <button type="submit" name="submit" class="w3-button w3-black w3-margin-bottom"><i class="fa fa-paper-plane w3-margin-right"></i>Create Auction</button>
     </form>
   </div>
