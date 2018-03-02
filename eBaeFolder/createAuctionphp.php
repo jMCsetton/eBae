@@ -1,5 +1,5 @@
 <?php
-session_start();
+
 //$user = $_SESSION['userID'];
 if (isset($_POST['submit']))
 {
