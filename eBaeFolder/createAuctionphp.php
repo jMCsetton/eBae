@@ -16,7 +16,7 @@ if (isset($_POST['submit']))
   '".$_POST["reservePrice"]."', '".$_POST["$user"]."', '".$_POST["quantity"]."', '".$_POST["condition"]."')";*/
   
   
-  $sql = "INSERT INTO product (productName, userID) VALUES ('".$_POST["productName"]."','".$_POST["$user"]."')";
+  $sql = "INSERT INTO product (productName, userID) VALUES ('".$_POST["productName"]."','".$_SESSION["$user"]."')";
 
   if ($conn->query($sql) === TRUE) {
     echo "New record created successfully";
