@@ -116,11 +116,11 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
         <label>End Date</label>
         <input type="date" name="endDate" required/>
       </div>
-      <!--div class="w3-section">
+      <div class="w3-section">
         <label>Upload Image of Item:</label>
         <br>
         <input type="file" name="productImage" required/>
-      </div-->
+      </div>
       <button type="submit" name="submit" class="w3-button w3-black w3-margin-bottom"><i class="fa fa-paper-plane w3-margin-right"></i>Create Auction</button>
     </form>
   </div>
