@@ -2,7 +2,7 @@
 //echo "This is PHP"
 //include("config.php");
 session_start();
-ob_start();
+//ob_start();
 ?>
 
 <!doctype html>
@@ -60,7 +60,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     // If result matched $myusername and $mypassword, table row must be 1 row
       
     if($count >= 1) {
-        
+        ob_start();
         header("Location: adminHomepage.php");
         $_SESSION['username'] = $user['username'];
         $_SESSION['userID'] = $user['userID'];
@@ -74,7 +74,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     $result2 = $conn->query($sql2);
     $count2 = mysqli_num_rows($result2);
     if($count2 >= 1) {
-
+        ob_start();
         header("Location: homepage.php");
         $_SESSION['username'] = $user['username'];
         $_SESSION['userID'] = $user['userID'];
