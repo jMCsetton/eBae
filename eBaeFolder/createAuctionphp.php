@@ -37,9 +37,9 @@ if (isset($_POST['submit']))
   
   // If result matched $myusername and $mypassword, table row must be 1 row
     
-  /*if($count >= 1) {
+  if($count >= 1) {
     
-        
+  $userID = $_SESSION['userID'];
   $sql = "INSERT INTO product (productName, userID) VALUES ('".$_POST["productName"]."','$userID')";
 
   if ($conn->query($sql) === TRUE) {
@@ -48,7 +48,7 @@ if (isset($_POST['submit']))
     echo "Error: " . $sql . "<br>" . $conn->error;
 }
 
-  }*/
+  }
 
 
 }
