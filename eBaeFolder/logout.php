@@ -6,6 +6,7 @@ unsetting and destroying session variables
 session_start();
 session_unset();
 session_destroy(); 
+ob_start();
 ?>
 <!DOCTYPE html>
 <html>

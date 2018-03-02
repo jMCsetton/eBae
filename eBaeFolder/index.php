@@ -2,6 +2,7 @@
 //echo "This is PHP"
 //include("config.php");
 session_start();
+ob_start();
 ?>
 
 <!doctype html>
