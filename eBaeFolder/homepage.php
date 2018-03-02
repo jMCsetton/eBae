@@ -1,10 +1,10 @@
 <?php 
 session_start();
-
+ob_start();
 if (!isset($_SESSION['logged_in'])) {
 	header ('Location: index.php');
 }
-ob_start();
+
 ?>
 
 <html>

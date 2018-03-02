@@ -1,5 +1,6 @@
 <?php
 session_start();
+ob_start();
 //$user = $_SESSION['userID'];
 if (isset($_POST['submit']))
 {
