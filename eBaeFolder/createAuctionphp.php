@@ -22,9 +22,9 @@ if (isset($_POST['submit']))
   $sql = "SELECT userID INTO a FROM user WHERE username = 'sameen'";
   echo $_SESSION['username'];
 
-  $result = $conn->query($sql);
-  $row = mysqli_fetch_array($result);
-  echo $row;
+  //$result = $conn->query($sql);
+  //$row = mysqli_fetch_array($result);
+  echo $_SESSION['userID'];
   //print "$username1";
 
   
