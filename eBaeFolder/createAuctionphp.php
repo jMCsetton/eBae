@@ -45,6 +45,14 @@ if (isset($_POST['submit']))
   SET '".$_POST["category"]."', '".$_POST["productName"]."', '".$_POST["productInfo"]."',
   ".$_POST["reservePrice"].", '$userID', ".$_POST["quantity"].", '".$_POST["condition"]."'";*/
 
+
+  $check = getimagesize($_FILES["productImage"]["tmp_name"]);
+
+  if($check !== false){
+      $image = $_FILES['productImage']['tmp_name'];
+      $imgContent = addslashes(file_get_contents($image));
+
+
   $image = $_FILES['productImage']['tmp_name'];
   $imgContent = addslashes(file_get_contents($image));
 
@@ -63,7 +71,7 @@ if (isset($_POST['submit']))
 }
 
   //}
-
+  }
 
 }
 
