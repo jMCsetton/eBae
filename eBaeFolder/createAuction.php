@@ -102,7 +102,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
       </div>
       <div class="w3-section">
         <p>Enter description here</p>
-        <textarea rows="4" cols="50" name="productInfo"/>
+        <textarea rows="4" cols="50" name="productInfo"></textarea>
       </div>
       <div class="w3-section">
         <label>Reserve Price</label>
