@@ -62,7 +62,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         
         header("Location: adminHomepage.php");
         $_SESSION['username'] = $user['username'];
-        //$_SESSION['userID'] = $user['userID'];
+        $_SESSION['userID'] = $user['userID'];
         $_SESSION['active'] = $user['active'];
         $_SESSION['logged_in'] = true;
         }
@@ -76,6 +76,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 
         header("Location: homepage.php");
         $_SESSION['username'] = $user['username'];
+        $_SESSION['userID'] = $user['userID'];
         $_SESSION['active'] = $user['active'];
         $_SESSION['logged_in'] = true;  
       }
