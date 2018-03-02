@@ -84,7 +84,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
       </div>
       <div class="w3-section">
         <label>Item Category</label>
-        <select name="categories">
+        <select name="category">
           <option value="Apps and Games">Apps and Games</option>
           <option value="Beauty">Beauty</option>
           <option value="Books">Books</option>
