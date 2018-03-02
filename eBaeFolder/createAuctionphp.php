@@ -21,7 +21,8 @@ if (isset($_POST['submit']))
   $sql = "SELECT userID INTO a FROM user WHERE username = 'sameen'";
   //echo $_SESSION['username'];
   $result = $conn->query($sql);
-  echo $result;
+  $row = mysqli_fetch_array($result);
+  echo $row;
   //print "$username1";
 
   
