@@ -20,11 +20,11 @@ if (isset($_POST['submit']))
   
   //$username1 = $_SESSION['username'];
   //$sql = "SELECT userID INTO a FROM user WHERE username = 'sameen'";
-  echo $_SESSION['username'];
+  //echo $_SESSION['username'];
 
   //$result = $conn->query($sql);
   //$row = mysqli_fetch_array($result);
-  echo $_SESSION['userID'];
+  //echo $_SESSION['userID'];
   //print "$username1";
 
   
@@ -37,7 +37,7 @@ if (isset($_POST['submit']))
   
   // If result matched $myusername and $mypassword, table row must be 1 row
     
-  if($count >= 1) {
+  //if($count >= 1) {
     
   $userID = $_SESSION['userID'];
   $sql = "INSERT INTO product (productName, userID) VALUES ('".$_POST["productName"]."','$userID')";
@@ -48,7 +48,7 @@ if (isset($_POST['submit']))
     echo "Error: " . $sql . "<br>" . $conn->error;
 }
 
-  }
+  //}
 
 
 }
