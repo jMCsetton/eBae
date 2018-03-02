@@ -67,34 +67,55 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
   
   <!-- Contact Section -->
   <div class="w3-container w3-padding-large w3-grey">
-    <h4 id="contact"><b>Contact Me</b></h4>
-    <div class="w3-row-padding w3-center w3-padding-24" style="margin:0 -16px">
-      <div class="w3-third w3-dark-grey">
-        <p><i class="fa fa-envelope w3-xxlarge w3-text-light-grey"></i></p>
-        <p>email@email.com</p>
-      </div>
-      <div class="w3-third w3-teal">
-        <p><i class="fa fa-map-marker w3-xxlarge w3-text-light-grey"></i></p>
-        <p>Chicago, US</p>
-      </div>
-      <div class="w3-third w3-dark-grey">
-        <p><i class="fa fa-phone w3-xxlarge w3-text-light-grey"></i></p>
-        <p>512312311</p>
-      </div>
-    </div>
+    <h4 id="contact"><b>Item Information</b></h4>
     <hr class="w3-opacity">
-    <form action="/action_page.php" target="_blank">
+    <form action="/action_page.php" method="post" target="_blank">
       <div class="w3-section">
-        <label>Name</label>
-        <input class="w3-input w3-border" type="text" name="Name" required>
+        <label>Item Name</label>
+        <input class="w3-input w3-border" type="text" name="productName" required/>
       </div>
       <div class="w3-section">
-        <label>Email</label>
-        <input class="w3-input w3-border" type="text" name="Email" required>
+        <label>Quantity</label>
+        <input class="w3-input w3-border" type="text" name="quantity" required/>
       </div>
       <div class="w3-section">
-        <label>Message</label>
-        <input class="w3-input w3-border" type="text" name="Message" required>
+        <label>Item Category</label>
+        <select name="categories">
+          <option value="Apps and Games">Apps and Games</option>
+          <option value="Beauty">Beauty</option>
+          <option value="Books">Books</option>
+          <option value="Clothing">Clothing</option>
+          <option value="Electronics">Electronics</option>
+          <option value="Home">Home</option>
+          <option value="Music">Music</option>
+          <option value="Miscellaneous">Miscellaneous</option>
+        </select>
+      </div>
+      <div class="w3-section">
+        <label>Condition</label>
+        <select name="condition">
+          <option value="New">New</option>
+          <option value="Like New">Like New</option>
+          <option value="Fairly Used">Fairly Used</option>
+          <option value="Really Really Used">Really Really Used</option>
+        </select>
+      </div>
+      <div class="w3-section">
+        <textarea rows="4" cols="50" name="productInfo">
+        Enter description here
+        </textarea>
+      </div>
+      <div class="w3-section">
+        <label>Reserve Price</label>
+        <input class="w3-input w3-border" type="text" name="reservePrice" required/>
+      </div>
+      <div class="w3-section">
+        <label>Reserve Price</label>
+        <input type="date" name="endDate" required/>
+      </div>
+      <div class="w3-section">
+        <label>Uplod Image of Item</label>
+        <input type="file" name="productImage" required/>
       </div>
       <button type="submit" class="w3-button w3-black w3-margin-bottom"><i class="fa fa-paper-plane w3-margin-right"></i>Send Message</button>
     </form>
