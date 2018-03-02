@@ -41,8 +41,8 @@ if (isset($_POST['submit']))
     
   $userID = $_SESSION['userID'];
   //$sql = "INSERT INTO product (productName, userID) VALUES ('".$_POST["productName"]."','$userID')";
-  $sql = "INSERT INTO product (category, productName, productInfo, endDate, reservePrice, userID, quantity, conditions')
-  VALUES ('".$_POST["category"]."', '".$_POST["productName"]."', '".$_POST["productInfo"]."', to_date('".$_POST["endDate"]."','yyyy-mm-dd'),
+  $sql = "INSERT INTO product (category, productName, productInfo, reservePrice, userID, quantity, conditions')
+  VALUES ('".$_POST["category"]."', '".$_POST["productName"]."', '".$_POST["productInfo"]."',
   ".$_POST["reservePrice"].", '$userID', ".$_POST["quantity"].", '".$_POST["condition"]."')";
 
   /*$sql = "INSERT INTO product (category, productName, productInfo, productImage, endDate, reservePrice, userID, quantity, condition')
