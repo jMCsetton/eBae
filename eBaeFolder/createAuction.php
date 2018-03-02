@@ -64,13 +64,32 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
 
     </div>
   </header>
+
+  <?php
+if (isset($_POST['submit']))
+{
+  require "config.php";
+  $conn =  new mysqli($host, $username, $password, $dbname);
+
+  // Check connection
+  if ($conn->connect_error) {
+    die("Connection failed: ".$conn->connect_error);
+  }
+
+  /*$sql = "INSERT INTO product (category, productName, productInfo, productImage, endDate, reservePrice, userID, quantity, condition')
+  VALUES ('".$_POST["category"]."', '".$_POST["productName"]."', '".$_POST["productInfo"]."', '".$_POST["productImage"]."', '".$_POST["endDate"]."',
+  '".$_POST["reservePrice"]."', '".$_POST["$user"]."', '".$_POST["quantity"]."', '".$_POST["condition"]."')";*/
+  $sql = "INSERT INTO product (productName) VALUES ('".$POST["productName"]."')";
+}
+
+?>  
   
-  
-  <!-- Contact Section -->
+  <!-- Create Auction Section -->
   <div class="w3-container w3-padding-large w3-grey">
     <h4 id="contact"><b>Item Information</b></h4>
     <hr class="w3-opacity">
-    <form action="/action_page.php" method="post" target="_blank">
+    <!--form action="" method="post" target="_blank"-->
+    <form action="" method="post" >
       <div class="w3-section">
         <label>Item Name</label>
         <input class="w3-input w3-border" type="text" name="productName" required/>
@@ -122,24 +141,6 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
     </form>
   </div>
 
-<?php
-if (isset($_POST['submit']))
-{
-  require "config.php";
-  $conn =  new mysqli($host, $username, $password, $dbname);
-
-  // Check connection
-  if ($conn->connect_error) {
-    die("Connection failed: ".$conn->connect_error);
-  }
-
-  /*$sql = "INSERT INTO product (category, productName, productInfo, productImage, endDate, reservePrice, userID, quantity, condition')
-  VALUES ('".$_POST["category"]."', '".$_POST["productName"]."', '".$_POST["productInfo"]."', '".$_POST["productImage"]."', '".$_POST["endDate"]."',
-  '".$_POST["reservePrice"]."', '".$_POST["$user"]."', '".$_POST["quantity"]."', '".$_POST["condition"]."')";*/
-  $sql = "INSERT INTO product (productName) VALUES ('".$POST["productName"]."')";
-}
-
-?>
   <!-- Footer -->
   <footer class="w3-container w3-padding-32 w3-dark-grey">
     <div>
