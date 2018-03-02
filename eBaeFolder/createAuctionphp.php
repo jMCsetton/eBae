@@ -17,9 +17,9 @@ if (isset($_POST['submit']))
   
  
   
-  $username1 = $_SESSION['username'];
+  $username1 = $user['username'];
   $sql = "SELECT userID  FROM user WHERE username = '$username1'";
-  echo $_SESSION['username'];
+  echo $user['username'];
   //print "$username1";
 
   
