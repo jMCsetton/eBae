@@ -49,42 +49,19 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $myusername = $_POST['username'];
     $mypassword = $_POST['password']; 
-    //$myrole = $_POST['role'];
     
    
     $sql = "SELECT username, password, role FROM user WHERE username = '$myusername' and password = '$mypassword' and role = 'admin'  ";
-    // $sql = "SELECT * FROM user WHERE username = '{$_POST['username']}' and password = '{$_POST['password']}'";
     $result = $conn->query($sql);
-    //$row = mysqli_fetch_array($result,MYSQLI_ASSOC);
-    //$active = $row['active'];
     
     $count = mysqli_num_rows($result);
     
     // If result matched $myusername and $mypassword, table row must be 1 row
       
     if($count >= 1) {
-        //if ($result[2]== "admin") {
-        
-        //$row = $result->fetch_assoc()
-        //$row=mysqli_fetch_assoc($result);
-       //$sql2 = "SELECT * FROM user WHERE firstName = 'Shabri'";
-        //$result2 = $conn->query($sql2);
-        //$count2 = mysqli_num_rows($result2);
-       // if($count2 >= 1) {
-            //if($row[8] == 'admin') {
         
             header("Location: adminHomepage.php");
         }
-        //else{ header("Location: homepage.php");}
-            //echo "ADMIN";
-       // }
-        
-       //session_register("myusername");
-       //$_SESSION['login_user'] = $myusername;
-       
-       //header("Location: https://www.youtube.com/?hl=en-GB&gl=GB");
-               //header("Location: homepage.php");
-        
        
     
         
@@ -107,31 +84,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     
 }
     
-   
- 
-
-
-  
-
-
-
-
-/*if ($_SERVER['REQUEST_METHOD'] == 'POST') 
-{
-    //User log in page
-    if (isset($_POST['login'])) {
-
-        require 'index_php.php';
-        
-    }*/
-    
-   //  Register page
-   // elseif (isset($_POST['register'])) {
-        
-      //  require 'login.php';
-        
-   //} 
-//}
    }
 ?>
 <body>
