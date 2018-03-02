@@ -22,7 +22,7 @@ if (isset($_POST['submit']))
 
   
   $result = $conn->query($sql);
-  echo $result;
+  //echo $result;
   
   $count = mysqli_num_rows($result);
   $userID = $result;
