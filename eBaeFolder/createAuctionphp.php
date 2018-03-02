@@ -46,7 +46,7 @@ if (isset($_POST['submit']))
   ".$_POST["reservePrice"].", '$userID', ".$_POST["quantity"].", '".$_POST["condition"]."'";*/
 
   $sql = "INSERT INTO product (category, productName, productInfo, productImage, endDate, reservePrice, userID, quantity, conditions)
-  VALUES ('".$_POST["category"]."', '".$_POST["productName"]."', '".$_POST["productInfo"]."', 'LOAD_FILE(".$_POST["productImage"].")', '".$_POST["endDate"]."',
+  VALUES ('".$_POST["category"]."', '".$_POST["productName"]."', '".$_POST["productInfo"]."', LOAD_FILE('".$_POST["productImage"]."'), '".$_POST["endDate"]."',
   '".$_POST["reservePrice"]."', '$userID', '".$_POST["quantity"]."', '".$_POST["condition"]."')";
 
   if ($conn->query($sql) === TRUE) {
