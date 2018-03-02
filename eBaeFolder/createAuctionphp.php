@@ -72,7 +72,9 @@ if (isset($_POST['submit']))
 
   //}
   }
-
+  else{
+    echo "Please select an image file to upload.";
+  }
 }
 
 
