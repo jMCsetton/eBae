@@ -19,13 +19,13 @@ if (isset($_POST['submit']))
   
   $username1 = $_SESSION['username'];
   $sql = "SELECT userID  FROM user WHERE username = '$username1'";
-  //echo $username1
-  print "$username1";
+  echo $username1;
+  //print "$username1";
 
   
   $result = $conn->query($sql);
   //echo $result;
-  print "$result";
+  //print "$result";
   
   //$count = mysqli_num_rows($result);
   $userID = $result;
