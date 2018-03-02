@@ -1,5 +1,5 @@
 <?php 
-session_start();
+//session_start();
 //$user = $_SESSION['userID'];
 
 if (!isset($_SESSION['logged_in'])) {
