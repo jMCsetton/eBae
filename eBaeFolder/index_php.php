@@ -5,12 +5,7 @@
 */
 
 
-
-// Escape email to protect against SQL injections
-//$email = $conn->escape_string($_POST['email']);
-/*$result = $conn->query("SELECT * FROM users WHERE username='$username'");
-
-if ( $result->num_rows == 0 ){ // User doesn't exist
+/*if ( $result->num_rows == 0 ){ // User doesn't exist
     $_SESSION['message'] = "User with that username does not exist!";
    //header("location: error.php");
 }

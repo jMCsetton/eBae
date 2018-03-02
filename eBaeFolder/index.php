@@ -60,7 +60,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
       
     if($count >= 1) {
         
-            header("Location: adminHomepage.php");
+        header("Location: adminHomepage.php");
+        $_SESSION['username'] = $user['username'];
+        $_SESSION['active'] = $user['active'];
+        $_SESSION['logged_in'] = true;
         }
        
     
@@ -71,9 +74,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     if($count2 >= 1) {
 
         header("Location: homepage.php");
-        
-   
+        $_SESSION['username'] = $user['username'];
+        $_SESSION['active'] = $user['active'];
+        $_SESSION['logged_in'] = true;  
       }
+
       else {
         
         $error = "Your Login Name or Password is invalid";
