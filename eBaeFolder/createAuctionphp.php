@@ -19,7 +19,7 @@ if (isset($_POST['submit']))
   
   $username1 = $_SESSION['username'];
   $sql = "SELECT userID  FROM user WHERE username = '$username1'";
-  echo $username1;
+  echo $_POST["productName"];
   //print "$username1";
 
   
