@@ -40,7 +40,10 @@ if (isset($_POST['submit']))
   //if($count >= 1) {
     
   $userID = $_SESSION['userID'];
-  $sql = "INSERT INTO product (productName, userID) VALUES ('".$_POST["productName"]."','$userID')";
+  //$sql = "INSERT INTO product (productName, userID) VALUES ('".$_POST["productName"]."','$userID')";
+  $sql = "INSERT INTO product (category, productName, productInfo, productImage, endDate, reservePrice, userID, quantity, condition')
+  VALUES ('".$_POST["category"]."', '".$_POST["productName"]."', '".$_POST["productInfo"]."', '".$_POST["productImage"]."', '".$_POST["endDate"]."',
+  '".$_POST["reservePrice"]."', '$userID', '".$_POST["quantity"]."', '".$_POST["condition"]."')";
 
   if ($conn->query($sql) === TRUE) {
     echo "New record created successfully";
