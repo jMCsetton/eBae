@@ -5,9 +5,16 @@ if (!isset($_SESSION['logged_in'])) {
 	header ('Location: index.php');
 }
 
-/*include 'config.php';
+require 'config.php';
+$conn =  new mysqli($host, $username, $password, $dbname);
+
+  // Check connection
+  if ($conn->connect_error) {
+    die("Connection failed: ".$conn->connect_error);
+  }
+  
 $sql = "SELECT * FROM product ORDER BY endDate ASC";
-$result = $conn->query($sql) or die("database access failed:" . $conn->error);*/
+$result = $conn->query($sql);
 
 ?>
 
