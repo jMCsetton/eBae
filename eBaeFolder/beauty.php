@@ -119,7 +119,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
 
               
 
-              if ($row == null){
+              if ($result == null){
                 echo '<label> No items to show</label> ';
 
 
