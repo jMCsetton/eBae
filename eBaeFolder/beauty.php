@@ -19,20 +19,6 @@ $result = $conn->query($sql);
 $row = mysqli_fetch_array($result);
 $count = mysqli_num_rows($result);
 
-if ($count = 0) {
-
-  echo '
-            <div style= "bg-colour:white" class="w3-twothird w3-container">
-              
-              <br><label>No items to display</label>
-             
-            </div>
-            
-              ';
-
-  
-}
-
 
 ?>
 
@@ -109,6 +95,21 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
   <div class="w3-container">
   <?php
         ob_start();
+
+        if ($count = 0) {
+
+          echo '
+                    <div style= "bg-colour:white" class="w3-twothird w3-container">
+                      
+                      <br><label>No items to display</label>
+                     
+                    </div>
+                    
+                      ';
+        
+          
+        }
+        
         // Fetching data from database
         //header("Content-type: image/png"); 
 				while ($row = mysqli_fetch_assoc($result)) {          
