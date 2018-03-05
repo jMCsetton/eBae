@@ -94,23 +94,16 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
 				while ($row = mysqli_fetch_assoc($result)) {          
           //echo "<img src='picture/".$row2["productImage"]."' width='300' height='300'/>";
           //echo "<img src = '".base64_encode($row2["productImage"])."' width='300' height='300'/>";
-          echo '<img src="data:image/jpeg;base64,'.base64_encode( $row["productImage"] ).'" style="width:20%; height:20%" />';
+          echo '<img src="data:image/jpeg;base64,'.base64_encode( $row["productImage"] ).'" style="width:30%; height:30%" />';
           echo '
             <div >
-              <label>Item Name:</label>
               <h1>'.$row["productName"].'</h1>
-              <label>Reserve Price:</label>
-              <p>'.$row["reservePrice"].'</p>
-              <label>End Date:</label>
-              <p>'.$row["endDate"].'</p>
-              <label>Category:</label>
-              <p>'.$row["category"].'</p>
-              <label>Quantity:</label>
-              <p>'.$row["quantity"].'</p>
-              <label>Condition:</label>
-              <p>'.$row["conditions"].'</p>
-              <label>Description:</label>
-              <p>'.$row["productInfo"].'</p>
+              <label>Reserve Price:</label> <p>'.$row["reservePrice"].'</p>
+              <label>End Date:</label> <p>'.$row["endDate"].'</p>
+              <label>Category:</label> <p>'.$row["category"].'</p>
+              <label>Quantity:</label> <p>'.$row["quantity"].'</p>
+              <label>Condition:</label> <p>'.$row["conditions"].'</p>
+              <label>Description:</label> <p>'.$row["productInfo"].'</p>
             </div>
               ';
 				}
