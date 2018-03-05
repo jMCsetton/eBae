@@ -94,8 +94,8 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
 				while ($row2 = mysqli_fetch_assoc($result2)) {          
           //echo "<img src='picture/".$row2["productImage"]."' width='300' height='300'/>";
           //echo "<img src = '".base64_encode($row2["productImage"])."' width='300' height='300'/>";
-          echo '<img src="data:image/jpeg;base64,'.base64_encode( $row2["productImage"] ).'"/>';
-            /*echo '
+          //echo '<img src="data:image/jpeg;base64,'.base64_encode( $row2["productImage"] ).'"/>';
+          echo '
             <div>
               <label>Item Name:</label>
               <h1>'.$row["productName"].'</h1>
@@ -103,10 +103,9 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
               <p>'.$row["reservePrice"].'</p>
               <label>Category:</label>
               <p>'.$row["category"].'</p>
-              header("Content-type: image/jpg"); 
-              '.$row["productImage"].'
+              <img src="data:image/jpeg;base64,'.base64_encode( $row2["productImage"] ).'" />
             </div>
-              ';*/
+              ';
 				}
 				?>
   <!--form action="" method="post" enctype="multipart/form-data" >
