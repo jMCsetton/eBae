@@ -104,8 +104,10 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
               <br><label>Quantity:'.$row["quantity"].'</label>
               <br><label>Condition: '.$row["conditions"].'</label>
               <br><label>Description: '.$row["productInfo"].'</label>
+              <br>
+              <br>
             </div>
-            <br><br>
+            
               ';
 				}
 				?>
