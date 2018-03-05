@@ -5,6 +5,10 @@ if (!isset($_SESSION['logged_in'])) {
 	header ('Location: index.php');
 }
 
+include 'config.php';
+$sql = "SELECT * FROM product ORDER BY endDate ASC";
+$result = $conn->query($sql) or die("database access failed:" . $conn->error);
+
 ?>
 
 <html>
@@ -71,6 +75,38 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
     </div>
   </header>
   
+  <!-- Live Auctions -->
+  <div>
+  <?php
+				// Fetching data from database
+				while ($row = mysqli_fetch_array($result)) {
+          echo '
+          <div>
+            <label>Item Name:</label>
+            <h1>'.$row["productName"].'</h1>
+            <label>Reserve Price:</label>
+            <p>'.$row["reservePrice"].'</p>
+            <label>Category:</label>
+            <p>'.$row["categories"].'</p>
+          </div>
+            ';
+				}
+				?>
+  <!--form action="" method="post" enctype="multipart/form-data" >
+      <div class="w3-section">
+        <label>Item Name</label>
+        <input class="w3-input w3-border" type="text" name="productName" required/>
+      </div>
+      <div class="w3-section">
+        <label>Quantity</label>
+        <input class="w3-input w3-border" type="text" name="quantity" required/>
+      </div>
+      <div class="w3-section">
+        <label>Item Category</label>
+        <input class="w3-input w3-border" type="text" name="categories" required/>
+      </div>
+  </form-->
+  </div>
 
   <!-- Footer -->
   <footer class="w3-container w3-padding-32 w3-dark-grey">
