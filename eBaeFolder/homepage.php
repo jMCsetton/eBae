@@ -77,7 +77,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
     <div class="w3-section w3-bottombar w3-padding-16">
       <span class="w3-margin-right">Filter:</span> 
       <button class="w3-button w3-black">All</button>
-      <button href = "appsGames.php" class="w3-button w3-white"><i class="fa fa-gamepad w3-margin-right"></i>Apps and Games</button>
+      <a href = "appsGames.php" class="w3-button w3-white"><i class="fa fa-gamepad w3-margin-right"></i>Apps and Games</a>
       <button class="w3-button w3-white w3-hide-small"><i class="fa fa-photo w3-margin-right"></i>Beauty</button>
       <button class="w3-button w3-white w3-hide-small"><i class="fa fa-book w3-margin-right"></i>Books</button>
       <button class="w3-button w3-white w3-hide-small"><i class="fa fa-users w3-margin-right"></i>Clothing</button>
