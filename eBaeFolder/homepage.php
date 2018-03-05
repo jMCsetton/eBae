@@ -13,7 +13,7 @@ $conn =  new mysqli($host, $username, $password, $dbname);
     die("Connection failed: ".$conn->connect_error);
   }
 
-$sql = "SELECT productImage, productName, reservePrice, date_format(enddate, '%Y-%m-%e') enddate, category, quantity, conditions, productInfo FROM product ORDER BY endDate ASC";
+$sql = "SELECT productImage, productName, reservePrice, date_format(enddate, '%e-%m-%Y') enddate, category, quantity, conditions, productInfo FROM product ORDER BY endDate ASC";
 
 $result = $conn->query($sql);
 
@@ -99,8 +99,8 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
               <h1>'.$row["productName"].'</h1>
               <label>Reserve Price: '.$row["reservePrice"].'</label> 
               <br><label>End Date: '.$row["enddate"].'</label>
-              <br><label>Category:'.$row["category"].'</label>
-              <br><label>Quantity:'.$row["quantity"].'</label>
+              <br><label>Category: '.$row["category"].'</label>
+              <br><label>Quantity: '.$row["quantity"].'</label>
               <br><label>Condition: '.$row["conditions"].'</label>
               <br><label>Description: '.$row["productInfo"].'</label>
               <br>
