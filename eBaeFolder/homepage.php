@@ -105,6 +105,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
               <label>Condition:</label> <p>'.$row["conditions"].'</p>
               <label>Description:</label> <p>'.$row["productInfo"].'</p>
             </div>
+            <br><br>
               ';
 				}
 				?>
