@@ -88,7 +88,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
 				// Fetching data from database
 				while ($row = mysqli_fetch_assoc($result)) {
           header("Content-type: image/jpg"); 
-          echo $row["productImage"];
+          echo ''.$row["productImage"].'';
             /*echo '
             <div>
               <label>Item Name:</label>
