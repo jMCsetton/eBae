@@ -16,6 +16,22 @@ $conn =  new mysqli($host, $username, $password, $dbname);
 $sql = "SELECT productImage, productName, reservePrice, date_format(enddate, '%d-%m-%Y') enddate, category, quantity, conditions, productInfo FROM product WHERE category = 'Beauty' ORDER BY enddate ASC";
 
 $result = $conn->query($sql);
+$row = mysqli_fetch_array($result);
+$count = mysqli_num_rows($result);
+
+if ($count = 0) {
+
+  echo '
+            <div style= "bg-colour:white" class="w3-twothird w3-container">
+              
+              <br><label>No items to display</label>
+             
+            </div>
+            
+              ';
+
+  
+}
 
 
 ?>
