@@ -86,7 +86,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
   </header>
   
   <!-- Live Auctions -->
-  <div>
+  <div class="w3-container">
   <?php
         ob_start();
         // Fetching data from database
@@ -96,7 +96,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
           //echo "<img src = '".base64_encode($row2["productImage"])."' width='300' height='300'/>";
           echo '<img src="data:image/jpeg;base64,'.base64_encode( $row["productImage"] ).'" style="width:30%; height:30%" class="w3-third w3-container"/>';
           echo '
-            <div style= "background-colour:white" class="w3-twothird w3-container">
+            <div style= "bg-colour:white" class="w3-twothird w3-container">
               <h1>'.$row["productName"].'</h1>
               <label>Reserve Price:<p>'.$row["reservePrice"].'</p></label> 
               <label>End Date: <p>'.$row["endDate"].'</p></label>
