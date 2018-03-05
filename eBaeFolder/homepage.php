@@ -77,7 +77,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
   
   <!-- Live Auctions -->
   <div>
-  <?php
+  <!--?php
 				// Fetching data from database
 				while ($row = mysqli_fetch_array($result)) {
           echo '
@@ -91,7 +91,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
           </div>
             ';
 				}
-				?>
+				?-->
   <!--form action="" method="post" enctype="multipart/form-data" >
       <div class="w3-section">
         <label>Item Name</label>
