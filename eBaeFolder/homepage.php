@@ -5,9 +5,9 @@ if (!isset($_SESSION['logged_in'])) {
 	header ('Location: index.php');
 }
 
-include 'config.php';
+/*include 'config.php';
 $sql = "SELECT * FROM product ORDER BY endDate ASC";
-$result = $conn->query($sql) or die("database access failed:" . $conn->error);
+$result = $conn->query($sql) or die("database access failed:" . $conn->error);*/
 
 ?>
 
