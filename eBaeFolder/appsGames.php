@@ -16,6 +16,9 @@ $conn =  new mysqli($host, $username, $password, $dbname);
 $sql = "SELECT productImage, productName, reservePrice, date_format(enddate, '%d-%m-%Y') enddate, category, quantity, conditions, productInfo FROM product WHERE category = 'Apps and Games' ORDER BY enddate ASC";
 
 $result = $conn->query($sql);
+$row = mysqli_fetch_array($result);
+$count = mysqli_num_rows($result);
+
 
 
 ?>
@@ -95,6 +98,22 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
         ob_start();
         // Fetching data from database
         //header("Content-type: image/png"); 
+
+        if ($count == 0) {
+
+          echo '
+                    <div style= "bg-colour:white" class="w3-twothird w3-container">
+                      
+                      <br><label>No items to display</label>
+                     
+                    </div>
+                    
+                      ';
+        
+          
+        }
+        else{
+
 				while ($row = mysqli_fetch_assoc($result)) {          
           //echo "<img src='picture/".$row2["productImage"]."' width='300' height='300'/>";
           //echo "<img src = '".base64_encode($row2["productImage"])."' width='300' height='300'/>";
@@ -115,6 +134,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
             </div>
             
               ';
+        }
 				}
 				?>
   <!--form action="" method="post" enctype="multipart/form-data" >
