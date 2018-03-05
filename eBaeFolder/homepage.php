@@ -16,6 +16,9 @@ $conn =  new mysqli($host, $username, $password, $dbname);
 $sql = "SELECT * FROM product ORDER BY endDate ASC";
 $result = $conn->query($sql);
 
+$sql2 = "SELECT productImage FROM product ORDER BY endDate ASC";
+$result2 = $conn->query($sql2);
+
 ?>
 
 <html>
@@ -88,8 +91,8 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
         ob_start();
         // Fetching data from database
         header("Content-type: image/jpg"); 
-				while ($row = mysqli_fetch_assoc($result)) {          
-          echo "<img src='picture/".$row["productImage"]."' width='300' height='300'/>";
+				while ($row2 = mysqli_fetch_assoc($result2)) {          
+          echo "<img src='picture/".$row2["productImage"]."' width='300' height='300'/>";
           //echo ''.$row["productImage"].'';
             /*echo '
             <div>
