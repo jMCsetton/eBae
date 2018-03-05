@@ -96,7 +96,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
   <?php
         ob_start();
 
-        if ($count = 0) {
+        if ($count == 0) {
 
           echo '
                     <div style= "bg-colour:white" class="w3-twothird w3-container">
