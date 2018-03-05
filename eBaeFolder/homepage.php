@@ -99,11 +99,11 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
             <div style= "bg-colour:white" class="w3-twothird w3-container">
               <h1>'.$row["productName"].'</h1>
               <label>Reserve Price: '.$row["reservePrice"].'</label> 
-              <label>End Date: '.$row["endDate"].'</label>
-              <label>Category:</label> <p>'.$row["category"].'</p>
-              <label>Quantity:</label> <p>'.$row["quantity"].'</p>
-              <label>Condition:</label> <p>'.$row["conditions"].'</p>
-              <label>Description:</label> <p>'.$row["productInfo"].'</p>
+              <br><label>End Date: '.$row["endDate"].'</label>
+              <br><label>Category:'.$row["category"].'</label>
+              <br><label>Quantity:'.$row["quantity"].'</label>
+              <br><label>Condition: '.$row["conditions"].'</label>
+              <br><label>Description: '.$row["productInfo"].'</label>
             </div>
             <br><br>
               ';
