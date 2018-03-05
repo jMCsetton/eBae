@@ -85,6 +85,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
   <!-- Live Auctions -->
   <div>
   <?php
+        ob_start();
         // Fetching data from database
         header("Content-type: image/jpg"); 
 				while ($row = mysqli_fetch_assoc($result)) {          
