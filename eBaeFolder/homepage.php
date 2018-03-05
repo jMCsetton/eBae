@@ -98,8 +98,8 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
           echo '
             <div style= "bg-colour:white" class="w3-twothird w3-container">
               <h1>'.$row["productName"].'</h1>
-              <label>Reserve Price:<p>'.$row["reservePrice"].'</p></label> 
-              <label>End Date: <p>'.$row["endDate"].'</p></label>
+              <label>Reserve Price: '.$row["reservePrice"].'</label> 
+              <label>End Date: '.$row["endDate"].'</label>
               <label>Category:</label> <p>'.$row["category"].'</p>
               <label>Quantity:</label> <p>'.$row["quantity"].'</p>
               <label>Condition:</label> <p>'.$row["conditions"].'</p>
