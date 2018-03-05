@@ -94,7 +94,8 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
             <label>Reserve Price:</label>
             <p>'.$row["reservePrice"].'</p>
             <label>Category:</label>
-            <p>'.$row["categories"].'</p>
+            <p>'.$row["category"].'</p>
+            <image>'.$row["productImage"].'</image>
           </div>
             ';
 				}
