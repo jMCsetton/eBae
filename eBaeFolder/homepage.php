@@ -12,7 +12,7 @@ $conn =  new mysqli($host, $username, $password, $dbname);
   if ($conn->connect_error) {
     die("Connection failed: ".$conn->connect_error);
   }
-  
+
 $sql = "SELECT * FROM product ORDER BY endDate ASC";
 $result = $conn->query($sql);
 
@@ -84,7 +84,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
   
   <!-- Live Auctions -->
   <div>
-  <!--?php
+  <?php
 				// Fetching data from database
 				while ($row = mysqli_fetch_array($result)) {
           echo '
@@ -98,7 +98,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
           </div>
             ';
 				}
-				?-->
+				?>
   <!--form action="" method="post" enctype="multipart/form-data" >
       <div class="w3-section">
         <label>Item Name</label>
