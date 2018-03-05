@@ -95,7 +95,8 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
         ob_start();
         // Fetching data from database
         //header("Content-type: image/png"); 
-        if ($result == null) {
+        $count = mysqli_num_rows($result);
+        if ($count = 0) {
             echo '<label>No auctions at this time</label> ';
         }
 		while ($row = mysqli_fetch_assoc($result)) {          
