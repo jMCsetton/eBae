@@ -95,7 +95,8 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
             <p>'.$row["reservePrice"].'</p>
             <label>Category:</label>
             <p>'.$row["category"].'</p>
-            <image>'.$row["productImage"].'</image>
+            header("Content-type: image/jpg"); 
+            '.$row["productImage"].'
           </div>
             ';
 				}
