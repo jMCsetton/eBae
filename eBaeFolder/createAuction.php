@@ -117,7 +117,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
         <input type="date" name="endDate" required/>
       </div>
       <div class="w3-section">
-        <label>Upload Image of Item:</label>
+        <label>Upload Image of Item: (jpg format)</label>
         <br>
         <input type="file" name="productImage" required/>
       </div>
