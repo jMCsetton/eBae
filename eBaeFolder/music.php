@@ -95,7 +95,10 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
         ob_start();
         // Fetching data from database
         //header("Content-type: image/png"); 
-				while ($row = mysqli_fetch_assoc($result)) {          
+        if ($result == null) {
+            echo '<label>No auctions at this time</label> '
+        }
+		while ($row = mysqli_fetch_assoc($result)) {          
           //echo "<img src='picture/".$row2["productImage"]."' width='300' height='300'/>";
           //echo "<img src = '".base64_encode($row2["productImage"])."' width='300' height='300'/>";
           echo '<img src="data:image/jpeg;base64,'.base64_encode( $row["productImage"] ).'" style="width:30%; height:30%" class="w3-third w3-container"/>';
