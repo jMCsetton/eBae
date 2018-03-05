@@ -13,7 +13,7 @@ $conn =  new mysqli($host, $username, $password, $dbname);
     die("Connection failed: ".$conn->connect_error);
   }
 
-$sql = "SELECT productImage, productName, reservePrice, date_format(enddate, '%d-%m-%Y') enddate, category, quantity, conditions, productInfo FROM product ORDER BY enddate ASC";
+$sql = "SELECT productImage, productName, reservePrice, date_format(enddate, '%d-%m-%Y') enddate, category, quantity, conditions, productInfo FROM product WHERE category = 'Electronics' ORDER BY enddate ASC";
 
 $result = $conn->query($sql);
 
