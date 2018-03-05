@@ -76,10 +76,15 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
     <h2><b>Showing all live auctions</b></h2>
     <div class="w3-section w3-bottombar w3-padding-16">
       <span class="w3-margin-right">Filter:</span> 
-      <button class="w3-button w3-black">ALL</button>
-      <button class="w3-button w3-white"><i class="fa fa-diamond w3-margin-right"></i>Design</button>
-      <button class="w3-button w3-white w3-hide-small"><i class="fa fa-photo w3-margin-right"></i>Photos</button>
-      <button class="w3-button w3-white w3-hide-small"><i class="fa fa-map-pin w3-margin-right"></i>Art</button>
+      <button class="w3-button w3-black">All</button>
+      <button class="w3-button w3-white"><i class="fas fa-gamepad w3-margin-right"></i>Apps and Games</button>
+      <button class="w3-button w3-white w3-hide-small"><i class="fa fa-photo w3-margin-right"></i>Beauty</button>
+      <button class="w3-button w3-white w3-hide-small"><i class="fa fa-book w3-margin-right"></i>Books</button>
+      <button class="w3-button w3-white w3-hide-small"><i class="fa fa-map-pin w3-margin-right"></i>Clothing</button>
+      <button class="w3-button w3-white w3-hide-small"><i class="fa fa-laptop w3-margin-right"></i>Electronics</button>
+      <button class="w3-button w3-white w3-hide-small"><i class="fa fa-home w3-margin-right"></i>Home</button>
+      <button class="w3-button w3-white w3-hide-small"><i class="fa fa-music w3-margin-right"></i>Music</button>
+      <button class="w3-button w3-white w3-hide-small"><i class="fa fa-diamond w3-margin-right"></i>Miscellaneous</button>
     </div>
     </div>
   </header>
