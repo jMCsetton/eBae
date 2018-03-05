@@ -115,6 +115,15 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
             </div>
             
               ';
+
+
+              
+
+              if (!$row = mysqli_fetch_assoc($result)){
+                echo '<label> No items to show</label> ';
+
+
+              }
 				}
 				?>
   <!--form action="" method="post" enctype="multipart/form-data" >
