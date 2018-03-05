@@ -87,18 +87,20 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
   <?php
 				// Fetching data from database
 				while ($row = mysqli_fetch_assoc($result)) {
-          echo '
-          <div>
-            <label>Item Name:</label>
-            <h1>'.$row["productName"].'</h1>
-            <label>Reserve Price:</label>
-            <p>'.$row["reservePrice"].'</p>
-            <label>Category:</label>
-            <p>'.$row["category"].'</p>
-            header("Content-type: image/jpg"); 
-            '.$row["productImage"].'
-          </div>
-            ';
+          header("Content-type: image/jpg"); 
+          echo $row["productImage"];
+            /*echo '
+            <div>
+              <label>Item Name:</label>
+              <h1>'.$row["productName"].'</h1>
+              <label>Reserve Price:</label>
+              <p>'.$row["reservePrice"].'</p>
+              <label>Category:</label>
+              <p>'.$row["category"].'</p>
+              header("Content-type: image/jpg"); 
+              '.$row["productImage"].'
+            </div>
+              ';*/
 				}
 				?>
   <!--form action="" method="post" enctype="multipart/form-data" >
