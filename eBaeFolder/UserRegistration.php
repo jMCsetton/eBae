@@ -50,31 +50,34 @@
                         <div class="col-lg-4 ml-auto mr-auto">
                             <div class="card card-register">
                                 <h3 class="title">Please fill out the form below to register:</h3>
-                                <form class="register-form">
+                               <form action=“Registrationphp.php” method=“post” enctype=“multipart/form-data” class=“register-form>
                                     <label>First Name</label>
-                                    <input type="text" class="form-control" placeholder="First Name">
+                                    <input type="text" class="form-control" placeholder="First Name" name="firstName">
 
                                     <label>Last Name</label>
-                                    <input type="text" class="form-control" placeholder="Last Name">
+                                    <input type="text" class="form-control" placeholder="Last Name" name="lastName">
 
                                     <label>Date of Birth</label>
-                                    <input type="text" class="form-control" placeholder="dd/mm/yyyy">
+                                    <input type="text" class="form-control" placeholder="dd/mm/yyyy" name="DOB">
 
                                     <label>Address:</label>
                                     <input type="text" class="form-control" placeholder="First Line of Address">
                                      <input type="text" class="form-control" placeholder="Town">
                                     <input type="text" class="form-control" placeholder="City">
                                     <input type="text" class="form-control" placeholder="Country">
-                                    <input type="text" class="form-control" placeholder="Post Code">
+                                    <input type="text" class="form-control" placeholder="Post Code" name="postCode">
 
                                     <label>Gender</label>
-                                    <input type="text" class="form-control" placeholder="Email">
+                                    <input type="text" class="form-control" placeholder="Email" name="gender">
 
                                     <label>Email</label>
-                                    <input type="text" class="form-control" placeholder="Email">
+                                    <input type="text" class="form-control" placeholder="Email" name="email_ID">
+
+                                    <label>Username</label>
+                                    <input type="Username" class="form-control" placeholder="Username" name="username">
 
                                     <label>Password</label>
-                                    <input type="password" class="form-control" placeholder="Password">
+                                    <input type="password" class="form-control" placeholder="Password" name="password">
 
                                      <label>Confirm Password</label>
                                     <input type="password" class="form-control" placeholder="Confirm Password">
