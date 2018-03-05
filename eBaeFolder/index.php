@@ -110,7 +110,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
                  
                                 <!--<form method="post"  class = "register-form">-->
                                 <form action  = "" method="post"  >
-                                    <label style="color: #B33C12">Username 1</label>
+                                    <label style="color: #B33C12">Username</label>
                                     <input type="text" name = "username"  class="form-control" style="background-color: #e5e5e5" placeholder="Username"/>
 
                                     <label style="color: #B33C12">Password</label>
