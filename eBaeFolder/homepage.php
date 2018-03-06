@@ -113,13 +113,13 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
               <br><label>Condition: '.$row["conditions"].'</label>
               <br><label>Description: '.$row["productInfo"].'</label>
               <br><a href=  "auctionDetails.php?id=$productID" class="w3-button w3-black" >View Bids</a>
-              <br>
+              <br> 
               <br>
               <br>
             </div>
             
               ';
-              echo "<a href='auctionDetails.php?id=".$row['productID']."'>View Bid</a> ";
+              echo "<a href='auctionDetails.php?id=".$row['productID']."' class='w3-third w3-container'>View Bid</a> ";
               //$_SESSION['productID'] = $row['productID'];
               //$productID = $_SESSION['productID'];
               //echo $productID ;
