@@ -73,7 +73,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
     <h4 id="contact"><b>Item Information!!</b></h4>
     <hr class="w3-opacity">
     <!--form action="" method="post" target="_blank"-->
-    <form action="homepage.php" method="post" enctype="multipart/form-data" >
+    <form action="createAuctionphp.php" method="post" enctype="multipart/form-data" >
       <div class="w3-section">
         <label>Item Name</label>
         <input class="w3-input w3-border" type="text" name="productName" required/>
