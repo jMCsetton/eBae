@@ -119,7 +119,8 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
             </div>
             
               ';
-              $_SESSION['productID'] = $row['productID'];
+              echo "<a href='auctionDetails.php?id=".$row['productID']."'>View Bid</a> ";
+              //$_SESSION['productID'] = $row['productID'];
               //$productID = $_SESSION['productID'];
               //echo $productID ;
 
