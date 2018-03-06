@@ -81,5 +81,5 @@ if (isset($_POST['submit']))
  ?> 
 
  <div>
- <a href="index.php"><button class="button button-block"/>Home</button></a>
+ <a href="homepage.php"><button class="button button-block"/>Home</button></a>
  </div>
