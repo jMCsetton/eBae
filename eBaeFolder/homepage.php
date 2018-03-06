@@ -100,8 +100,11 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
           //echo "<img src='picture/".$row2["productImage"]."' width='300' height='300'/>";
           //echo "<img src = '".base64_encode($row2["productImage"])."' width='300' height='300'/>";
           echo '<img src="data:image/jpeg;base64,'.base64_encode( $row["productImage"] ).'" style="width:30%; height:30%" class="w3-third w3-container"/>';
+          $_SESSION['productID'] = $row['productID'];
+          $productID = $_SESSION['productID'];
           echo '
             <div style= "bg-colour:white" class="w3-twothird w3-container">
+            
               <h1>'.$row["productName"].'</h1>
               <label>Reserve Price: £'.$row["reservePrice"].'</label> 
               <br><label>End Date: '.$row["enddate"].'</label>
@@ -109,14 +112,13 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
               <br><label>Quantity: '.$row["quantity"].'</label>
               <br><label>Condition: '.$row["conditions"].'</label>
               <br><label>Description: '.$row["productInfo"].'</label>
-              <br><a href = "auctionDetails.php" class="w3-button w3-black" data-id="'.$row['productID'].'">View Bids</a>
+              <br><a href= <?php echo "auctionDetails.php?id=$productID"; ?> class="w3-button w3-black" >View Bids</a>
               <br>
               <br>
               <br>
             </div>
             
               ';
-              echo 'data-id';
               $_SESSION['productID'] = $row['productID'];
               //$productID = $_SESSION['productID'];
               //echo $productID ;
