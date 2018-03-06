@@ -108,6 +108,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
               <br><label>Quantity: '.$row["quantity"].'</label>
               <br><label>Condition: '.$row["conditions"].'</label>
               <br><label>Description: '.$row["productInfo"].'</label>
+              <a href = "auctionDetails.php" class="w3-button w3-black">View Bids</a>
               <br>
               <br>
               <br>
