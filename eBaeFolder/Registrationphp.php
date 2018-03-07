@@ -19,7 +19,7 @@ if (isset($_POST['submit']))
 
   $sql2 = "INSERT INTO user (username, firstName, lastName, DOB, gender, email_ID, postCode, roles, passw)
   VALUES ('".$_POST["username"]."', '".$_POST["firstName"]."', '".$_POST["lastName"]."', '".$_POST["DOB"]."',
-  '".$_POST["gender"]."', '".$_POST["email_ID"]."', 'E1 7JS', 'buyer_seller', '".$_POST["password"]."')";
+  '".$_POST["gender"]."', '".$_POST["email_ID"]."', 'E1 7HS', 'buyer_seller', '".$_POST["password"]."')";
 
   //".$_POST["postCode"]."
   /*if ($conn->query($sql) === TRUE ) {
