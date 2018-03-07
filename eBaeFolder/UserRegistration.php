@@ -88,7 +88,7 @@ ob_start();
                                     <input type="password" class="form-control" placeholder="Confirm Password">
                                      
                                    
-                                    <button type="submit" name="submit" class="btn btn-danger btn-block btn-round"><a href="index.php">Register</a></button>
+                                    <button type="submit" name="submit" class="btn btn-danger btn-block btn-round"><a href="www.youtube.com">Register</a></button>
 
                                   
                                 </form>
@@ -114,13 +114,16 @@ if (isset($_POST['submit']))
     die("Connection failed: ".$conn->connect_error);
   }
 
-  $sql = "INSERT INTO address (postCode, street, city, country, doorNumber, username) VALUES ('".$POST["postCode"]."',
-  '".$POST["street"]."', '".$POST["city"]."', '".$POST["country"]."', '".$POST["doorNumber"]."', '".$POST["username"]."')";
+ //$sql = "INSERT INTO address (postCode, street, city, country, doorNumber, username) VALUES ('".$POST["postCode"]."',
+  //'".$POST["street"]."', '".$POST["city"]."', '".$POST["country"]."', '".$POST["doorNumber"]."', '".$POST["username"]."')";
 
   //$sql2 = "INSERT INTO user (username, firstName, lastName, DOB, gender, email_ID, postCode, role, password)
   //VALUES ('".$_POST["username"]."', '".$_POST["firstName"]."', '".$_POST["lastName"]."', '".$_POST["DOB"]."',
   //'".$_POST["gender"]."', '".$_POST["email_ID"]."', '".$_POST["postCode"]."', '".$_POST["role"]."', '".$_POST["password"]."')";
 
+
+  $sql = "INSERT INTO address (postCode) VALUES ('".$POST["postCode"]."')";;
+  
   if ($conn->query($sql) === TRUE) {
     echo "New user created created successfully";
 } else {
