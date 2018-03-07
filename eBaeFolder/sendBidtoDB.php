@@ -43,8 +43,15 @@ if (isset($_POST['Bid']))
 
   //}
   
+  if ($conn->query($sql) === TRUE) {
+    echo "Auction created successfully!";
+} else {
+    echo "Error: " . $sql . "<br>" . $conn->error;
+}
+
   
 }
+
 
 
 
