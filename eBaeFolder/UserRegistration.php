@@ -1,7 +1,7 @@
 <?php
 session_start();
 //echo "this is php"
-//ob_start();
+ob_start();
 ?>
 
 <!doctype html>
@@ -118,7 +118,7 @@ if (isset($_POST['submit']))
                                     <input type="password" class="form-control" placeholder="Confirm Password">
                                      
                                    
-                                    <button type="submit" name="submit" class="btn btn-danger btn-block btn-round"><a href="https://gc06team37db.azurewebsites.net/AdminRegistration.php#">Register</a></button>
+                                    <button type="submit" name="submit" class="btn btn-danger btn-block btn-round"/><a href="https://gc06team37db.azurewebsites.net/index.php#">Register</a></button>
 
                                   
                                 </form>
