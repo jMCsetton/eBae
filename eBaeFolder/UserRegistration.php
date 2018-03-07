@@ -61,10 +61,10 @@
                                     <input type="text" class="form-control" placeholder="dd/mm/yyyy" name="DOB">
 
                                     <label>Address:</label>
-                                    <input type="text" class="form-control" placeholder="First Line of Address">
-                                     <input type="text" class="form-control" placeholder="Town">
-                                    <input type="text" class="form-control" placeholder="City">
-                                    <input type="text" class="form-control" placeholder="Country">
+                                    <input type="text" class="form-control" placeholder="House Number" name="doorNumber">
+                                    <input type="text" class="form-control" placeholder="Street" name="street">
+                                    <input type="text" class="form-control" placeholder="Town/City" name="city">
+                                    <input type="text" class="form-control" placeholder="County" name="county">
                                     <input type="text" class="form-control" placeholder="Post Code" name="postCode">
 
                                     <label>Gender</label>
