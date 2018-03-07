@@ -62,6 +62,7 @@ if (isset($_POST['Bid']))
     //echo "Bid added successfully!";
     
 
+
     while ($row = mysqli_fetch_assoc($result)) {          
         //echo "<img src='picture/".$row2["productImage"]."' width='300' height='300'/>";
         //echo "<img src = '".base64_encode($row2["productImage"])."' width='300' height='300'/>";
@@ -94,8 +95,8 @@ if (isset($_POST['Bid']))
 
 
 
-
-
+         echo "<a href='auctionDetails.php?id= $productID_page ' class='w3-third w3-container' style='background-color:black; width:9%; color:white'><b>View Bid<b></a> 
+              ";
 
 
 
@@ -110,4 +111,7 @@ if (isset($_POST['Bid']))
 }
 
 
+
  ?> 
+
+ 
