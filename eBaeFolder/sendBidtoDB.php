@@ -52,7 +52,7 @@ if (isset($_POST['Bid']))
   $sql = "INSERT INTO bid (bidPrice, userID, productID, bidDate)
   VALUES ('".$_POST["bidPrice"]."', '$userID', '$productID_page', '$date')";
 
-$sql2 = "SELECT userID, bidPrice, date_format(bidDate, '%d-%m-%Y') bidDate FROM bid ORDER BY YEAR(enddate) ASC, MONTH(enddate) ASC, DAY(enddate) ASC";
+$sql2 = "SELECT userID, bidPrice, date_format(bidDate, '%d-%m-%Y') bidDate FROM bid ORDER BY YEAR(bidDate) ASC, MONTH(bidDate) ASC, DAY(bidDate) ASC";
 
    $result = $conn->query($sql2);
 
