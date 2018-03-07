@@ -12,7 +12,7 @@ if (isset($_POST['Bid']))
     die("Connection failed: ".$conn->connect_error);
   }
 
-  $_SESSION['productID_page'] = $_GET['id'];
+  
   $productID_page = $_SESSION['productID_page'];
   $userID = $_SESSION['userID'];
   
