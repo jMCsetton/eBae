@@ -68,7 +68,7 @@
                                     <input type="text" class="form-control" placeholder="Post Code" name="postCode">
 
                                     <label>Gender</label>
-                                    <input type="text" class="form-control" placeholder="Email" name="gender">
+                                    <input type="text" class="form-control" placeholder="Gender" name="gender">
 
                                     <label>Email</label>
                                     <input type="text" class="form-control" placeholder="Email" name="email_ID">
