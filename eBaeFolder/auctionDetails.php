@@ -13,7 +13,8 @@ $conn =  new mysqli($host, $username, $password, $dbname);
     die("Connection failed: ".$conn->connect_error);
   }
 
-$productID_page = $_GET['id'];
+$_SESSION['productID_page'] = $_GET['id'];
+$productID_page = $_SESSION['productID_page'];
 $sql = "SELECT productImage, productName, reservePrice, date_format(enddate, '%d-%m-%Y') enddate, category, quantity, conditions, productInfo FROM product WHERE productID = $productID_page" ;
 
 $result = $conn->query($sql);
@@ -84,9 +85,9 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
   
   <!-- Live Auctions -->
   <div class="w3-container">
-  <form action  = "" method="post"  >
+  <form action  = "sendBidtoDB.php" method="post"  >
                                     <label style="color: #B33C12"></label>
-                                    <input type="text" name = "bid_value"  class="form-control" style="background-color: #e5e5e5" placeholder="Enter bid here"/>
+                                    <input type="text" name = "bidPrice"  class="form-control" style="background-color: #e5e5e5" placeholder="Enter bid here"/>
 
                 
                                     <button class="btn btn-danger btn-block btn-round" name = "Bid"/>Bid</button>
