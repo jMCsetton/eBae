@@ -17,9 +17,7 @@ if (isset($_POST['Bid']))
   $sql = "INSERT INTO bid (bidPrice, userID, productID, bidDate)
   VALUES ('".$_POST["bidPrice"]."', '$userID', '$productID_page', '$date')";
 
-$sql2 = "SELECT userID, bidPrice, bidDate FROM bid WHERE productID = $productID_page";
 
-   $result = $conn->query($sql2);
   
 
  
@@ -27,31 +25,7 @@ $sql2 = "SELECT userID, bidPrice, bidDate FROM bid WHERE productID = $productID_
     
 
 
-    while ($row = mysqli_fetch_assoc($result)) {          
-     
-        
-        echo '
-       
-          
-            <tr>
-            <td>'.$row["bidPrice"].'</tb> 
-            <td>'.$row["userID"].'</td>
-            <td>'.$row["bidDate"].'</td>
-            <br>
-            <br>
-            <br>
-            <br>
-          </tr>
-          
-            ';
-       
-            //$_SESSION['productID'] = $row['productID'];
-            //$productID = $_SESSION['productID'];
-            //echo $productID ;
-
-
-
-              }
+ 
 
 
 
