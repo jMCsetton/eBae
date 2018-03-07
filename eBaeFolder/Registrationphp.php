@@ -21,7 +21,6 @@ if (isset($_POST['submit']))
 
   if ($conn->query($sql) === TRUE) {
     echo "New user created created successfully";
-    header("Location: index.php");
 } else {
     echo "Error: " . $sql . "<br>" . $conn->error;
 }
@@ -32,3 +31,7 @@ if (isset($_POST['submit']))
 
 
  ?>
+
+ <div>
+ <a href="https://gc06team37db.azurewebsites.net/index.php#"><button class="button button-block"/>Home</button></a>
+ </div>
