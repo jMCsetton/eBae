@@ -1,5 +1,7 @@
 <?php
+session_start();
 //echo "this is php"
+ob_start();
 ?>
 
 <!doctype html>
