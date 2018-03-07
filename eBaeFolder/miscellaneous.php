@@ -13,7 +13,7 @@ $conn =  new mysqli($host, $username, $password, $dbname);
     die("Connection failed: ".$conn->connect_error);
   }
 
-$sql = "SELECT productImage, productName, reservePrice, date_format(enddate, '%d-%m-%Y') enddate, category, quantity, conditions, productInfo, productID FROM product ORDER BY YEAR(enddate) ASC, MONTH(enddate) ASC, DAY(enddate) ASC";
+$sql = "SELECT productImage, productName, reservePrice, date_format(enddate, '%d-%m-%Y') enddate, category, quantity, conditions, productInfo FROM product WHERE category = 'Miscellaneous' ORDER BY enddate ASC";
 
 $result = $conn->query($sql);
 
@@ -95,18 +95,12 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
         ob_start();
         // Fetching data from database
         //header("Content-type: image/png"); 
-       
 				while ($row = mysqli_fetch_assoc($result)) {          
           //echo "<img src='picture/".$row2["productImage"]."' width='300' height='300'/>";
           //echo "<img src = '".base64_encode($row2["productImage"])."' width='300' height='300'/>";
           echo '<img src="data:image/jpeg;base64,'.base64_encode( $row["productImage"] ).'" style="width:30%; height:30%" class="w3-third w3-container"/>';
-          $_SESSION['productID'] = $row['productID'];
-          $productID = $_SESSION['productID'];
-          echo "<a href='auctionDetails.php?id=".$row['productID']."' class='w3-third w3-container' style='background-color:black; width:9%; color:white'><b>View Bid<b></a> 
-          ";
           echo '
             <div style= "bg-colour:white" class="w3-twothird w3-container">
-            
               <h1>'.$row["productName"].'</h1>
               <label>Reserve Price: £'.$row["reservePrice"].'</label> 
               <br><label>End Date: '.$row["enddate"].'</label>
@@ -121,13 +115,6 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
             </div>
             
               ';
-         
-              //$_SESSION['productID'] = $row['productID'];
-              //$productID = $_SESSION['productID'];
-              //echo $productID ;
-
-
-
 				}
 				?>
   <!--form action="" method="post" enctype="multipart/form-data" >

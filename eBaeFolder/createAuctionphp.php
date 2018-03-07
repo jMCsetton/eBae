@@ -65,7 +65,7 @@ if (isset($_POST['submit']))
   '".$_POST["reservePrice"]."', '$userID', '".$_POST["quantity"]."', '".$_POST["condition"]."')";*/
 
   if ($conn->query($sql) === TRUE) {
-    echo "New record created successfully";
+    echo "Auction created successfully!";
 } else {
     echo "Error: " . $sql . "<br>" . $conn->error;
 }
@@ -79,3 +79,7 @@ if (isset($_POST['submit']))
 
 
  ?> 
+
+ <div>
+ <a href="homepage.php"><button class="button button-block"/>Home</button></a>
+ </div>
