@@ -15,6 +15,8 @@ if (isset($_POST['Bid']))
   $_SESSION['productID_page'] = $_GET['id'];
   $productID_page = $_SESSION['productID_page'];
   $userID = $_SESSION['userID'];
+  
+  $date = date("Y/m/d");
 
   $sql = "INSERT INTO bid (bidPrice, userID, productID, bidDate)
   VALUES ('".$_POST["bidPrice"]."', '$userID', '$productID_page', '$date')";
