@@ -83,7 +83,7 @@
                                     <input type="password" class="form-control" placeholder="Confirm Password">
                                      
                                    
-                                    <button type="submit" name="submit" class="btn btn-danger btn-block btn-round"><a href="https://gc06team37db.azurewebsites.net/">Register</a></button>
+                                    <button type="submit" name="submit" class="btn btn-danger btn-block btn-round"><a href="https://gc06team37db.azurewebsites.net">Register</a></button>
 
                                   
                                 </form>
