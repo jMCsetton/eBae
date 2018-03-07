@@ -12,12 +12,15 @@ if (isset($_POST['submit']))
     die("Connection failed: ".$conn->connect_error);
   }
 
-  $sql = "INSERT INTO user (username, firstName, lastName, DOB, gender, email_ID, postCode, role, password)
-  VALUES ('".$_POST["username"]."', '".$_POST["firstName"]."', '".$_POST["lastName"]."', '".$_POST["DOB"]."',
-  '".$_POST["gender"]."', '".$_POST["email_ID"]."', '".$_POST["postCode"]."', '".$_POST["role"]."', '".$_POST["password"]."')";
 
-  /*$sql2 = "INSERT INTO address (postCode, street, city, country, doorNumber, username) VALUES ('".$POST["postCode"]."',
-  '".$POST["street"]."', '".$POST["city"]."', '".$POST["country"]."', '".$POST["doorNumber"]."', '".$POST["username"]."')";*/
+
+  $sql = "INSERT INTO address (postCode, street, city, country, doorNumber, username) VALUES ('".$POST["postCode"]."',
+  '".$POST["street"]."', '".$POST["city"]."', '".$POST["country"]."', '".$POST["doorNumber"]."', '".$POST["username"]."')";
+
+  /*$sql = "INSERT INTO user (username, firstName, lastName, DOB, gender, email_ID, postCode, role, password)
+  VALUES ('".$_POST["username"]."', '".$_POST["firstName"]."', '".$_POST["lastName"]."', '".$_POST["DOB"]."',
+  '".$_POST["gender"]."', '".$_POST["email_ID"]."', '".$_POST["postCode"]."', '".$_POST["role"]."', '".$_POST["password"]."')";*/
+
 
   if ($conn->query($sql) === TRUE) {
     echo "New user created created successfully";
