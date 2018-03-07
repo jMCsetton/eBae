@@ -1,7 +1,7 @@
 <?php
 session_start();
 //echo "this is php"
-ob_start();
+//ob_start();
 ?>
 
 <!doctype html>
@@ -42,6 +42,37 @@ ob_start();
             </div>
     </nav>
 
+<?php
+
+if (isset($_POST['submit']))
+{
+  require "config.php";
+  $conn =  new mysqli($host, $username, $password, $dbname);
+
+  // Check connection
+  if ($conn->connect_error) {
+    die("Connection failed: ".$conn->connect_error);
+  }
+
+  $sql = "INSERT INTO user (username, firstName, lastName, DOB, gender, email_ID, postCode, role, password)
+  VALUES ('".$_POST["username"]."', '".$_POST["firstName"]."', '".$_POST["lastName"]."', '".$_POST["DOB"]."',
+  '".$_POST["gender"]."', '".$_POST["email_ID"]."', '".$_POST["postCode"]."', '".$_POST["role"]."', '".$_POST["password"]."')";
+
+  $sql2 = "INSERT INTO address (postCode, street, city, country, doorNumber, username) VALUES ('".$POST["postCode"]."',
+  '".$POST["street"]."', '".$POST["city"]."', '".$POST["country"]."', '".$POST["doorNumber"]."', '".$POST["username"]."')";
+
+  if ($conn->query($sql) === TRUE) {
+    echo "New user created created successfully";
+} else {
+    echo "Error: " . $sql . "<br>" . $conn->error;
+}
+
+  //}
+
+}
+
+
+ ?>
 
 
     <div class="wrapper">
@@ -52,7 +83,7 @@ ob_start();
                         <div class="col-lg-4 ml-auto mr-auto">
                             <div class="card card-register">
                                 <h3 class="title">Please fill out the form below to register:</h3>
-                               <form action=“Registrationphp.php” method=“post” enctype=“multipart/form-data” >
+                               <form action=“” method=“post” enctype=“multipart/form-data” >
                                <div class="register-form">
                                     
                                     <label>First Name</label>
@@ -87,7 +118,7 @@ ob_start();
                                     <input type="password" class="form-control" placeholder="Confirm Password">
                                      
                                    
-                                    <button type="submit" name="submit" class="btn btn-danger btn-block btn-round">Register</button>
+                                    <button type="submit" name="submit" class="btn btn-danger btn-block btn-round"><a href="https://gc06team37db.azurewebsites.net/AdminRegistration.php#">Register</a></button>
 
                                   
                                 </form>
