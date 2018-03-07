@@ -88,7 +88,7 @@ ob_start();
                                     <input type="password" class="form-control" placeholder="Confirm Password">
                                      
                                    
-                                    <button type="submit" name="submit" class="btn btn-danger btn-block btn-round"><a href="www.youtube.com">Register</a></button>
+                                    <button type="submit" name="submit" class="btn btn-danger btn-block btn-round">Register</a></button>
 
                                   
                                 </form>
