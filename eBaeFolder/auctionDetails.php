@@ -13,7 +13,8 @@ $conn =  new mysqli($host, $username, $password, $dbname);
     die("Connection failed: ".$conn->connect_error);
   }
 
-$productID_page = $_GET['id'];
+$_SESSION['productID_page'] = $_GET['id'];
+$productID_page = $_SESSION['productID_page'];
 $sql = "SELECT productImage, productName, reservePrice, date_format(enddate, '%d-%m-%Y') enddate, category, quantity, conditions, productInfo FROM product WHERE productID = $productID_page" ;
 
 $result = $conn->query($sql);
