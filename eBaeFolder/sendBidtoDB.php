@@ -17,7 +17,7 @@ if (isset($_POST['Bid']))
   $sql = "INSERT INTO bid (bidPrice, userID, productID, bidDate)
   VALUES ('".$_POST["bidPrice"]."', '$userID', '$productID_page', '$date')";
 
-
+$productID_page = $_SESSION['productID_page'];
   
 
  
