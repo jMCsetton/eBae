@@ -42,6 +42,7 @@ if (isset($_POST['Bid']))
   $userID = $_SESSION['userID'];
   $productID_page = $_GET['id'];
   $date = date("Y/m/d");
+  $productID_page = $_SESSION['productID_page'];
   //$sql = "INSERT INTO product (productName, userID) VALUES ('".$_POST["productName"]."','$userID')";
   /*$sql = "INSERT INTO product (category, productName, productInfo, reservePrice, userID, quantity, conditions)
   SET '".$_POST["category"]."', '".$_POST["productName"]."', '".$_POST["productInfo"]."',
