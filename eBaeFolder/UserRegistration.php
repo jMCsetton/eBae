@@ -81,10 +81,9 @@
 
                                      <label>Confirm Password</label>
                                     <input type="password" class="form-control" placeholder="Confirm Password">
-                                      <label>Role:</label>
+                                     
                                    
-
-                                    <button class="btn btn-danger btn-block btn-round">Register</button>
+                                    <button class="btn btn-danger btn-block btn-round"><a href="https://gc06team37db.azurewebsites.net/index.php#">Register</a></button>
 
                                   
                                 </form>
