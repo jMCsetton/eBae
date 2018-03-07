@@ -123,9 +123,10 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
         <input class="w3-input w3-border" type="text" name="categories" required/>
       </div>
   </form-->
+ 
   </div>
 
-<div class="w3-container">
+<div class='w3-third w3-container'>
 <form action  = "" method="post"  >
                                     <label style="color: #B33C12"></label>
                                     <input type="text" name = "bid_value"  class="form-control" style="background-color: #e5e5e5" placeholder="Enter bid here"/>
