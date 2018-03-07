@@ -12,41 +12,6 @@ if (isset($_POST['Bid']))
     die("Connection failed: ".$conn->connect_error);
   }
 
-  /*$sql = "INSERT INTO product (category, productName, productInfo, productImage, endDate, reservePrice, userID, quantity, condition')
-  VALUES ('".$_POST["category"]."', '".$_POST["productName"]."', '".$_POST["productInfo"]."', '".$_POST["productImage"]."', '".$_POST["endDate"]."',
-  '".$_POST["reservePrice"]."', '".$_POST["$user"]."', '".$_POST["quantity"]."', '".$_POST["condition"]."')";*/
-  
- 
-  
-  //$username1 = $_SESSION['username'];
-  //$sql = "SELECT userID INTO a FROM user WHERE username = 'sameen'";
-  //echo $_SESSION['username'];
-
-  //$result = $conn->query($sql);
-  //$row = mysqli_fetch_array($result);
-  //echo $_SESSION['userID'];
-  //print "$username1";
-
-  
-  //$result = $conn->query($sql);
-  //echo $result;
-  //print "$result";
-  
-  //$count = mysqli_num_rows($result);
-  //$userID = $result;
-  
-  // If result matched $myusername and $mypassword, table row must be 1 row
-    
-  //if($count >= 1) {
-    
-  $userID = $_SESSION['userID'];
-  $productID_page = $_GET['id'];
-  $date = date("Y/m/d");
-  $productID_page = $_SESSION['productID_page'];
-  //$sql = "INSERT INTO product (productName, userID) VALUES ('".$_POST["productName"]."','$userID')";
-  /*$sql = "INSERT INTO product (category, productName, productInfo, reservePrice, userID, quantity, conditions)
-  SET '".$_POST["category"]."', '".$_POST["productName"]."', '".$_POST["productInfo"]."',
-  ".$_POST["reservePrice"].", '$userID', ".$_POST["quantity"].", '".$_POST["condition"]."'";*/
 
 
   $sql = "INSERT INTO bid (bidPrice, userID, productID, bidDate)
@@ -57,22 +22,13 @@ $sql2 = "SELECT userID, bidPrice, bidDate FROM bid WHERE productID = $productID_
    $result = $conn->query($sql2);
   
 
-
-  /*$sql = "INSERT INTO product (category, productName, productInfo, productImage, endDate, reservePrice, userID, quantity, conditions)
-  VALUES ('".$_POST["category"]."', '".$_POST["productName"]."', '".$_POST["productInfo"]."', LOAD_FILE('".$_POST["productImage"]."'), '".$_POST["endDate"]."',
-  '".$_POST["reservePrice"]."', '$userID', '".$_POST["quantity"]."', '".$_POST["condition"]."')";*/
-
   if ($conn->query($sql2) === TRUE) {
     //echo "Bid added successfully!";
     
 
 
     while ($row = mysqli_fetch_assoc($result)) {          
-        //echo "<img src='picture/".$row2["productImage"]."' width='300' height='300'/>";
-        //echo "<img src = '".base64_encode($row2["productImage"])."' width='300' height='300'/>";
-        
-        //$_SESSION['productID'] = $row['productID'];
-        //$productID = $_SESSION['productID'];
+     
         
         echo '
        
