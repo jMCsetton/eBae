@@ -17,7 +17,7 @@ if (isset($_POST['submit']))
   /*$sql = "INSERT INTO address (postCode, street, city, county, doorNumber, username) VALUES ('E1 7JS',
   '".$POST["street"]."', '".$POST["city"]."', '".$POST["country"]."', '".$POST["doorNumber"]."', '".$POST["username"]."')";*/
 
-  $sql2 = "INSERT INTO user (username, firstName, lastName, DOB, gender, email_ID, postCode, role, password)
+  $sql2 = "INSERT INTO user (username, firstName, lastName, DOB, gender, email_ID, postCode, roles, passw)
   VALUES ('".$_POST["username"]."', '".$_POST["firstName"]."', '".$_POST["lastName"]."', '".$_POST["DOB"]."',
   '".$_POST["gender"]."', '".$_POST["email_ID"]."', 'E1 7JS', 'buyer_seller', '".$_POST["password"]."')";
 
