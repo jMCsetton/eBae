@@ -15,6 +15,8 @@ if (isset($_POST['submit']))
   VALUES ('".$_POST["username"]."', '".$_POST["firstName"]."', '".$_POST["lastName"]."', '".$_POST["DOB"]."',
   '".$_POST["gender"]."', '".$_POST["email_ID"]."', '".$_POST["postCode"]."', '".$_POST["role"]."', '".$_POST["password"]."')";
 
+  $sql2 = "INSERT INTO address (postCode, street, city, country, doorNumber, username) VALUES ('".$POST["postCode"]."',
+  '".$POST["street"]."', '".$POST["city"]."', '".$POST["country"]."', '".$POST["doorNumber"]."', '".$POST["username"]."')";
 
   if ($conn->query($sql) === TRUE) {
     echo "New user created created successfully";
@@ -23,10 +25,7 @@ if (isset($_POST['submit']))
 }
 
   //}
-  }
-  else{
-    echo "Please select an image file to upload.";
-  }
+
 }
 
 
