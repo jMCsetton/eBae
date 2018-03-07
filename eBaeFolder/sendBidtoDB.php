@@ -12,12 +12,16 @@ if (isset($_POST['Bid']))
     die("Connection failed: ".$conn->connect_error);
   }
 
-
+  
+  $productID_page = $_SESSION['productID_page'];
+  $userID = $_SESSION['userID'];
+  
+  $date = date("Y/m/d");
 
   $sql = "INSERT INTO bid (bidPrice, userID, productID, bidDate)
   VALUES ('".$_POST["bidPrice"]."', '$userID', '$productID_page', '$date')";
 
-$productID_page = $_SESSION['productID_page'];
+
   
 
  
@@ -39,8 +43,15 @@ $productID_page = $_SESSION['productID_page'];
 
   //}
   
+  if ($conn->query($sql) === TRUE) {
+    echo "Auction created successfully!";
+} else {
+    echo "Error: " . $sql . "<br>" . $conn->error;
+}
+
   
 }
+
 
 
 
