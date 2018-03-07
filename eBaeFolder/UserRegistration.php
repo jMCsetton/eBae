@@ -122,7 +122,7 @@ if (isset($_POST['submit']))
   //'".$_POST["gender"]."', '".$_POST["email_ID"]."', '".$_POST["postCode"]."', '".$_POST["role"]."', '".$_POST["password"]."')";
 
 
-  $sql = "INSERT INTO address (postCode) VALUES ('".$POST["postCode"]."')";;
+  $sql = "INSERT INTO address (postCode) VALUES ('".$POST["postCode"]."')";
   
   if ($conn->query($sql) === TRUE) {
     echo "New user created created successfully";
