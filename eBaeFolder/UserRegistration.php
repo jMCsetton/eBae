@@ -53,7 +53,7 @@ ob_start();
                         <div class="col-lg-4 ml-auto mr-auto">
                             <div class="card card-register">
                                 <h3 class="title">Please fill out the form below to register AMELLLIIUUUHHHHHHH:</h3>
-                               <form action=“Registrationphp.php” method=“post”  >
+                               <form action="Registrationphp.php" method="post"  >
                                <div class="register-form">
                                     
                                     <label>First Name</label>
