@@ -125,7 +125,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
   </form-->
   </div>
 
-
+<div class="w3-container">
 <form action  = "" method="post"  >
                                     <label style="color: #B33C12"></label>
                                     <input type="text" name = "bid_value"  class="form-control" style="background-color: #e5e5e5" placeholder="Enter bid here"/>
@@ -136,6 +136,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
                                    
                                </form>
 
+</div>
 
   <!-- Footer -->
   <footer class="w3-container w3-padding-32 w3-dark-grey">
