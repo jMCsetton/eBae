@@ -52,12 +52,54 @@ if (isset($_POST['Bid']))
   $sql = "INSERT INTO bid (bidPrice, userID, productID, bidDate)
   VALUES ('".$_POST["bidPrice"]."', '$userID', '$productID_page', '$date')";
 
+   $result = $conn->query($sql);
+
   /*$sql = "INSERT INTO product (category, productName, productInfo, productImage, endDate, reservePrice, userID, quantity, conditions)
   VALUES ('".$_POST["category"]."', '".$_POST["productName"]."', '".$_POST["productInfo"]."', LOAD_FILE('".$_POST["productImage"]."'), '".$_POST["endDate"]."',
   '".$_POST["reservePrice"]."', '$userID', '".$_POST["quantity"]."', '".$_POST["condition"]."')";*/
 
   if ($conn->query($sql) === TRUE) {
-    echo "Bid added successfully!";
+    //echo "Bid added successfully!";
+    
+
+    while ($row = mysqli_fetch_assoc($result)) {          
+        //echo "<img src='picture/".$row2["productImage"]."' width='300' height='300'/>";
+        //echo "<img src = '".base64_encode($row2["productImage"])."' width='300' height='300'/>";
+        
+        //$_SESSION['productID'] = $row['productID'];
+        //$productID = $_SESSION['productID'];
+        
+        echo '
+       
+          
+            <tr>
+            <td>'.$row["bidPrice"].'</tb> 
+            <td>'.$row["userID"].'</td>
+            <td>'.$row["bidDate"].'</td>
+            <br>
+            <br>
+            <br>
+            <br>
+          </tr>
+          
+            ';
+       
+            //$_SESSION['productID'] = $row['productID'];
+            //$productID = $_SESSION['productID'];
+            //echo $productID ;
+
+
+
+              }
+
+
+
+
+
+
+
+
+
 } else {
     echo "Error: " . $sql . "<br>" . $conn->error;
 }
