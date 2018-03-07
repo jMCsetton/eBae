@@ -57,13 +57,13 @@ ob_start();
                                <div class="register-form">
                                     
                                     <label>First Name</label>
-                                    <input type="text" class="form-control" placeholder="First Name" name="firstName">
+                                    <input type="text" class="form-control" placeholder="First Name" name="firstName"/>
 
                                     <label>Last Name</label>
-                                    <input type="text" class="form-control" placeholder="Last Name" name="lastName">
+                                    <input type="text" class="form-control" placeholder="Last Name" name="lastName"/>
 
                                     <label>Date of Birth</label>
-                                    <input type="text" class="form-control" placeholder="dd/mm/yyyy" name="DOB">
+                                    <input type="text" class="form-control" placeholder="dd/mm/yyyy" name="DOB"/>
 
                                     <label>Address:</label>
                                     <input type="text" class="form-control" placeholder="House Number" name="doorNumber"/>
@@ -73,25 +73,27 @@ ob_start();
                                     <input type="text" class="form-control" placeholder="Post Code" name="postCode"/>
 
                                     <label>Gender</label>
-                                    <input type="text" class="form-control" placeholder="Gender" name="gender">
+                                    <input type="text" class="form-control" placeholder="Gender" name="gender"/>
 
                                     <label>Email</label>
-                                    <input type="text" class="form-control" placeholder="Email" name="email_ID">
+                                    <input type="text" class="form-control" placeholder="Email" name="email_ID"/>
 
                                     <label>Username</label>
-                                    <input type="Username" class="form-control" placeholder="Username" name="username">
+                                    <input type="Username" class="form-control" placeholder="Username" name="username"/>
 
                                     <label>Password</label>
-                                    <input type="password" class="form-control" placeholder="Password" name="password">
+                                    <input type="password" class="form-control" placeholder="Password" name="password"/>
 
                                      <label>Confirm Password</label>
-                                    <input type="password" class="form-control" placeholder="Confirm Password">
+                                    <input type="password" class="form-control" placeholder="Confirm Password"/>
                                      
                                    
                                     <button type="submit" name="submit" class="btn btn-danger btn-block btn-round">Register</button>
 
                                   
                                 </form>
+                                </div>
+                                </div>
                                
                             </div>
                         </div>
