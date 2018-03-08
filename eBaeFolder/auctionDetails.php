@@ -146,7 +146,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
 				
 				?>
 
-<div class="table-responsive" style="width: 50%">
+<div class="table-responsive" style="width: 80%">
 			<table id="bid_data" class="table table-striped table-bordered">
 				<thead>
 					<tr>
