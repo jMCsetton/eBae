@@ -103,9 +103,9 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
 
 					echo '
 					<tr>
-            <td>'.$row2["bidPrice"].'</tb> 
-            <td>'.$row2["productName"].'</td>
-            <td>'.$row2["bidDate"].'</td>
+            <td>'.$row["bidPrice"].'</tb> 
+            <td>'.$row["productName"].'</td>
+            <td>'.$row["bidDate"].'</td>
 					</tr>
 					';
 				}
