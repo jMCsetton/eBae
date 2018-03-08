@@ -21,7 +21,7 @@ $result = $conn->query($sql);
 
 $sql2 = "SELECT u.username, b.userID, b.bidPrice, date_format(b.bidDate, '%d-%m-%Y') bidDate
 FROM bid b, user u
-WHERE productID = 33
+WHERE productID = $productID_page
 AND u.userID = b.userID
 ORDER BY bidPrice DESC";
 
