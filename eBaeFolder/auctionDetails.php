@@ -146,7 +146,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
 				
 				?>
 
-<div class="table-responsive" style="position: absolute; width: 80%; top:220px; left:10%; right:10%;">
+<div class="table-responsive" >
 			<table id="patient_data" class="table table-striped table-bordered">
 				<thead>
 					<tr>
