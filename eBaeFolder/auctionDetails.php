@@ -147,7 +147,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
 				?>
 
 <div class="table-responsive" >
-			<table id="patient_data" class="table table-striped table-bordered">
+			<table id="bid_data" class="table table-striped table-bordered">
 				<thead>
 					<tr>
 						<th>Bid Price</th>
@@ -181,6 +181,16 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
 				</tfoot>
 			</table>
 		</div>
+
+    <!-- This script is to get data from mysql -->
+	<script class = "notfirst" type="text/javascript" language="javascript">
+		$(document).ready(function() {
+
+			// Activate DataTable plugin to enable datatable features
+			$('#bid_data').DataTable();
+		});
+
+	 </script>
 
   <!--form action="" method="post" enctype="multipart/form-data" >
       <div class="w3-section">
