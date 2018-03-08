@@ -37,12 +37,16 @@ if (isset($_POST['Bid']))
 
   //}
   
-  if ($conn->query($sql2) === TRUE) {
-    echo "date added successfully!";
+  if ($conn->query($sql) === TRUE) {
+    echo "bid added successfully!";
 } else {
-    echo "Error: " . $sql2 . "<br>" . $conn->error;
+    echo "Error: " . $sql . "<br>" . $conn->error;
 }
-
+if ($conn->query($sql2) === TRUE) {
+  echo "date added successfully!";
+} else {
+  echo "Error: " . $sql2 . "<br>" . $conn->error;
+}
   
 }
 
