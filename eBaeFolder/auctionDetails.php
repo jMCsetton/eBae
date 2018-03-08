@@ -172,13 +172,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
 				<tbody>
 				</tbody>
 				<!-- Include footer repeating column headers -->
-				<tfoot>
-					<tr>
-          <th>Bid Price</th>
-          <th>Username</th>
-          <th>Bid Date</th>
-				</tr>
-				</tfoot>
+
 			</table>
 		</div>
 
