@@ -13,9 +13,15 @@ $conn =  new mysqli($host, $username, $password, $dbname);
     die("Connection failed: ".$conn->connect_error);
   }
 
-$sql = "SELECT productImage, productName, reservePrice, date_format(enddate, '%d-%m-%Y') enddate, category, quantity, conditions, productInfo, productID FROM product ORDER BY YEAR(enddate) ASC, MONTH(enddate) ASC, DAY(enddate) ASC";
+  $userID = $_SESSION['userID'];
 
-$result = $conn->query($sql);
+  $sql = "SELECT p.productName, b.bidPrice, date_format(b.bidDate, '%d-%m-%Y') bidDate
+  FROM product p, user u
+  WHERE userID = $userID
+  AND p.productID = b.productID
+  ORDER BY bidDate ASC";
+  
+    $result = $conn->query($sql);
 
 
 ?>
@@ -46,7 +52,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
     
     <a href="#portfolio" onclick="w3_close()" class="w3-bar-item w3-button w3-padding"><i class="fa fa-th-large fa-fw w3-margin-right"></i>MY AUCTIONS</a> 
     <a href="homepage.php" onclick="w3_close()" class="w3-bar-item w3-button w3-padding"><i class="fa fa-user fa-fw w3-margin-right"></i>LIVE AUCTIONS</a> 
-    <a href="bidPage.php" onclick="w3_close()" class="w3-bar-item w3-button w3-padding"><i class="fa fa-envelope fa-fw w3-margin-right"></i>MY BIDS</a>
+    <a href="#contact" onclick="w3_close()" class="w3-bar-item w3-button w3-padding"><i class="fa fa-envelope fa-fw w3-margin-right"></i>MY BIDS</a>
     <a href="createAuction.php" onclick="w3_close()" class="w3-bar-item w3-button w3-padding"><i class="fa fa-envelope fa-fw w3-margin-right"></i>CREATE AUCTION</a>
     <a href="#contact" onclick="w3_close()" class="w3-bar-item w3-button w3-padding"><i class="fa fa-envelope fa-fw w3-margin-right"></i>WATCHLIST</a>
     <a href="logout.php" onclick="w3_close()" class="w3-bar-item w3-button w3-padding" style="color: #ff0000"><i class="fa fa-close fa-fw w3-margin-right"></i>Log Out</a>
@@ -75,76 +81,51 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
     <h1><b>Welcome to eBae!</b></h1>
     <h2><b>Showing all live auctions</b></h2>
     <div class="w3-section w3-bottombar w3-padding-16">
-      <span class="w3-margin-right">Filter:</span> 
-      <a href = "homepage.php" class="w3-button w3-black">All</a>
-      <a href = "appsGames.php" class="w3-button w3-white"><i class="fa fa-gamepad w3-margin-right"></i>Apps and Games</a>
-      <a href = "beauty.php" class="w3-button w3-white w3-hide-small"><i class="fa fa-photo w3-margin-right"></i>Beauty</a>
-      <a href = "books.php" class="w3-button w3-white w3-hide-small"><i class="fa fa-book w3-margin-right"></i>Books</a>
-      <a href = "clothing.php" class="w3-button w3-white w3-hide-small"><i class="fa fa-users w3-margin-right"></i>Clothing</a>
-      <a href = "electronics.php" class="w3-button w3-white w3-hide-small"><i class="fa fa-laptop w3-margin-right"></i>Electronics</a>
-      <a href = "home.php" class="w3-button w3-white w3-hide-small"><i class="fa fa-home w3-margin-right"></i>Home</a>
-      <a href = "music.php" class="w3-button w3-white w3-hide-small"><i class="fa fa-music w3-margin-right"></i>Music</a>
-      <a href = "miscellaneous.php" class="w3-button w3-white w3-hide-small"><i class="fa fa-diamond w3-margin-right"></i>Miscellaneous</a>
-    </div>
+
+      </div>
     </div>
   </header>
   
-  <!-- Live Auctions -->
-  <div class="w3-container">
-  <?php
-        ob_start();
-        // Fetching data from database
-        //header("Content-type: image/png"); 
-       
-				while ($row = mysqli_fetch_assoc($result)) {          
-          //echo "<img src='picture/".$row2["productImage"]."' width='300' height='300'/>";
-          //echo "<img src = '".base64_encode($row2["productImage"])."' width='300' height='300'/>";
-          echo '<img src="data:image/jpeg;base64,'.base64_encode( $row["productImage"] ).'" style="width:30%; height:30%" class="w3-third w3-container"/>';
-          $_SESSION['productID'] = $row['productID'];
-          $productID = $_SESSION['productID'];
-          echo "<a href='auctionDetails.php?id=".$row['productID']."' class='w3-third w3-container' style='background-color:black; width:9%; color:white'><b>View Bid<b></a> 
-          ";
-          echo '
-            <div style= "bg-colour:white" class="w3-twothird w3-container">
-            
-              <h1>'.$row["productName"].'</h1>
-              <label>Reserve Price: £'.$row["reservePrice"].'</label> 
-              <br><label>End Date: '.$row["enddate"].'</label>
-              <br><label>Category: '.$row["category"].'</label>
-              <br><label>Quantity: '.$row["quantity"].'</label>
-              <br><label>Condition: '.$row["conditions"].'</label>
-              <br><label>Description: '.$row["productInfo"].'</label>
-              <br>
-              <br>
-              <br>
-              <br>
-            </div>
-            
-              ';
-         
-              //$_SESSION['productID'] = $row['productID'];
-              //$productID = $_SESSION['productID'];
-              //echo $productID ;
+  <!-- My Bids -->
+  <div class="table-responsive" style="width: 80%">
+			<table id="bid_data" class="table table-striped table-bordered">
+				<thead>
+					<tr>
+						<th>Bid Price</th>
+						<th>Username</th>
+						<th>Bid Date</th>
 
+				</tr>
+				</thead>
+				<?php
+				// Fetching data from database
+				while ($row = mysqli_fetch_array($result)) {
 
-
+					echo '
+					<tr>
+            <td>'.$row2["bidPrice"].'</tb> 
+            <td>'.$row2["productName"].'</td>
+            <td>'.$row2["bidDate"].'</td>
+					</tr>
+					';
 				}
 				?>
-  <!--form action="" method="post" enctype="multipart/form-data" >
-      <div class="w3-section">
-        <label>Item Name</label>
-        <input class="w3-input w3-border" type="text" name="productName" required/>
-      </div>
-      <div class="w3-section">
-        <label>Quantity</label>
-        <input class="w3-input w3-border" type="text" name="quantity" required/>
-      </div>
-      <div class="w3-section">
-        <label>Item Category</label>
-        <input class="w3-input w3-border" type="text" name="categories" required/>
-      </div>
-  </form-->
-  </div>
+				<tbody>
+				</tbody>
+				<!-- Include footer repeating column headers -->
+
+			</table>
+		</div>
+
+    <!-- This script is to get data from mysql -->
+	<script class = "notfirst" type="text/javascript" language="javascript">
+		$(document).ready(function() {
+
+			// Activate DataTable plugin to enable datatable features
+			$('#bid_data').DataTable();
+		});
+
+	 </script>
 
   <!-- Footer -->
   <footer class="w3-container w3-padding-32 w3-dark-grey">
