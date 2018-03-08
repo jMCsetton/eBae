@@ -19,7 +19,11 @@ $sql = "SELECT productImage, productName, reservePrice, date_format(enddate, '%d
 
 $result = $conn->query($sql);
 
-$sql2 = "SELECT userID, bidPrice, date_format(bidDate, '%d-%m-%Y') bidDate FROM bid WHERE productID = $productID_page ORDER BY bidPrice ASC";
+$sql2 = "SELECT u.username, b.userID, b.bidPrice, date_format(b.bidDate, '%d-%m-%Y') bidDate
+FROM bid b, user u
+WHERE productID = 33
+AND u.userID = b.userID
+ORDER BY bidPrice DESC";
 
    $result2 = $conn->query($sql2);
 
