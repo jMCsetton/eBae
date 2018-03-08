@@ -19,7 +19,7 @@ $sql = "SELECT productImage, productName, reservePrice, date_format(enddate, '%d
 
 $result = $conn->query($sql);
 
-$sql2 = "SELECT userID, bidPrice, bidDate FROM bid WHERE productID = $productID_page";
+$sql2 = "SELECT userID, bidPrice, date_format(bidDate, '%d-%m-%Y') bidDate FROM bid WHERE productID = $productID_page ORDER BY bidPrice ASC";
 
    $result2 = $conn->query($sql2);
 
@@ -123,7 +123,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
               ';
 
               
-              while ($row2 = mysqli_fetch_assoc($result2)) {          
+              /*while ($row2 = mysqli_fetch_assoc($result2)) {          
      
         
                 echo '
@@ -140,16 +140,48 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
                   </tr>
                   
                     ';
-               
-                    //$_SESSION['productID'] = $row['productID'];
-                    //$productID = $_SESSION['productID'];
-                    //echo $productID ;
         
         
-        
-                      }
+                      }*/
 				
 				?>
+
+<div class="table-responsive" style="position: absolute; width: 80%; top:220px; left:10%; right:10%;">
+			<table id="patient_data" class="table table-striped table-bordered">
+				<thead>
+					<tr>
+						<th>Bid Price</th>
+						<th>Username</th>
+						<th>Bid Date</th>
+
+				</tr>
+				</thead>
+				<?php
+				// Fetching data from database
+				while ($row = mysqli_fetch_array($result)) {
+
+					echo '
+					<tr>
+          <td>'.$row2["bidPrice"].'</tb> 
+          <td>'.$row2["userID"].'</td>
+          <td>'.$row2["bidDate"].'</td>
+					</tr>
+					';
+				}
+				?>
+				<tbody>
+				</tbody>
+				<!-- Include footer repeating column headers -->
+				<tfoot>
+					<tr>
+          <th>Bid Price</th>
+          <th>Username</th>
+          <th>Bid Date</th>
+				</tr>
+				</tfoot>
+			</table>
+		</div>
+
   <!--form action="" method="post" enctype="multipart/form-data" >
       <div class="w3-section">
         <label>Item Name</label>
