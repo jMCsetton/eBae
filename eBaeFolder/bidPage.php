@@ -16,7 +16,7 @@ $conn =  new mysqli($host, $username, $password, $dbname);
   $userID = $_SESSION['userID'];
 
   $sql = "SELECT p.productName, b.bidPrice, date_format(b.bidDate, '%d-%m-%Y') bidDate
-  FROM product p, user u
+  FROM product p, bid b
   WHERE userID = $userID
   AND p.productID = b.productID
   ORDER BY bidDate ASC";
@@ -92,7 +92,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
 				<thead>
 					<tr>
 						<th>Bid Price</th>
-						<th>Username</th>
+						<th>Product Name</th>
 						<th>Bid Date</th>
 
 				</tr>
