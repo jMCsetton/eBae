@@ -21,8 +21,6 @@ if (isset($_POST['Bid']))
   $sql = "INSERT INTO bid (bidPrice, userID, productID, bidDate)
   VALUES ('".$_POST["bidPrice"]."', '$userID', '$productID_page', '$date')";
   
-  $date2 = date("Y/m/d");
-  $sql2 = "INSERT INTO system (date) VALUES ('$date2')";
 
  
     //echo "Bid added successfully!";
@@ -42,12 +40,7 @@ if (isset($_POST['Bid']))
 } else {
     echo "Error: " . $sql . "<br>" . $conn->error;
 }
-if ($conn->query($sql2) === TRUE) {
-  echo "date added successfully!";
-} else {
-  echo "Error: " . $sql2 . "<br>" . $conn->error;
-}
-  
+
 }
 
 
