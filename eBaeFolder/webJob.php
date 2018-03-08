@@ -10,6 +10,7 @@
   
 
 $date = date("Y/m/d");
-$sql = "INSERT INTO system (date) VALUES ('$date')";
+$sql = "INSERT INTO system (date)
+VALUES ('$date')";
 
 ?>
