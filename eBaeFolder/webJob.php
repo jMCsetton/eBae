@@ -1,6 +1,10 @@
 <?php
 
-  require "config.php";
+$host       = "gc06team37db.mysql.database.azure.com";
+$username   = "team37@gc06team37db";
+$password   = "Databases37!";
+$dbname     = "auction37gc06";
+
   $conn =  new mysqli($host, $username, $password, $dbname);
 
   // Check connection
