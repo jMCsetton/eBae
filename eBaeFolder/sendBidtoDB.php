@@ -20,18 +20,12 @@ if (isset($_POST['Bid']))
 
   $sql = "INSERT INTO bid (bidPrice, userID, productID, bidDate)
   VALUES ('".$_POST["bidPrice"]."', '$userID', '$productID_page', '$date')";
-
-
   
+  $date2 = date("Y/m/d");
+  $sql2 = "INSERT INTO system (date) VALUES ('$date2')";
 
  
     //echo "Bid added successfully!";
-    
-
-
- 
-
-
 
          echo "<a href='auctionDetails.php?id= $productID_page ' class='w3-third w3-container' style='background-color:black; width:9%; color:white'><b> Go back to Auction Details<b></a> 
               ";
@@ -43,10 +37,10 @@ if (isset($_POST['Bid']))
 
   //}
   
-  if ($conn->query($sql) === TRUE) {
-    //echo "Auction created successfully!";
+  if ($conn->query($sql2) === TRUE) {
+    echo "date added successfully!";
 } else {
-    echo "Error: " . $sql . "<br>" . $conn->error;
+    echo "Error: " . $sql2 . "<br>" . $conn->error;
 }
 
   
