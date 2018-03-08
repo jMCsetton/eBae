@@ -158,7 +158,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
 				</thead>
 				<?php
 				// Fetching data from database
-				while ($row = mysqli_fetch_array($result)) {
+				while ($row2 = mysqli_fetch_array($result2)) {
 
 					echo '
 					<tr>
