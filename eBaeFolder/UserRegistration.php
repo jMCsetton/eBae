@@ -1,7 +1,7 @@
 <?php
 //echo "this is php"
-
-+<?php
+?>
+<?php
 // define variables and set to empty values
 $firstnameErr = $lastnameErr = $DOBErr = $doorNumberErr = $streetErr = $cityErr = $countyErr = $postCodeErr = $genderErr = $emailIDErr = $usernameErr = $passwordErr = $psw2Err = "";
 $firstName = $lastName = $DOB = $doorNumber = $street = $city = $county = $postCode = $gender = $email_ID  = $username = $password  = $psw2 = "";
@@ -197,6 +197,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                   }
                                 }
                                  </script>
+
+
                                     <button type="submit" name="submit" class="btn btn-danger btn-block btn-round"><a href="https://gc06team37db.azurewebsites.net">Register</a></button>
 
                                   
