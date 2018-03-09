@@ -91,12 +91,7 @@
 
                                 </div>
 
-                                </div>
-
-                               
-                            </div>
-
-<script>
+                                <script>
 var myPass = document.getElementById("psw");
 var myConfirmPass = document.getElementById("psw2");
 
@@ -110,6 +105,13 @@ var check = function() {
   }
 }
 </script>
+
+                                </div>
+
+                               
+                            </div>
+
+
                         </div>
                     </div>
                    
