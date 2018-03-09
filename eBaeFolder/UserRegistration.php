@@ -76,9 +76,6 @@
                                     <label>Username</label>
                                     <input type="Username" class="form-control" placeholder="Username" name="username">
 
-
-                                   <!--  <input type="password" class="form-control" placeholder="Password" name="password"/> -->
-
                                      <label>Password</label>
                                     <input type="password" class="form-control" placeholder="Password" id="psw" name="password"">
 
