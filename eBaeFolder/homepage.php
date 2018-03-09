@@ -13,7 +13,12 @@ $conn =  new mysqli($host, $username, $password, $dbname);
     die("Connection failed: ".$conn->connect_error);
   }
 
-$sql = "SELECT productImage, productName, reservePrice, date_format(enddate, '%d-%m-%Y') enddate, category, quantity, conditions, productInfo, productID FROM product ORDER BY YEAR(enddate) ASC, MONTH(enddate) ASC, DAY(enddate) ASC";
+//$sql = "SELECT productImage, productName, reservePrice, date_format(enddate, '%d-%m-%Y') enddate, category, quantity, conditions, productInfo, productID FROM product ORDER BY YEAR(enddate) ASC, MONTH(enddate) ASC, DAY(enddate) ASC";
+
+$sql = "SELECT productImage, productName, reservePrice, date_format(enddate, '%d-%m-%Y') enddate, category, quantity, conditions, productInfo, productID
+FROM product
+WHERE enddate >= CURDATE()
+ORDER BY YEAR(enddate) ASC, MONTH(enddate) ASC, DAY(enddate) ASC";
 
 $result = $conn->query($sql);
 
