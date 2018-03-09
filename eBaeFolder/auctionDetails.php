@@ -19,6 +19,10 @@ $sql = "SELECT productImage, productName, reservePrice, date_format(enddate, '%d
 
 $result = $conn->query($sql);
 
+$sql2 = "SELECT userID, bidPrice, bidDate FROM bid WHERE productID = $productID_page";
+
+   $result2 = $conn->query($sql2);
+
 
 
 ?>
@@ -117,6 +121,33 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
             </div>
             
               ';
+
+              
+              while ($row2 = mysqli_fetch_assoc($result2)) {          
+     
+        
+                echo '
+               
+                  
+                    <tr>
+                    <td>'.$row2["bidPrice"].'</tb> 
+                    <td>'.$row2["userID"].'</td>
+                    <td>'.$row2["bidDate"].'</td>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                  </tr>
+                  
+                    ';
+               
+                    //$_SESSION['productID'] = $row['productID'];
+                    //$productID = $_SESSION['productID'];
+                    //echo $productID ;
+        
+        
+        
+                      }
 				
 				?>
   <!--form action="" method="post" enctype="multipart/form-data" >
