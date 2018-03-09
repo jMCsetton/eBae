@@ -2,6 +2,95 @@
 //echo "this is php"
 ?>
 
+<?php
+// define variables and set to empty values
+$firstnameErr = $lastnameErr = $DOBErr = $doorNumberErr = $streetErr = $cityErr = $countyErr = $postCodeErr = $genderErr = $emailIDErr = $usernameErr = $passwordErr = $psw2Err = "";
+$firstName = $lastName = $DOB = $doorNumber = $street = $city = $county = $postCode = $gender = $email_ID  = $username = $password  = $psw2 = "";
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  if (empty($_POST["firstName"])) {
+    $firstnameErr = "First name is required";
+  } else {
+    $firstname = test_input($_POST["firstName"]);
+  }
+
+  if (empty($_POST["lastName"])) {
+    $lastnameErr = "Last name is required";
+  } else {
+    $lastName = test_input($_POST["lastName"]);
+  }
+
+    if (empty($_POST["DOB"])) {
+    $DOBErr = "DOB is required";
+  } else {
+    $DOB = test_input($_POST["DOB"]);
+  }
+
+  if (empty($_POST["doorNumber"])) {
+    $doorNumberErr = "Door number is required";
+  } else {
+    $doorNumber = test_input($_POST["doorNumber"]);
+  }
+
+  if (empty($_POST["street"])) {
+    $streetErr = "Street is required";
+  } else {
+    $street = test_input($_POST["street"]);
+  }
+
+    if (empty($_POST["city"])) {
+    $cityErr = "City is required";
+  } else {
+    $city = test_input($_POST["city"]);
+  }
+
+    if (empty($_POST["county"])) {
+    $countyErr = "County is required";
+  } else {
+    $county = test_input($_POST["county"]);
+  }
+
+    if (empty($_POST["postCode"])) {
+    $postCodeErr = "Post Code is required";
+  } else {
+    $postCode = test_input($_POST["postCode"]);
+  }
+
+    if (empty($_POST["gender"])) {
+    $genderErr = "Gender is required";
+  } else {
+    $gender = test_input($_POST["gender"]);
+  }
+
+    if (empty($_POST["email_ID"])) {
+    $emailIDErr = "Email is required";
+  } else {
+    $email_ID = test_input($_POST["email_ID"]);
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        $emailErr = "Invalid email format"; 
+      }
+  }
+
+    if (empty($_POST["username"])) {
+    $usernameErr = "Username is required";
+  } else {
+    $username = test_input($_POST["username"]);
+  }
+
+    if (empty($_POST["password"])) {
+    $passwordErr = "Password is required";
+  } else {
+    $password = test_input($_POST["password"]);
+  }
+
+    if (empty($_POST["psw2"])) {
+    $psw2Err = "Please confirm your password!";
+  } else {
+    $psw2 = test_input($_POST["psw2"]);
+  }
+}
+
+?>
 
 <!doctype html>
 <html lang="en">
