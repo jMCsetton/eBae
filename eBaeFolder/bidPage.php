@@ -28,7 +28,7 @@ $conn =  new mysqli($host, $username, $password, $dbname);
    FROM bid
    GROUP BY productID
    WHERE userID = $userID
-   ORDER BY bidDate ASC"; 
+  ORDER BY bidDate ASC";
 
 $result2 = $conn->query($sql2);
 
