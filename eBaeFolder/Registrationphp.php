@@ -17,7 +17,7 @@ if (isset($_POST['submit']))
   '".$_POST["gender"]."', '".$_POST["email_ID"]."', '".$_POST["postCode"]."', '".$_POST["role"]."', '".$_POST["password"]."')";
 
   $sql2 = "INSERT INTO address (postCode, street, city, county, doorNumber, username) VALUES ('".$_POST["postCode"]."',
-  '".$_POST["street"]."', '".$P_OST["city"]."', '".$P_OST["county"]."', '".$_POST["doorNumber"]."', '".$_POST["username"]."')";
+  '".$_POST["street"]."', '".$_POST["city"]."', '".$_POST["county"]."', '".$_POST["doorNumber"]."', '".$_POST["username"]."')";
 
   if ($conn->query($sql) === TRUE) {
     echo "New user created created successfully";
