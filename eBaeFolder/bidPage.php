@@ -26,7 +26,8 @@ $conn =  new mysqli($host, $username, $password, $dbname);
 
    $sql2 = "SELECT productID, MAX(bidPrice) AS bidPriceHighest
    FROM bid
-   GROUP BY productID"; 
+   GROUP BY productID
+   ORDER BY bidDate ASC"; 
 
 $result2 = $conn->query($sql2);
 
