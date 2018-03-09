@@ -1,7 +1,7 @@
 <?php
 //echo "this is php"
-?>
-<?php
+
++<?php
 // define variables and set to empty values
 $firstnameErr = $lastnameErr = $DOBErr = $doorNumberErr = $streetErr = $cityErr = $countyErr = $postCodeErr = $genderErr = $emailIDErr = $usernameErr = $passwordErr = $psw2Err = "";
 $firstName = $lastName = $DOB = $doorNumber = $street = $city = $county = $postCode = $gender = $email_ID  = $username = $password  = $psw2 = "";
@@ -69,7 +69,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $emailErr = "Invalid email format"; 
       }
   }
-  
 
     if (empty($_POST["username"])) {
     $usernameErr = "Username is required";
@@ -89,6 +88,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $psw2 = test_input($_POST["psw2"]);
   }
 }
+
 ?>
 
 <!doctype html>
@@ -143,12 +143,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                     <label>First Name</label>
                                     <input type="text" class="form-control" placeholder="First Name" name="firstName">
                                     <span class="error">* <?php echo $firstnameErr;?></span>
+
                                     <label>Last Name</label>
                                     <input type="text" class="form-control" placeholder="Last Name" name="lastName">
                                     <span class="error">* <?php echo $lastnameErr;?></span>
+
                                     <label>Date of Birth</label>
                                     <input type="text" class="form-control" placeholder="dd/mm/yyyy" name="DOB">
                                     <span class="error">* <?php echo $DOBErr;?></span>
+
                                     <label>Address:</label>
                                     <input type="text" class="form-control" placeholder="House Number" name="doorNumber">
                                     <span class="error">* <?php echo $doorNumberErr;?></span>
@@ -168,17 +171,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                     <label>Email</label>
                                     <input type="text" class="form-control" placeholder="Email" name="email_ID">
                                     <span class="error">* <?php echo $emailErr;?></span>
-                                    
+
                                     <label>Username</label>
-                                    <input type="Username" class="form-control" placeholder="Username" name="username">
+                                    <input type="Username" class="form-control" placeholder="Username" name="username" id="username1">
                                     <span class="error">* <?php echo $usernameErr;?></span>
+
                                      <label>Password</label>
                                     <input type="password" class="form-control" placeholder="Password" id="psw" name="password" onkeyup='check();'>
                                     <span class="error">* <?php echo $passwordErr;?></span>
+
                                      <label>Confirm Password</label>
-                                    <input type="password" class="form-control" placeholder="Confirm Password" name="psw2" id="psw2" onkeyup='check();'/>
-                                    <span class="error">* <?php echo $psw2Err;?></span>
+                                    <input type="password" class="form-control" placeholder="Confirm Password" id="psw2" onkeyup='check();'/>
                                     <span id='message'></span>
+                                    <span class="error">* <?php echo $psw2Err;?></span>
                                      
                                     <script>
 
@@ -191,7 +196,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                         document.getElementById('message').innerHTML = 'Passwords do not match';
                                   }
                                 }
-                            </script>
+                                 </script>
                                     <button type="submit" name="submit" class="btn btn-danger btn-block btn-round"><a href="https://gc06team37db.azurewebsites.net">Register</a></button>
 
                                   
@@ -214,7 +219,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </div>
     </div>
 </body>
-
 
 <!-- Core JS Files -->
 <script src="../assets/js/jquery-3.2.1.js" type="text/javascript"></script>
