@@ -84,7 +84,7 @@
 
                                      <label>Confirm Password</label>
                                     <input type="password" class="form-control" placeholder="Confirm Password" id="psw2"/>
-                                    <span id='message'>Passwords do not match</span>
+                                    <span id='message'>/span>
                                      
                                    
                                     <button type="submit" name="submit" class="btn btn-danger btn-block btn-round"><a href="https://gc06team37db.azurewebsites.net">Register</a></button>
