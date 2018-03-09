@@ -82,10 +82,12 @@ ob_start();
                                     <input type="Username" class="form-control" placeholder="Username" name="username"/>
 
                                     <label>Password</label>
-                                    <input type="password" class="form-control" placeholder="Password" name="password"/>
+                                   <!--  <input type="password" class="form-control" placeholder="Password" name="password"/> -->
+                                    <input type="password" class="form-control" placeholder="Password" id="psw" name="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}">
 
                                      <label>Confirm Password</label>
-                                    <input type="password" class="form-control" placeholder="Confirm Password"/>
+                                    <input type="password" class="form-control" placeholder="Confirm Password" id="psw2"/>
+                                    <span id='message'></span>
                                      
                                    
                                     <button type="submit" name="submit" class="btn btn-danger btn-block btn-round">Register</button>
@@ -93,6 +95,21 @@ ob_start();
                                   
                                 </form>
                                 </div>
+
+<script>
+var myPass = document.getElementById("psw");
+var myConfirmPass = document.getElementById("psw2");
+
+var check = function() {
+    if(document.getElementById("psw").value == document.getElementById("psw2").value) {
+        document.getElementById('message').style.color = 'green';
+         document.getElementById('message').innerHTML = 'matching';
+    }  else {
+        document.getElementById('message').style.color = 'red';
+        document.getElementById('message').innerHTML = 'not matching';
+  }
+}
+</script>
                                 </div>
                                
                             </div>
