@@ -15,7 +15,7 @@ $conn =  new mysqli($host, $username, $password, $dbname);
 
   $userID = $_SESSION['userID'];
 
-  $sql = "SELECT p.productName, b.bidPrice, p.reservePrice date_format(b.bidDate, '%d-%m-%Y') bidDate
+  $sql = "SELECT p.productName, b.bidPrice, p.reservePrice, date_format(b.bidDate, '%d-%m-%Y') bidDate
   FROM product p, bid b
   WHERE b.userID = $userID
   AND p.productID = b.productID
@@ -24,22 +24,11 @@ $conn =  new mysqli($host, $username, $password, $dbname);
     $result = $conn->query($sql);
 
 
-   $sql2 = "SELECT productID, MAX(bidPrice) bidPrice
+   $sql2 = "SELECT productID, MAX(bidPrice)
    FROM bid
    GROUP BY productID"; 
 
 $result2 = $conn->query($sql2);
-
-if ($conn->query($sql) === TRUE) {
-    //echo "date added successfully!";
-  } else {
-    echo "Error: " . $sql . "<br>" . $conn->error;
-  }
-  if ($conn->query($sql2) === TRUE) {
-    //echo "date added successfully!";
-  } else {
-    echo "Error: " . $sql2 . "<br>" . $conn->error;
-  }
 
 ?>
 
@@ -120,7 +109,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
 				<?php
         // Fetching data from database
         
-       //$row2 = mysqli_fetch_array($result2);
+       $row2 = mysqli_fetch_array($result2);
 				while( $row = mysqli_fetch_array($result)) { 
 
 					echo '
@@ -129,7 +118,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
              <td>'.$row["bidDate"].'</td>
              <td>'.$row["reservePrice"].'</td>
              <td>'.$row["bidPrice"].'</td> 
-             
+             <td>'.$row2["bidPrice"].'</td> 
 
     
           
