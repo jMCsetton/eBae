@@ -12,12 +12,15 @@ if (isset($_POST['submit']))
     die("Connection failed: ".$conn->connect_error);
   }
 
+
+
+  $sql = "INSERT INTO address (postCode, street, city, county, doorNumber, username) VALUES ('".$_POST["postCode"]."',
+  '".$_POST["street"]."', '".$_POST["city"]."', '".$_POST["county"]."', '".$_POST["doorNumber"]."', '".$P_OST["username"]."')";
+
   $sql = "INSERT INTO user (username, firstName, lastName, DOB, gender, email_ID, postCode, role, password)
   VALUES ('".$_POST["username"]."', '".$_POST["firstName"]."', '".$_POST["lastName"]."', '".$_POST["DOB"]."',
-  '".$_POST["gender"]."', '".$_POST["email_ID"]."', '".$_POST["postCode"]."', '".$_POST["role"]."', '".$_POST["password"]."')";
+  '".$_POST["gender"]."', '".$_POST["email_ID"]."', '".$_POST["postCode"]."', '".$_POST["role"]."', '".$_POST["password"]."')";*/
 
-  $sql2 = "INSERT INTO address (postCode, street, city, county, doorNumber, username) VALUES ('".$_POST["postCode"]."',
-  '".$_POST["street"]."', '".$_POST["city"]."', '".$_POST["county"]."', '".$_POST["doorNumber"]."', '".$_POST["username"]."')";
 
   if ($conn->query($sql) === TRUE) {
     echo "New user created created successfully";
@@ -33,5 +36,5 @@ if (isset($_POST['submit']))
  ?>
 
  <div>
- <a href="https://gc06team37db.azurewebsites.net/index.php#"><button class="button button-block"/>Home</button></a>
+ <a href="index.php"><button class="button button-block"/>Home</button></a>
  </div>
