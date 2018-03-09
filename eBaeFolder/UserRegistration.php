@@ -83,7 +83,18 @@
                                     <input type="password" class="form-control" placeholder="Confirm Password" id="psw2" onkeyup='check();'/>
                                     <span id='message'></span>
                                      
-                                   
+                                    <script>
+
+                                    var check = function() {
+                                    if(document.getElementById("psw").value == document.getElementById("psw2").value) {
+                                        document.getElementById('message').style.color = 'green';
+                                         document.getElementById('message').innerHTML = 'Passwords match';
+                                    }  else {
+                                        document.getElementById('message').style.color = 'red';
+                                        document.getElementById('message').innerHTML = 'Passwords do not match';
+                                  }
+                                }
+                            </script>
                                     <button type="submit" name="submit" class="btn btn-danger btn-block btn-round"><a href="https://gc06team37db.azurewebsites.net">Register</a></button>
 
                                   
@@ -91,18 +102,7 @@
 
                                 </div>
 
-                                <script>
-
-    var check = function() {
-    if(document.getElementById("psw").value == document.getElementById("psw2").value) {
-        document.getElementById('message').style.color = 'green';
-         document.getElementById('message').innerHTML = 'matching';
-    }  else {
-        document.getElementById('message').style.color = 'red';
-        document.getElementById('message').innerHTML = 'not matching';
-  }
-}
-</script>
+                            
 
                                 </div>
 
