@@ -24,7 +24,7 @@ $conn =  new mysqli($host, $username, $password, $dbname);
     $result = $conn->query($sql);
 
 
-   $sql2 = "SELECT productID, MAX(bidPrice)
+   $sql2 = "SELECT productID, MAX(bidPrice) bidPrice
    FROM bid
    GROUP BY productID"; 
 
