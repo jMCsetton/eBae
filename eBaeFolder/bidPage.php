@@ -50,7 +50,7 @@ $conn =  new mysqli($host, $username, $password, $dbname);
     $result = $conn->query($sql);
 
 
-   ./*$sql2 = "SELECT productID, MAX(bidPrice) AS bidPriceHighest, date_format(bidDate, '%d-%m-%Y') bidDate
+   /*$sql2 = "SELECT productID, MAX(bidPrice) AS bidPriceHighest, date_format(bidDate, '%d-%m-%Y') bidDate
    FROM bid
    WHERE userID = $userID
    GROUP BY productID
