@@ -15,7 +15,7 @@ $conn =  new mysqli($host, $username, $password, $dbname);
 
   $userID = $_SESSION['userID'];
 
-  $sql = "SELECT p.productName, b.bidPrice, date_format(b.bidDate, '%d-%m-%Y') bidDate
+  $sql = "SELECT p.productName, b.bidPrice, p.reservePrice date_format(b.bidDate, '%d-%m-%Y') bidDate
   FROM product p, bid b
   WHERE b.userID = $userID
   AND p.productID = b.productID
@@ -23,6 +23,12 @@ $conn =  new mysqli($host, $username, $password, $dbname);
   
     $result = $conn->query($sql);
 
+
+   $sql2 = "SELECT productID, MAX(bidPrice)
+   FROM bid
+   GROUP BY productID"; 
+
+$result2 = $conn->query($sql2);
 
 ?>
 
@@ -91,23 +97,35 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
 			<table id="bid_data" class="table table-striped table-bordered">
 				<thead>
 					<tr>
-						<th>Bid Price</th>
-						<th>Product Name</th>
-						<th>Bid Date</th>
+            <th>Product Name</th>
+            <th>Bid Date</th>
+            <th>Reserve Price</th>
+						<th>My Bid</th>
+            <th> Highest Bid </th>
+            <th> Winning Bid </th?
 
 				</tr>
 				</thead>
 				<?php
-				// Fetching data from database
-				while ($row = mysqli_fetch_array($result)) {
+        // Fetching data from database
+        
+       $row2 = mysqli_fetch_array($result2);
+				while( $row = mysqli_fetch_array($result)) { 
 
 					echo '
-					<tr>
-            <td>'.$row["bidPrice"].'</tb> 
-            <td>'.$row["productName"].'</td>
-            <td>'.$row["bidDate"].'</td>
+          <tr>
+             <td>'.$row["productName"].'</td>
+             <td>'.$row["bidDate"].'</td>
+             <td>'.$row["reservePrice"].'</td>
+             <td>'.$row["bidPrice"].'</tb> 
+             <td>'.$row2["bidPrice"].'</tb> 
+
+    
+          
 					</tr>
-					';
+          ';
+          
+        
 				}
 				?>
 				<tbody>
