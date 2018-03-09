@@ -21,8 +21,7 @@ $conn =  new mysqli($host, $username, $password, $dbname);
   //AND p.productID = b.productID
   //ORDER BY bidDate ASC";
 
-$sql = "SELECT p.productName, b.bidPrice, p.reservePrice, date_format(b.bidDate, '%d-%m-%Y') bidDate
-
+$sql = "SELECT p.productName, r.maxprice, p.reservePrice, date_format(b.bidDate, '%d-%m-%Y') bidDate
   FROM (SELECT MAX(bidPrice) AS maxprice, productID
   FROM bid
   GROUP BY productID) r, product p, bid b
