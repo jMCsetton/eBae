@@ -47,11 +47,11 @@ if ($conn->query($sql) === TRUE) {
   } else {
     echo "Error for sql: " . $sql . "<br>" . $conn->error;
   }
-  if ($conn->query($sql2) === TRUE) {
+  /*if ($conn->query($sql2) === TRUE) {
     //echo "date added successfully!";
   } else {
     echo "Error for sql2: " . $sql2 . "<br>" . $conn->error;
-  }
+  }*/
 
 ?>
 
