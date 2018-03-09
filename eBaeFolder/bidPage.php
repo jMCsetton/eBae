@@ -36,11 +36,11 @@ $conn =  new mysqli($host, $username, $password, $dbname);
   GROUP BY productID) r,
     (SELECT productID, MAX(bidPrice) AS bidPriceHighest, date_format(bidDate, '%d-%m-%Y') bidDate
    FROM bid
-   WHERE userID = 4
+   WHERE userID = $userID
    GROUP BY productID
   ORDER BY bidDate ASC) g,
     product p, bid b
-  WHERE b.userID = 4
+  WHERE b.userID = $userID
   AND p.productID = b.productID
   AND r.maxprice = b.bidPrice
   AND p.productID = g.productID

@@ -22,4 +22,17 @@ if ($conn->query($sql) === TRUE) {
   } else {
     echo "Error: " . $sql . "<br>" . $conn->error;
   }
+
+  // checking end dates of auctions
+  $sql2 = "SELECT endDate, productID
+  FROM product";
+    $result = $conn->query($sql2);
+    
+    while( $row = mysqli_fetch_array($result)) { 
+    if ($date == ){
+
+    }
+}
+  
+  
 ?>
