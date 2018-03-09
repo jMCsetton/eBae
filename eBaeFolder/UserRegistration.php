@@ -143,6 +143,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                               <form action="Registrationphp.php" method="post">
                                     <label>First Name</label>
                                     <input type="text" class="form-control" placeholder="First Name" name="firstName">
+                                    <span class="error">* <?php echo $firstnameErr;?></span>
                                    
 
                                     <label>Last Name</label>
