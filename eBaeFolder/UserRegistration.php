@@ -142,11 +142,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                 <h3 class="title">Please fill out the form below to register:</h3>
                               <form action="Registrationphp.php" method="post">
                                    
+                                    <span class="error">*<?php echo $firstnameErr;?></span>
                                     <label>First Name</label>
-                                    <span class="error">* <?php echo $firstnameErr;?></span>
-                                    <input type="text" class="form-control" placeholder="First Name" name="firstName">
+                                    <input type="text" class="form-control" placeholder="First Name" name="firstName"/>
                                     
-
 
                                     <label>Last Name</label>
                                     <input type="text" class="form-control" placeholder="Last Name" name="lastName">
