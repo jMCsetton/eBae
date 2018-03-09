@@ -31,3 +31,7 @@ if (isset($_POST['submit']))
 
 
  ?>
+
+ <div>
+ <a href="https://gc06team37db.azurewebsites.net/index.php#"><button class="button button-block"/>Home</button></a>
+ </div>
