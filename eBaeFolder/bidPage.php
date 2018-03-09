@@ -34,13 +34,13 @@ $sql = "SELECT p.productName, r.maxprice, p.reservePrice, date_format(b.bidDate,
     $result = $conn->query($sql);
 
 
-   $sql2 = "SELECT productID, MAX(bidPrice) AS bidPriceHighest, date_format(bidDate, '%d-%m-%Y') bidDate
+   /*$sql2 = "SELECT productID, MAX(bidPrice) AS bidPriceHighest, date_format(bidDate, '%d-%m-%Y') bidDate
    FROM bid
    WHERE userID = $userID
    GROUP BY productID
   ORDER BY bidDate ASC";
 
-$result2 = $conn->query($sql2);
+$result2 = $conn->query($sql2);*/
 
 if ($conn->query($sql) === TRUE) {
     //echo "date added successfully!";
@@ -133,7 +133,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
         // Fetching data from database
         
        //$row2 = mysqli_fetch_array($result2);
-		while( $row = mysqli_fetch_array($result) && $row2 = mysqli_fetch_array($result2)) { 
+		while( $row = mysqli_fetch_array($result)) { 
 
 					echo '
           <tr>
@@ -141,7 +141,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
              <td>'.$row["bidDate"].'</td>
              <td>'.$row["reservePrice"].'</td>
              <td>'.$row["bidPrice"].'</td> 
-             <td>'.$row2["bidPriceHighest"].'</td> 
+             
 
     
           
