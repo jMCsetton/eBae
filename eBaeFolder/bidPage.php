@@ -109,7 +109,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
 				<?php
         // Fetching data from database
         
-       $row2 = mysqli_fetch_array($result2);
+       //$row2 = mysqli_fetch_array($result2);
 				while( $row = mysqli_fetch_array($result)) { 
 
 					echo '
@@ -118,7 +118,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
              <td>'.$row["bidDate"].'</td>
              <td>'.$row["reservePrice"].'</td>
              <td>'.$row["bidPrice"].'</td> 
-             <td>'.$row2["bidPrice"].'</td> 
+             
 
     
           
