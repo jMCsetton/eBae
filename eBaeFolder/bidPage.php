@@ -15,11 +15,22 @@ $conn =  new mysqli($host, $username, $password, $dbname);
 
   $userID = $_SESSION['userID'];
 
-  $sql = "SELECT p.productName, b.bidPrice, p.reservePrice, date_format(b.bidDate, '%d-%m-%Y') bidDate
-  FROM product p, bid b
+  //$sql = "SELECT p.productName, b.bidPrice, p.reservePrice, date_format(b.bidDate, '%d-%m-%Y') bidDate
+  //FROM product p, bid b
+  //WHERE b.userID = $userID
+  //AND p.productID = b.productID
+  //ORDER BY bidDate ASC";
+
+$sql = "SELECT p.productName, b.bidPrice, p.reservePrice, date_format(b.bidDate, '%d-%m-%Y') bidDate
+
+  FROM (SELECT MAX(bidPrice) AS maxprice, productID
+  FROM bid
+  GROUP BY productID) r, product p, bid b
   WHERE b.userID = $userID
   AND p.productID = b.productID
+  AND r.maxprice = b.bidPrice
   ORDER BY bidDate ASC";
+
   
     $result = $conn->query($sql);
 
