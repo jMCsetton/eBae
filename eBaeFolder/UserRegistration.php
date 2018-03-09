@@ -146,43 +146,45 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                     <label>First Name</label>
                                     <input type="text" class="form-control" placeholder="First Name" name="firstName"/>
                                     
-
+                                    <span class="error">* <?php echo $lastnameErr;?></span>
                                     <label>Last Name</label>
                                     <input type="text" class="form-control" placeholder="Last Name" name="lastName">
                                   
-
+                                    <span class="error">* <?php echo $DOBErr;?></span>
                                     <label>Date of Birth</label>
                                     <input type="text" class="form-control" placeholder="dd/mm/yyyy" name="DOB">
                                    
 
                                     <label>Address:</label>
+                                    <span class="error">* <?php echo $doorNumberErr;?></span>
                                     <input type="text" class="form-control" placeholder="House Number" name="doorNumber">
-                                    
+                                    <span class="error">* <?php echo $streetErr;?></span>
                                     <input type="text" class="form-control" placeholder="Street" name="street">
-                                   
+                                    <span class="error">* <?php echo $cityErr;?></span>
                                     <input type="text" class="form-control" placeholder="Town/City" name="city">
-                                    
+                                    <span class="error">* <?php echo $countyErr;?></span>
                                     <input type="text" class="form-control" placeholder="County" name="county">
-                                   
+                                    <span class="error">* <?php echo $postCodeErr;?></span>
                                     <input type="text" class="form-control" placeholder="Post Code" name="postCode">
                                    
 
+                                    <span class="error">* <?php echo $genderErr;?></span>
                                     <label>Gender</label>
                                     <input type="text" class="form-control" placeholder="Gender" name="gender">
                                    
-
+                                    <span class="error">* <?php echo $emailErr;?></span>
                                     <label>Email</label>
                                     <input type="text" class="form-control" placeholder="Email" name="email_ID">
                                    
-
+                                    <span class="error">* <?php echo $usernameErr;?></span>
                                     <label>Username</label>
                                     <input type="Username" class="form-control" placeholder="Username" name="username" id="username1">
                                    
-
+                                    <span class="error">* <?php echo $passwordErr;?></span>
                                      <label>Password</label>
                                     <input type="password" class="form-control" placeholder="Password" id="psw" name="password" onkeyup='check();'>
                                     
-
+                                    <span class="error">* <?php echo $psw2Err;?></span>
                                      <label>Confirm Password</label>
                                     <input type="password" class="form-control" placeholder="Confirm Password" id="psw2" onkeyup='check();'/>
                                     <span id='message'></span>
