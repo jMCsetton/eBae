@@ -30,6 +30,17 @@ $conn =  new mysqli($host, $username, $password, $dbname);
 
 $result2 = $conn->query($sql2);
 
+if ($conn->query($sql) === TRUE) {
+    //echo "date added successfully!";
+  } else {
+    echo "Error: " . $sql . "<br>" . $conn->error;
+  }
+  if ($conn->query($sql2) === TRUE) {
+    //echo "date added successfully!";
+  } else {
+    echo "Error: " . $sql2 . "<br>" . $conn->error;
+  }
+
 ?>
 
 <html>
