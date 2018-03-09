@@ -50,7 +50,7 @@
                         <div class="col-lg-4 ml-auto mr-auto">
                             <div class="card card-register">
                                 <h3 class="title">Please fill out the form below to register:</h3>
-                               <form action=“index.php” method=“post” enctype=“multipart/form-data” class=“register-form">
+                               <form action=“Registraionphp.php” method=“post” enctype=“multipart/form-data” class=“register-form">
                                     <label>First Name</label>
                                     <input type="text" class="form-control" placeholder="First Name" name="firstName">
 
