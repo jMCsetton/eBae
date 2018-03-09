@@ -76,15 +76,12 @@
                                     <label>Username</label>
                                     <input type="Username" class="form-control" placeholder="Username" name="username">
 
-
-                                   <!--  <input type="password" class="form-control" placeholder="Password" name="password"/> -->
-
                                      <label>Password</label>
                                     <input type="password" class="form-control" placeholder="Password" id="psw" name="password"">
 
                                      <label>Confirm Password</label>
                                     <input type="password" class="form-control" placeholder="Confirm Password" id="psw2"/>
-                                    <span id='message'>Passwords do not match</span>
+                                    <span id='message'></span>
                                      
                                    
                                     <button type="submit" name="submit" class="btn btn-danger btn-block btn-round"><a href="https://gc06team37db.azurewebsites.net">Register</a></button>
