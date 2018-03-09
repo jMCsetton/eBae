@@ -141,10 +141,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             <div class="card card-register">
                                 <h3 class="title">Please fill out the form below to register:</h3>
                               <form action="Registrationphp.php" method="post">
-                                    <label>First Name</label>
-                                    <input type="text" class="form-control" placeholder="First Name" name="firstName">
-                                    <span class="error">* <?php echo $firstnameErr;?></span>
                                    
+                                    <label>First Name
+                                    <span class="error">* <?php echo $firstnameErr;?></span>
+                                    <input type="text" class="form-control" placeholder="First Name" name="firstName">
+                                    </label>
+
 
                                     <label>Last Name</label>
                                     <input type="text" class="form-control" placeholder="Last Name" name="lastName">
