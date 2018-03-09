@@ -4,7 +4,7 @@
 <?php
 // define variables and set to empty values
 $firstnameErr = $lastnameErr = $DOBErr = $doorNumberErr = $streetErr = $cityErr = $countyErr = $postCodeErr = $genderErr = $emailIDErr = $usernameErr = $passwordErr = $psw2Err = "";
-$firstName = $lastName = $DOB = $doorNumber = $street = $city = $county = $postCode = $gender = $email_ID  = $username = $password  = $psw2"";
+$firstName = $lastName = $DOB = $doorNumber = $street = $city = $county = $postCode = $gender = $email_ID  = $username = $password  = $psw2 = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   if (empty($_POST["firstName"])) {
@@ -26,7 +26,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   }
 
   if (empty($_POST["doorNumber"])) {
-    $comment = "Door number is required";
+    $doorNumberErr = "Door number is required";
   } else {
     $doorNumber = test_input($_POST["doorNumber"]);
   }
@@ -65,7 +65,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $emailIDErr = "Email is required";
   } else {
     $email_ID = test_input($_POST["email_ID"]);
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        $emailErr = "Invalid email format"; 
+      }
   }
+  
 
     if (empty($_POST["username"])) {
     $usernameErr = "Username is required";
@@ -164,6 +168,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                     <label>Email</label>
                                     <input type="text" class="form-control" placeholder="Email" name="email_ID">
                                     <span class="error">* <?php echo $emailErr;?></span>
+                                    
                                     <label>Username</label>
                                     <input type="Username" class="form-control" placeholder="Username" name="username">
                                     <span class="error">* <?php echo $usernameErr;?></span>
