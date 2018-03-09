@@ -31,7 +31,16 @@ $conn =  new mysqli($host, $username, $password, $dbname);
 
 $result2 = $conn->query($sql2);
 
-
+if ($conn->query($sql) === TRUE) {
+    echo "date added successfully!";
+  } else {
+    echo "Error: " . $sql . "<br>" . $conn->error;
+  }
+  if ($conn->query($sql2) === TRUE) {
+    echo "date added successfully!";
+  } else {
+    echo "Error: " . $sql2 . "<br>" . $conn->error;
+  }
 
 ?>
 
@@ -113,7 +122,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
         // Fetching data from database
         
        //$row2 = mysqli_fetch_array($result2);
-				while( $row = mysqli_fetch_array($result) && $row2 = mysqli_fetch_array($result2)) { 
+		while( $row = mysqli_fetch_array($result) && $row2 = mysqli_fetch_array($result2)) { 
 
 					echo '
           <tr>
