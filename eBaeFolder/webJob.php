@@ -33,7 +33,7 @@ if ($conn->query($sql) === TRUE) {
     $sql3 = "SELECT p.endDate, p.productID, p.userID, b.bidID, MAX(b.bidPrice) as bidPrice , p.reservePrice
     FROM product p, bid b
     WHERE p.productID = b.productID
-    AND endDate = CURDATE();";
+    AND endDate = CURDATE()-1";
     $result3 = $conn->query($sql3);
 
     if ($conn->query($sql3) === TRUE) {

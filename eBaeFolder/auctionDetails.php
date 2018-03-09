@@ -19,7 +19,11 @@ $sql = "SELECT productImage, productName, reservePrice, date_format(enddate, '%d
 
 $result = $conn->query($sql);
 
-$sql2 = "SELECT userID, bidPrice, bidDate FROM bid WHERE productID = $productID_page";
+$sql2 = "SELECT b.userID, b.bidPrice, b.bidDate, u.username 
+FROM bid b, user u
+WHERE u.userID = b.userID
+AND productID = $productID_page
+ORDER BY bidPrice DESC";
 
    $result2 = $conn->query($sql2);
 
@@ -123,7 +127,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
               ';
 
               
-              while ($row2 = mysqli_fetch_assoc($result2)) {          
+              /*while ($row2 = mysqli_fetch_assoc($result2)) {          
      
         
                 echo '
@@ -131,42 +135,69 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
                   
                     <tr>
                     <td>'.$row2["bidPrice"].'</tb> 
-                    <td>'.$row2["userID"].'</td>
+                    <td>'.$row2["username"].'</td>
                     <td>'.$row2["bidDate"].'</td>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
                   </tr>
                   
                     ';
-               
-                    //$_SESSION['productID'] = $row['productID'];
-                    //$productID = $_SESSION['productID'];
-                    //echo $productID ;
+
         
         
         
-                      }
+                      }*/
 				
 				?>
-  <!--form action="" method="post" enctype="multipart/form-data" >
-      <div class="w3-section">
-        <label>Item Name</label>
-        <input class="w3-input w3-border" type="text" name="productName" required/>
-      </div>
-      <div class="w3-section">
-        <label>Quantity</label>
-        <input class="w3-input w3-border" type="text" name="quantity" required/>
-      </div>
-      <div class="w3-section">
-        <label>Item Category</label>
-        <input class="w3-input w3-border" type="text" name="categories" required/>
-      </div>
-  </form-->
+
+
+<!-- Submitted bids -->
+<div class="table-responsive" style="width: 80%">
+			<table id="bid_data" class="table table-striped table-bordered">
+				<thead>
+					<tr>
+            <th>Bid Price</th>
+            <th>Username</th>
+            <th>Bid Date</th>
+
+
+				</tr>
+				</thead>
+				<?php
+        // Fetching data from database
+        
+       //$row2 = mysqli_fetch_array($result2);
+       while ($row2 = mysqli_fetch_assoc($result2)) {          
+        
+           
+                   echo '
+                  
+                     
+                       <tr>
+                       <td>'.$row2["bidPrice"].'</tb> 
+                       <td>'.$row2["username"].'</td>
+                       <td>'.$row2["bidDate"].'</td>
+                     </tr>
+                     
+                       ';
+   
+           
+           
+           
+                         }
+
+				?>
  
  
   </div>
+
+  <!-- This script is to get data from mysql -->
+	<script class = "notfirst" type="text/javascript" language="javascript">
+		$(document).ready(function() {
+
+			// Activate DataTable plugin to enable datatable features
+			$('#bid_data').DataTable();
+		});
+
+	 </script>
 
 
 
