@@ -30,10 +30,14 @@ if ($conn->query($sql) === TRUE) {
     WHERE endDate = CURDATE()";
     $result2 = $conn->query($sql2);
 
-    $sql3 = "SELECT p.endDate, p.productID, p.userID, b.bidID, MAX(b.bidPrice) as bidPrice , p.reservePrice
-    FROM product p, bid b
+    $sql3 = "SELECT p.endDate, p.productID, p.userID, b.bidID, bidPriceHighest as bidPrice , p.reservePrice
+    FROM (SELECT productID, MAX(bidPrice) AS bidPriceHighest, date_format(bidDate, '%d-%m-%Y') bidDate
+   FROM bid
+   GROUP BY productID
+  ) r, product p, bid b
     WHERE p.productID = b.productID
-    AND endDate = CURDATE()-1"; 
+    AND r.productID = b.productID
+    AND endDate = CURDATE()-1;"; 
     $result3 = $conn->query($sql3);
 
     if ($conn->query($sql3) === TRUE) {
