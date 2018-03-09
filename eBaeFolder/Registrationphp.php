@@ -12,6 +12,16 @@ if (isset($_POST['submit']))
     die("Connection failed: ".$conn->connect_error);
   }
 
+$query = mysql_query("SELECT username FROM users WHERE username='$username'");
+
+  if (mysql_num_rows($query) != 0)
+  {
+      echo "Username already exists";
+  }
+
+  else
+  {
+    
 
 
   $sql = "INSERT INTO address (postCode, street, city, county, doorNumber, username) VALUES ('".$_POST["postCode"]."','".$_POST["street"]."', '".$_POST["city"]."', '".$_POST["county"]."', '".$_POST["doorNumber"]."', '".$_POST["username"]."')";
@@ -27,6 +37,7 @@ if (isset($_POST['submit']))
     echo "Error: " . $sql . "<br>" . $conn->error;
 }
 
+}
   //}
 
 }
