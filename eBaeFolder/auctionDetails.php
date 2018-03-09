@@ -19,14 +19,6 @@ $sql = "SELECT productImage, productName, reservePrice, date_format(enddate, '%d
 
 $result = $conn->query($sql);
 
-$sql2 = "SELECT u.username, b.userID, b.bidPrice, date_format(b.bidDate, '%d-%m-%Y') bidDate
-FROM bid b, user u
-WHERE productID = $productID_page
-AND u.userID = b.userID
-ORDER BY bidPrice DESC";
-
-   $result2 = $conn->query($sql2);
-
 
 
 ?>
@@ -125,71 +117,8 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
             </div>
             
               ';
-
-              
-              /*while ($row2 = mysqli_fetch_assoc($result2)) {          
-     
-        
-                echo '
-               
-                  
-                    <tr>
-                    <td>'.$row2["bidPrice"].'</tb> 
-                    <td>'.$row2["userID"].'</td>
-                    <td>'.$row2["bidDate"].'</td>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                  </tr>
-                  
-                    ';
-        
-        
-                      }*/
 				
 				?>
-
-<div class="table-responsive" style="width: 80%">
-			<table id="bid_data" class="table table-striped table-bordered">
-				<thead>
-					<tr>
-						<th>Bid Price</th>
-						<th>Username</th>
-						<th>Bid Date</th>
-
-				</tr>
-				</thead>
-				<?php
-				// Fetching data from database
-				while ($row2 = mysqli_fetch_array($result2)) {
-
-					echo '
-					<tr>
-          <td>'.$row2["bidPrice"].'</tb> 
-          <td>'.$row2["username"].'</td>
-          <td>'.$row2["bidDate"].'</td>
-					</tr>
-					';
-				}
-				?>
-				<tbody>
-				</tbody>
-				<!-- Include footer repeating column headers -->
-
-			</table>
-		</div>
-
-    <!-- This script is to get data from mysql -->
-	<script class = "notfirst" type="text/javascript" language="javascript">
-		$(document).ready(function() {
-
-			// Activate DataTable plugin to enable datatable features
-			$('#bid_data').DataTable();
-		});
-
-	 </script>
-
   <!--form action="" method="post" enctype="multipart/form-data" >
       <div class="w3-section">
         <label>Item Name</label>

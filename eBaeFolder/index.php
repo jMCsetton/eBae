@@ -119,9 +119,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
                                     <!--input type = "submit" value = " Submit "/><br /-->
                                    
                                </form>
-                                    <button class="btn btn-danger btn-block btn-round" name = "register"><a href="https://gc06team37db.azurewebsites.net/UserRegistration.php">Register User New Account</a></button>
-                                    <button class="btn btn-danger btn-block btn-round" name = "register"><a href=
-                                    >Register Admin New Account</a></button>
+                                    <button class="btn btn-danger btn-block btn-round" name = "register"><a href="https://gc06team37db.azurewebsites.net/UserRegistration.php#">Register User New Account</a></button>
+                                    <button class="btn btn-danger btn-block btn-round" name = "register"><a href="https://gc06team37db.azurewebsites.net/AdminRegistration.php#">Register Admin New Account</a></button>
                                     </div>
                         </div>
                     </div>
