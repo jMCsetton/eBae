@@ -77,10 +77,10 @@
                                     <input type="Username" class="form-control" placeholder="Username" name="username">
 
                                      <label>Password</label>
-                                    <input type="password" class="form-control" placeholder="Password" id="psw" name="password"">
+                                    <input type="password" class="form-control" placeholder="Password" id="psw" name="password" onkeyup='check();'>
 
                                      <label>Confirm Password</label>
-                                    <input type="password" class="form-control" placeholder="Confirm Password" id="psw2"/>
+                                    <input type="password" class="form-control" placeholder="Confirm Password" id="psw2" onkeyup='check();'/>
                                     <span id='message'></span>
                                      
                                    
@@ -92,10 +92,8 @@
                                 </div>
 
                                 <script>
-var myPass = document.getElementById("psw");
-var myConfirmPass = document.getElementById("psw2");
 
-var check = function() {
+    var check = function() {
     if(document.getElementById("psw").value == document.getElementById("psw2").value) {
         document.getElementById('message').style.color = 'green';
          document.getElementById('message').innerHTML = 'matching';
