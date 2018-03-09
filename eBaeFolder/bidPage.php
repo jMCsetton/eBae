@@ -15,7 +15,7 @@ $conn =  new mysqli($host, $username, $password, $dbname);
 
   $userID = $_SESSION['userID'];
 
-  $sql = "SELECT p.productName, b.bidPrice, p.reservePrice, date_format(b.bidDate, '%d-%m-%Y') bidDate
+  $sql = "SELECT p.productName, MAX(b.bidPrice), p.reservePrice, date_format(b.bidDate, '%d-%m-%Y') bidDate
   FROM product p, bid b
   WHERE b.userID = $userID
   AND p.productID = b.productID
@@ -29,6 +29,8 @@ $conn =  new mysqli($host, $username, $password, $dbname);
    GROUP BY productID"; 
 
 $result2 = $conn->query($sql2);
+
+
 
 ?>
 
