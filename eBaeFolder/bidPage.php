@@ -35,12 +35,12 @@ $result2 = $conn->query($sql2);
 if ($conn->query($sql) === TRUE) {
     //echo "date added successfully!";
   } else {
-    echo "Error: " . $sql . "<br>" . $conn->error;
+    echo "Error for sql: " . $sql . "<br>" . $conn->error;
   }
   if ($conn->query($sql2) === TRUE) {
     //echo "date added successfully!";
   } else {
-    echo "Error: " . $sql2 . "<br>" . $conn->error;
+    echo "Error for sql2: " . $sql2 . "<br>" . $conn->error;
   }
 
 ?>
