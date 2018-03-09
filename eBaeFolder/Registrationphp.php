@@ -12,25 +12,17 @@ if (isset($_POST['submit']))
     die("Connection failed: ".$conn->connect_error);
   }
 
-
-
-  $sql = "INSERT INTO address (postCode, street, city, county, doorNumber, username) VALUES ('".$_POST["postCode"]."',
-  '".$_POST["street"]."', '".$_POST["city"]."', '".$_POST["county"]."', '".$_POST["doorNumber"]."', '".$_POST["username"]."')";
-
-  $sql2 = "INSERT INTO user (username, firstName, lastName, DOB, gender, email_ID, postCode, role, password)
+  $sql = "INSERT INTO user (username, firstName, lastName, DOB, gender, email_ID, postCode, role, password)
   VALUES ('".$_POST["username"]."', '".$_POST["firstName"]."', '".$_POST["lastName"]."', '".$_POST["DOB"]."',
-  '".$_POST["gender"]."', '".$_POST["email_ID"]."', '".$_POST["postCode"]."', 'buyer_seller', '".$_POST["password"]."')";
+  '".$_POST["gender"]."', '".$_POST["email_ID"]."', '".$_POST["postCode"]."', '".$_POST["role"]."', '".$_POST["password"]."')";
 
-  //".$_POST["postCode"]."
-if ($conn->query($sql) === TRUE ) {
-    echo "New user address created created successfully";
+  $sql2 = "INSERT INTO address (postCode, street, city, country, doorNumber, username) VALUES ('".$POST["postCode"]."',
+  '".$POST["street"]."', '".$POST["city"]."', '".$POST["country"]."', '".$POST["doorNumber"]."', '".$POST["username"]."')";
+
+  if ($conn->query($sql) === TRUE) {
+    echo "New user created created successfully";
 } else {
     echo "Error: " . $sql . "<br>" . $conn->error;
-}
-if ($conn->query($sql2) === TRUE ) {
-  echo "New user table row created created successfully";
-} else {
-  echo "Error: " . $sql2 . "<br>" . $conn->error;
 }
 
   //}
@@ -39,7 +31,3 @@ if ($conn->query($sql2) === TRUE ) {
 
 
  ?>
-
- <div>
- <a href="index.php"><button class="button button-block"/>Home</button></a>
- </div>

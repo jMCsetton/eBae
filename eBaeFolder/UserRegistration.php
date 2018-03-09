@@ -1,7 +1,5 @@
 <?php
-session_start();
 //echo "this is php"
-ob_start();
 ?>
 
 <!doctype html>
@@ -44,7 +42,6 @@ ob_start();
 
 
 
-
     <div class="wrapper">
         <div class="page-header" style="background-image: url('../assets/img/login-image.jpg');">
             <div class="filter"></div>
@@ -52,48 +49,44 @@ ob_start();
                     <div class="row">
                         <div class="col-lg-4 ml-auto mr-auto">
                             <div class="card card-register">
-                                <h3 class="title">Please fill out the form below to register AMELLLIIUUUHHHHHHH:</h3>
-                               <form action="Registrationphp.php" method="post"  >
-                               <div class="register-form">
-                                    
+                                <h3 class="title">Please fill out the form below to register:</h3>
+                               <form action=“index.php” method=“post” enctype=“multipart/form-data” class=“register-form">
                                     <label>First Name</label>
-                                    <input type="text" class="form-control" placeholder="First Name" name="firstName"/>
+                                    <input type="text" class="form-control" placeholder="First Name" name="firstName">
 
                                     <label>Last Name</label>
-                                    <input type="text" class="form-control" placeholder="Last Name" name="lastName"/>
+                                    <input type="text" class="form-control" placeholder="Last Name" name="lastName">
 
                                     <label>Date of Birth</label>
-                                    <input type="text" class="form-control" placeholder="dd/mm/yyyy" name="DOB"/>
+                                    <input type="text" class="form-control" placeholder="dd/mm/yyyy" name="DOB">
 
                                     <label>Address:</label>
-                                    <input type="text" class="form-control" placeholder="House Number" name="doorNumber"/>
-                                    <input type="text" class="form-control" placeholder="Street" name="street"/>
-                                    <input type="text" class="form-control" placeholder="Town/City" name="city"/>
-                                    <input type="text" class="form-control" placeholder="County" name="county"/>
-                                    <input type="text" class="form-control" placeholder="Post Code" name="postCode"/>
+                                    <input type="text" class="form-control" placeholder="House Number" name="doorNumber">
+                                    <input type="text" class="form-control" placeholder="Street" name="street">
+                                    <input type="text" class="form-control" placeholder="Town/City" name="city">
+                                    <input type="text" class="form-control" placeholder="County" name="county">
+                                    <input type="text" class="form-control" placeholder="Post Code" name="postCode">
 
                                     <label>Gender</label>
-                                    <input type="text" class="form-control" placeholder="Gender" name="gender"/>
+                                    <input type="text" class="form-control" placeholder="Gender" name="gender">
 
                                     <label>Email</label>
-                                    <input type="text" class="form-control" placeholder="Email" name="email_ID"/>
+                                    <input type="text" class="form-control" placeholder="Email" name="email_ID">
 
                                     <label>Username</label>
-                                    <input type="Username" class="form-control" placeholder="Username" name="username"/>
+                                    <input type="Username" class="form-control" placeholder="Username" name="username">
 
                                     <label>Password</label>
-                                    <input type="password" class="form-control" placeholder="Password" name="password"/>
+                                    <input type="password" class="form-control" placeholder="Password" name="password">
 
                                      <label>Confirm Password</label>
-                                    <input type="password" class="form-control" placeholder="Confirm Password"/>
+                                    <input type="password" class="form-control" placeholder="Confirm Password">
                                      
                                    
-                                    <button type="submit" name="submit" class="btn btn-danger btn-block btn-round">Register</button>
+                                    <button type="submit" name="submit" class="btn btn-danger btn-block btn-round"><a href="https://gc06team37db.azurewebsites.net">Register</a></button>
 
                                   
                                 </form>
-                                </div>
-                                </div>
                                
                             </div>
                         </div>
@@ -103,7 +96,6 @@ ob_start();
         </div>
     </div>
 </body>
-
 
 <!-- Core JS Files -->
 <script src="../assets/js/jquery-3.2.1.js" type="text/javascript"></script>
