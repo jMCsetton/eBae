@@ -78,17 +78,13 @@
 
 
                                    <!--  <input type="password" class="form-control" placeholder="Password" name="password"/> -->
+
+                                     <label>Password/label>
                                     <input type="password" class="form-control" placeholder="Password" id="psw" name="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}">
 
                                      <label>Confirm Password</label>
                                     <input type="password" class="form-control" placeholder="Confirm Password" id="psw2"/>
                                     <span id='message'></span>
-
-                                    <input type="password" class="form-control" placeholder="Password" name="password">
-
-                                     <label>Confirm Password</label>
-                                    <input type="password" class="form-control" placeholder="Confirm Password">
-
                                      
                                    
                                     <button type="submit" name="submit" class="btn btn-danger btn-block btn-round"><a href="https://gc06team37db.azurewebsites.net">Register</a></button>
