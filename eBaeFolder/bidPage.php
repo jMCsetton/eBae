@@ -21,37 +21,53 @@ $conn =  new mysqli($host, $username, $password, $dbname);
   //AND p.productID = b.productID
   //ORDER BY bidDate ASC";
 
-$sql = "SELECT p.productName, r.maxprice, p.reservePrice, date_format(b.bidDate, '%d-%m-%Y') bidDate
+/*$sql = "SELECT p.productName, r.maxprice, p.reservePrice, date_format(b.bidDate, '%d-%m-%Y') bidDate
   FROM (SELECT MAX(bidPrice) AS maxprice, productID
   FROM bid
   GROUP BY productID) r, product p, bid b
   WHERE b.userID = $userID
   AND p.productID = b.productID
   AND r.maxprice = b.bidPrice
+  ORDER BY bidDate ASC";*/
+
+  $sql = "SELECT p.productName, r.maxprice, g.bidPriceHighest, p.reservePrice, date_format(b.bidDate, '%d-%m-%Y') bidDate
+  FROM (SELECT MAX(bidPrice) AS maxprice, productID
+  FROM bid
+  GROUP BY productID) r,
+    (SELECT productID, MAX(bidPrice) AS bidPriceHighest, date_format(bidDate, '%d-%m-%Y') bidDate
+   FROM bid
+   WHERE userID = 4
+   GROUP BY productID
+  ORDER BY bidDate ASC) g,
+    product p, bid b
+  WHERE b.userID = 4
+  AND p.productID = b.productID
+  AND r.maxprice = b.bidPrice
+  AND p.productID = g.productID
   ORDER BY bidDate ASC";
 
   
     $result = $conn->query($sql);
 
 
-   $sql2 = "SELECT productID, MAX(bidPrice) AS bidPriceHighest, date_format(bidDate, '%d-%m-%Y') bidDate
+   ./*$sql2 = "SELECT productID, MAX(bidPrice) AS bidPriceHighest, date_format(bidDate, '%d-%m-%Y') bidDate
    FROM bid
    WHERE userID = $userID
    GROUP BY productID
   ORDER BY bidDate ASC";
 
-$result2 = $conn->query($sql2);
+$result2 = $conn->query($sql2);*/
 
 if ($conn->query($sql) === TRUE) {
     //echo "date added successfully!";
   } else {
     echo "Error for sql: " . $sql . "<br>" . $conn->error;
   }
-  if ($conn->query($sql2) === TRUE) {
+  /*if ($conn->query($sql2) === TRUE) {
     //echo "date added successfully!";
   } else {
     echo "Error for sql2: " . $sql2 . "<br>" . $conn->error;
-  }
+  }*/
 
 ?>
 
@@ -132,7 +148,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
 				<?php
         // Fetching data from database
         
-       $row2 = mysqli_fetch_array($result2);
+       //$row2 = mysqli_fetch_array($result2);
 		while( $row = mysqli_fetch_array($result)) { 
 
 					echo '
@@ -141,7 +157,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
              <td>'.$row["bidDate"].'</td>
              <td>'.$row["reservePrice"].'</td>
              <td>'.$row["maxprice"].'</td> 
-             <td>'.$row2["bidPriceHighest"].'</td> 
+             <td>'.$row["bidPriceHighest"].'</td> 
              
 
     
