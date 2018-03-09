@@ -13,6 +13,7 @@ if (isset($_POST['submit']))
   }
   
 
+
   $sql = "INSERT INTO address (postCode, street, city, county, doorNumber, username) VALUES ('".$_POST["postCode"]."','".$_POST["street"]."', '".$_POST["city"]."', '".$_POST["county"]."', '".$_POST["doorNumber"]."', '".$_POST["username"]."')";
 
   $sql = "INSERT INTO user (username, firstName, lastName, DOB, gender, email_ID, postCode, role, password)
