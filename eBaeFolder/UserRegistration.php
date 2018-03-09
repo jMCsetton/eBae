@@ -1,6 +1,91 @@
 <?php
 //echo "this is php"
 ?>
+<?php
+// define variables and set to empty values
+$firstnameErr = $lastnameErr = $DOBErr = $doorNumberErr = $streetErr = $cityErr = $countyErr = $postCodeErr = $genderErr = $emailIDErr = $usernameErr = $passwordErr = $psw2Err = "";
+$firstName = $lastName = $DOB = $doorNumber = $street = $city = $county = $postCode = $gender = $email_ID  = $username = $password  = $psw2"";
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  if (empty($_POST["firstName"])) {
+    $firstnameErr = "First name is required";
+  } else {
+    $firstname = test_input($_POST["firstName"]);
+  }
+
+  if (empty($_POST["lastName"])) {
+    $lastnameErr = "Last name is required";
+  } else {
+    $lastName = test_input($_POST["lastName"]);
+  }
+
+    if (empty($_POST["DOB"])) {
+    $DOBErr = "DOB is required";
+  } else {
+    $DOB = test_input($_POST["DOB"]);
+  }
+
+  if (empty($_POST["doorNumber"])) {
+    $comment = "Door number is required";
+  } else {
+    $doorNumber = test_input($_POST["doorNumber"]);
+  }
+
+  if (empty($_POST["street"])) {
+    $streetErr = "Street is required";
+  } else {
+    $street = test_input($_POST["street"]);
+  }
+
+    if (empty($_POST["city"])) {
+    $cityErr = "City is required";
+  } else {
+    $city = test_input($_POST["city"]);
+  }
+
+    if (empty($_POST["county"])) {
+    $countyErr = "County is required";
+  } else {
+    $county = test_input($_POST["county"]);
+  }
+
+    if (empty($_POST["postCode"])) {
+    $postCodeErr = "Post Code is required";
+  } else {
+    $postCode = test_input($_POST["postCode"]);
+  }
+
+    if (empty($_POST["gender"])) {
+    $genderErr = "Gender is required";
+  } else {
+    $gender = test_input($_POST["gender"]);
+  }
+
+    if (empty($_POST["email_ID"])) {
+    $emailIDErr = "Email is required";
+  } else {
+    $email_ID = test_input($_POST["email_ID"]);
+  }
+
+    if (empty($_POST["username"])) {
+    $usernameErr = "Username is required";
+  } else {
+    $username = test_input($_POST["username"]);
+  }
+
+    if (empty($_POST["password"])) {
+    $passwordErr = "Password is required";
+  } else {
+    $password = test_input($_POST["password"]);
+  }
+
+    if (empty($_POST["psw2"])) {
+    $psw2Err = "Please confirm your password!";
+  } else {
+    $psw2 = test_input($_POST["psw2"]);
+  }
+}
+?>
 
 <!doctype html>
 <html lang="en">
@@ -53,34 +138,41 @@
                               <form action="Registrationphp.php" method="post">
                                     <label>First Name</label>
                                     <input type="text" class="form-control" placeholder="First Name" name="firstName">
-
+                                    <span class="error">* <?php echo $firstnameErr;?></span>
                                     <label>Last Name</label>
                                     <input type="text" class="form-control" placeholder="Last Name" name="lastName">
-
+                                    <span class="error">* <?php echo $lastnameErr;?></span>
                                     <label>Date of Birth</label>
                                     <input type="text" class="form-control" placeholder="dd/mm/yyyy" name="DOB">
-
+                                    <span class="error">* <?php echo $DOBErr;?></span>
                                     <label>Address:</label>
                                     <input type="text" class="form-control" placeholder="House Number" name="doorNumber">
+                                    <span class="error">* <?php echo $doorNumberErr;?></span>
                                     <input type="text" class="form-control" placeholder="Street" name="street">
+                                    <span class="error">* <?php echo $streetErr;?></span>
                                     <input type="text" class="form-control" placeholder="Town/City" name="city">
+                                    <span class="error">* <?php echo $cityErr;?></span>
                                     <input type="text" class="form-control" placeholder="County" name="county">
+                                    <span class="error">* <?php echo $countyErr;?></span>
                                     <input type="text" class="form-control" placeholder="Post Code" name="postCode">
+                                    <span class="error">* <?php echo $postCodeErr;?></span>
 
                                     <label>Gender</label>
                                     <input type="text" class="form-control" placeholder="Gender" name="gender">
+                                    <span class="error">* <?php echo $genderErr;?></span>
 
                                     <label>Email</label>
                                     <input type="text" class="form-control" placeholder="Email" name="email_ID">
-
+                                    <span class="error">* <?php echo $emailErr;?></span>
                                     <label>Username</label>
                                     <input type="Username" class="form-control" placeholder="Username" name="username">
-
+                                    <span class="error">* <?php echo $usernameErr;?></span>
                                      <label>Password</label>
                                     <input type="password" class="form-control" placeholder="Password" id="psw" name="password" onkeyup='check();'>
-
+                                    <span class="error">* <?php echo $passwordErr;?></span>
                                      <label>Confirm Password</label>
-                                    <input type="password" class="form-control" placeholder="Confirm Password" id="psw2" onkeyup='check();'/>
+                                    <input type="password" class="form-control" placeholder="Confirm Password" name="psw2" id="psw2" onkeyup='check();'/>
+                                    <span class="error">* <?php echo $psw2Err;?></span>
                                     <span id='message'></span>
                                      
                                     <script>
@@ -117,6 +209,7 @@
         </div>
     </div>
 </body>
+
 
 <!-- Core JS Files -->
 <script src="../assets/js/jquery-3.2.1.js" type="text/javascript"></script>
