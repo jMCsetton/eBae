@@ -47,7 +47,7 @@ if (isset($_POST['submit'])) {
          'subject' => 'testing from curl',
          'html' => 'testing body',
          'text' => 'testing body',
-         'from' => 'zceesas@ucl.ac.uk',
+         'from' => 'noreply@eBae.com',
       );
    
     $request = $url.'api/mail.send.json';
