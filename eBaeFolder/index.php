@@ -48,7 +48,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "failed connection";
     }
 
-    include 'mailNotidicationphp.php';
 
     //echo "entering if, connection not failed ";
     
@@ -84,7 +83,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         $_SESSION['username'] = $myusername;
         $_SESSION['userID'] = $row2['userID'];
         $_SESSION['active'] = $user['active'];
-        $_SESSION['logged_in'] = true;  
+        $_SESSION['logged_in'] = true; 
+        include 'mailNotidicationphp.php'; 
       }
 
       else {
