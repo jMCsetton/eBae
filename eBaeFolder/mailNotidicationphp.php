@@ -11,21 +11,50 @@ $dbname     = "auction37gc06";
     die("Connection failed: ".$conn->connect_error);
   }
 
-$sql = "";
+  // gets buyer emails
+$sql = "SELECT u.email_ID, a.userID, a.auctionDate, p.productName
+FROM user u, auction a, product p
+WHERE a.auctionDate = curdate()-1
+AND u.userID = a.userID
+AND p.productID = a.productID";
+
+$result = $conn->query($sql);
+
+// gets seller emails
+$sql2 = "SELECT u.email_ID, a.productID, p.userID, a.auctionDate, p.productName
+FROM user u, auction a, product p
+WHERE a.auctionDate = curdate()-1
+AND u.userID = p.userID
+AND p.productID = a.productID";
+
+$result2 = $conn->query($sql2);
+
+if ($conn->query($sql) === TRUE) {
+  echo "date added successfully!";
+} else {
+  echo "Error: " . $sql . "<br>" . $conn->error;
+}
+
+if ($conn->query($sql2) === TRUE) {
+  echo "date added successfully!";
+} else {
+  echo "Error: " . $sql2 . "<br>" . $conn->error;
+}
 
   
 $url = 'https://api.sendgrid.com/';
-$user = 'azure_911e61c4d7c718fae2cab0d0ab2f45cf@azure.com';
+$user = 'azure_7a58e4661c900d03ae9e0a5a4b1cf0a2@azure.com';
 $pass = 'Databases37!';
 
+while( $row = mysqli_fetch_array($result)) { 
 $params = array(
      'api_user' => $user,
      'api_key' => $pass,
-     'to' => 'zceesas@ucl.ac.uk',
-     'subject' => 'Urgent: Attendance below 70%',
-     'html' => 'Dear Sameen \n Your attendance has been noted to be below 70%, as is the requirement from the college. \nPlease contact your course administrator for further action. \n\n Best Regards, \nCS Admin Team',
-     'text' => 'Dear Sameen \n Your attendance has been noted to be below 70%, as is the requirement from the college. \nPlease contact your course administrator for further action. \n\n Best Regards, \nCS Admin Team',
-     'from' => 'cs.admin@ucl.ac.uk',
+     'to' => $row['email_ID'],
+     'subject' => 'Confirming your bought item!',
+     'html' => 'Hi! Thank you for your purchase of product: '.$row['productName'].'',
+     'text' => 'Hi! Thank you for your purchase of product: '.$row['productName'].'',
+     'from' => 'noreply@eBae.com',
   );
 
 $request = $url.'api/mail.send.json';
@@ -49,4 +78,6 @@ curl_close($session);
 
 // print everything out
 print_r($response);
+}
+
 ?>
