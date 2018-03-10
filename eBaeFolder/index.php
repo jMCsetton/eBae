@@ -36,8 +36,8 @@ session_start();
 
 if (isset($_POST['submit'])) {
 
-    include 'mailNotidicationphp.php';
-
+   
+    
 if($_SERVER["REQUEST_METHOD"] == "POST") {
     // username and password sent from form 
     
@@ -48,8 +48,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "failed connection";
     }
 
-    //echo "entering if, connection not failed ";
+    include 'mailNotidicationphp.php';
 
+    //echo "entering if, connection not failed ";
+    
     $myusername = $_POST['username'];
     $mypassword = $_POST['password']; 
     
