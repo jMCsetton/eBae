@@ -38,7 +38,7 @@ if (isset($_POST['submit'])) {
 
     $url = 'https://api.sendgrid.com/';
     $user = 'azure_0bfcaee4a89f20464352ea9333a7cfae@azure.com';
-    $pass = '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';
+    $pass = 'Databases37!';
    
     $params = array(
          'api_user' => $user,
