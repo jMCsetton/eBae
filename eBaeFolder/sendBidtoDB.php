@@ -69,3 +69,7 @@ if (isset($_POST['Bid']))
 
 
  ?> 
+
+<div>
+ <a href="homepage.php"><button class="button button-block"/>Home</button></a>
+ </div>
