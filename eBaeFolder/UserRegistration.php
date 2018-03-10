@@ -1,6 +1,7 @@
 <?php
 //echo "this is php"
 ?>
+
 <?php
 // define variables and set to empty values
 $firstnameErr = $lastnameErr = $DOBErr = $doorNumberErr = $streetErr = $cityErr = $countyErr = $postCodeErr = $genderErr = $emailIDErr = $usernameErr = $passwordErr = $psw2Err = "";
@@ -69,7 +70,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $emailErr = "Invalid email format"; 
       }
   }
-  
 
     if (empty($_POST["username"])) {
     $usernameErr = "Username is required";
@@ -89,6 +89,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $psw2 = test_input($_POST["psw2"]);
   }
 }
+
 ?>
 
 <!doctype html>
@@ -125,7 +126,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <span class="navbar-toggler-bar"></span>
                     <span class="navbar-toggler-bar"></span>
                 </button>
-                <a class="navbar-brand" href="https://www.creative-tim.com">Back to Log in page</a>
+                <a class="navbar-brand" href="index.php">Back to Log in page</a>
             </div>
     </nav>
 
@@ -140,45 +141,54 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             <div class="card card-register">
                                 <h3 class="title">Please fill out the form below to register:</h3>
                               <form action="Registrationphp.php" method="post">
+                                   
+                                    <span class="error">*<?php echo $firstnameErr;?></span>
                                     <label>First Name</label>
-                                    <input type="text" class="form-control" placeholder="First Name" name="firstName">
-                                    <span class="error">* <?php echo $firstnameErr;?></span>
+                                    <input type="text" class="form-control" placeholder="First Name" name="firstName"/>
+                                    
+                                    <span class="error">* <?php echo $lastnameErr;?></span>
                                     <label>Last Name</label>
                                     <input type="text" class="form-control" placeholder="Last Name" name="lastName">
-                                    <span class="error">* <?php echo $lastnameErr;?></span>
+                                  
+                                    <span class="error">* <?php echo $DOBErr;?></span>
                                     <label>Date of Birth</label>
                                     <input type="text" class="form-control" placeholder="dd/mm/yyyy" name="DOB">
-                                    <span class="error">* <?php echo $DOBErr;?></span>
-                                    <label>Address:</label>
-                                    <input type="text" class="form-control" placeholder="House Number" name="doorNumber">
-                                    <span class="error">* <?php echo $doorNumberErr;?></span>
-                                    <input type="text" class="form-control" placeholder="Street" name="street">
-                                    <span class="error">* <?php echo $streetErr;?></span>
-                                    <input type="text" class="form-control" placeholder="Town/City" name="city">
-                                    <span class="error">* <?php echo $cityErr;?></span>
-                                    <input type="text" class="form-control" placeholder="County" name="county">
-                                    <span class="error">* <?php echo $countyErr;?></span>
-                                    <input type="text" class="form-control" placeholder="Post Code" name="postCode">
-                                    <span class="error">* <?php echo $postCodeErr;?></span>
+                                   
 
+                                    <label>Address:</label>
+                                    <span class="error">* <?php echo $doorNumberErr;?></span>
+                                    <input type="text" class="form-control" placeholder="House Number" name="doorNumber">
+                                    <span class="error">* <?php echo $streetErr;?></span>
+                                    <input type="text" class="form-control" placeholder="Street" name="street">
+                                    <span class="error">* <?php echo $cityErr;?></span>
+                                    <input type="text" class="form-control" placeholder="Town/City" name="city">
+                                    <span class="error">* <?php echo $countyErr;?></span>
+                                    <input type="text" class="form-control" placeholder="County" name="county">
+                                    <span class="error">* <?php echo $postCodeErr;?></span>
+                                    <input type="text" class="form-control" placeholder="Post Code" name="postCode">
+                                   
+
+                                    <span class="error">* <?php echo $genderErr;?></span>
                                     <label>Gender</label>
                                     <input type="text" class="form-control" placeholder="Gender" name="gender">
-                                    <span class="error">* <?php echo $genderErr;?></span>
-
+                                   
+                                    <span class="error">* <?php echo $emailErr;?></span>
                                     <label>Email</label>
                                     <input type="text" class="form-control" placeholder="Email" name="email_ID">
-                                    <span class="error">* <?php echo $emailErr;?></span>
-                                    
-                                    <label>Username</label>
-                                    <input type="Username" class="form-control" placeholder="Username" name="username">
+                                   
                                     <span class="error">* <?php echo $usernameErr;?></span>
+                                    <label>Username</label>
+                                    <input type="Username" class="form-control" placeholder="Username" name="username" id="username1">
+                                   
+                                    <span class="error">* <?php echo $passwordErr;?></span>
                                      <label>Password</label>
                                     <input type="password" class="form-control" placeholder="Password" id="psw" name="password" onkeyup='check();'>
-                                    <span class="error">* <?php echo $passwordErr;?></span>
-                                     <label>Confirm Password</label>
-                                    <input type="password" class="form-control" placeholder="Confirm Password" name="psw2" id="psw2" onkeyup='check();'/>
+                                    
                                     <span class="error">* <?php echo $psw2Err;?></span>
+                                     <label>Confirm Password</label>
+                                    <input type="password" class="form-control" placeholder="Confirm Password" id="psw2" onkeyup='check();'/>
                                     <span id='message'></span>
+                                   
                                      
                                     <script>
 
@@ -191,7 +201,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                         document.getElementById('message').innerHTML = 'Passwords do not match';
                                   }
                                 }
-                            </script>
+                                 </script>
+
+
                                     <button type="submit" name="submit" class="btn btn-danger btn-block btn-round"><a href="https://gc06team37db.azurewebsites.net">Register</a></button>
 
                                   
@@ -214,7 +226,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </div>
     </div>
 </body>
-
 
 <!-- Core JS Files -->
 <script src="../assets/js/jquery-3.2.1.js" type="text/javascript"></script>
