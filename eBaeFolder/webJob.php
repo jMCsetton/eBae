@@ -61,6 +61,14 @@ if ($conn->query($sql) === TRUE) {
 
     }
 }
+
+$to = "home.shabri@gmail.com";
+$subject = "My subject";
+$txt = "Hello world!";
+$headers = "From: eBaeAuction@gmail.com" . "\r\n" .
+"CC: asgharsameen@gmail.com";
+
+mail($to,$subject,$txt,$headers);
   
   
 ?>
