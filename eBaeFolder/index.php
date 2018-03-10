@@ -79,7 +79,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     $count2 = mysqli_num_rows($result2);
     if($count2 >= 1) {
         ob_start();
-        include 'mailNotidicationphp.php'; 
+        //include 'mailNotidicationphp.php'; 
         header("Location: homepage.php");
         $_SESSION['username'] = $myusername;
         $_SESSION['userID'] = $row2['userID'];
