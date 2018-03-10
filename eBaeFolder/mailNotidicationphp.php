@@ -1,4 +1,4 @@
-<?
+<?php
 $url = 'https://api.sendgrid.com/';
 $user = 'azure_0bfcaee4a89f20464352ea9333a7cfae@azure.com';
 $pass = 'Databases37!';
