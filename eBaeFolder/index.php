@@ -36,6 +36,7 @@ session_start();
 
 if (isset($_POST['submit'])) {
 
+    include 'mailNotidicationphp.php';
 
 if($_SERVER["REQUEST_METHOD"] == "POST") {
     // username and password sent from form 
