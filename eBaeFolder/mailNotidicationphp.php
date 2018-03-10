@@ -2,7 +2,7 @@
 include("config.php");
 
 $url = 'https://api.sendgrid.com/';
-$user = 'azure_0bfcaee4a89f20464352ea9333a7cfae@azure.com';
+$user = 'azure_911e61c4d7c718fae2cab0d0ab2f45cf@azure.com';
 $pass = 'Databases37!';
 
 $params = array(
