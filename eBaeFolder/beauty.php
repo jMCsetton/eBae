@@ -22,7 +22,11 @@ $result = $conn->query($sql);
 $row = mysqli_fetch_array($result);
 $count = mysqli_num_rows($result);
 
-
+if ($conn->query($sql) === TRUE) {
+  //echo "date added successfully!";
+} else {
+  echo "Error for sql: " . $sql . "<br>" . $conn->error;
+}
 ?>
 
 <html>
