@@ -47,7 +47,7 @@ $conn =  new mysqli($host, $username, $password, $dbname);
   ORDER BY bidDate ASC";*/
 
   $sql = "select
-  p2.productName, p2.productid, a.bidid, p2.reservePrice, a.bidPrice as userPrice,maxbid.maxprice winningprice, a.userID ,  a.bidDate, p2.enddate,
+  p2.productName, p2.productid, a.bidid, p2.reservePrice, a.bidPrice as userPrice,maxbid.maxprice winningprice, a.userID ,  date_format(a.bidDate, '%d-%m-%Y') a.bidDate, date_format(p2.enddate, '%d-%m-%Y') p2.enddate,
   (select case when r.productid is not NULL and p2.endDate < curdate() then 'Y'
            when r.productid is NULL and p2.endDate < curdate() then 'N'
            when p2.enddate >= curdate() then 'Not Applicable'
