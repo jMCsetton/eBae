@@ -179,6 +179,12 @@ function validationform() {
     alert("Please enter your email address!")
     return false;
   }
+  
+  if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(eml) == false) {
+    alert("You have entered an invalid email address!")
+    return (false)
+  }
+
   var usnm = document.forms["cruciform"]["username"].value;
   if (usnm == "") {
     alert("Please enter a username!")
