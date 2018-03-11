@@ -58,7 +58,7 @@ FROM bid b
     FROM feedback
     GROUP BY userRatedID) rt
     on rt.userRatedID = b.userID
-where productID = 24
+where productID = $productID_page
 ORDER BY bidPrice DESC";
 
 $result2 = $conn->query($sql2);
