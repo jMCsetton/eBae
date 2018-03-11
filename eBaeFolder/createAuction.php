@@ -177,23 +177,22 @@ function validateForm() {
       return false;
     }
 
-    // var today = new Date();
-    // var dd = today.getDate();
-    // var mm = today.getMonth()+1; //January is 0!
-    // var yyyy = today.getFullYear();
-    
-    // if(dd<10){
-    //     dd='0'+dd;
-    // } 
-    // if(mm<10){
-    //     mm='0'+mm;
-    // }
-
-    // var today = dd+'/'+mm+'/'+yyyy; 
-
-    var inputtedDate = document.forms["auctionForm"]["endDate"].value;
     var today = new Date();
-    if (inputtedDate.getTime() < today.getTime()) {
+    var dd = today.getDate();
+    var mm = today.getMonth()+1; //January is 0!
+    var yyyy = today.getFullYear();
+    
+    if(dd<10){
+        dd='0'+dd;
+    } 
+    if(mm<10){
+        mm='0'+mm;
+    }
+
+    var today = yyyy+'/'+mm+'/'+dd; 
+
+    var inputtedDate = document.forms["auctionForm"]["endDate"].value = new Date();
+    if (inputtedDate < today ) {
     alert("The first date is after the second date!");
     return false;
   }  
