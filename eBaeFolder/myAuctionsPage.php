@@ -15,79 +15,19 @@ $conn =  new mysqli($host, $username, $password, $dbname);
 
   $userID = $_SESSION['userID'];
 
-  //$sql = "SELECT p.productName, b.bidPrice, p.reservePrice, date_format(b.bidDate, '%d-%m-%Y') bidDate
-  //FROM product p, bid b
-  //WHERE b.userID = $userID
-  //AND p.productID = b.productID
-  //ORDER BY bidDate ASC";
-
-/*$sql = "SELECT p.productName, r.maxprice, p.reservePrice, date_format(b.bidDate, '%d-%m-%Y') bidDate
-  FROM (SELECT MAX(bidPrice) AS maxprice, productID
-  FROM bid
-  GROUP BY productID) r, product p, bid b
-  WHERE b.userID = $userID
-  AND p.productID = b.productID
-  AND r.maxprice = b.bidPrice
-  ORDER BY bidDate ASC";*/
-
-  /*$sql = "SELECT p.productName, r.maxprice, g.bidPriceHighest, p.reservePrice, date_format(b.bidDate, '%d-%m-%Y') bidDate
-  FROM (SELECT MAX(bidPrice) AS maxprice, productID
-  FROM bid
-  GROUP BY productID) r,
-    (SELECT productID, MAX(bidPrice) AS bidPriceHighest, date_format(bidDate, '%d-%m-%Y') bidDate
-   FROM bid
-   WHERE userID = $userID
-   GROUP BY productID
-  ORDER BY bidDate ASC) g,
-    product p, bid b
-  WHERE b.userID = $userID
-  AND p.productID = b.productID
-  AND r.maxprice = b.bidPrice
-  AND p.productID = g.productID
-  ORDER BY bidDate ASC";*/
-
-  $sql = "select
-  p2.productName, p2.productid, a.bidid, p2.reservePrice, a.bidPrice as userPrice,maxbid.maxprice winningprice, a.userID ,  date_format(a.bidDate, '%d-%m-%Y') bidDate, date_format(p2.enddate, '%d-%m-%Y') enddate,
-  (select case when r.productid is not NULL and p2.endDate < curdate() then 'Yes'
-           when r.productid is NULL and p2.endDate < curdate() then 'No'
-           when p2.enddate >= curdate() then 'Auction Still Open'
-   end) YorN
-from
-  bid a
-left outer join
-  (select auctionPrice, c.userID, c.productID  from auction c) r
-on r.productID = a.productID
-and  r.auctionPrice = a.bidPrice
-join product p2 ON a.productID = p2.productID
-join (SELECT MAX(bidPrice) AS maxprice, productID
-  FROM bid
-  GROUP BY productID) maxbid on maxbid.productID = a.productID
-where a.userID = 4
-order by a.bidDate, p2.productName, userPrice";
-
+  $sql = "SELECT b.userID, b.bidPrice, date_format(b.bidDate, '%d-%m-%Y') bidDate, u.username 
+  FROM bid b, user u
+  WHERE u.userID = b.userID
+  ORDER BY bidPrice DESC";
   
-    $result = $conn->query($sql);
+     $result2 = $conn->query($sql);
 
-
-   /*$sql2 = "SELECT productID, MAX(bidPrice) AS bidPriceHighest, date_format(bidDate, '%d-%m-%Y') bidDate
-   FROM bid
-   WHERE userID = $userID
-   GROUP BY productID
-  ORDER BY bidDate ASC";
-
-$result2 = $conn->query($sql2);*/
 
 if ($conn->query($sql) === TRUE) {
     //echo "date added successfully!";
   } else {
     //echo "Error for sql: " . $sql . "<br>" . $conn->error;
   }
-  /*if ($conn->query($sql2) === TRUE) {
-    //echo "date added successfully!";
-  } else {
-    echo "Error for sql2: " . $sql2 . "<br>" . $conn->error;
-  }*/
-
 ?>
 
 <html>
@@ -127,7 +67,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
     <i class="fa fa-snapchat w3-hover-opacity"></i>
     <i class="fa fa-pinterest-p w3-hover-opacity"></i>
     <i class="fa fa-twitter w3-hover-opacity"></i>
-    <i class="fa fa-linkedin w3-hover-opacity"></i> 
+    <i class="fa fa-linkedin w3-hover-opacity"></i>
   </div>
 </nav>
 
@@ -143,25 +83,23 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
     <span class="w3-button w3-hide-large w3-xxlarge w3-hover-text-grey" onclick="w3_open()"><i class="fa fa-bars"></i></span>
     <div class="w3-container">
     <h1><b>Welcome to eBae!</b></h1>
-    <h2><b>Showing all your bids</b></h2>
+    <h2><b>Showing all your auctions</b></h2>
     <div class="w3-section w3-bottombar w3-padding-16">
 
       </div>
     </div>
   </header>
   
-  <!-- My Bids -->
-  <div class="table-responsive" style="width: 80%">
-			<table id="bid_data" class="table table-striped table-bordered">
+  <!-- Auction Progress -->
+<div class="table-responsive" style="width: 80%">
+<h2> Progress of Auctions: </h2>
+			<table id="auction_progress" class="table table-striped table-bordered">
 				<thead>
 					<tr>
-            <th>Product Name</th>
+            <th>Bid Price</th>
+            <th>Username</th>
             <th>Bid Date</th>
-            <th>Reserve Price</th>
-						<th>My Bid</th>
-            <th> Highest Bid or Winning Price  </th>
-            <th> End Date </th>
-            <th> Winning Bid? </th>
+
 
 				</tr>
 				</thead>
@@ -169,40 +107,40 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
         // Fetching data from database
         
        //$row2 = mysqli_fetch_array($result2);
-		while( $row = mysqli_fetch_array($result)) { 
-
-					echo '
-          <tr>
-             <td>'.$row["productName"].'</td>
-             <td>'.$row["bidDate"].'</td>
-             <td>'.$row["reservePrice"].'</td>
-             <td>'.$row["userPrice"].'</td> 
-             <td>'.$row["winningprice"].'</td> 
-             <td>'.$row["enddate"].'</td> 
-             <td>'.$row["YorN"].'</td> 
-             
-
-    
-          
-					</tr>
-          ';
-          
+       while ($row = mysqli_fetch_assoc($result)) {          
         
-				}
+           
+                   echo '
+                  
+                     
+                       <tr>
+                       <td>'.$row["bidPrice"].'</tb> 
+                       <td>'.$row["username"].'</td>
+                       <td>'.$row["bidDate"].'</td>
+                     </tr>
+                     
+                       ';
+   
+           
+           
+           
+                         }
+
 				?>
-				<tbody>
+        <tbody>
 				</tbody>
-				<!-- Include footer repeating column headers -->
 
 			</table>
-		</div>
+ 
+  </div>
+  </div>
 
-    <!-- This script is to get data from mysql -->
+  <!-- This script is to get data from mysql -->
 	<script class = "notfirst" type="text/javascript" language="javascript">
 		$(document).ready(function() {
 
 			// Activate DataTable plugin to enable datatable features
-			$('#bid_data').DataTable();
+			$('#auction_progress').DataTable();
 		});
 
 	 </script>
