@@ -29,7 +29,7 @@ if ($conn->query($sql3) === TRUE) {
 $sql = "SELECT p.productImage, p.productName, p.reservePrice, date_format(p.enddate, '%d-%m-%Y') enddate, p.category, p.quantity, p.conditions, p.productInfo,
 (SELECT ROUND(avg(rating),2)
 FROM feedback
-WHERE userRatedID= $userID) rating
+WHERE userRatedID= $userID) rating,
   (select case when rating is not NULL then rating
   ELSE 'User not rated yet'
   END) rating2
