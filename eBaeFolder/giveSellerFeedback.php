@@ -18,7 +18,7 @@ $conn =  new mysqli($host, $username, $password, $dbname);
   $_SESSION['productID_page'] = $_GET['id'];
   $productidpage = $_SESSION['productID_page'];
 
-
+echo $productidpage;
 ?>
 
 <html>
@@ -82,7 +82,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
   </header>
   
   <!-- My Bids -->
-<form action  = "giveSellerFeedbackphp.php?id=$productidpage" method="post"  >
+<form action  = "giveSellerFeedbackphp.php?id='$productidpage'" method="post"  >
 <label>Rating</label>
 <select name='Rating'>
   <option value='1'>1 Star</option>
