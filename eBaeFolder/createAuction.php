@@ -65,7 +65,18 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
     </div>
   </header>
 
-
+<script>
+function validateForm() {
+    var x = document.forms["auctionForm"]["quantity"].value;
+    quantity = parseInt(quantity)
+    if(isNaN(quantity))
+    {
+      alert("This must a number");
+      return !isNan(quantity);
+        
+    } 
+}
+</script>
 <!-- Add php here  -->
   
   <!-- Create Auction Section -->
@@ -73,14 +84,14 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
     <h4 id="contact"><b>Item Information!!</b></h4>
     <hr class="w3-opacity">
     <!--form action="" method="post" target="_blank"-->
-    <form action="createAuctionphp.php" method="post" enctype="multipart/form-data" >
+    <form action="createAuctionphp.php" method="post" enctype="multipart/form-data" name="auctionForm" onsubmit="return validateForm()">
       <div class="w3-section">
         <label>Item Name</label>
-        <input class="w3-input w3-border" type="text" name="productName" required/>
+        <input class="w3-input w3-border" type="text" name="productName">
       </div>
       <div class="w3-section">
         <label>Quantity</label>
-        <input class="w3-input w3-border" type="text" name="quantity" required/>
+        <input class="w3-input w3-border" type="text" name="quantity">
       </div>
       <div class="w3-section">
         <label>Item Category</label>
