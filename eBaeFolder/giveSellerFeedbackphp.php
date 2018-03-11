@@ -18,6 +18,12 @@ if (isset($_POST['submit']))
   FROM product
   WHERE productID = '$product_id_page'";
 
+if ($conn->query($sql2) === TRUE) {
+    echo "Feedback submitted successfully!";
+} else {
+    echo "Error: " . $sql2 . "<br>" . $conn->error;
+}
+
 $result2 = $conn->query($sql2);
 $row2 = mysqli_fetch_array($result2);
 
