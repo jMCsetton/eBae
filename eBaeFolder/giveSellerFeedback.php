@@ -14,8 +14,8 @@ $conn =  new mysqli($host, $username, $password, $dbname);
   }
 
   $userID = $_SESSION['userID'];
-  $_SESSION['productID_page2'] = $_GET['id'];
-  $product_id_page2 = $_SESSION['productID_page2'];
+  $_SESSION['productID_page'] = $_GET['id'];
+  $product_id_page = $_SESSION['productID_page'];
 
 
   $sql = "select
@@ -111,7 +111,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
   </header>
   
   <!-- My Bids -->
-<form action  = 'giveSellerFeedbackphp.php?id="$product_id_page2"' method="post"  >
+<form action  = "giveSellerFeedbackphp.php?id='.$_GET["id"].'" method="post"  >
 <label>Rating</label>
 <select name='Rating'>
   <option value='1'>1 Star</option>
