@@ -5,8 +5,6 @@ function emailvalidation() {
     echo "<script type='text/javascript'>alert('$message');</script>";
     
   }
-  else {
-}
 ?>
 
 <!doctype html>
@@ -187,7 +185,6 @@ function validationform() {
     alert("Please enter your email address!")
     return false;
   }
-  var emailalert = <?php echo emailvalidation();?>
   
   var usnm = document.forms["cruciform"]["username"].value;
   if (usnm == "") {
