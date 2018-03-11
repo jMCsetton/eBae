@@ -49,7 +49,7 @@
                         <div class="col-lg-4 ml-auto mr-auto">
                             <div class="card card-register">
                                 <h3 class="title">Please fill out the form below to register:</h3>
-                              <form action="Registrationphp.php" method="post">
+                              <form action="Registrationphp.php" method="post" name="cruciform" onsubmit="return validationform()"> 
                                    
                                     <label>First Name</label>
                                     <input type="text" class="form-control" placeholder="First Name" name="firstName"/>
@@ -126,6 +126,21 @@
         </div>
     </div>
 </body>
+
+<script>
+function validationform() {
+  var fname = document.forms["cruciform"]["firstName"].value;
+  if (fname == "") {
+    alert("Please enter a first name you fool!!!!");
+    return false;
+  }
+  var lname = document.forms["cruciform"]["lastName"].value;
+  if (lname == "") {
+    alert("Please enter your last name!!")
+    return false;
+  }
+}
+</script>
 
 <!-- Core JS Files -->
 <script src="../assets/js/jquery-3.2.1.js" type="text/javascript"></script>
