@@ -193,7 +193,7 @@ function validateForm() {
 
     var inputtedDate = document.forms["auctionForm"]["endDate"].value;
     var today = new Date();
-    if (inputtedDate.getTime() > today.getTime()) {
+    if (inputtedDate.getTime() < today.getTime()) {
     alert("The first date is after the second date!");
     return false;
   }  
