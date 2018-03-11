@@ -12,6 +12,12 @@ if (isset($_POST['submit']))
     die("Connection failed: ".$conn->connect_error);
   }
   
+if (!filter_var($_POST["email_ID"], FILTER_VALIDATE_EMAIL)) {
+  $message = "Please enter a valid email address!";
+  echo "<script type='text/javascript'>alert('$message');</script>";
+  header("Location: https://gc06team37db.azurewebsites.net/UserRegistration.php");
+}
+else {
 
   $sql = "INSERT INTO address (postCode, street, city, county, doorNumber, username) VALUES ('".$_POST["postCode"]."','".$_POST["street"]."', '".$_POST["city"]."', '".$_POST["county"]."', '".$_POST["doorNumber"]."', '".$_POST["username"]."')";
   mysqli_query($sql, $conn);
@@ -24,6 +30,7 @@ if (isset($_POST['submit']))
     echo "New user created created successfully";
 } else {
     echo "Error: " . $sql . "<br>" . $conn->error;
+}
 }
 
   //}

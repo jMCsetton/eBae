@@ -1,10 +1,4 @@
 <?php
-function emailvalidation() {
-  if (!filter_var($_POST["email_ID"], FILTER_VALIDATE_EMAIL)) {
-    $message = "Please enter a valid email address!";
-    echo "<script type='text/javascript'>alert('$message');</script>";
-    
-  }
 ?>
 
 <!doctype html>
