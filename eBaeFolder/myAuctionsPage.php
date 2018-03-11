@@ -242,52 +242,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
 
 
 
-      <div class="table-responsive" style="width: 80%">
-    <h2> Viweing Traffic: </h2>
-			<table id="selling_activity" class="table table-striped table-bordered">
-				<thead>
-					<tr>
-            <th>Product Name</th>
-            <th>End Date</th>
-            <th>Reserve Price</th>
-            <th>Auction Price</th>
-            <th>Bidder Username</th>           
-
-
-				</tr>
-				</thead>
-				<?php
-        // Fetching data from database
-        
-       //$row2 = mysqli_fetch_array($result2);
-       while ($row2 = mysqli_fetch_assoc($result2)) {          
-        
-           
-                   echo '
-                  
-                     
-                       <tr>
-                       <td>'.$row2["productName"].'</td> 
-                       <td>'.$row2["endDate"].'</td>
-                       <td>'.$row2["reservePrice"].'</td>
-                       <td>'.$row2["auctionprice"].'</td>
-                       <td>'.$row2["buyername"].'</td>
-                     </tr>
-                     
-                       ';
-   
-           
-           
-           
-                         }
-
-				?>
-        <tbody>
-				</tbody>
-
-			</table>
- 
-  </div> 
+      
 
 
   </div>
