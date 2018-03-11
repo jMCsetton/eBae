@@ -65,7 +65,17 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
     </div>
   </header>
 
-
+<script>
+function validateForm() {
+    var x = document.forms["auctionForm"]["quantity"].value;
+    if(isNaN(quantity))
+    {
+      alert("This must be a positive quantity");
+      return false;
+        
+    } 
+}
+</script>
 <!-- Add php here  -->
   
   <!-- Create Auction Section -->
@@ -76,11 +86,11 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
     <form action="createAuctionphp.php" method="post" enctype="multipart/form-data" name="auctionForm">
       <div class="w3-section">
         <label>Item Name</label>
-        <input class="w3-input w3-border" type="text" name="productName" required/>
+        <input class="w3-input w3-border" type="text" name="productName">
       </div>
       <div class="w3-section">
         <label>Quantity</label>
-        <input class="w3-input w3-border" type="text" name="quantity" required/>
+        <input class="w3-input w3-border" type="text" name="quantity" onsubmit="return validateForm()">
       </div>
       <div class="w3-section">
         <label>Item Category</label>
@@ -124,16 +134,6 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
       <button type="submit" name="submit" class="w3-button w3-black w3-margin-bottom"><i class="fa fa-paper-plane w3-margin-right"></i>Create Auction</button>
     </form>
   </div>
-
- <script>
-function validateForm() {
-    var x = document.forms["auctionForm"]["quantity"].value;
-    if (!Number.isInteger(+quantity))  {
-        alert("This must be a number");
-        return false;
-    }
-}
-</script>
 
   <!-- Footer -->
   <footer class="w3-container w3-padding-32 w3-dark-grey">
