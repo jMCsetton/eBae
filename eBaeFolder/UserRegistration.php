@@ -58,7 +58,7 @@
                                     <input type="text" class="form-control" placeholder="Last Name" name="lastName">
                                   
                                     <label>Date of Birth</label>
-                                    <input type="text" class="form-control" placeholder="dd/mm/yyyy" name="DOB">
+                                    <input type="text" class="form-control" placeholder="yyyy/mm/dd" name="DOB">
                                    
 
                                     <label>Address:</label>
@@ -161,8 +161,16 @@ function validationform() {
     alert("Please enter a valid date of birth (yyyy/mm/dd)");
     return false;
   }
+  var today = new Date();
+    if ((dbirth.getFullYear() > today.getFullYear()) || 
+    ((dbirth.getFullYear() = today.getFullYear()) && (dbirth.getMonth() > today.getMonth())) || 
+    ((dbirth.getFullYear() = today.getFullYear()) && (dbirth.getMonth() > today.getMonth()) && (dbirth.getdate() > today.getdate())))
+    {
+      alert("Hey time traveller, please choose a valid date");
+      return false;
+  }  
 
-  var a = new Date();
+  /*var a = new Date();
   var mon = a.getMonth();
   var dy = a.getDate();
   var yr = a.getFullYear();
@@ -173,7 +181,7 @@ function validationform() {
   if(date <= dbirth) {
     alert("Hey time traveller! Please enter a valid date of birth!");
     return false;
-  }
+  }*/
 
   var dnum = document.forms["cruciform"]["doorNumber"].value;
   if (dnum == "") {
