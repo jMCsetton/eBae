@@ -30,7 +30,7 @@ $conn =  new mysqli($host, $username, $password, $dbname);
   AND r.maxprice = b.bidPrice
   ORDER BY bidDate ASC";*/
 
-  $sql = "SELECT p.productName, r.maxprice, g.bidPriceHighest, p.reservePrice, date_format(b.bidDate, '%d-%m-%Y') bidDate
+  /*$sql = "SELECT p.productName, r.maxprice, g.bidPriceHighest, p.reservePrice, date_format(b.bidDate, '%d-%m-%Y') bidDate
   FROM (SELECT MAX(bidPrice) AS maxprice, productID
   FROM bid
   GROUP BY productID) r,
@@ -44,7 +44,26 @@ $conn =  new mysqli($host, $username, $password, $dbname);
   AND p.productID = b.productID
   AND r.maxprice = b.bidPrice
   AND p.productID = g.productID
-  ORDER BY bidDate ASC";
+  ORDER BY bidDate ASC";*/
+
+  $sql = "select
+  p2.productName, p2.productid, a.bidid, p2.reservePrice, a.bidPrice as userPrice,maxbid.maxprice winningprice, a.userID ,  a.bidDate, p2.enddate,
+  (select case when r.productid is not NULL and p2.endDate < curdate() then 'Y'
+           when r.productid is NULL and p2.endDate < curdate() then 'N'
+           when p2.enddate >= curdate() then 'Not Applicable'
+   end) test
+from
+  bid a
+left outer join
+  (select auctionPrice, c.userID, c.productID  from auction c) r
+on r.productID = a.productID
+and  r.auctionPrice = a.bidPrice
+join product p2 ON a.productID = p2.productID
+join (SELECT MAX(bidPrice) AS maxprice, productID
+  FROM bid
+  GROUP BY productID) maxbid on maxbid.productID = a.productID
+where a.userID = 4
+order by a.bidDate, p2.productName, userPrice";
 
   
     $result = $conn->query($sql);
@@ -156,8 +175,9 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
              <td>'.$row["productName"].'</td>
              <td>'.$row["bidDate"].'</td>
              <td>'.$row["reservePrice"].'</td>
-             <td>'.$row["maxprice"].'</td> 
-             <td>'.$row["bidPriceHighest"].'</td> 
+             <td>'.$row["userPrice"].'</td> 
+             <td>'.$row["winningprice"].'</td> 
+             <td>'.$row["test"].'</td> 
              
 
     
