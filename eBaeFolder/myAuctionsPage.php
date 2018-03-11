@@ -18,7 +18,6 @@ $conn =  new mysqli($host, $username, $password, $dbname);
   $sql = "SELECT b.userID, b.bidPrice, date_format(b.bidDate, '%d-%m-%Y') bidDate, u.username 
   FROM bid b, user u
   WHERE u.userID = b.userID
-  AND productID = $productID_page
   ORDER BY bidPrice DESC";
   
      $result2 = $conn->query($sql);
