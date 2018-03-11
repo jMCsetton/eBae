@@ -159,6 +159,7 @@ function validationform() {
   }
   if (isvalidDate(dbirth) == false) {
     alert("Please enter a valid date of birth (yyyy/mm/dd)");
+    return false;
   }
 
   var a = new Date();
