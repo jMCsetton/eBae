@@ -11,15 +11,14 @@ if (isset($_POST['submit']))
   if ($conn->connect_error) {
     die("Connection failed: ".$conn->connect_error);
   }
+
+  $sql = "INSERT INTO address (postCode, street, city, county, doorNumber, username) VALUES ('".$_POST["postCode"]."','".$_POST["street"]."', '".$_POST["city"]."', '".$_POST["county"]."', '".$_POST["doorNumber"]."', '".$_POST["username"]."')";
   
-
-
-  $sql = "INSERT INTO address (postCode, street, city, county, doorNumber, username) VALUES ('".$_POST["postCode"]."','".$_POST["street"]."', '".$_POST["city"]."', '".$_POST["county"]."', '".$_POST["doorNumber"]."', '".$_POST["username"]."'); INSERT INTO user (username, firstName, lastName, DOB, gender, email_ID, postCode, role, password)
+  $sql2 = "INSERT INTO user (username, firstName, lastName, DOB, gender, email_ID, postCode, role, password)
   VALUES ('".$_POST["username"]."', '".$_POST["firstName"]."', '".$_POST["lastName"]."', '".$_POST["DOB"]."',
-  '".$_POST["gender"]."', '".$_POST["email_ID"]."', '".$_POST["postCode"]."', 'buyer_seller', '".$_POST["password"]."');";
-  
-  mysqli_query($conn, $sql);
-  //mysql_query($sql2, $conn);*/
+  '".$_POST["gender"]."', '".$_POST["email_ID"]."', '".$_POST["postCode"]."', 'buyer_seller', '".$_POST["password"]."')";
+  mysqli_query($sql, $conn);
+  mysqli_query($sql2, $conn);
 
   if ($conn->query($sql) === TRUE) {
     echo "New user created created successfully";
