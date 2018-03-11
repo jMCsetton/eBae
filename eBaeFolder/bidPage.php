@@ -159,7 +159,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
             <th>Bid Date</th>
             <th>Reserve Price</th>
 						<th>My Bid</th>
-            <th> Highest Bid or Winning Price </th>
+            <th> Highest Bid or Winning Price  </th>
             <th> End Date </th>
             <th> Winning Bid? </th>
 
