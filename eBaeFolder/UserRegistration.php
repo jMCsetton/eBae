@@ -131,7 +131,7 @@
 function emailvalidation() {
 if (!filter_var($_POST["email_ID"], FILTER_VALIDATE_EMAIL)) {
   $message = "Please enter a valid email address!";
-  "<script type='text/javascript'>alert('$message');</script>";
+  echo "<script type='text/javascript'>alert('$message');</script>";
   return false;
 }
 }
@@ -188,7 +188,7 @@ function validationform() {
     alert("Please enter your email address!")
     return false;
   }
-  var emlvalid= <?php echo emailvalidation();?>
+  var emlvalid = <?php echo emailvalidation();?>
   if (emlvalid == false) {
     alert("Please enter a valid email address!")
   }
