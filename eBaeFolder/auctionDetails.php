@@ -35,8 +35,7 @@ FROM product p
     (SELECT ROUND(avg(rating),2) as rating, userRatedID
     FROM feedback
     GROUP BY userRatedID) f on p.userID = f.userRatedID
-where p.userID = $userID
-and p.productID = $productID_page";
+where p.productID = $productID_page";
 
 $result = $conn->query($sql);
 
