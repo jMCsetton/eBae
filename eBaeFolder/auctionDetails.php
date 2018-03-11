@@ -202,9 +202,9 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
                   
                      
                        <tr>
-                       <td>'.$row2["bidPrice"].'</td> 
-                       <td>'.$row2["rating2"].'</td> 
+                       <td>'.$row2["bidPrice"].'</td>  
                        <td>'.$row2["username"].'</td>
+                       <td>'.$row2["rating2"].'</td>
                        <td>'.$row2["bidDate"].'</td>
                      </tr>
                      
