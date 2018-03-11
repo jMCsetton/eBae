@@ -27,15 +27,16 @@ if ($conn->query($sql3) === TRUE) {
 }
 
 $sql = "SELECT p.productImage, p.productName, p.reservePrice, date_format(p.enddate, '%d-%m-%Y') enddate, p.category, p.quantity, p.conditions, p.productInfo,
-(SELECT ROUND(avg(rating),2)
-FROM feedback
-WHERE userRatedID= $userID) rating,
   (select case when rating is not NULL then rating
   ELSE 'User not rated yet'
   END) rating2
-FROM product p , feedback f
-WHERE p.productID = $productID_page
-GROUP BY p.productID";
+FROM product p
+  left outer join
+    (SELECT ROUND(avg(rating),2) as rating, userRatedID
+    FROM feedback
+    GROUP BY userRatedID) f on p.userID = f.userRatedID
+where p.userID = $userID
+and p.productID = $productID_page";
 
 $result = $conn->query($sql);
 
@@ -46,15 +47,18 @@ if ($conn->query($sql2) === TRUE) {
 }
 
 $sql2 = "SELECT b.userID, b.bidPrice, date_format(b.bidDate, '%d-%m-%Y') bidDate, u.username,
-(SELECT ROUND(avg(rating),2)
-FROM feedback
-WHERE userRatedID= $userID) rating,
+ rt.rating,
   (select case when rating is not NULL then rating
   ELSE 'User not rated yet'
   END) rating2
-FROM bid b, user u
-WHERE u.userID = b.userID
-AND productID = $productID_page
+FROM bid b
+  left join user u on b.userID = u.userID
+  left outer join
+    (SELECT ROUND(avg(rating),2) as rating, userRatedID
+    FROM feedback
+    GROUP BY userRatedID) rt
+    on rt.userRatedID = b.userID
+where productID = $productID_page
 ORDER BY bidPrice DESC";
 
 $result2 = $conn->query($sql2);
