@@ -15,37 +15,7 @@ $conn =  new mysqli($host, $username, $password, $dbname);
 
   $userID = $_SESSION['userID'];
   $_SESSION['productID_page'] = $_GET['id'];
-  $product_id_page = $_SESSION['productID_page'];
-
-
-  $sql = "select
-  p2.productName, p2.productid, a.bidid, p2.reservePrice, a.bidPrice as userPrice,maxbid.maxprice winningprice, a.userID ,  date_format(a.bidDate, '%d-%m-%Y') bidDate, date_format(p2.enddate, '%d-%m-%Y') enddate,
-  (select case when r.productid is not NULL and p2.endDate < curdate() then 'Yes'
-           when r.productid is NULL and p2.endDate < curdate() then 'No'
-           when p2.enddate >= curdate() then 'Auction Still Open'
-   end) YorN
-from
-  bid a
-left outer join
-  (select auctionPrice, c.userID, c.productID  from auction c) r
-on r.productID = a.productID
-and  r.auctionPrice = a.bidPrice
-join product p2 ON a.productID = p2.productID
-join (SELECT MAX(bidPrice) AS maxprice, productID
-  FROM bid
-  GROUP BY productID) maxbid on maxbid.productID = a.productID
-where a.userID = 4
-order by a.bidDate, p2.productName, userPrice";
-
-  
-    $result = $conn->query($sql);
-
-
-if ($conn->query($sql) === TRUE) {
-    //echo "date added successfully!";
-  } else {
-    //echo "Error for sql: " . $sql . "<br>" . $conn->error;
-  }
+  $productidpage = $_SESSION['productID_page'];
 
 
 ?>
@@ -111,7 +81,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
   </header>
   
   <!-- My Bids -->
-<form action  = "giveSellerFeedbackphp.php?id=33" method="post"  >
+<form action  = "giveSellerFeedbackphp.php?id="$productidpage"" method="post"  >
 <label>Rating</label>
 <select name='Rating'>
   <option value='1'>1 Star</option>
