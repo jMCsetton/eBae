@@ -73,7 +73,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
     <h4 id="contact"><b>Item Information!!</b></h4>
     <hr class="w3-opacity">
     <!--form action="" method="post" target="_blank"-->
-    <form action="createAuctionphp.php" method="post" enctype="multipart/form-data" >
+    <form action="createAuctionphp.php" method="post" enctype="multipart/form-data" name="auctionForm">
       <div class="w3-section">
         <label>Item Name</label>
         <input class="w3-input w3-border" type="text" name="productName" required/>
@@ -124,6 +124,16 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
       <button type="submit" name="submit" class="w3-button w3-black w3-margin-bottom"><i class="fa fa-paper-plane w3-margin-right"></i>Create Auction</button>
     </form>
   </div>
+
+ <script>
+function validateForm() {
+    var x = document.forms["auctionForm"]["productName"].value;
+    if (x == "") {
+        alert("Name must be filled out");
+        return false;
+    }
+}
+</script>
 
   <!-- Footer -->
   <footer class="w3-container w3-padding-32 w3-dark-grey">
