@@ -128,6 +128,19 @@
 </body>
 
 <script>
+function isValidDate(date)
+{
+    var matches = /^(\d{1,2})[-\/](\d{1,2})[-\/](\d{4})$/.exec(date);
+    if (matches == null) return false;
+    var d = matches[2];
+    var m = matches[1] - 1;
+    var y = matches[3];
+    var composedDate = new Date(y, m, d);
+    return composedDate.getDate() == d &&
+            composedDate.getMonth() == m &&
+            composedDate.getFullYear() == y;
+}
+
 function validationform() {
   var fname = document.forms["cruciform"]["firstName"].value;
   if (fname == "") {
@@ -144,6 +157,23 @@ function validationform() {
     alert("Please enter your date of birth!")
     return false;
   }
+  if (isvalidDate(dbirth) == false) {
+    alert("Please enter a valid date of birth (yyyy/mm/dd)");
+  }
+
+  var a = new Date();
+  var mon = a.getMonth();
+  var dy = a.getDate();
+  var yr = a.getFullYear();
+  var date = new Date(yr,mon,dy);
+
+  console.log(date);
+  console.log(dbirth);
+  if(date <= dbirth) {
+    alert("Hey time traveller! Please enter a valid date of birth!");
+    return false;
+  }
+
   var dnum = document.forms["cruciform"]["doorNumber"].value;
   if (dnum == "") {
     alert("Please enter your house number!")
