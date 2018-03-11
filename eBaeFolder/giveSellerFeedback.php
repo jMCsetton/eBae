@@ -18,7 +18,7 @@ $conn =  new mysqli($host, $username, $password, $dbname);
   $_SESSION['productID_page'] = $_GET['id'];
   $productidpage = $_SESSION['productID_page'];
 
-echo $productidpage;
+//echo $productidpage;
 
 if (isset($_POST['submit']))
 {
@@ -37,7 +37,7 @@ if (isset($_POST['submit']))
 if ($conn->query($sql2) === TRUE) {
     echo "Feedback submitted successfully!";
 } else {
-    echo "Error: " . $sql2 . "<br>" . $conn->error;
+    //echo "Error: " . $sql2 . "<br>" . $conn->error;
 }
 
 $result2 = $conn->query($sql2);
@@ -47,7 +47,7 @@ $row2 = mysqli_fetch_array($result2);
   VALUES ('$userID', '".$row2['userID']."', '".$_POST["Rating"]."', '$productidpage')";
 
   if ($conn->query($sql) === TRUE) {
-    echo "Feedback submitted successfully!";
+    //echo "Feedback submitted successfully!";
 } else {
     echo "Error: " . $sql . "<br>" . $conn->error;
 }
