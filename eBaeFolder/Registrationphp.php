@@ -18,7 +18,7 @@ if (isset($_POST['submit']))
   VALUES ('".$_POST["username"]."', '".$_POST["firstName"]."', '".$_POST["lastName"]."', '".$_POST["DOB"]."',
   '".$_POST["gender"]."', '".$_POST["email_ID"]."', '".$_POST["postCode"]."', 'buyer_seller', '".$_POST["password"]."');";
   
-  mysqli_query($sql, $conn);
+  mysqli_query($conn, $sql);
   //mysql_query($sql2, $conn);*/
 
   if ($conn->query($sql) === TRUE) {
