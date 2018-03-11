@@ -62,7 +62,7 @@ join product p2 ON a.productID = p2.productID
 join (SELECT MAX(bidPrice) AS maxprice, productID
   FROM bid
   GROUP BY productID) maxbid on maxbid.productID = a.productID
-where a.userID = 4
+where a.userID = $userID 
 order by a.bidDate, p2.productName, userPrice";
 
   
