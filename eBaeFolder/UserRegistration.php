@@ -126,7 +126,15 @@
         </div>
     </div>
 </body>
-
+<?php
+  function emailvalidation() {
+    if (!filter_var($_POST["email_ID"], FILTER_VALIDATE_EMAIL)) {
+      $message = "Please enter a valid email address!";
+      echo "<script type='text/javascript'>alert('$message');</script>";
+      return false;
+    }
+    }
+?>
 <script>
 function validationform() {
   var fname = document.forms["cruciform"]["firstName"].value;
@@ -136,42 +144,42 @@ function validationform() {
   }
   var lname = document.forms["cruciform"]["lastName"].value;
   if (lname == "") {
-    alert("Please enter your last name!")
+    alert("Please enter your last name!");
     return false;
   }
   var dbirth = document.forms["cruciform"]["DOB"].value;
   if (dbirth == "") {
-    alert("Please enter your date of birth!")
+    alert("Please enter your date of birth!");
     return false;
   }
   var dnum = document.forms["cruciform"]["doorNumber"].value;
   if (dnum == "") {
-    alert("Please enter your house number!")
+    alert("Please enter your house number!");
     return false;
   }
   var strt = document.forms["cruciform"]["street"].value;
   if (strt == "") {
-    alert("Please enter your street!")
+    alert("Please enter your street!");
     return false;
   }
   var cty = document.forms["cruciform"]["city"].value;
   if (cty == "") {
-    alert("Please enter your town or city!")
+    alert("Please enter your town or city!");
     return false;
   }
   var cnty = document.forms["cruciform"]["county"].value;
   if (cnty == "") {
-    alert("Please enter your county!")
+    alert("Please enter your county!");
     return false;
   }
   var pstcd = document.forms["cruciform"]["postCode"].value;
   if (pstcd == "") {
-    alert("Please enter your postcode!")
+    alert("Please enter your postcode!");
     return false;
   }
   var gen = document.forms["cruciform"]["gender"].value;
   if (gen == "") {
-    alert("Please enter your gender!")
+    alert("Please enter your gender!");
     return false;
   }
   var eml = document.forms["cruciform"]["email_ID"].value;
@@ -179,20 +187,26 @@ function validationform() {
     alert("Please enter your email address!")
     return false;
   }
+  var resu = <?php echo emailvalidation();?> {
+    if (resu == "false") {
+      alert("Please enter a valid email address!");
+      return false;
+    }
+  }
   
   var usnm = document.forms["cruciform"]["username"].value;
   if (usnm == "") {
-    alert("Please enter a username!")
+    alert("Please enter a username!");
     return false;
   }
   var pass = document.forms["cruciform"]["password"].value;
   if (usnm == "") {
-    alert("Please enter a password!")
+    alert("Please enter a password!");
     return false;
   }
   var ps2 = document.forms["cruciform"]["psw2"].value;
   if (ps2 == "") {
-    alert("Please confirm your password!")
+    alert("Please confirm your password!");
     return false;
   }
 }
