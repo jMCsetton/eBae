@@ -26,7 +26,13 @@ if ($conn->query($sql3) === TRUE) {
   echo "Error: " . $sql3 . "<br>" . $conn->error;
 }
 
-$sql = "SELECT productImage, productName, reservePrice, date_format(enddate, '%d-%m-%Y') enddate, category, quantity, conditions, productInfo FROM product WHERE productID = $productID_page" ;
+$sql = "SELECT p.productImage, p.productName, p.reservePrice, date_format(p.enddate, '%d-%m-%Y') enddate, p.category, p.quantity, p.conditions, p.productInfo,
+(SELECT avg(rating)
+FROM feedback
+WHERE userRatedID= $userID) rating
+FROM product p , feedback f
+WHERE p.productID = $productID_page
+GROUP BY p.productID" ;
 
 $result = $conn->query($sql);
 
@@ -36,7 +42,7 @@ WHERE u.userID = b.userID
 AND productID = $productID_page
 ORDER BY bidPrice DESC";
 
-   $result2 = $conn->query($sql2);
+$result2 = $conn->query($sql2);
 
 
 
@@ -131,7 +137,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
               <br><label>Quantity: '.$row["quantity"].'</label>
               <br><label>Condition: '.$row["conditions"].'</label>
               <br><label>Description: '.$row["productInfo"].'</label>
-              <br>
+              <br><label>Seller Rating: '.$row["rating"].'/5</label>
               <br>
               <br>
             </div>
