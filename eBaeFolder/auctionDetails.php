@@ -26,18 +26,16 @@ if ($conn->query($sql3) === TRUE) {
   echo "Error: " . $sql3 . "<br>" . $conn->error;
 }
 
-$sql = "SELECT b.userID, b.bidPrice, date_format(b.bidDate, '%d-%m-%Y') bidDate, u.username,
+$sql = "SELECT p.productImage, p.productName, p.reservePrice, date_format(p.enddate, '%d-%m-%Y') enddate, p.category, p.quantity, p.conditions, p.productInfo,
 (SELECT ROUND(avg(rating),2)
 FROM feedback
-WHERE userRatedID= $userID) rating,
+WHERE userRatedID= $userID) rating
   (select case when rating is not NULL then rating
   ELSE 'User not rated yet'
   END) rating2
-FROM bid b, user u
-WHERE u.userID = b.userID
-AND productID = $productID_page
-GROUP BY productID
-ORDER BY bidPrice DESC";
+FROM product p , feedback f
+WHERE p.productID = $productID_page
+GROUP BY p.productID";
 
 $result = $conn->query($sql);
 
@@ -45,7 +43,7 @@ $sql2 = "SELECT b.userID, b.bidPrice, date_format(b.bidDate, '%d-%m-%Y') bidDate
 (SELECT ROUND(avg(rating),2)
 FROM feedback
 WHERE userRatedID= $userID) rating,
-(select case when rating is not NULL then rating
+  (select case when rating is not NULL then rating
   ELSE 'User not rated yet'
   END) rating2
 FROM bid b, user u
@@ -204,9 +202,9 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
                   
                      
                        <tr>
-                       <td>'.$row2["bidPrice"].'</tb> 
+                       <td>'.$row2["bidPrice"].'</td> 
+                       <td>'.$row2["rating2"].'</td> 
                        <td>'.$row2["username"].'</td>
-                       <td>'.$row2["rating2"].'/5</td>
                        <td>'.$row2["bidDate"].'</td>
                      </tr>
                      
