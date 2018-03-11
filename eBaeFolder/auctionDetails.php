@@ -43,7 +43,7 @@ $result = $conn->query($sql);
 if ($conn->query($sql2) === TRUE) {
   //echo "date added successfully!";
 } else {
-  echo "Error: " . $sql2 . "<br>" . $conn->error;
+  //echo "Error: " . $sql2 . "<br>" . $conn->error;
 }
 
 $sql2 = "SELECT b.userID, b.bidPrice, date_format(b.bidDate, '%d-%m-%Y') bidDate, u.username,
@@ -66,7 +66,7 @@ $result2 = $conn->query($sql2);
 if ($conn->query($sql2) === TRUE) {
   //echo "date added successfully!";
 } else {
-  echo "Error: " . $sql2 . "<br>" . $conn->error;
+  //echo "Error: " . $sql2 . "<br>" . $conn->error;
 }
 
 ?>
