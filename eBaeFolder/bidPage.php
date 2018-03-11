@@ -183,7 +183,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
              <td>'.$row["YorN"].'</td> 
              '; 
              if ($row["YorN"] == 'Yes') {
-              echo "<td><a href='giveSellerFeedback.php?id=".$row['productid']."' class='w3-third w3-container' style='background-color:black; width:9%; color:white'><b>Rate User<b></a> 
+              echo "<td><a href='giveSellerFeedback.php?id=".$row['productid']."' class='w3-third w3-container' style='background-color:black; width:20%; color:white'><b>Rate User<b></a> 
               </td> </tr>";
 
              } else {
