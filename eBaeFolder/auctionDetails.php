@@ -55,7 +55,6 @@ WHERE userRatedID= $userID) rating,
 FROM bid b, user u
 WHERE u.userID = b.userID
 AND productID = $productID_page
-GROUP BY productID
 ORDER BY bidPrice DESC";
 
 $result2 = $conn->query($sql2);
