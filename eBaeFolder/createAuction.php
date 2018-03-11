@@ -76,11 +76,11 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
     <form action="createAuctionphp.php" method="post" enctype="multipart/form-data" name="auctionForm">
       <div class="w3-section">
         <label>Item Name</label>
-        <input class="w3-input w3-border" type="text" name="productName" required/>
+        <input class="w3-input w3-border" type="text" name="productName">
       </div>
       <div class="w3-section">
         <label>Quantity</label>
-        <input class="w3-input w3-border" type="text" name="quantity" required/>
+        <input class="w3-input w3-border" type="text" name="quantity" onsubmit="return validateForm()">
       </div>
       <div class="w3-section">
         <label>Item Category</label>
@@ -128,9 +128,11 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
  <script>
 function validateForm() {
     var x = document.forms["auctionForm"]["quantity"].value;
-    if (!Number.isInteger(+quantity))  {
-        alert("This must be a number");
-        return false;
+    if(! (parseFloat(quantity)>=0))
+    {
+      alert("This must be a number");
+      return false;
+        
     }
 }
 </script>
