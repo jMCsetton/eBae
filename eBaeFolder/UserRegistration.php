@@ -180,10 +180,10 @@ function validationform() {
     alert("Please enter your email address!")
     return false;
   }
-  var emlvalid = <?php echo emailvalidation();?>
-  if (emlvalid == "false") {
+  /*var emlvalid = <?php echo emailvalidation();?>
+  if (emlvalid == false) {
     alert("Please enter a valid email address!")
-  }
+  }*/
   
   var usnm = document.forms["cruciform"]["username"].value;
   if (usnm == "") {
