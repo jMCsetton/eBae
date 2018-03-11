@@ -98,7 +98,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
 			<table id="auction_progress" class="table table-striped table-bordered">
 				<thead>
 					<tr>
-            <th>Product Name</th
+            <th>Product Name</th>
             <th>Reserve Price</th>
             <th>Bidder Username</th>
             <th>Bid Price</th>
@@ -119,7 +119,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
                   
                      
                        <tr>
-                       <td>'.$row["productName"].'</tb> 
+                       <td>'.$row["productName"].'</td> 
                        <td>'.$row["reservePrice"].'</td>
                        <td>'.$row["bidderUsername"].'</td>
                        <td>'.$row["bidPrice"].'</td>
