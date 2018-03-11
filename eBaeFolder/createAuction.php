@@ -192,6 +192,7 @@ function validateForm() {
     var today = dd+'/'+mm+'/'+yyyy; 
 
     var inputtedDate = document.forms["auctionForm"]["endDate"].value;
+    inputtedDate = String(inputtedDate);
     inputted2 = new Date(inputtedDate);   
 
     if(inputted2 < today) {
