@@ -75,7 +75,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
     <form action="createAuctionphp.php" method="post" enctype="multipart/form-data" name="auctionForm" onsubmit="return validateForm()">
       <div class="w3-section">
         <label>Item Name</label>
-        <input class="w3-input w3-border" type="text" name="productName"/>
+        <input class="w3-input w3-border" type="text" name="productName" required/>
       </div>
       <div class="w3-section">
         <label>Quantity</label>
@@ -160,10 +160,21 @@ function validateForm() {
     x = parseInt(x)
     if(isNaN(x))
     {
-      alert("This must a number");
+      alert("Please choose a valid quantity");
       return false;
         
     } 
+
+    var y = document.forms["auctionForm"]["reservePrice"].value;
+    y = parseInt(y)
+    if(isNaN(y))
+    {
+      alert("Please choose a valid reserve price");
+      return false;
+        
+    } else if(y < 0){
+      alert("Please choose a positive reserve price");
+    }
 }
 </script>
 
