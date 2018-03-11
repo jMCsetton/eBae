@@ -178,13 +178,6 @@ function validationform() {
     alert("Please enter your email address!")
     return false;
   }
-  var resu = <?php echo emailvalidation();?> {
-    if (resu == "false") {
-      alert("Please enter a valid email address!");
-      return false;
-    }
-  }
-  
   var usnm = document.forms["cruciform"]["username"].value;
   if (usnm == "") {
     alert("Please enter a username!");
