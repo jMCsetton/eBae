@@ -15,14 +15,14 @@ $conn =  new mysqli($host, $username, $password, $dbname);
 
   $userID = $_SESSION['userID'];
 
-  $sql = "SELECT p.userID AS seller, b.userID as bidder, b.bidPrice,  date_format(b.bidDate, '%d-%m-%Y') bidDate, date_format(p.endDate, '%d-%m-%Y') bidDate, p.productName, u.username as bidderUsername
+  $sql = "SELECT p.userID AS seller, b.userID as bidder, b.bidPrice,  date_format(b.bidDate, '%d-%m-%Y') bidDate, date_format(p.endDate, '%d-%m-%Y') endDate, p.productName, u.username as bidderUsername, p.reservePrice
   FROM product p, user u, bid b
   WHERE p.userID = 4
   AND p.productID = b.productID
   AND b.userID = u.userID
   ORDER BY b.productID ASC";
   
-     $result2 = $conn->query($sql);
+     $result = $conn->query($sql);
 
 
 if ($conn->query($sql) === TRUE) {
@@ -98,9 +98,12 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
 			<table id="auction_progress" class="table table-striped table-bordered">
 				<thead>
 					<tr>
+            <th>Product Name</th>
+            <th>Reserve Price</th>
+            <th>Bidder Username</th>
             <th>Bid Price</th>
-            <th>Username</th>
             <th>Bid Date</th>
+            <th>End Date</th>
 
 
 				</tr>
@@ -116,9 +119,12 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
                   
                      
                        <tr>
-                       <td>'.$row["bidPrice"].'</tb> 
-                       <td>'.$row["username"].'</td>
+                       <td>'.$row["productName"].'</td> 
+                       <td>'.$row["reservePrice"].'</td>
+                       <td>'.$row["bidderUsername"].'</td>
+                       <td>'.$row["bidPrice"].'</td>
                        <td>'.$row["bidDate"].'</td>
+                       <td>'.$row["endDate"].'</td>
                      </tr>
                      
                        ';
