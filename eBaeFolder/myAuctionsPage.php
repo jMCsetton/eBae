@@ -17,13 +17,30 @@ $conn =  new mysqli($host, $username, $password, $dbname);
 
   $sql = "SELECT p.userID AS seller, b.userID as bidder, b.bidPrice,  date_format(b.bidDate, '%d-%m-%Y') bidDate, date_format(p.endDate, '%d-%m-%Y') endDate, p.productName, u.username as bidderUsername, p.reservePrice
   FROM product p, user u, bid b
-  WHERE p.userID = 4
+  WHERE p.userID = $userID
   AND p.productID = b.productID
   AND b.userID = u.userID
   ORDER BY b.productID ASC";
   
      $result = $conn->query($sql);
 
+$sql2 = "SELECT p.productName, p.userid as sellerid, u.username  sellername, date_format(p.endDate, '%d-%m-%Y') endDate, p.reservePrice,
+  (select case when a.userID is not NULL then a.userid
+          else 'Auction Still Open'
+   end) buyerid,
+  (select case when a.auctionPrice is not NULL then a.auctionPrice
+          else 'Auction Still Open'
+   end) auctionprice,
+    (select case when u2.userID is not NULL then u2.username
+          else 'Auction Still Open'
+   end) buyername
+FROM product p
+left join user u on p.userID = u.userID
+left outer join auction a on p.productID = a.productID
+  left join user u2 on a.userID = u2.userID
+WHERE p.userID = $userID";
+
+$result2 = $conn->query($sql2);
 
 if ($conn->query($sql) === TRUE) {
     //echo "date added successfully!";
@@ -141,6 +158,58 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
 			</table>
  
   </div>
+
+  <div class="w3-section w3-bottombar w3-padding-16">
+
+      </div>
+
+      <div class="table-responsive" style="width: 80%">
+    <h2> Selling Activity: </h2>
+			<table id="selling_activity" class="table table-striped table-bordered">
+				<thead>
+					<tr>
+            <th>Product Name</th>
+            <th>End Date</th>
+            <th>Reserve Price</th>
+            <th>Auction Price</th>
+            <th>Bidder Username</th>           
+
+
+				</tr>
+				</thead>
+				<?php
+        // Fetching data from database
+        
+       //$row2 = mysqli_fetch_array($result2);
+       while ($row2 = mysqli_fetch_assoc($result2)) {          
+        
+           
+                   echo '
+                  
+                     
+                       <tr>
+                       <td>'.$row2["productName"].'</td> 
+                       <td>'.$row2["endDate"].'</td>
+                       <td>'.$row2["reservePrice"].'</td>
+                       <td>'.$row2["auctionprice"].'</td>
+                       <td>'.$row2["buyername"].'</td>
+                     </tr>
+                     
+                       ';
+   
+           
+           
+           
+                         }
+
+				?>
+        <tbody>
+				</tbody>
+
+			</table>
+ 
+  </div> 
+
   </div>
 
   <!-- This script is to get data from mysql -->
@@ -149,6 +218,16 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
 
 			// Activate DataTable plugin to enable datatable features
 			$('#auction_progress').DataTable();
+		});
+
+	 </script>
+
+     <!-- This script is to get data from mysql -->
+	<script class = "notfirst" type="text/javascript" language="javascript">
+		$(document).ready(function() {
+
+			// Activate DataTable plugin to enable datatable features
+			$('#selling_activity').DataTable();
 		});
 
 	 </script>
