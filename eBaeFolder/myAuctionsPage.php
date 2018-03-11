@@ -15,10 +15,12 @@ $conn =  new mysqli($host, $username, $password, $dbname);
 
   $userID = $_SESSION['userID'];
 
-  $sql = "SELECT b.userID, b.bidPrice, date_format(b.bidDate, '%d-%m-%Y') bidDate, u.username 
-  FROM bid b, user u
-  WHERE u.userID = b.userID
-  ORDER BY bidPrice DESC";
+  $sql = "SELECT p.userID AS seller, b.userID as bidder, b.bidPrice,  date_format(b.bidDate, '%d-%m-%Y') bidDate, date_format(p.endDate, '%d-%m-%Y') bidDate, p.productName, u.username as bidderUsername
+  FROM product p, user u, bid b
+  WHERE p.userID = 4
+  AND p.productID = b.productID
+  AND b.userID = u.userID
+  ORDER BY b.productID ASC";
   
      $result2 = $conn->query($sql);
 
