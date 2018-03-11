@@ -109,15 +109,21 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
   </header>
   
   <!-- My Bids -->
-
+<form action  = "giveSellerFeedbackphp.php" method="post"  >
 <label>Rating</label>
 <select name='Rating'>
-  <option value='1 Star'>1 Star</option>
-  <option value='2 Star'>2 Stars</option>
-  <option value='3 Star'>3 Stars</option>
-  <option value='4 Star'>4 Stars</option>
-  <option value='5 Star'>5 Stars</option>
+  <option value='1'>1 Star</option>
+  <option value='2'>2 Stars</option>
+  <option value='3'>3 Stars</option>
+  <option value='4'>4 Stars</option>
+  <option value='5'>5 Stars</option>
 </select>
+<br>
+<button type="submit" name="submit" class="w3-button w3-black w3-margin-bottom"><i class="fa fa-paper-plane w3-margin-right"></i>Submit Feedback</button>
+
+</form>
+<br>
+<br>
 
 
 		</div>
