@@ -129,7 +129,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
   
   <!-- Live Auctions -->
   <div class="w3-container">
-  <form action  = "sendBidtoDB.php" method="post"  >
+  <form action  = "sendBidtoDB.php" method="post" name="bidForm" onsubmit="return validateForm()">
                                     <label style="color: #B33C12"></label>
                                     <input type="text" name = "bidPrice"  class="form-control" style="background-color: #e5e5e5" placeholder="Enter bid here"/>
 
@@ -300,6 +300,16 @@ function w3_close() {
     document.getElementById("mySidebar").style.display = "none";
     document.getElementById("myOverlay").style.display = "none";
 }
+
+function validateForm() {
+    var x = document.forms["auctionForm"]["bidPrice"].value;
+    x = parseInt(x)
+    if(isNaN(x))
+    {
+      alert("Please choose a valid bid price");
+      return false;
+        
+    } 
 </script>
 
 </body>
