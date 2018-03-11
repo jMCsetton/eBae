@@ -48,10 +48,10 @@ $conn =  new mysqli($host, $username, $password, $dbname);
 
   $sql = "select
   p2.productName, p2.productid, a.bidid, p2.reservePrice, a.bidPrice as userPrice,maxbid.maxprice winningprice, a.userID ,  date_format(a.bidDate, '%d-%m-%Y') bidDate, date_format(p2.enddate, '%d-%m-%Y') enddate,
-  (select case when r.productid is not NULL and p2.endDate < curdate() then 'Y'
-           when r.productid is NULL and p2.endDate < curdate() then 'N'
-           when p2.enddate >= curdate() then 'Not Applicable'
-   end) test
+  (select case when r.productid is not NULL and p2.endDate < curdate() then 'Yes'
+           when r.productid is NULL and p2.endDate < curdate() then 'No'
+           when p2.enddate >= curdate() then 'Auction Still Open'
+   end) YorN
 from
   bid a
 left outer join
@@ -159,9 +159,9 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
             <th>Bid Date</th>
             <th>Reserve Price</th>
 						<th>My Bid</th>
-            <th> Highest Bid </th>
+            <th> Highest Bid or Winning Price </th>
             <th> End Date </th>
-            <th> Winning Bid </th>
+            <th> Winning Bid? </th>
 
 				</tr>
 				</thead>
@@ -179,7 +179,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
              <td>'.$row["userPrice"].'</td> 
              <td>'.$row["winningprice"].'</td> 
              <td>'.$row["enddate"].'</td> 
-             <td>'.$row["test"].'</td> 
+             <td>'.$row["YorN"].'</td> 
              
 
     
