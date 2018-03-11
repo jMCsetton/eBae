@@ -189,16 +189,13 @@ function validateForm() {
         mm='0'+mm;
     }
 
-    var today = dd+'/'+mm+'/'+yyyy; 
+    var today = yyyy+'/'+mm+'/'+dd; 
 
-    var inputtedDate = document.forms["auctionForm"]["endDate"].value;
-    inputtedDate = String(inputtedDate);
-    inputted2 = new Date(inputtedDate);   
-
-    if(inputted2 < today) {
-       alert("Please choose a valid date");
-       return false;
-    }
+    var inputtedDate = document.forms["auctionForm"]["endDate"].value = new Date();
+    if (inputtedDate < today ) {
+    alert("The first date is after the second date!");
+    return false;
+  }  
 }
 </script>
 
