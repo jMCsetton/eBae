@@ -1,5 +1,4 @@
 <?php
-
 ?>
 
 <!doctype html>
@@ -180,7 +179,6 @@ function validationform() {
     alert("Please enter your email address!")
     return false;
   }
-  
   var usnm = document.forms["cruciform"]["username"].value;
   if (usnm == "") {
     alert("Please enter a username!")
