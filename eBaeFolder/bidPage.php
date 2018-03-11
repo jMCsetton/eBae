@@ -160,6 +160,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
             <th>Reserve Price</th>
 						<th>My Bid</th>
             <th> Highest Bid </th>
+            <th> End Date </th>
             <th> Winning Bid </th>
 
 				</tr>
@@ -177,6 +178,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
              <td>'.$row["reservePrice"].'</td>
              <td>'.$row["userPrice"].'</td> 
              <td>'.$row["winningprice"].'</td> 
+             <td>'.$row["enddate"].'</td> 
              <td>'.$row["test"].'</td> 
              
 
