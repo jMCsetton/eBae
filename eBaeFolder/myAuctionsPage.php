@@ -24,7 +24,7 @@ $conn =  new mysqli($host, $username, $password, $dbname);
   
      $result = $conn->query($sql);
 
-$sql2 = "SELECT p.productName, p.userid as sellerid, u.username  sellername, date_format(p.endDate, '%d-%m-%Y') endDate, p.reservePrice,
+/*$sql2 = "SELECT p.productName, p.userid as sellerid, u.username  sellername, date_format(p.endDate, '%d-%m-%Y') endDate, p.reservePrice,
   (select case when a.userID is not NULL then a.userid
           else 'Auction Still Open'
    end) buyerid,
@@ -38,7 +38,33 @@ FROM product p
 left join user u on p.userID = u.userID
 left outer join auction a on p.productID = a.productID
   left join user u2 on a.userID = u2.userID
-WHERE p.userID = $userID";
+WHERE p.userID = $userID";*/
+
+
+$sql2 = "SELECT p.productName, p.userid as sellerid, u.username  sellername, date_format(p.endDate, '%d-%m-%Y') endDate, p.reservePrice,
+(select case when a.userID is not NULL and p.endDate < curdate() then a.userid
+         when a.userID is NULL and p.endDate < curdate() then 'Not sold'
+        else 'Auction Still Open'
+ end) buyerid,
+(select case when a.auctionPrice is not NULL and p.endDate < curdate() then a.auctionPrice
+         when a.auctionPrice is NULL and p.endDate < curdate() then 'Not sold'
+        else 'Auction Still Open'
+ end) auctionprice,
+  (select case when u2.userID is not NULL  and p.endDate < curdate()then u2.username
+        when u2.userID is NULL and p.endDate < curdate() then 'Not sold'
+        else 'Auction Still Open'
+ end) buyername,
+ (select case when v.traffic_count is not NULL then v.traffic_count
+        else '0'
+    end) traffic_count
+FROM product p
+left join user u on p.userID = u.userID
+left outer join auction a on p.productID = a.productID
+left join user u2 on a.userID = u2.userID
+left outer join (SELECT productID, count(traffic_counter) as traffic_count
+FROM viewingtraffic GROUP BY productID) v on p.productID = v.productID
+WHERE p.userID = $userID
+ORDER BY YEAR(enddate) ASC, MONTH(enddate) ASC, DAY(enddate) ASC";
 
 $result2 = $conn->query($sql2);
 
@@ -170,6 +196,59 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
 					<tr>
             <th>Product Name</th>
             <th>End Date</th>
+            <th>Viewing Traffic</th>  
+            <th>Reserve Price</th>
+            <th>Auction Price</th>
+            <th>Bidder Username</th> 
+                 
+
+
+				</tr>
+				</thead>
+				<?php
+        // Fetching data from database
+        
+       //$row2 = mysqli_fetch_array($result2);
+       while ($row2 = mysqli_fetch_assoc($result2)) {          
+        
+           
+                   echo '
+                  
+                     
+                       <tr>
+                       <td>'.$row2["productName"].'</td> 
+                       <td>'.$row2["endDate"].'</td>
+                       <td>'.$row2["traffic_count"].'</td>
+                       <td>'.$row2["reservePrice"].'</td>
+                       <td>'.$row2["auctionprice"].'</td>
+                       <td>'.$row2["buyername"].'</td>
+                       
+                     </tr>
+                     
+                       ';
+   
+           
+           
+           
+                         }
+
+				?>
+        <tbody>
+				</tbody>
+
+			</table>
+ 
+  </div> 
+
+
+
+      <div class="table-responsive" style="width: 80%">
+    <h2> Viweing Traffic: </h2>
+			<table id="selling_activity" class="table table-striped table-bordered">
+				<thead>
+					<tr>
+            <th>Product Name</th>
+            <th>End Date</th>
             <th>Reserve Price</th>
             <th>Auction Price</th>
             <th>Bidder Username</th>           
@@ -209,6 +288,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
 			</table>
  
   </div> 
+
 
   </div>
 
