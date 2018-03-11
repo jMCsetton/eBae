@@ -12,7 +12,7 @@ if (isset($_POST['submit']))
     die("Connection failed: ".$conn->connect_error);
   }
   
-  $firstnameErr = $lastnameErr = $DOBErr = $doorNumberErr = $streetErr = $cityErr = $countyErr = $postCodeErr = $genderErr = $emailIDErr = $usernameErr = $passwordErr = $psw2Err = "";
+  /*$firstnameErr = $lastnameErr = $DOBErr = $doorNumberErr = $streetErr = $cityErr = $countyErr = $postCodeErr = $genderErr = $emailIDErr = $usernameErr = $passwordErr = $psw2Err = "";
 
 
     if (empty($_POST["firstName"])) {
@@ -55,7 +55,7 @@ if (isset($_POST['submit']))
       $emailIDErr = "Email is required";
       } /*else if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
           $emailErr = "Invalid email format"; 
-        }*/
+        }
   
       if (empty($_POST["username"])) {
       $usernameErr = "Username is required";
@@ -67,7 +67,7 @@ if (isset($_POST['submit']))
   
       if (empty($_POST["psw2"])) {
       $psw2Err = "Please confirm your password!";
-    }
+      }*/
 
   $sql = "INSERT INTO address (postCode, street, city, county, doorNumber, username) VALUES ('".$_POST["postCode"]."','".$_POST["street"]."', '".$_POST["city"]."', '".$_POST["county"]."', '".$_POST["doorNumber"]."', '".$_POST["username"]."')";
   mysql_query($sql);
