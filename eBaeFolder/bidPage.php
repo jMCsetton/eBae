@@ -151,7 +151,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
   </header>
   
   <!-- My Bids -->
-  <div class="table-responsive" style="width: 80%">
+  <div class="table-responsive" style="width: 100%">
 			<table id="bid_data" class="table table-striped table-bordered">
 				<thead>
 					<tr>
@@ -183,7 +183,8 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
              <td>'.$row["YorN"].'</td> 
              '; 
              if ($row["YorN"] == 'Yes') {
-               echo '<td>button</td> </tr>';
+              echo "<td><a href='giveSellerFeedback.php?id=".$row['productid']."' class='w3-third w3-container' style='background-color:black; width:9%; color:white'><b>Rate User<b></a> 
+              </td> </tr>";
 
              } else {
                echo '<td>Not Applicable</td> </tr>';
