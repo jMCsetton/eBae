@@ -15,7 +15,7 @@ if (isset($_POST['submit']))
 if (!filter_var($_POST["email_ID"], FILTER_VALIDATE_EMAIL)) {
   $message = "Please enter a valid email address!";
   echo "<script type='text/javascript'>alert('$message');</script>";
-  header("Location: https://gc06team37db.azurewebsites.net/UserRegistration.php");
+  die();
 }
 else {
 
