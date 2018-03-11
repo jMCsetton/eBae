@@ -49,7 +49,7 @@
                         <div class="col-lg-4 ml-auto mr-auto">
                             <div class="card card-register">
                                 <h3 class="title">Please fill out the form below to register:</h3>
-                              <form action="Registrationphp.php" method="post">
+                              <form action="Registrationphptest.php" method="post">
                                    
                                     <label>First Name</label>
                                     <input type="text" class="form-control" placeholder="First Name" name="firstName"/>
