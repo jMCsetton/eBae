@@ -39,6 +39,12 @@ GROUP BY p.productID";
 
 $result = $conn->query($sql);
 
+if ($conn->query($sql2) === TRUE) {
+  //echo "date added successfully!";
+} else {
+  echo "Error: " . $sql2 . "<br>" . $conn->error;
+}
+
 $sql2 = "SELECT b.userID, b.bidPrice, date_format(b.bidDate, '%d-%m-%Y') bidDate, u.username,
 (SELECT ROUND(avg(rating),2)
 FROM feedback
@@ -54,7 +60,11 @@ ORDER BY bidPrice DESC";
 
 $result2 = $conn->query($sql2);
 
-
+if ($conn->query($sql2) === TRUE) {
+  //echo "date added successfully!";
+} else {
+  echo "Error: " . $sql2 . "<br>" . $conn->error;
+}
 
 ?>
 
