@@ -18,6 +18,42 @@ $conn =  new mysqli($host, $username, $password, $dbname);
   $_SESSION['productID_page'] = $_GET['id'];
   $productidpage = $_SESSION['productID_page'];
 
+echo $productidpage;
+
+if (isset($_POST['submit']))
+{
+  require "config.php";
+  $conn =  new mysqli($host, $username, $password, $dbname);
+
+  // Check connection
+  if ($conn->connect_error) {
+    die("Connection failed: ".$conn->connect_error);
+  }
+
+  $sql2 = "SELECT userID, productID
+  FROM product
+  WHERE productID = '$productidpage'";
+
+if ($conn->query($sql2) === TRUE) {
+    echo "Feedback submitted successfully!";
+} else {
+    echo "Error: " . $sql2 . "<br>" . $conn->error;
+}
+
+$result2 = $conn->query($sql2);
+$row2 = mysqli_fetch_array($result2);
+
+  $sql = "INSERT INTO feedback (raterID, userRatedID, rating, productID)
+  VALUES ('$userID', '".$row2['userID']."', '".$_POST["Rating"]."', '$productidpage')";
+
+  if ($conn->query($sql) === TRUE) {
+    echo "Feedback submitted successfully!";
+} else {
+    echo "Error: " . $sql . "<br>" . $conn->error;
+}
+
+ 
+}
 
 ?>
 
@@ -82,7 +118,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
   </header>
   
   <!-- My Bids -->
-<form action  = "giveSellerFeedbackphp.php?id=$productidpage" method="post"  >
+<form action  = "" method="post"  >
 <label>Rating</label>
 <select name='Rating'>
   <option value='1'>1 Star</option>
