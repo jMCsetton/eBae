@@ -127,6 +127,15 @@
     </div>
 </body>
 
+<?php
+function emailvalidation() {
+if (!filter_var($_POST["email_ID"], FILTER_VALIDATE_EMAIL)) {
+  //$message = "Please enter a valid email address!";
+  //echo "<script type='text/javascript'>alert('$message');</script>";
+  return false;
+}
+}
+?>
 <script>
 function validationform() {
   var fname = document.forms["cruciform"]["firstName"].value;
@@ -179,6 +188,10 @@ function validationform() {
     alert("Please enter your email address!")
     return false;
   }
+  var emlvalid= <?php echo emailvalidation();?>
+  if (emlvalid == false) {
+    alert("Please enter a valid email address!")
+  }
   
   var usnm = document.forms["cruciform"]["username"].value;
   if (usnm == "") {
@@ -197,6 +210,7 @@ function validationform() {
   }
 }
 </script>
+
 
 <!-- Core JS Files -->
 <script src="../assets/js/jquery-3.2.1.js" type="text/javascript"></script>
