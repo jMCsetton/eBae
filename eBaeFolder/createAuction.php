@@ -83,14 +83,14 @@ function validateForm() {
     <h4 id="contact"><b>Item Information!!</b></h4>
     <hr class="w3-opacity">
     <!--form action="" method="post" target="_blank"-->
-    <form action="createAuctionphp.php" method="post" enctype="multipart/form-data" name="auctionForm">
+    <form action="createAuctionphp.php" method="post" enctype="multipart/form-data" name="auctionForm" onsubmit="return validateForm()">
       <div class="w3-section">
         <label>Item Name</label>
         <input class="w3-input w3-border" type="text" name="productName">
       </div>
       <div class="w3-section">
         <label>Quantity</label>
-        <input class="w3-input w3-border" type="text" name="quantity" onsubmit="return validateForm()">
+        <input class="w3-input w3-border" type="text" name="quantity">
       </div>
       <div class="w3-section">
         <label>Item Category</label>
