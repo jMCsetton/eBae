@@ -127,9 +127,9 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
 
  <script>
 function validateForm() {
-    var x = document.forms["auctionForm"]["productName"].value;
-    if (x == "") {
-        alert("Name must be filled out");
+    var x = document.forms["auctionForm"]["quantity"].value;
+    if (!Number.isInteger(+quantity))  {
+        alert("This must be a number");
         return false;
     }
 }
