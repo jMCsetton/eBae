@@ -126,15 +126,6 @@
         </div>
     </div>
 </body>
-<?php
-  function emailvalidation() {
-    if (!filter_var($_POST["email_ID"], FILTER_VALIDATE_EMAIL)) {
-      $message = "Please enter a valid email address!";
-      echo "<script type='text/javascript'>alert('$message');</script>";
-      return false;
-    }
-    }
-?>
 <script>
 function validationform() {
   var fname = document.forms["cruciform"]["firstName"].value;
