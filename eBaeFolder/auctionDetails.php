@@ -21,7 +21,7 @@ $productID_page = $_SESSION['productID_page'];
 
 $sql3 = "INSERT INTO viewingtraffic (userID, productID, dateVisited) VALUES ( '$userID', '$productID_page','$traffic_date')";
 if ($conn->query($sql3) === TRUE) {
-  echo "date added successfully!";
+  //echo "date added successfully!";
 } else {
   echo "Error: " . $sql3 . "<br>" . $conn->error;
 }
