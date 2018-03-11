@@ -58,7 +58,7 @@
                                     <input type="text" class="form-control" placeholder="Last Name" name="lastName">
                                   
                                     <label>Date of Birth</label>
-                                    <input type="text" class="form-control" placeholder="yyyy/mm/dd" name="DOB">
+                                    <input type="text" class="form-control" placeholder="mm/dd/yyyy" name="DOB">
                                    
 
                                     <label>Address:</label>
@@ -158,17 +158,17 @@ function validationform() {
     return false;
   }
   if (isValidDate(dbirth) == false) {
-    alert("Please enter a valid date of birth (yyyy/mm/dd)");
+    alert("Please enter a valid date of birth! (mm/dd/yyyy)");
     return false;
   }
-  /*var today = new Date();
+  var today = new Date();
     if ((dbirth.getFullYear() > today.getFullYear()) || 
     ((dbirth.getFullYear() = today.getFullYear()) && (dbirth.getMonth() > today.getMonth())) || 
     ((dbirth.getFullYear() = today.getFullYear()) && (dbirth.getMonth() > today.getMonth()) && (dbirth.getdate() > today.getdate())))
     {
       alert("Hey time traveller, please choose a valid date");
       return false;
-  }*/  
+  }  
 
   /*var a = new Date();
   var mon = a.getMonth();
