@@ -157,8 +157,8 @@ function w3_close() {
 <script>
 function validateForm() {
     var x = document.forms["auctionForm"]["quantity"].value;
-    quantity = parseInt(quantity)
-    if(isNaN(quantity))
+    x = parseInt(x)
+    if(isNaN(x))
     {
       alert("This must a number");
       return false;
