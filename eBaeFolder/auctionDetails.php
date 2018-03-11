@@ -14,7 +14,18 @@ $conn =  new mysqli($host, $username, $password, $dbname);
   }
 
 $_SESSION['productID_page'] = $_GET['id'];
+$userID = $_SESSION['userID'];
+$traffic_date = date("Y/m/d");
+
 $productID_page = $_SESSION['productID_page'];
+
+$sql3 = "INSERT INTO viewingtraffic (userID, productID, dateVisited) VALUES ( '$userID', '$productID_page','$traffic_date')";
+if ($conn->query($sql3) === TRUE) {
+  //echo "date added successfully!";
+} else {
+  echo "Error: " . $sql3 . "<br>" . $conn->error;
+}
+
 $sql = "SELECT productImage, productName, reservePrice, date_format(enddate, '%d-%m-%Y') enddate, category, quantity, conditions, productInfo FROM product WHERE productID = $productID_page" ;
 
 $result = $conn->query($sql);
@@ -106,7 +117,8 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
         ob_start();
         // Fetching data from database
         //header("Content-type: image/png"); 
-			$row = mysqli_fetch_assoc($result);         
+      $row = mysqli_fetch_assoc($result);   
+    
           //echo "<img src='picture/".$row2["productImage"]."' width='300' height='300'/>";
           //echo "<img src = '".base64_encode($row2["productImage"])."' width='300' height='300'/>";
           echo '<img src="data:image/jpeg;base64,'.base64_encode( $row["productImage"] ).'" style="width:30%; height:30%" class="w3-third w3-container"/>';
