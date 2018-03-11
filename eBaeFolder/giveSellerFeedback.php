@@ -111,7 +111,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
   </header>
   
   <!-- My Bids -->
-<form action  = "giveSellerFeedbackphp.php?id='.$_GET["id"].'" method="post"  >
+<form action  = "giveSellerFeedbackphp.php?id=33" method="post"  >
 <label>Rating</label>
 <select name='Rating'>
   <option value='1'>1 Star</option>
