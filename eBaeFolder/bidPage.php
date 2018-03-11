@@ -162,6 +162,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
             <th> Highest Bid or Winning Price  </th>
             <th> End Date </th>
             <th> Winning Bid? </th>
+            <th> Rate User </th>
 
 				</tr>
 				</thead>
@@ -180,12 +181,17 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
              <td>'.$row["winningprice"].'</td> 
              <td>'.$row["enddate"].'</td> 
              <td>'.$row["YorN"].'</td> 
-             
+             '; 
+             if ($row["YorN"] == 'Yes') {
+               echo '<td>button</td> </tr>';
+
+             } else {
+               echo '<td>Not Applicable</td> </tr>';
+             }
 
     
           
-					</tr>
-          ';
+					//echo '</tr>';
           
         
 				}
