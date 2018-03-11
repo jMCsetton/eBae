@@ -11,7 +11,8 @@ if (isset($_POST['submit']))
     die("Connection failed: ".$conn->connect_error);
   }
   
-  $product_id_page = $_GET['id'];
+  $_SESSION['productID_page'] = $_GET['id'];
+  $product_id_page = $_SESSION['productID_page'];
   $userID = $_SESSION['userID'];
 
   $sql2 = "SELECT userID, productID
