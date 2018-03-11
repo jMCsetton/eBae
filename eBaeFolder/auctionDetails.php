@@ -26,20 +26,32 @@ if ($conn->query($sql3) === TRUE) {
   echo "Error: " . $sql3 . "<br>" . $conn->error;
 }
 
-$sql = "SELECT p.productImage, p.productName, p.reservePrice, date_format(p.enddate, '%d-%m-%Y') enddate, p.category, p.quantity, p.conditions, p.productInfo,
-(SELECT avg(rating)
+$sql = "SELECT b.userID, b.bidPrice, date_format(b.bidDate, '%d-%m-%Y') bidDate, u.username,
+(SELECT ROUND(avg(rating),2)
 FROM feedback
-WHERE userRatedID= $userID) rating
-FROM product p , feedback f
-WHERE p.productID = $productID_page
-GROUP BY p.productID" ;
-
-$result = $conn->query($sql);
-
-$sql2 = "SELECT b.userID, b.bidPrice, date_format(b.bidDate, '%d-%m-%Y') bidDate, u.username 
+WHERE userRatedID= $userID) rating,
+  (select case when rating is not NULL then rating
+  ELSE 'User not rated yet'
+  END) rating2
 FROM bid b, user u
 WHERE u.userID = b.userID
 AND productID = $productID_page
+GROUP BY productID
+ORDER BY bidPrice DESC";
+
+$result = $conn->query($sql);
+
+$sql2 = "SELECT b.userID, b.bidPrice, date_format(b.bidDate, '%d-%m-%Y') bidDate, u.username,
+(SELECT ROUND(avg(rating),2)
+FROM feedback
+WHERE userRatedID= $userID) rating,
+(select case when rating is not NULL then rating
+  ELSE 'User not rated yet'
+  END) rating2
+FROM bid b, user u
+WHERE u.userID = b.userID
+AND productID = $productID_page
+GROUP BY productID
 ORDER BY bidPrice DESC";
 
 $result2 = $conn->query($sql2);
@@ -137,7 +149,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
               <br><label>Quantity: '.$row["quantity"].'</label>
               <br><label>Condition: '.$row["conditions"].'</label>
               <br><label>Description: '.$row["productInfo"].'</label>
-              <br><label>Seller Rating: '.$row["rating"].'/5</label>
+              <br><label>Seller Rating: '.$row["rating2"].'/5</label>
               <br>
               <br>
             </div>
@@ -175,6 +187,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
 					<tr>
             <th>Bid Price</th>
             <th>Username</th>
+            <th>Bidder Rating</th>
             <th>Bid Date</th>
 
 
@@ -193,6 +206,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
                        <tr>
                        <td>'.$row2["bidPrice"].'</tb> 
                        <td>'.$row2["username"].'</td>
+                       <td>'.$row2["rating2"].'/5</td>
                        <td>'.$row2["bidDate"].'</td>
                      </tr>
                      
