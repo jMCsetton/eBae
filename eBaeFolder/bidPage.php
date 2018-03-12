@@ -172,6 +172,19 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
        //$row2 = mysqli_fetch_array($result2);
 		while( $row = mysqli_fetch_array($result)) { 
 
+      $productIDfromRow = $row["productid"];
+
+  $sql3 = "SELECT raterID, productID FROM feedback WHERE raterID = $userID  AND productID = $productIDfromRow";
+  $result3 = $conn->query($sql3);
+  $row3 = mysqli_fetch_array($result3);
+  $count3 = mysqli_num_rows($result3); 
+
+  if ($conn->query($sql3) === TRUE) {
+    //echo "date added successfully!";
+  } else {
+    //echo "Error for sql3: " . $sql3. "<br>" . $conn->error;
+  }
+
 					echo '
           <tr>
              <td>'.$row["productName"].'</td>
@@ -182,7 +195,10 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
              <td>'.$row["enddate"].'</td> 
              <td>'.$row["YorN"].'</td> 
              '; 
-             if ($row["YorN"] == 'Yes') {
+              if($count3>0){
+              echo '<td>Already rated</td> </tr>';
+             }
+             else if ($row["YorN"] == 'Yes') {
               echo "<td><a href='giveSellerFeedback.php?id=".$row['productid']."' class='w3-third w3-container' style='background-color:black; width:50%; color:white'><b>Rate User<b></a> 
               </td> </tr>";
 
