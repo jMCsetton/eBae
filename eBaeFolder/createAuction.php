@@ -183,12 +183,13 @@ function validateForm() {
     if (inputtedDate.getTime() < today.getTime()) {
       alert("Please choose a valid date");
       return false;
-  }  else if(inputtedDate.getTime() == today.getTime()) {
-     return true; 
-  }
+    } else if(inputtedDate.getTime() == today.getTime()) {
+       return true; 
+    } else {
+       return true;
+    }
 
-  }
-}
+    }
 </script>
 
 <script src="../assets/js/jquery-3.2.1.js" type="text/javascript"></script>
