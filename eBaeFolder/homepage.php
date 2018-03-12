@@ -167,11 +167,11 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
 
         while ($row = mysqli_fetch_assoc($resultJA)) {
         ?>
-         <div class="w3-container" style="display: inline-block;">
+         <div class="w3-container" style="display: inline-block; white-space: nowrap">
            <figure>
            <div class="image" style="display: inline; float:left;">
              <?php
-           echo '<img src="data:image/jpeg;base64,'.base64_encode( $row["productImage"] ).'" style=" width:150px; height:22%; class="w3-container"/>';
+           echo '<img src="data:image/jpeg;base64,'.base64_encode( $row["productImage"] ).'" style=" width:150px; height:22%; vertical-align: top; class="w3-container"/>';
            ?>
            </div>
            <figcaption style="font-weight:bold; width:100px; word-wrap:break-word;">
