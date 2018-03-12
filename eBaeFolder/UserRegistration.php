@@ -161,33 +161,6 @@ function validationform() {
     alert("Please enter a valid date of birth! (mm/dd/yyyy)");
     return false;
   }
-  
-  /*var today = new Date();
-  if (dbirth.getFullYear() > today.getFullYear()) {
-    alert("Hey time traveller, please choose a valid date of birth!");
-    return false;
-  }
-  if ((dbirth.getFullYear() == today.getFullYear()) && (dbirth.getMonth() > today.getMonth())) {
-    alert("Hey time traveller, please choose a valid date of birth!");
-    return false;
-    }
-  if ((dbirth.getFullYear() == today.getFullYear()) && (dbirth.getMonth() == today.getMonth()) && (dbirth.getdate() > today.getdate()))  {
-    alert("Hey time traveller, please choose a valid date");
-    return false;
-  }*/
-
-  /*var a = new Date();
-  var mon = a.getMonth();
-  var dy = a.getDate();
-  var yr = a.getFullYear();
-  var date = new Date(yr,mon,dy);
-
-  console.log(date);
-  console.log(dbirth);
-  if(date <= dbirth) {
-    alert("Hey time traveller! Please enter a valid date of birth!");
-    return false;
-  }*/
 
   var dnum = document.forms["cruciform"]["doorNumber"].value;
   if (dnum == "") {
