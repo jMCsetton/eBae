@@ -162,13 +162,13 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
   </div>
   
 
- <div class="w3-container"; style="overflow: auto; overflow-x: scroll">
+ <div style="overflow: auto; overflow-x: scroll;">
  <?php
         ob_start();
 
         while ($row = mysqli_fetch_assoc($resultJA)) {
         ?>
-         <div class="w3-container" style="display: inline-block; white-space: nowrap; overflow-x:scroll;">
+         <div class="w3-container" style="display: inline-block; white-space: nowrap;">
            <figure>
            <div class="image" style="display: inline; float:left;">
              <?php
