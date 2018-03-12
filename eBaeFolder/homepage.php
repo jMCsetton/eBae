@@ -175,7 +175,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
           echo '
             <div style= "bg-colour:white" class="inline-block w3-container">
             
-              <h1>'.$row["productName"].'</h1>
+              
               <label>Viewing Traffic: £'.$row["trafficFrequencyPerItem"].'</label> 
               
               <br>
