@@ -67,7 +67,11 @@ $mail->SMTPOptions = array(
     )
 );
 
+
+
+
 while( $row = mysqli_fetch_array($result)) { 
+  $productName = $row["productName"];
   $mail->Subject = 'UCL Databases';
   $mail->Debugoutput = 'html';
   $mail->setFrom('ebaeauction@gmail.com', 'Databases37!');
@@ -75,7 +79,9 @@ while( $row = mysqli_fetch_array($result)) {
   $mail->Subject = 'Auction Successful!';
   $mail->Debugoutput = 'html';
   $mail->Body = 'Hi, 
-                   You have successfuly bought product: '".$row['productName']."'';
+                   You have successfuly bought product: \"$productName\"';
+
+                  
 
   if ($mail->send()){
       echo 'Message sent';
@@ -86,6 +92,7 @@ while( $row = mysqli_fetch_array($result)) {
 }
 
 while( $row2 = mysqli_fetch_array($result2)) { 
+  $productName = $row2["productName"];
   $mail->Subject = 'UCL Databases';
   $mail->Debugoutput = 'html';
   $mail->setFrom('ebaeauction@gmail.com', 'Databases37!');
@@ -93,7 +100,7 @@ while( $row2 = mysqli_fetch_array($result2)) {
   $mail->Subject = 'Auction Successful';
   $mail->Debugoutput = 'html';
   $mail->Body = 'Hi, 
-                You have successfuly sold product:' $row2['productName']';
+                You have successfuly sold product:\"$productName\"';
 
   if ($mail->send()){
       echo 'Message sent';
