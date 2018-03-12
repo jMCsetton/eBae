@@ -55,9 +55,18 @@ if ($conn->query($sql) === TRUE) {
 
     if ($conn->query($sql4) === TRUE) {
     //echo "date added successfully!";
+      $sql5 = "UPDATE system SET system.auctionStatus=TRUE WHERE system.date = curdate()-1";
+      if ($conn->query($sql5) === TRUE) {
+        //echo "date added successfully!";
+        } else {
+            echo "Error: " . $sql5 . "<br>" . $conn->error;
+        }
     } else {
         echo "Error: " . $sql4 . "<br>" . $conn->error;
     }
+
+
+
 
     }
 }
