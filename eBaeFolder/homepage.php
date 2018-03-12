@@ -151,6 +151,10 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
   </form-->
   </div>
 
+  <div>
+  <p> hey Jake and amelia doing some work </p>
+  </div>
+
   <!-- Footer -->
   <footer class="w3-container w3-padding-32 w3-dark-grey">
   <div class="w3-row-padding">
