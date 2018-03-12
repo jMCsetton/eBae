@@ -171,14 +171,14 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
            <figure>
            <div class="image" style="display: inline; float:left;">
              <?php
-           echo '<img src="data:image/jpeg;base64,'.base64_encode( $row["productImage"] ).'" style=" width:150px; height:22%; vertical-align: top; class="w3-container"/>';
+           echo '<img src="data:image/jpeg;base64,'.base64_encode( $row["productImage"] ).'" style=" width:18%; height:18%; vertical-align: top; class="w3-container"/>';
            ?>
            </div>
-           <figcaption style="font-weight:bold; width:100px; word-wrap:break-word;">
+           <figcaption style="font-weight:bold; width:18%; word-wrap:break-word;">
              <?php
           $_SESSION['productID'] = $row['productID'];
           $productID = $_SESSION['productID'];
-          echo "<a href='auctionDetails.php?id=".$row['productID']."' class=' w3-container'><b>".$row["productName"]."</b> </a> 
+          echo "<a href='auctionDetails.php?id=".$row['productID']."'><b>".$row["productName"]."</b> </a> 
           ";
           echo '<div>
               <label>Viewing Traffic: '.$row["trafficFrequencyPerItem"].'</label>         
