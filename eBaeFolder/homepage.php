@@ -163,9 +163,9 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
  <?php
         ob_start();
 
-        while ($rowJA = mysqli_fetch_assoc($resultJA)) 
+        while ($row = mysqli_fetch_assoc($resultJA)) 
 
-           echo '<img src="data:image/jpeg;base64,'.base64_encode( $rowJA["productImage"] ).'" style="width:30%; height:30%" class="w3-third w3-container"/>';
+           echo '<img src="data:image/jpeg;base64,'.base64_encode( $row["productImage"] ).'" style="width:30%; height:30%" class="w3-third w3-container"/>';
           $_SESSION['productID'] = $row['productID'];
           $productID = $_SESSION['productID'];
           echo "<a href='auctionDetails.php?id=".$row['productID']."' class='w3-third w3-container' style='background-color:black; width:9%; color:white'><b>View Bid<b></a> 
@@ -173,7 +173,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
           echo '
             <div style= "bg-colour:white" class="w3-twothird w3-container">
             
-              <h1>'.$rowJA["productName"].'</h1>
+              <h1>'.$row["productName"].'</h1>
               <label>Viewing Traffic: £'.$row["trafficFrequencyPerItem"].'</label> 
               
               <br>
