@@ -73,7 +73,10 @@ if ($conn->query($sql) === TRUE) {
   } else {
     //echo "Error for sql: " . $sql . "<br>" . $conn->error;
   }
+
+  
 ?>
+
 
 <html>
 <title>eBae</title>
@@ -209,8 +212,15 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
         // Fetching data from database
         
        //$row2 = mysqli_fetch_array($result2);
-       while ($row2 = mysqli_fetch_assoc($result2)) {          
-        
+       while ($row2 = mysqli_fetch_assoc($result2)) {   
+         
+       
+  $productIDfromRow = $row2["productID"];
+
+  $sql3 = "SELECT raterID, productID FROM feedback WHERE raterID = $userID  AND productID = $productIDfromRow";
+  $result3 = $conn->query($sql3);
+  $row3 = mysqli_fetch_array($result3);
+  $count3 = mysqli_num_rows($result3); 
            
                    echo '
                   
@@ -230,6 +240,9 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
                        } else if ($row2["buyername"] == 'Not sold') {
                         echo '<td>Not Applicable</td> </tr>';
                        } 
+                       else if($count3>0){
+                        echo '<td>Already rated</td> </tr>';
+                       }
                        else {
                          
                          echo "<td>
