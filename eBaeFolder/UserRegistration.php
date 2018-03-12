@@ -161,14 +161,20 @@ function validationform() {
     alert("Please enter a valid date of birth! (mm/dd/yyyy)");
     return false;
   }
-  /*var today = new Date();
-    if ((dbirth.getFullYear() > today.getFullYear()) || 
-    ((dbirth.getFullYear() = today.getFullYear()) && (dbirth.getMonth() > today.getMonth())) || 
-    ((dbirth.getFullYear() = today.getFullYear()) && (dbirth.getMonth() > today.getMonth()) && (dbirth.getdate() > today.getdate())))
-    {
-      alert("Hey time traveller, please choose a valid date");
-      return false;
-  }*/  
+  
+  var today = new Date();
+  if (dbirth.getFullYear() > today.getFullYear()) {
+    alert("Hey time traveller, please choose a valid date of birth!");
+    return false;
+  }
+  else if ((dbirth.getFullYear() = today.getFullYear()) && (dbirth.getMonth() > today.getMonth())) {
+    alert("Hey time traveller, please choose a valid date of birth!");
+    return false;
+    }
+  else if ((dbirth.getFullYear() = today.getFullYear()) && (dbirth.getMonth() = today.getMonth()) && (dbirth.getdate() >= today.getdate()))  {
+    alert("Hey time traveller, please choose a valid date");
+    return false;
+  }
 
   /*var a = new Date();
   var mon = a.getMonth();
