@@ -162,14 +162,14 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
   </div>
   
 
- <div style="overflow-x: scroll;">
+ <div style="overflow-x: scroll; overflow: auto; overflow-y: hidden;">
  <?php
         ob_start();
 
         while ($row = mysqli_fetch_assoc($resultJA)) {
         ?>
 
-         <div style="display: inline-block; white-space: nowrap; overflow-x: scroll; overflow-y: hidden;">
+         <div style="display: inline-block; white-space: nowrap;">
            <figure>
            <div class="image" style="display: inline; float:left;">
              <?php
