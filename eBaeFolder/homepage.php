@@ -169,7 +169,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
         while ($row = mysqli_fetch_assoc($resultJA)) {
         ?>
 
-         <div style="display: inline-block; white-space: nowrap; overflow-x: scroll;">
+         <div style="display: inline-block; white-space: nowrap; overflow-x: scroll; overflow-y: hidden;">
            <figure>
            <div class="image" style="display: inline; float:left;">
              <?php
