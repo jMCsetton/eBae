@@ -161,13 +161,19 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
   <div> 
   </div>
 
-    <div class="w3-container" style="display: inline-block; background-color:red; vertical-align: top; white-space: nowrap">
+
  <?php
         ob_start();
 
         while ($row = mysqli_fetch_assoc($resultJA)) {
-
+        ?>
+         <div class="w3-container" style="display: inline-block; background-color:red; white-space: nowrap">
+           <div class="image">
+             <?php
            echo '<img src="data:image/jpeg;base64,'.base64_encode( $row["productImage"] ).'" style=" width:22%; height:22% display: inline-block; vertical-align: top; white-space: nowrap" class="w3-container"/>';
+           ?>
+           <div class="text">
+             <?php
           $_SESSION['productID'] = $row['productID'];
           $productID = $_SESSION['productID'];
           echo "<a href='auctionDetails.php?id=".$row['productID']."' class=' w3-container' style='width:9%;'><b>".$row["productName"]."</b> </a> 
@@ -179,18 +185,20 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
               <br>
               <br>
             </div>
-            
               ';
-         
               //$_SESSION['productID'] = $row['productID'];
               //$productID = $_SESSION['productID'];
               //echo $productID ;
+              ?>
+              </div>
+        </div>
 
+<?php
 }
-
+?>
       
-        ?>
-  </div>
+       
+
 
   <!-- Footer -->
   <footer class="w3-container w3-padding-32 w3-dark-grey">
