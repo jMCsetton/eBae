@@ -41,77 +41,66 @@ if ($conn->query($sql2) === TRUE) {
   echo "Error: " . $sql2 . "<br>" . $conn->error;
 }
 
-  
-$url = 'https://api.sendgrid.com/';
-$user = 'azure_7a58e4661c900d03ae9e0a5a4b1cf0a2@azure.com';
-$pass = 'Databases37!';
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
+require_once('./vendor/autoload.php');
+
+$mail = new phpmailer(true);
+
+
+//Server settings
+$mail->isSMTP();
+$mail->SMTPDebug = 2;
+$mail->Host = 'smtp.gmail.com';
+$mail->Port = 587;
+$mail->SMTPSecure = 'tls'; // enable 'tls'  to prevent security issues
+$mail->SMTPAuth = true;
+$mail->Username = 'ebaeauction@gmail.com';
+$mail->Password = 'Databases37!';
+// walkaround to bypass server errors
+$mail->SMTPOptions = array(
+'ssl' => array(
+    'verify_peer' => false,
+    'verify_peer_name' => false,
+    'allow_self_signed' => true
+    )
+);
 
 while( $row = mysqli_fetch_array($result)) { 
-$params = array(
-     'api_user' => $user,
-     'api_key' => $pass,
-     'to' => $row['email_ID'],
-     'subject' => 'Confirming your bought item!',
-     'html' => 'Hi! Thank you for your purchase of product: '.$row['productName'].'',
-     'text' => 'Hi! Thank you for your purchase of product: '.$row['productName'].'',
-     'from' => 'noreply@eBae.com',
-  );
+  $mail->Subject = 'UCL Databases';
+  $mail->Debugoutput = 'html';
+  $mail->setFrom('ebaeauction@gmail.com', 'Databases37!');
+  $mail->addAddress($row['email_ID'], 'German');
+  $mail->Subject = 'Auction Successful!';
+  $mail->Debugoutput = 'html';
+  $mail->Body = 'Hi, 
+                   You have successfuly bought product: '".$row['productName']."'';
 
-$request = $url.'api/mail.send.json';
+  if ($mail->send()){
+      echo 'Message sent';
+  }
 
-// Generate curl request
-$session = curl_init($request);
+    echo json_encode($mail);
 
-// Tell curl to use HTTP POST
-curl_setopt ($session, CURLOPT_POST, true);
-
-// Tell curl that this is the body of the POST
-curl_setopt ($session, CURLOPT_POSTFIELDS, $params);
-
-// Tell curl not to return headers, but do return the response
-curl_setopt($session, CURLOPT_HEADER, false);
-curl_setopt($session, CURLOPT_RETURNTRANSFER, true);
-
-// obtain response
-$response = curl_exec($session);
-curl_close($session);
-
-// print everything out
-print_r($response);
 }
 
 while( $row2 = mysqli_fetch_array($result2)) { 
-  $params = array(
-       'api_user' => $user,
-       'api_key' => $pass,
-       'to' => $row2['email_ID'],
-       'subject' => 'Confirming your bought item!',
-       'html' => 'Hi! Thank you for your selling of product: '.$row2['productName'].' for '.$row2['auctionPrice'].'',
-       'text' => 'Hi! Thank you for your selling of product: '.$row2['productName'].' for '.$row2['auctionPrice'].'',
-       'from' => 'noreply@eBae.com',
-    );
+  $mail->Subject = 'UCL Databases';
+  $mail->Debugoutput = 'html';
+  $mail->setFrom('ebaeauction@gmail.com', 'Databases37!');
+  $mail->addAddress($row2['email_ID'], 'German');
+  $mail->Subject = 'Auction Successful';
+  $mail->Debugoutput = 'html';
+  $mail->Body = 'Hi, 
+                You have successfuly sold product:' $row2['productName']';
+
+  if ($mail->send()){
+      echo 'Message sent';
+  }
+
+    echo json_encode($mail);
   
-  $request = $url.'api/mail.send.json';
-  
-  // Generate curl request
-  $session = curl_init($request);
-  
-  // Tell curl to use HTTP POST
-  curl_setopt ($session, CURLOPT_POST, true);
-  
-  // Tell curl that this is the body of the POST
-  curl_setopt ($session, CURLOPT_POSTFIELDS, $params);
-  
-  // Tell curl not to return headers, but do return the response
-  curl_setopt($session, CURLOPT_HEADER, false);
-  curl_setopt($session, CURLOPT_RETURNTRANSFER, true);
-  
-  // obtain response
-  $response = curl_exec($session);
-  curl_close($session);
-  
-  // print everything out
-  print_r($response);
   }
   
 ?>
