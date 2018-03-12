@@ -167,11 +167,11 @@ function validationform() {
     alert("Hey time traveller, please choose a valid date of birth!");
     return false;
   }
-  else if ((dbirth.getFullYear() = today.getFullYear()) && (dbirth.getMonth() > today.getMonth())) {
+  if ((dbirth.getFullYear() == today.getFullYear()) && (dbirth.getMonth() > today.getMonth())) {
     alert("Hey time traveller, please choose a valid date of birth!");
     return false;
     }
-  else if ((dbirth.getFullYear() = today.getFullYear()) && (dbirth.getMonth() = today.getMonth()) && (dbirth.getdate() >= today.getdate()))  {
+  if ((dbirth.getFullYear() == today.getFullYear()) && (dbirth.getMonth() == today.getMonth()) && (dbirth.getdate() > today.getdate()))  {
     alert("Hey time traveller, please choose a valid date");
     return false;
   }
