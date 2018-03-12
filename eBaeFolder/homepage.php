@@ -163,7 +163,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
   
 
  <div style="overflow-x: scroll; overflow: auto; overflow-y: hidden; white-space: nowrap;">
- <div class="topPicks" style="font-size: 25px; font-weight: bold; padding-right: 20px;">
+ <div class="topPicks" style="font-size: 25px; font-weight: bold; padding-left: 20px;">
  <h1>Our current top picks:</h1>
  </div>
  <?php
