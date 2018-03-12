@@ -20,7 +20,7 @@ FROM product
 WHERE enddate >= CURDATE()
 ORDER BY YEAR(enddate) ASC, MONTH(enddate) ASC, DAY(enddate) ASC";
 
-$sqlJA = "SELECT viewingtraffic.productID, COUNT(viewingtraffic.productID) AS trafficFrequencyPerItem, product.productImage
+$sqlJA = "SELECT viewingtraffic.productID, COUNT(viewingtraffic.productID) AS trafficFrequencyPerItem, product.productImage, product.productName
 FROM product, viewingtraffic
 WHERE viewingtraffic.productID = product.productID
 GROUP BY viewingtraffic.productID
