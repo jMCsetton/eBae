@@ -161,7 +161,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
   <div> 
   </div>
   
-<div class="topPicks" style="font-size: 25px; font-weight: bold; padding-left: 30px;">
+<div class="topPicks" style="font-size: 25px; font-weight: bold; padding-left: 30px; background-color: white;">
  <h1>Our current top picks:</h1>
  </div>
  <div style="overflow-x: scroll; overflow: auto; overflow-y: hidden; white-space: nowrap; background-color: white;">
