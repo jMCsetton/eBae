@@ -74,14 +74,13 @@ while( $row = mysqli_fetch_array($result)) {
   $productName = $row["productName"];
   $mail->Subject = 'UCL Databases';
   $mail->Debugoutput = 'html';
-  $mail->setFrom('ebaeauction@gmail.com', 'Databases37!');
-  $mail->addAddress($row['email_ID'], 'German');
+  $mail->setFrom('ebaeauction@gmail.com', 'eBae Auction');
+  $mail->addAddress($row['email_ID'], 'Buyers');
   $mail->Subject = 'Auction Successful!';
   $mail->Debugoutput = 'html';
   $mail->Body = 'Hi, 
-                   You have successfuly bought product: \"$productName\"';
-
-                  
+                You have successfuly bought product: '.$productName.' 
+                Come back soon!';
 
   if ($mail->send()){
       echo 'Message sent';
@@ -95,12 +94,13 @@ while( $row2 = mysqli_fetch_array($result2)) {
   $productName = $row2["productName"];
   $mail->Subject = 'UCL Databases';
   $mail->Debugoutput = 'html';
-  $mail->setFrom('ebaeauction@gmail.com', 'Databases37!');
-  $mail->addAddress($row2['email_ID'], 'German');
+  $mail->setFrom('ebaeauction@gmail.com', 'eBae Auction');
+  $mail->addAddress($row2['email_ID'], 'Sellers');
   $mail->Subject = 'Auction Successful';
   $mail->Debugoutput = 'html';
   $mail->Body = 'Hi, 
-                You have successfuly sold product:\"$productName\"';
+                You have successfuly sold product: '.$productName.' 
+                Come back soon!';
 
   if ($mail->send()){
       echo 'Message sent';
