@@ -171,7 +171,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
            <figure>
            <div class="image" style="display: inline; float:left;">
              <?php
-           echo '<img src="data:image/jpeg;base64,'.base64_encode( $row["productImage"] ).'" style=" width:90%; height:18%; vertical-align: top; class="w3-container"/>';
+           echo '<img src="data:image/jpeg;base64,'.base64_encode( $row["productImage"] ).'" class="w3-container"/>';
            ?>
            </div>
            <figcaption style="font-weight:bold; width:90%; word-wrap:break-word;">
