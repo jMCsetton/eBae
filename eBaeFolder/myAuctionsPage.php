@@ -271,16 +271,18 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
 
 			// Activate DataTable plugin to enable datatable features
 			$('#selling_activity').DataTable();
-		});
-
-   function afterClick(link) {
-     // disable subsequent clicks
-     link.onclick = function(event) {
-        event.preventDefault();
-     }
-   }   
+		});  
 
 	 </script>
+
+   <script> 
+    function afterClick(link) {
+     // disable subsequent clicks
+      link.onclick = function(event) {
+        event.preventDefault();
+      }
+   } 
+   </script>
 
   <!-- Footer -->
   <footer class="w3-container w3-padding-32 w3-dark-grey">
