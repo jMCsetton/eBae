@@ -161,17 +161,18 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
   <div> 
   </div>
 
-
+  
  <?php
         ob_start();
 
         while ($row = mysqli_fetch_assoc($resultJA)) {
         ?>
-         <div class="w3-container" style="display: inline-block; background-color:red; white-space: nowrap">
-           <div class="image">
+         <div class="w3-container" style="display: inline-block; background-color:blue; white-space: nowrap">
+           <div class="image" style="display: inline; float:left;">
              <?php
-           echo '<img src="data:image/jpeg;base64,'.base64_encode( $row["productImage"] ).'" style=" width:22%; height:22% display: inline-block; vertical-align: top; white-space: nowrap" class="w3-container"/>';
+           echo '<img src="data:image/jpeg;base64,'.base64_encode( $row["productImage"] ).'" style=" width:100px; height:22%; vertical-align: top; class="w3-container"/>';
            ?>
+           </div>
            <div class="text">
              <?php
           $_SESSION['productID'] = $row['productID'];
@@ -190,7 +191,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
               //$productID = $_SESSION['productID'];
               //echo $productID ;
               ?>
-              </div>
+            </div>
         </div>
 
 <?php
