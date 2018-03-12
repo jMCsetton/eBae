@@ -161,7 +161,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
   <div> 
   </div>
 
- <div class="w3-container"; style="width:800px; height:400px; overflow-x: scroll">
+ <div class="w3-container"; style="width:1200px; height:400px; overflow: scroll; overflow-y: hidden">
  <?php
         ob_start();
 
