@@ -195,16 +195,15 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
              <td>'.$row["enddate"].'</td> 
              <td>'.$row["YorN"].'</td> 
              '; 
-              if($count3>0){
+             if($row["YorN"] == 'No') {
+              echo '<td>Not Applicable</td> </tr>';
+            }else if($count3>0){
               echo '<td>Already rated</td> </tr>';
-             }
-             else if ($row["YorN"] == 'Yes') {
+             } else if ($row["YorN"] == 'Yes') {
               echo "<td><a href='giveSellerFeedback.php?id=".$row['productid']."' class='w3-third w3-container' style='background-color:black; width:50%; color:white'><b>Rate User<b></a> 
               </td> </tr>";
 
-             } else {
-               echo '<td>Not Applicable</td> </tr>';
-             }
+             } 
 
     
           
