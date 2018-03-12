@@ -233,8 +233,8 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
                        else {
                          
                          echo "<td>
-                         <button type='button' class='remove-attr'>Remove Link</button>
-                         <a href='giveSellerFeedback.php?id=".$row2['productid']."' onclick='remove-attr' class='w3-third w3-container' style='background-color:black; width:50%; color:white'><b>Rate User<b></a> 
+                        
+                         <a href='giveSellerFeedback.php?id=".$row2['productid']."' class='w3-third w3-container' style='background-color:black; width:50%; color:white'><b>Rate User<b></a> 
                         </td> </tr>";
                        }
            
@@ -272,14 +272,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
 
 	 </script>
 
-<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
-<script type="text/javascript">
-    $(document).ready(function() {
-        $(".remove-attr").click(function(){            
-            $("a").removeAttr("href");
-        });
-    });
-</script>
+
 
   <!-- Footer -->
   <footer class="w3-container w3-padding-32 w3-dark-grey">
