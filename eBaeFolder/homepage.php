@@ -161,7 +161,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
   <div> 
   </div>
 
-    <div class="w3-container" style="display: inline-block; background-color:blue">
+    <div style="display: inline-block; background-color:blue">
  <?php
         ob_start();
 
@@ -170,10 +170,10 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
            echo '<img src="data:image/jpeg;base64,'.base64_encode( $row["productImage"] ).'" style="width:22%; height:22% display: inline-block" class="w3-container"/>';
           $_SESSION['productID'] = $row['productID'];
           $productID = $_SESSION['productID'];
-          echo "<a href='auctionDetails.php?id=".$row['productID']."' class=' w3-container' style='width:9%;'><b>".$row["productName"]."</b> </a> 
+          echo "<a href='auctionDetails.php?id=".$row['productID']."'  style='width:9%;'><b>".$row["productName"]."</b> </a> 
           ";
           echo '
-            <div style= "bg-colour:white" class="inline-block w3-container">
+            <div style= "bg-colour:white" class="inline-block">
             
               
               <label>Viewing Traffic: '.$row["trafficFrequencyPerItem"].'</label> 
