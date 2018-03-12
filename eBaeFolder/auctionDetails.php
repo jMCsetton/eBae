@@ -306,12 +306,15 @@ function w3_close() {
 
 function validateForm() {
     var x = document.forms["bidForm"]["bidPrice"].value;
-    x = parseInt(x)
+    x = parseFloat(x)
     if(isNaN(x))
     {
       alert("Please choose a valid bid price");
       return false;
         
+    } else if(x<=0.00) {
+      alert("Please choose a valid bid price greater than 0");
+      return false;
     }
     } 
 </script>
