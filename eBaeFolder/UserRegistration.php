@@ -169,7 +169,7 @@ function validationform() {
     return false;
   }
   if (inpast(dbirth) == false) {
-    alert("Please enter a valide date of birth!");
+    alert("Hello time traveller! Tell us how you did it or you're not allowed to use our site. Or please enter a valid date of birth! (mm/dd/yyyy)");
     return false;
   }
 
