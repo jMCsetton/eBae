@@ -168,18 +168,19 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
         while ($row = mysqli_fetch_assoc($resultJA)) {
         ?>
          <div class="w3-container" style="display: inline-block; background-color:blue; white-space: nowrap">
+           <figure>
            <div class="image" style="display: inline; float:left;">
              <?php
-           echo '<img src="data:image/jpeg;base64,'.base64_encode( $row["productImage"] ).'" style=" width:100px; height:22%; vertical-align: top; class="w3-container"/>';
+           echo '<img src="data:image/jpeg;base64,'.base64_encode( $row["productImage"] ).'" style=" width:150px; height:22%; vertical-align: top; class="w3-container"/>';
            ?>
            </div>
-           <div class="text">
+           <figcaption style="font-weight:bold; width:100px; word-wrap:break-word;">
              <?php
           $_SESSION['productID'] = $row['productID'];
           $productID = $_SESSION['productID'];
-          echo "<a href='auctionDetails.php?id=".$row['productID']."' class=' w3-container' style='width:9%;'><b>".$row["productName"]."</b> </a> 
+          echo "<a href='auctionDetails.php?id=".$row['productID']."' class=' w3-container'><b>".$row["productName"]."</b> </a> 
           ";
-          echo '<div style= "bg-colour:white" class="w3-container">
+          echo '<div>
               <label>Viewing Traffic: '.$row["trafficFrequencyPerItem"].'</label>         
               <br>
               <br>
@@ -191,7 +192,8 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
               //$productID = $_SESSION['productID'];
               //echo $productID ;
               ?>
-            </div>
+            </figcaption>
+        </figure>
         </div>
 
 <?php
