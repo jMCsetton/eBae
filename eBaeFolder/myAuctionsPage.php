@@ -215,7 +215,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
        while ($row2 = mysqli_fetch_assoc($result2)) {   
          
        
-  $productIDfromRow = $row2["productID"];
+  $productIDfromRow = $row2["productid"];
 
   $sql3 = "SELECT raterID, productID FROM feedback WHERE raterID = $userID  AND productID = $productIDfromRow";
   $result3 = $conn->query($sql3);
