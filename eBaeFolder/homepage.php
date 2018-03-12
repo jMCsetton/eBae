@@ -161,13 +161,13 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
   <div> 
   </div>
 
-    <div class="w3-container" style="display: inline-block; background-color:red; vertical-align: top; float:right;">
+    <div class="w3-container" style="display: inline-block; background-color:red; vertical-align: top;">
  <?php
         ob_start();
 
         while ($row = mysqli_fetch_assoc($resultJA)) {
 
-           echo '<img src="data:image/jpeg;base64,'.base64_encode( $row["productImage"] ).'" style="float:right; width:22%; height:22% display: inline-block vertical-align: top;" class="w3-container"/>';
+           echo '<img src="data:image/jpeg;base64,'.base64_encode( $row["productImage"] ).'" style=" width:22%; height:22% display: inline-block vertical-align: top;" class="w3-container"/>';
           $_SESSION['productID'] = $row['productID'];
           $productID = $_SESSION['productID'];
           echo "<a href='auctionDetails.php?id=".$row['productID']."' class=' w3-container' style='width:9%;'><b>".$row["productName"]."</b> </a> 
