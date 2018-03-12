@@ -232,7 +232,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
                        } 
                        else {
                          
-                         echo "<td><a href='giveSellerFeedback.php?id=".$row2['productid']."' onclick='afterClick(this);' class='w3-third w3-container' style='background-color:black; width:50%; color:white'><b>Rate User<b></a> 
+                         echo "<td><a href='giveSellerFeedback.php?id=".$row2['productid']."' onclick='document.getElementById(this.id).removeAttribute('href');' class='w3-third w3-container' style='background-color:black; width:50%; color:white'><b>Rate User<b></a> 
                         </td> </tr>";
                        }
            
@@ -247,11 +247,6 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
 			</table>
  
   </div> 
-
-
-
-      
-
 
   </div>
 
