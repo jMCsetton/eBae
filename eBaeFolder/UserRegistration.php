@@ -140,6 +140,15 @@ function isValidDate(date)
             composedDate.getMonth() == m &&
             composedDate.getFullYear() == y;
 }
+function inpast(input){
+  var a = new Date();
+  var mon = a.getMonth();
+  var dy = a.getDate();
+  var yr = a.getFullYear();
+  var date = new Date(yr,mon,dy)
+  if(date <= input) {
+    return false;
+}
 
 function validationform() {
   var fname = document.forms["cruciform"]["firstName"].value;
@@ -160,6 +169,9 @@ function validationform() {
   if (isValidDate(dbirth) == false) {
     alert("Please enter a valid date of birth! (mm/dd/yyyy)");
     return false;
+  }
+  if (inpast(dbirth) == false) {
+    alert("Please enter a valide date of birth!");
   }
 
   var dnum = document.forms["cruciform"]["doorNumber"].value;
