@@ -160,6 +160,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
   </div>
   <div> 
   </div>
+  
 
  <div class="w3-container"; style="overflow: auto; overflow-x: scroll">
  <?php
@@ -192,10 +193,12 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
             </figcaption>
         </figure>
         </div>
+       
 
 <?php
 }
 ?>
+
 </div>
       
        
