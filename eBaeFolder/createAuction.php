@@ -177,13 +177,17 @@ function validateForm() {
       return false;
     }
 
-    var inputtedDate = document.forms["auctionForm"]["endDate"].value = new Date();
-    var today = new Date();
+    var inputtedDate = document.forms["auctionForm"]["endDate"].innerHTML = new Date();
+    var today = new Date();   
     
     if (inputtedDate.getTime() < today.getTime()) {
       alert("Please choose a valid date");
       return false;
-  }  
+  }  else if(inputtedDate.getTime() == today.getTime()) {
+     return true; 
+  }
+
+  }
 }
 </script>
 
