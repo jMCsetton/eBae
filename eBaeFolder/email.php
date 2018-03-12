@@ -27,12 +27,12 @@
   );
   $mail->Subject = 'UCL Databases';
   $mail->Debugoutput = 'html';
-  $mail->setFrom('EMAIL', 'PASSWORD');
-  $mail->addAddress('german.aqtau@gmail.com', 'German');
+  $mail->setFrom('uclbay.gc06@gmail.com', 'uclbay_gc06');
+  $mail->addAddress('home.shabri@gmail.com', 'German');
   $mail->Subject = 'Auction Expired';
   $mail->Debugoutput = 'html';
-  $mail->Body = 'Hi Shabri, 
-                   Your auction for has ended!';
+  $mail->Body = 'Hi German, 
+                   Hohohohohohoho do not mess with sandy and shabri';
 
   if ($mail->send()){
       echo 'Message sent';

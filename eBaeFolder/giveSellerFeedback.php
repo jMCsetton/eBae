@@ -52,6 +52,8 @@ $row2 = mysqli_fetch_array($result2);
     echo "Error: " . $sql . "<br>" . $conn->error;
 }
 
+$error = "Your Feedback has been submitted!";
+echo "<script type='text/javascript'>alert('$error');</script>";
  
 }
 

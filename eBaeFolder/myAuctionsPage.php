@@ -41,7 +41,7 @@ left outer join auction a on p.productID = a.productID
 WHERE p.userID = $userID";*/
 
 
-$sql2 = "SELECT p.productName, p.userid as sellerid, u.username  sellername, date_format(p.endDate, '%d-%m-%Y') endDate, p.reservePrice,
+$sql2 = "SELECT p.productName, p.productid, p.userid as sellerid, u.username  sellername, date_format(p.endDate, '%d-%m-%Y') endDate, p.reservePrice,
 (select case when a.userID is not NULL and p.endDate < curdate() then a.userid
          when a.userID is NULL and p.endDate < curdate() then 'Not sold'
         else 'Auction Still Open'
@@ -200,7 +200,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
             <th>Reserve Price</th>
             <th>Auction Price</th>
             <th>Bidder Username</th> 
-                 
+            <th> Rate User </th>     
 
 
 				</tr>
@@ -222,11 +222,15 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
                        <td>'.$row2["reservePrice"].'</td>
                        <td>'.$row2["auctionprice"].'</td>
                        <td>'.$row2["buyername"].'</td>
-                       
-                     </tr>
                      
                        ';
-   
+                       if ($row["YorN"] == 'Yes') {
+                        echo "<td><a href='giveSellerFeedback.php?id=".$row2['productid']."' class='w3-third w3-container' style='background-color:black; width:50%; color:white'><b>Rate User<b></a> 
+                        </td> </tr>";
+          
+                       } else {
+                         echo '<td>Not Applicable</td> </tr>';
+                       }
            
            
            
