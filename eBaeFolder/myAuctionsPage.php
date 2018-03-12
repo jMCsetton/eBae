@@ -234,7 +234,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
                          
                          echo "<td>
                         
-                         <a href='giveSellerFeedback.php?id=".$row2['productid']."' class='w3-third w3-container' style='background-color:black; width:50%; color:white'><b>Rate User<b></a> 
+                         <a href='giveSellerFeedback.php?id=".$row2['productid']."' class='w3-third w3-container' style='background-color:black; width:80%; color:white'><b>Rate User<b></a> 
                         </td> </tr>";
                        }
            
