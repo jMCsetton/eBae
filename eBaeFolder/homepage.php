@@ -160,7 +160,8 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
   </div>
   <div> 
   </div>
-
+  
+  <div class="scrollmenu">
  <div class="w3-container"; style="overflow: auto; overflow-x: scroll">
  <?php
         ob_start();
@@ -192,10 +193,18 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
             </figcaption>
         </figure>
         </div>
+        </div>
 
 <?php
 }
 ?>
+<style>
+div.scrollmenu {
+    background-color: #333;
+    overflow: auto;
+    white-space: nowrap;
+}
+</style>
 </div>
       
        
