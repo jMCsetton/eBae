@@ -221,6 +221,12 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
   $result3 = $conn->query($sql3);
   $row3 = mysqli_fetch_array($result3);
   $count3 = mysqli_num_rows($result3); 
+
+  if ($conn->query($sql3) === TRUE) {
+    //echo "date added successfully!";
+  } else {
+    echo "Error for sql3: " . $sql3. "<br>" . $conn->error;
+  }
            
                    echo '
                   
