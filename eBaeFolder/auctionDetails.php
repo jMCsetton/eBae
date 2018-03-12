@@ -312,6 +312,9 @@ function validateForm() {
       alert("Please choose a valid bid price");
       return false;
         
+    } else if(x<=0) {
+      alert("Please choose a valid bid price greater than 0");
+      return false;
     }
     } 
 </script>
