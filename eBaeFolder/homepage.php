@@ -167,17 +167,13 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
 
         while ($row = mysqli_fetch_assoc($resultJA)) {
 
-           echo '<img src="data:image/jpeg;base64,'.base64_encode( $row["productImage"] ).'" style=" width:22%; height:22% display: inline-block; vertical-align: top; white-space: nowrap" class="w3-container"/>';
+           echo '<img src="data:image/jpeg;base64,'.base64_encode( $row["productImage"] ).'" style=" width:50px; height:22% display: inline-block; vertical-align: top; white-space: nowrap" class="w3-container"/>';
           $_SESSION['productID'] = $row['productID'];
           $productID = $_SESSION['productID'];
           echo "<a href='auctionDetails.php?id=".$row['productID']."' class=' w3-container' style='width:9%;'><b>".$row["productName"]."</b> </a> 
           ";
-          echo '
-            <div style= "bg-colour:white" class="w3-container">
-            
-              
-              <label>Viewing Traffic: '.$row["trafficFrequencyPerItem"].'</label> 
-              
+          echo '<div style= "bg-colour:white" class="w3-container">
+              <label>Viewing Traffic: '.$row["trafficFrequencyPerItem"].'</label>         
               <br>
               <br>
               <br>
