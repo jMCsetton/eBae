@@ -179,7 +179,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
            echo '<img src="data:image/jpeg;base64,'.base64_encode( $row["productImage"] ).'" style=" width:150px; height:22%; vertical-align: top; class="w3-container"/>';
            ?>
            </div>
-           <figcaption style="font-weight:bold; width:100px; word-wrap:break-word;">
+           <figcaption style="font-weight:bold; width:100px; word-wrap:break-word; text-align: center;">
              <?php
           $_SESSION['productID'] = $row['productID'];
           $productID = $_SESSION['productID'];
