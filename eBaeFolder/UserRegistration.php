@@ -58,7 +58,7 @@
                                     <input type="text" class="form-control" placeholder="Last Name" name="lastName">
                                   
                                     <label>Date of Birth</label>
-                                    <input type="text" class="form-control" placeholder="dd/mm/yyyy" name="DOB">
+                                    <input type="text" class="form-control" placeholder="mm/dd/yyyy" name="DOB">
                                    
 
                                     <label>Address:</label>
@@ -140,6 +140,13 @@ function isValidDate(date)
             composedDate.getMonth() == m &&
             composedDate.getFullYear() == y;
 }
+function inpast(input){
+  var a = new Date();
+  var b = new Date(input);
+  if(a <= b) {
+    return false;
+  }
+}
 
 function validationform() {
   var fname = document.forms["cruciform"]["firstName"].value;
@@ -157,21 +164,12 @@ function validationform() {
     alert("Please enter your date of birth!")
     return false;
   }
-  if (isvalidDate(dbirth) == false) {
-    alert("Please enter a valid date of birth (yyyy/mm/dd)");
+  if (isValidDate(dbirth) == false) {
+    alert("Please enter a valid date of birth! (mm/dd/yyyy)");
     return false;
   }
-
-  var a = new Date();
-  var mon = a.getMonth();
-  var dy = a.getDate();
-  var yr = a.getFullYear();
-  var date = new Date(yr,mon,dy);
-
-  console.log(date);
-  console.log(dbirth);
-  if(date <= dbirth) {
-    alert("Hey time traveller! Please enter a valid date of birth!");
+  if (inpast(dbirth) == false) {
+    alert("Hello time traveller! Tell us how you did it or you're not allowed to use our site. Or please enter a valid date of birth! (mm/dd/yyyy)");
     return false;
   }
 

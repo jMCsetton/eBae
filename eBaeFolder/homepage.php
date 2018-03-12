@@ -20,7 +20,15 @@ FROM product
 WHERE enddate >= CURDATE()
 ORDER BY YEAR(enddate) ASC, MONTH(enddate) ASC, DAY(enddate) ASC";
 
+$sqlJA = "SELECT viewingtraffic.productID, COUNT(viewingtraffic.productID) AS trafficFrequencyPerItem, product.productImage, product.productName
+FROM product, viewingtraffic
+WHERE viewingtraffic.productID = product.productID
+GROUP BY viewingtraffic.productID
+ORDER BY trafficFrequencyPerItem desc
+LIMIT 5 ";
+
 $result = $conn->query($sql);
+$resultJA = $conn->query($sqlJA);
 
 
 ?>
@@ -149,6 +157,43 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
         <input class="w3-input w3-border" type="text" name="categories" required/>
       </div>
   </form-->
+  </div>
+  <div> 
+  </div>
+
+    <div class="w3-container" style="display: inline-block; background-color:red; vertical-align: top;">
+ <?php
+        ob_start();
+
+        while ($row = mysqli_fetch_assoc($resultJA)) {
+
+           echo '<img src="data:image/jpeg;base64,'.base64_encode( $row["productImage"] ).'" style="width:22%; height:22% display: inline-block vertical-align: top;" class="w3-container"/>';
+          $_SESSION['productID'] = $row['productID'];
+          $productID = $_SESSION['productID'];
+          echo "<a href='auctionDetails.php?id=".$row['productID']."' class=' w3-container' style='width:9%;'><b>".$row["productName"]."</b> </a> 
+          ";
+          echo '
+            <div style= "bg-colour:white" class="inline-block w3-container">
+            
+              
+              <label>Viewing Traffic: '.$row["trafficFrequencyPerItem"].'</label> 
+              
+              <br>
+              <br>
+              <br>
+              <br>
+            </div>
+            
+              ';
+         
+              //$_SESSION['productID'] = $row['productID'];
+              //$productID = $_SESSION['productID'];
+              //echo $productID ;
+
+}
+
+      
+        ?>
   </div>
 
   <!-- Footer -->
