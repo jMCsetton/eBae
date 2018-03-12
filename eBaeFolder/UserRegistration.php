@@ -148,6 +148,7 @@ function inpast(input){
   var date = new Date(yr,mon,dy)
   if(date <= input) {
     return false;
+  }
 }
 
 function validationform() {
@@ -172,6 +173,7 @@ function validationform() {
   }
   if (inpast(dbirth) == false) {
     alert("Please enter a valide date of birth!");
+    return false;
   }
 
   var dnum = document.forms["cruciform"]["doorNumber"].value;
