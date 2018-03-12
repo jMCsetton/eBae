@@ -142,11 +142,8 @@ function isValidDate(date)
 }
 function inpast(input){
   var a = new Date();
-  var mon = a.getMonth();
-  var dy = a.getDate();
-  var yr = a.getFullYear();
-  var date = new Date(yr,mon,dy)
-  if(date <= input) {
+  var b = new Date(input);
+  if(a <= b) {
     return false;
   }
 }
