@@ -1,5 +1,4 @@
 <?php
-//echo "this is php"
 ?>
 
 <!doctype html>
@@ -36,7 +35,7 @@
                     <span class="navbar-toggler-bar"></span>
                     <span class="navbar-toggler-bar"></span>
                 </button>
-                <a class="navbar-brand" href="https://www.creative-tim.com">Back to Log in page</a>
+                <a class="navbar-brand" href="adminHomepage.php">Back to Admin Homepage</a>
             </div>
     </nav>
 
@@ -49,44 +48,64 @@
                     <div class="row">
                         <div class="col-lg-4 ml-auto mr-auto">
                             <div class="card card-register">
-                                <h3 class="title">Please fill out the form below to register:</h3>
-                                <form class="register-form">
-                                    <label>First Name</label>
-                                    <input type="text" class="form-control" placeholder="First Name">
-
-                                    <label>Last Name</label>
-                                    <input type="text" class="form-control" placeholder="Last Name">
-
-                                    <label>Date of Birth</label>
-                                    <input type="text" class="form-control" placeholder="dd/mm/yyyy">
-
-                                    <label>Address:</label>
-                                    <input type="text" class="form-control" placeholder="First Line of Address">
-                                     <input type="text" class="form-control" placeholder="Town">
-                                    <input type="text" class="form-control" placeholder="City">
-                                    <input type="text" class="form-control" placeholder="Country">
-                                    <input type="text" class="form-control" placeholder="Post Code">
-
-                                    <label>Gender</label>
-                                    <input type="text" class="form-control" placeholder="Email">
-
-                                    <label>Email</label>
-                                    <input type="text" class="form-control" placeholder="Email">
-
-                                    <label>Password</label>
-                                    <input type="password" class="form-control" placeholder="Password">
-
-                                     <label>Confirm Password</label>
-                                    <input type="password" class="form-control" placeholder="Confirm Password">
-                                      <label>Role:</label>
+                                <h3 class="title">Admin Registration form:</h3>
+                              <form action="adminRegistrationphp.php" method="post" name="cruciform" onsubmit="return validationform()"> 
                                    
+                                    <label>First Name</label>
+                                    <input type="text" class="form-control" placeholder="First Name" name="firstName"/>
+                                    
+                                    <label>Last Name</label>
+                                    <input type="text" class="form-control" placeholder="Last Name" name="lastName">
+                                  
+                                    <label>Date of Birth</label>
+                                    <input type="text" class="form-control" placeholder="mm/dd/yyyy" name="DOB">
+                                
+                                    <label>Gender</label>
+                                    <input type="text" class="form-control" placeholder="Gender" name="gender">
+                                   
+                                    <label>Email</label>
+                                    <input type="text" class="form-control" placeholder="Email" name="email_ID">
+                                   
+                                    <label>Username</label>
+                                    <input type="Username" class="form-control" placeholder="Username" name="username" id="username1">
+                                   
+                                     <label>Password</label>
+                                    <input type="password" class="form-control" placeholder="Password" id="psw" name="password" onkeyup='check();'>
+                                    
+                                     <label>Confirm Password</label>
+                                    <input type="password" class="form-control" placeholder="Confirm Password" id="psw2" onkeyup='check();'/>
+                                    <span id='message'></span>
+                                   
+                                     
+                                    <script>
 
-                                    <button class="btn btn-danger btn-block btn-round">Register</button>
+                                    var check = function() {
+                                    if(document.getElementById("psw").value == document.getElementById("psw2").value) {
+                                        document.getElementById('message').style.color = 'green';
+                                         document.getElementById('message').innerHTML = 'Passwords match';
+                                    }  else {
+                                        document.getElementById('message').style.color = 'red';
+                                        document.getElementById('message').innerHTML = 'Passwords do not match';
+                                  }
+                                }
+                                 </script>
+
+
+                                    <button type="submit" name="submit" class="btn btn-danger btn-block btn-round"><a href="https://gc06team37db.azurewebsites.net">Register</a></button>
 
                                   
                                 </form>
+
+                                </div>
+
+                            
+
+                                </div>
+
                                
                             </div>
+
+
                         </div>
                     </div>
                    
@@ -94,6 +113,86 @@
         </div>
     </div>
 </body>
+
+<script>
+function isValidDate(date)
+{
+    var matches = /^(\d{1,2})[-\/](\d{1,2})[-\/](\d{4})$/.exec(date);
+    if (matches == null) return false;
+    var d = matches[2];
+    var m = matches[1] - 1;
+    var y = matches[3];
+    var composedDate = new Date(y, m, d);
+    return composedDate.getDate() == d &&
+            composedDate.getMonth() == m &&
+            composedDate.getFullYear() == y;
+}
+function inpast(input){
+  var a = new Date();
+  var b = new Date(input);
+  if(a <= b) {
+    return false;
+  }
+}
+
+function validationform() {
+  var fname = document.forms["cruciform"]["firstName"].value;
+  if (fname == "") {
+    alert("Please enter a first name you fool!");
+    return false;
+  }
+  var lname = document.forms["cruciform"]["lastName"].value;
+  if (lname == "") {
+    alert("Please enter your last name!")
+    return false;
+  }
+  var dbirth = document.forms["cruciform"]["DOB"].value;
+  if (dbirth == "") {
+    alert("Please enter your date of birth!")
+    return false;
+  }
+  if (isValidDate(dbirth) == false) {
+    alert("Please enter a valid date of birth! (mm/dd/yyyy)");
+    return false;
+  }
+  if (inpast(dbirth) == false) {
+    alert("Hello time traveller! Tell us how you did it or you're not allowed to use our site. Or please enter a valid date of birth! (mm/dd/yyyy)");
+    return false;
+  }
+
+  var gen = document.forms["cruciform"]["gender"].value;
+  if (gen == "") {
+    alert("Please enter your gender!")
+    return false;
+  }
+  var eml = document.forms["cruciform"]["email_ID"].value;
+  if (eml == "") {
+    alert("Please enter your email address!")
+    return false;
+  }
+  
+  if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(eml) == false) {
+    alert("You have entered an invalid email address!")
+    return (false)
+  }
+
+  var usnm = document.forms["cruciform"]["username"].value;
+  if (usnm == "") {
+    alert("Please enter a username!")
+    return false;
+  }
+  var pass = document.forms["cruciform"]["password"].value;
+  if (usnm == "") {
+    alert("Please enter a password!")
+    return false;
+  }
+  var ps2 = document.forms["cruciform"]["psw2"].value;
+  if (ps2 == "") {
+    alert("Please confirm your password!")
+    return false;
+  }
+}
+</script>
 
 <!-- Core JS Files -->
 <script src="../assets/js/jquery-3.2.1.js" type="text/javascript"></script>
