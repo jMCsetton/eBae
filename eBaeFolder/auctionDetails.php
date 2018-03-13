@@ -304,6 +304,26 @@ function w3_close() {
     document.getElementById("myOverlay").style.display = "none";
 }
 
+<?php 
+$sql4 = "SELECT productID, MAX(bidPrice) AS bidPriceHighest, date_format(bidDate, '%d-%m-%Y') bidDate
+FROM bid
+WHERE productID = $productID_page";
+
+$result4 = $conn->query($sql4);
+
+echo $row4['bidPriceHighest'];
+
+if ($conn->query($sql4) === TRUE) {
+  echo "bid found successfully!";
+} else {
+  echo "Error: " . $sql4 . "<br>" . $conn->error;
+}
+
+$row4 = mysqli_fetch_assoc($result4)
+
+?>
+
+
 function validateForm() {
     var x = document.forms["bidForm"]["bidPrice"].value;
     x = parseFloat(x)
@@ -313,6 +333,9 @@ function validateForm() {
       return false;
         
     } else if(x<=0.00) {
+      alert("Please choose a valid bid price greater than 0");
+      return false;
+    } else if(x<=$row4['bidPriceHighest']) {
       alert("Please choose a valid bid price greater than 0");
       return false;
     }
