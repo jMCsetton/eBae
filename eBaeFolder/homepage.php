@@ -69,7 +69,7 @@ $resultAJ = $conn->query($sqlAJ);
 <style>
 body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
 </style>
-<body class="w3-light-grey w3-content" style="max-width:1600px" onload="hiderec();">
+<body class="w3-light-grey w3-content" style="max-width:1600px">
 
 <!-- Sidebar/menu -->
 <nav class="w3-sidebar w3-collapse w3-white w3-animate-left" style="z-index:3;width:300px;" id="mySidebar"><br>
@@ -187,7 +187,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
   <div> 
   </div>
   
-<div class="topPicks" style="font-size: 25px; font-weight: bold; padding-left: 30px;">
+<div class="topPicks" style="font-size: 25px; font-weight: bold; padding-left: 30px;" onload="hiderec()">
  <h1>Our current top picks:</h1>
  </div>
  <div style="overflow-x: scroll; overflow: auto; overflow-y: hidden; white-space: nowrap;">
