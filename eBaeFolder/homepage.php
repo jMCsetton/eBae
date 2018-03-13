@@ -187,7 +187,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
   <div> 
   </div>
   
-<div class="topPicks" style="font-size: 25px; font-weight: bold; padding-left: 30px;" onload="hiderec()">
+<div class="topPicks" style="font-size: 25px; font-weight: bold; padding-left: 30px;">
  <h1>Our current top picks:</h1>
  </div>
  <div style="overflow-x: scroll; overflow: auto; overflow-y: hidden; white-space: nowrap;">
@@ -276,7 +276,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
 }
 else {
   echo '<div>
-  <p>&nbsp&nbsp&nbsp&nbspYou haven\'t bid on enuff items for recommendations you lazy thug brehh</p><br>
+  <p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspYou haven\'t bid on enuff items for recommendations you lazy thug brehh</p><br>
   </div>';
 }
 ?>
@@ -330,7 +330,6 @@ else {
 </div>
 
 <script>
-var counter = 0;
 // Script to open and close sidebar
 function w3_open() {
     document.getElementById("mySidebar").style.display = "block";
@@ -340,42 +339,6 @@ function w3_open() {
 function w3_close() {
     document.getElementById("mySidebar").style.display = "none";
     document.getElementById("myOverlay").style.display = "none";
-}
-window.onload = hiderec();
-
-/*function adder() {
-  counter++;
-  return counter;
-}*/
-
-function lengther(stringy){
-  var str = stringy;
-  if (str.length > 0) {
-    return "good";
-  }
-  else {
-    return "bad";
-  }
-}
-function hiderec() {
-      /*if (lengther(document.getElementById("capt").innerHTML) == "good") {
-        alert("i did it!!!");
-        document.getElementById("msg").innerHTML = document.getElementById("capt").innerHTML;
-      }
-      else if (lengther(document.getElementById("capt").innerHTML) != "good") {
-        alert("hello ive put this here to be annyang");
-      }*/
-      /*else if ((lengther(document.getElementById("capt").innerHTML) == "bad") {
-        alert("hello ive put this here to be annyong");
-        document.getElementById("msg").innerHTML = lengther(document.getElementById("capt").innerHTML);
-      }
-      else if (document.getElementById("capt").innerHTML == "") {
-        alert("hello ive put this here to be annyong");
-        document.getElementById("msg").innerHTML = lengther(document.getElementById("capt").innerHTML);
-      }
-      else {
-        alert("hello ive put this here to be annyang");
-      }*/
 }
 </script>
 
