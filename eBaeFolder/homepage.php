@@ -243,7 +243,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
         while ($row = mysqli_fetch_assoc($resultAJ)) {
         ?>
 
-         <div id="ims" style="display: inline-block; white-space: nowrap;">
+         <div style="display: inline-block; white-space: nowrap;">
            <figure>
            <div class="image" style="display: inline; float:left;">
              <?php
@@ -335,14 +335,24 @@ function w3_close() {
     document.getElementById("myOverlay").style.display = "none";
 }
 window.onload = hiderec();
-document.getElementById("ims").onload = adder();
+document.getElementById("capt").onload = lengther();
 
-function adder() {
+/*function adder() {
   counter++;
   return counter;
+}*/
+
+function lengther(stringy){
+  var str = stringy;
+  if (str.length > 0) {
+    return "good";
+  }
+  else {
+    return "bad";
+  }
 }
 function hiderec() {
-      if (adder() == 0) {
+      if (lengther() == "good") {
         alert("i did it!!!");
         document.getElementById("msg").innerHTML = "You don't have any recommended items yet... Get bidding!";
       }
