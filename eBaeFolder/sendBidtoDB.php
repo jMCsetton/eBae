@@ -63,6 +63,7 @@ WHERE productID = $productID_page) r
   
   while( $row2 = mysqli_fetch_array($result2)) { 
     if ($row2['userID'] != $userID){
+    
     $productName = $row2["productName"];
     $mail2->ClearAllRecipients();
     $mail2->Subject = 'UCL Buyer Databases';
@@ -73,7 +74,7 @@ WHERE productID = $productID_page) r
     $mail2->Debugoutput = 'html';
     $mail2->Body = 'Hi, 
                   You have been unfortunately outbid on: '.$productName.' 
-                  The highest bid is now: '.$row2["r"].'
+                  The highest bid is now: '.$_POST["bidPrice"].'
                   Come back soon!';
   
     if ($mail2->send()){
