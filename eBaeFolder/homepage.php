@@ -231,7 +231,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
 
 </div>
 
-<div id="rectitle" class="recommendationZ" style="font-size: 25px; font-weight: bold; padding-left: 30px;">
+<div id="rectitle" class="recommendationZ" style="font-size: 25px; font-weight: bold; padding-left: 30px;" onload="hiderec()">
  <h1>Recommended for you:</h1>
  </div>
  <div id="recitems" style="overflow-x: scroll; overflow: auto; overflow-y: hidden; white-space: nowrap;">
@@ -332,6 +332,14 @@ function w3_close() {
     document.getElementById("mySidebar").style.display = "none";
     document.getElementById("myOverlay").style.display = "none";
 }
+</script>
+
+<script>
+  function hiderec(){
+    if (document.getElementById("recitems") == null) {
+      document.getElementById("rectitle").style.display = 'block';
+    }
+  }
 </script>
 
 </body>
