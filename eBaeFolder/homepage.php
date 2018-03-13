@@ -331,13 +331,11 @@ function w3_open() {
 function w3_close() {
     document.getElementById("mySidebar").style.display = "none";
     document.getElementById("myOverlay").style.display = "none";
-}
-</script>
 
-<script>
-  function hiderec(){
+function hiderec(){
       document.getElementById("mseg").innerHTML = "banana bread!!";
   }
+}
 </script>
 
 </body>
