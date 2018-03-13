@@ -2,6 +2,10 @@
 session_start();
 ob_start();
 //$user = $_SESSION['userID'];
+
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
 if (isset($_POST['Bid']))
 {
   require "config.php";
@@ -26,13 +30,10 @@ if (isset($_POST['Bid']))
 
   $result2 = $conn->query($sql2);
   if ($conn->query($sql2) === TRUE) {
-    echo "date added successfully!";
+    echo "emails sent successfully!";
   } else {
     echo "Error: " . $sql2 . "<br>" . $conn->error;
   }
-
-  use PHPMailer\PHPMailer\PHPMailer;
-  use PHPMailer\PHPMailer\Exception;
   
   require_once('./vendor/autoload.php');
   
