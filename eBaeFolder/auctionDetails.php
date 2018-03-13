@@ -78,6 +78,12 @@ if ($conn->query($sql4) === TRUE) {
   echo "Error: " . $sql4 . "<br>" . $conn->error;
 }
 
+$result4 = $conn->query($sql4);
+
+echo $row4['bidPriceHighest'];
+
+$row4 = mysqli_fetch_assoc($result4)
+
 ?>
 
 <html>
@@ -313,16 +319,6 @@ function w3_close() {
     document.getElementById("mySidebar").style.display = "none";
     document.getElementById("myOverlay").style.display = "none";
 }
-
-<?php 
-
-$result4 = $conn->query($sql4);
-
-echo $row4['bidPriceHighest'];
-
-$row4 = mysqli_fetch_assoc($result4)
-
-?>
 
 
 function validateForm() {
