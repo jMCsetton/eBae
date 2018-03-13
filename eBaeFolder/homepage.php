@@ -331,13 +331,12 @@ function w3_open() {
 function w3_close() {
     document.getElementById("mySidebar").style.display = "none";
     document.getElementById("myOverlay").style.display = "none";
-
+}
+window.onload = hiderec();
 function hiderec() {
       document.getElementById("mseg").innerHTML = "banana bread!!";
       alert("hello i've put this here to be annoying");
   }
-  window.onload = hiderec;
-}
 </script>
 
 </body>
