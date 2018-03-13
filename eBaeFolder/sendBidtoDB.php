@@ -34,9 +34,9 @@ WHERE productID = $productID_page) r
 
   $result2 = $conn->query($sql2);
   if ($conn->query($sql2) === TRUE) {
-    echo "emails sent successfully!";
+    //echo "emails sent successfully!";
   } else {
-    echo "Error: " . $sql2 . "<br>" . $conn->error;
+    //echo "Error: " . $sql2 . "<br>" . $conn->error;
   }
   
   require_once('./vendor/autoload.php');
@@ -89,9 +89,9 @@ WHERE productID = $productID_page) r
   VALUES ('".$_POST["bidPrice"]."', '$userID', '$productID_page', '$date')";
 
   if ($conn->query($sql) === TRUE) {
-    echo "Bid added successfully!";
+   // echo "Bid added successfully!";
 } else {
-    echo "Error: " . $sql . "<br>" . $conn->error;
+    //echo "Error: " . $sql . "<br>" . $conn->error;
 }
   
 }
