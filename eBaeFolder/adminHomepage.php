@@ -149,8 +149,8 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
 
         }
         if(isset($_POST['submit'])) {
-        $delete = $_POST['delete'];
-        $query = mysql_query("DELETE FROM prodcut WHERE productID = $delete");
+        $delete = $_POST['submit'];
+        $query = mysql_query("DELETE FROM product WHERE productID = $delete");
         if(!$sql) {
         echo ("Could not delete rows" .mysql_error());
         }
