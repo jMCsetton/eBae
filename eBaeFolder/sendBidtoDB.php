@@ -45,7 +45,7 @@ WHERE productID = $productID_page) r
   
   //Server settings
   $mail2->isSMTP();
-  $mail2->SMTPDebug = 2;
+  //$mail2->SMTPDebug = 2;
   $mail2->Host = 'smtp.gmail.com';
   $mail2->Port = 587;
   $mail2->SMTPSecure = 'tls'; // enable 'tls'  to prevent security issues
