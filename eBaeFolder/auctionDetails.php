@@ -82,8 +82,6 @@ $result4 = $conn->query($sql4);
 $row4 = mysqli_fetch_assoc($result4);
 echo $row4['bidPriceHighest'];
 
-
-
 ?>
 
 <html>
@@ -332,7 +330,7 @@ function validateForm() {
     } else if(x<=0.00) {
       alert("Please choose a valid bid price greater than 0");
       return false;
-    } else if(x<=$row4['bidPriceHighest']) {
+    } else if(x<=.$row4['bidPriceHighest'].) {
       alert("Please choose a valid bid price greater than 0");
       return false;
     }
