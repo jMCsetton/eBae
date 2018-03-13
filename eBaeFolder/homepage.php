@@ -357,7 +357,7 @@ function hiderec() {
       }
       else {
         alert("hello i've put this here to be annyong");
-        document.getElementById("msg").innerHTML = counter;
+        document.getElementById("msg").innerHTML = lengther(document.getElementById("capt").innerHTML);
       }
 }
 </script>
