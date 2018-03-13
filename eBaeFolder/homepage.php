@@ -231,8 +231,9 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
 
 </div>
 
-<div id="rectitle" class="recommendationZ" style="font-size: 25px; font-weight: bold; padding-left: 30px;">
- <h1 id='mseg'>Recommended for you:</h1>
+<div class="recommendationZ" style="font-size: 25px; font-weight: bold; padding-left: 30px;">
+ <h1>Recommended for you:</h1>
+ <p id='msg'></p>
  </div>
  <div id="recitems" style="overflow-x: scroll; overflow: auto; overflow-y: hidden; white-space: nowrap;">
 
@@ -334,8 +335,11 @@ function w3_close() {
 }
 window.onload = hiderec();
 function hiderec() {
-      document.getElementById("mseg").innerHTML = "banana bread!!";
-      alert("hello i've put this here to be annoying");
+  if document.getElementById("recitems").is(':empty') {
+    document.getElementById("msg").innerHTML = "You don't have any recommended items yet... Get bidding!";
+    alert("hello i've put this here to be annoying");
+  }
+  alert("if yr reading this, I (Jake) messed up the code");
   }
 </script>
 
