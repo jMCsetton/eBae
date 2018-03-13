@@ -34,9 +34,9 @@ WHERE productID = $productID_page) r
 
   $result2 = $conn->query($sql2);
   if ($conn->query($sql2) === TRUE) {
-    echo "emails sent successfully!";
+    //echo "emails sent successfully!";
   } else {
-    echo "Error: " . $sql2 . "<br>" . $conn->error;
+    //echo "Error: " . $sql2 . "<br>" . $conn->error;
   }
   
   require_once('./vendor/autoload.php');
@@ -70,11 +70,11 @@ WHERE productID = $productID_page) r
     $mail2->Debugoutput = 'html';
     $mail2->setFrom('ebaeauction@gmail.com', 'eBae Auction');
     $mail2->addAddress($row2['email_ID'], 'Buyer');
-    $mail2->Subject = 'Auction Successful!';
+    $mail2->Subject = 'You have been outbid suckaaa!';
     $mail2->Debugoutput = 'html';
     $mail2->Body = 'Hi, 
                   You have been unfortunately outbid on: '.$productName.' 
-                  The highest bid is now: '.$_POST["bidPrice"].'
+                  The highest bid is now: £'.$_POST["bidPrice"].'
                   Come back soon!';
   
     if ($mail2->send()){
@@ -89,9 +89,9 @@ WHERE productID = $productID_page) r
   VALUES ('".$_POST["bidPrice"]."', '$userID', '$productID_page', '$date')";
 
   if ($conn->query($sql) === TRUE) {
-    echo "Bid added successfully!";
+   // echo "Bid added successfully!";
 } else {
-    echo "Error: " . $sql . "<br>" . $conn->error;
+    //echo "Error: " . $sql . "<br>" . $conn->error;
 }
   
 }

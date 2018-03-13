@@ -107,7 +107,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
   <h1>Live Auctions:</h1>
  </div>
   <div class="w3-container">
-  <form action='' method='POST'>
+  <form action='' method='POST'">
   <?php
         ob_start();
         // Fetching data from database
@@ -119,9 +119,12 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
           echo '<img src="data:image/jpeg;base64,'.base64_encode( $row["productImage"] ).'" style="width:30%; height:30%" class="w3-third w3-container"/>';
           $_SESSION['productID'] = $row['productID'];
           $productID = $_SESSION['productID'];
-            echo "<a id=".$row['productID']."' class='w3-third w3-container' style='background-color:black; width:9%; color:white'><b>Delete<b><input name= 'delete'/></a>";
+          
+          //   echo "<a id=".$row['productID']."' class='w3-third w3-container' style='background-color:black; width:9%; color:white name='delete'><b>Delete<b></a> 
+          // ";
           echo '
             <div style= "bg-colour:white" class="w3-twothird w3-container">
+            <button type="submit" name="submit" class="btn btn-danger btn-block btn-round">Delete</button>
             
               <h1>'.$row["productName"].'</h1>
               <label>Reserve Price: £'.$row["reservePrice"].'</label> 
@@ -145,15 +148,13 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
 
 
         }
-
-
-       if (isset($_POST['delete'])) {
-        $delete = $_POST['delete'];
-        $delete_query = mysql_query("DELETE FROM product WHERE productID = $delete ") or die(mysql_error());
-        if ($delete_query) {
-        echo 'product with id ' . $delete . ' is removed from your table ';
-                  }
+        if(isset($_POST['submit'])) {
+        $query = mysql_query("DELETE FROM product WHERE productID =".$row["productID"]."");
+        if(!$sql) {
+        echo ("Could not delete rows" .mysql_error());
         }
+        }
+      
         ?>
         </form>
   <!--form action="" method="post" enctype="multipart/form-data" >
