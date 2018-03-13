@@ -22,7 +22,7 @@ if (isset($_POST['Bid']))
   $productID_page = $_SESSION['productID_page'];
 
   // send notification to people who are outbid
-  $sql2 = "SELECT u.email_ID, p.productName,
+  $sql2 = "SELECT u.email_ID, p.productName, b.userID,
 (select MAX(bidPrice) AS bidPriceHighest
 FROM bid
 WHERE productID = $productID_page) r
@@ -62,6 +62,7 @@ WHERE productID = $productID_page) r
   );
   
   while( $row2 = mysqli_fetch_array($result2)) { 
+    if ($row2['userID'] != $userID){
     $productName = $row2["productName"];
     $mail2->ClearAllRecipients();
     $mail2->Subject = 'UCL Buyer Databases';
@@ -80,7 +81,7 @@ WHERE productID = $productID_page) r
     }
   
       echo json_encode($mail2);
-  
+    }
   }
 
   $sql = "INSERT INTO bid (bidPrice, userID, productID, bidDate)
