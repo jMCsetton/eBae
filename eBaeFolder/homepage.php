@@ -339,9 +339,7 @@ function hiderec() {
     document.getElementById("msg").innerHTML = "You don't have any recommended items yet... Get bidding!";
     alert("hello i've put this here to be annoying");
   }
-  else {
-    alert('if yr reading this, I (Jake) messed up the code');
-  }
+  alert("if yr reading this, I (Jake) messed up the code");
   }
 </script>
 
