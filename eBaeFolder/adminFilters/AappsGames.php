@@ -2,7 +2,7 @@
 session_start();
 ob_start();
 if (!isset($_SESSION['logged_in'])) {
-  header ('Location: index.php');
+	header ('Location: index.php');
 }
 
 require 'config.php';
@@ -13,22 +13,12 @@ $conn =  new mysqli($host, $username, $password, $dbname);
     die("Connection failed: ".$conn->connect_error);
   }
 
-//$sql = "SELECT productImage, productName, reservePrice, date_format(enddate, '%d-%m-%Y') enddate, category, quantity, conditions, productInfo, productID FROM product ORDER BY YEAR(enddate) ASC, MONTH(enddate) ASC, DAY(enddate) ASC";
-
-$sql = "SELECT productImage, productName, reservePrice, date_format(enddate, '%d-%m-%Y') enddate, category, quantity, conditions, productInfo, productID
-FROM product
-WHERE enddate >= CURDATE()
-ORDER BY YEAR(enddate) ASC, MONTH(enddate) ASC, DAY(enddate) ASC";
-
-$sqlJA = "SELECT viewingtraffic.productID, COUNT(viewingtraffic.productID) AS trafficFrequencyPerItem, product.productImage, product.productName
-FROM product, viewingtraffic
-WHERE viewingtraffic.productID = product.productID
-GROUP BY viewingtraffic.productID
-ORDER BY trafficFrequencyPerItem desc
-LIMIT 5 ";
+$sql = "SELECT productImage, productName, reservePrice, date_format(enddate, '%d-%m-%Y') enddate, category, quantity, conditions, productInfo FROM product WHERE category = 'Apps and Games' ORDER BY enddate ASC";
 
 $result = $conn->query($sql);
-$resultJA = $conn->query($sqlJA);
+$row = mysqli_fetch_array($result);
+$count = mysqli_num_rows($result);
+
 
 
 ?>
@@ -53,6 +43,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
     </a>
     <img src="/w3images/avatar_g2.jpg" style="width:45%;" class="w3-round"><br><br>
     <h4><b>eBae</b></h4>
+    <p class="w3-text-grey">Template by W3.CSS</p>
   </div>
   <div class="w3-bar-block">
     
@@ -62,6 +53,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
     <a href="createAuction.php" onclick="w3_close()" class="w3-bar-item w3-button w3-padding"><i class="fa fa-envelope fa-fw w3-margin-right"></i>CREATE AUCTION</a>
     <a href="logout.php" onclick="w3_close()" class="w3-bar-item w3-button w3-padding" style="color: #ff0000"><i class="fa fa-close fa-fw w3-margin-right"></i>Log Out</a>
   </div>
+  
   <div class="w3-panel w3-large">
     <i class="fa fa-facebook-official w3-hover-opacity"></i>
     <i class="fa fa-instagram w3-hover-opacity"></i>
@@ -87,7 +79,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
     <h2><b>Showing all live auctions</b></h2>
     <div class="w3-section w3-bottombar w3-padding-16">
       <span class="w3-margin-right">Filter:</span> 
-      <a href = "adminHomepage.php" class="w3-button w3-black">All</a>
+     <a href = "adminHomepage.php" class="w3-button w3-black">All</a>
       <a href = "adminFilters/AappsGames.php" class="w3-button w3-white"><i class="fa fa-gamepad w3-margin-right"></i>Apps and Games</a>
       <a href = "adminFilters/Abeauty.php" class="w3-button w3-white w3-hide-small"><i class="fa fa-photo w3-margin-right"></i>Beauty</a>
       <a href = "adminFilters/Abooks.php" class="w3-button w3-white w3-hide-small"><i class="fa fa-book w3-margin-right"></i>Books</a>
@@ -101,24 +93,33 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
   </header>
   
   <!-- Live Auctions -->
-  <div class="topPicks" style="font-size: 25px; font-weight: bold; padding-left: 30px;">
-  <h1>Live Auctions:</h1>
- </div>
   <div class="w3-container">
   <?php
         ob_start();
         // Fetching data from database
         //header("Content-type: image/png"); 
-       
-        while ($row = mysqli_fetch_assoc($result)) {          
+
+        if ($count == 0) {
+
+          echo '
+                    <div style= "bg-colour:white" class="w3-twothird w3-container">
+                      
+                      <br><label>No items to display</label>
+                     
+                    </div>
+                    
+                      ';
+        
+          
+        }
+        else{
+
+				while ($row = mysqli_fetch_assoc($result)) {          
           //echo "<img src='picture/".$row2["productImage"]."' width='300' height='300'/>";
           //echo "<img src = '".base64_encode($row2["productImage"])."' width='300' height='300'/>";
           echo '<img src="data:image/jpeg;base64,'.base64_encode( $row["productImage"] ).'" style="width:30%; height:30%" class="w3-third w3-container"/>';
-          $_SESSION['productID'] = $row['productID'];
-          $productID = $_SESSION['productID'];
           echo '
             <div style= "bg-colour:white" class="w3-twothird w3-container">
-            
               <h1>'.$row["productName"].'</h1>
               <label>Reserve Price: £'.$row["reservePrice"].'</label> 
               <br><label>End Date: '.$row["enddate"].'</label>
@@ -133,15 +134,9 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
             </div>
             
               ';
-         
-              //$_SESSION['productID'] = $row['productID'];
-              //$productID = $_SESSION['productID'];
-              //echo $productID ;
-
-
-
         }
-        ?>
+				}
+				?>
   <!--form action="" method="post" enctype="multipart/form-data" >
       <div class="w3-section">
         <label>Item Name</label>
@@ -157,55 +152,6 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
       </div>
   </form-->
   </div>
-  <div> 
-  </div>
-  
-<div class="topPicks" style="font-size: 25px; font-weight: bold; padding-left: 30px;">
- <h1>Our current top picks:</h1>
- </div>
- <div style="overflow-x: scroll; overflow: auto; overflow-y: hidden; white-space: nowrap;">
-
- <?php
-        ob_start();
-
-        while ($row = mysqli_fetch_assoc($resultJA)) {
-        ?>
-
-         <div style="display: inline-block; white-space: nowrap;">
-           <figure>
-           <div class="image" style="display: inline; float:left;">
-             <?php
-           echo '<img src="data:image/jpeg;base64,'.base64_encode( $row["productImage"] ).'" style=" width:150px; height:22%; vertical-align: top; class="w3-container"/>';
-           ?>
-           </div>
-           <figcaption style="font-weight:bold; width:100px; word-wrap:break-word; text-align: center;">
-             <?php
-          $_SESSION['productID'] = $row['productID'];
-          $productID = $_SESSION['productID'];
-          echo "<a' class=' w3-container'><b>".$row["productName"]."</b> </a> 
-          ";
-          echo '<div>
-              <label>Number of views: '.$row["trafficFrequencyPerItem"].'</label>         
-              <br>
-            </div>
-              ';
-              //$_SESSION['productID'] = $row['productID'];
-              //$productID = $_SESSION['productID'];
-              //echo $productID ;
-              ?>
-            </figcaption>
-        </figure>
-        </div>
-       
-
-<?php
-}
-?>
-
-</div>
-      
-       
-
 
   <!-- Footer -->
   <footer class="w3-container w3-padding-32 w3-dark-grey">
@@ -268,4 +214,3 @@ function w3_close() {
 </html>
 
 
-s
