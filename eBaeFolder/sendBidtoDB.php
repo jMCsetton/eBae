@@ -74,7 +74,7 @@ WHERE productID = $productID_page) r
     $mail2->Debugoutput = 'html';
     $mail2->Body = 'Hi, 
                   You have been unfortunately outbid on: '.$productName.' 
-                  The highest bid is now: '.$_POST["bidPrice"].'
+                  The highest bid is now: £'.$_POST["bidPrice"].'
                   Come back soon!';
   
     if ($mail2->send()){
