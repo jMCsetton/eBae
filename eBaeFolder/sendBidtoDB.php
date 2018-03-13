@@ -22,10 +22,14 @@ if (isset($_POST['Bid']))
   $productID_page = $_SESSION['productID_page'];
 
   // send notification to people who are outbid
-  $sql2 = "SELECT u.email_ID
-  FROM user u, bid b
-  WHERE productID = $productID_page
+  $sql2 = "SELECT u.email_ID, p.productName, b.userID,
+(select MAX(bidPrice) AS bidPriceHighest
+FROM bid
+WHERE productID = $productID_page) r
+  FROM user u, bid b, product p
+  WHERE p.productID = $productID_page
   AND u.userID = b.userID
+  AND b.productID = p.productID
   GROUP BY email_ID";
 
   $result2 = $conn->query($sql2);
@@ -58,7 +62,8 @@ if (isset($_POST['Bid']))
   );
   
   while( $row2 = mysqli_fetch_array($result2)) { 
-    $productName = $row["productName"];
+    if ($row2['userID'] != $userID){
+    $productName = $row2["productName"];
     $mail2->ClearAllRecipients();
     $mail2->Subject = 'UCL Buyer Databases';
     $mail2->Debugoutput = 'html';
@@ -67,7 +72,8 @@ if (isset($_POST['Bid']))
     $mail2->Subject = 'Auction Successful!';
     $mail2->Debugoutput = 'html';
     $mail2->Body = 'Hi, 
-                  You have successfuly bought product: '.$productName.' 
+                  You have been unfortunately outbid on: '.$productName.' 
+                  The highest bid is now: '.$row2["r"].'
                   Come back soon!';
   
     if ($mail2->send()){
@@ -75,7 +81,7 @@ if (isset($_POST['Bid']))
     }
   
       echo json_encode($mail2);
-  
+    }
   }
 
   $sql = "INSERT INTO bid (bidPrice, userID, productID, bidDate)
