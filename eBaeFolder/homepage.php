@@ -243,7 +243,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
         while ($row = mysqli_fetch_assoc($resultAJ)) {
         ?>
 
-         <div style="display: inline-block; white-space: nowrap;">
+         <div id="ims" style="display: inline-block; white-space: nowrap;">
            <figure>
            <div class="image" style="display: inline; float:left;">
              <?php
@@ -323,6 +323,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
 </div>
 
 <script>
+var counter = 0;
 // Script to open and close sidebar
 function w3_open() {
     document.getElementById("mySidebar").style.display = "block";
@@ -334,8 +335,13 @@ function w3_close() {
     document.getElementById("myOverlay").style.display = "none";
 }
 window.onload = hiderec();
+document.getElementById("ims").onload = adder();
+
+function adder() {
+  counter = counter + 1;
+}
 function hiderec() {
-      if (document.getElementById("recitems").innerHTML == "") {
+      if (counter > 0) {
         alert("i did it!!!");
         document.getElementById("msg").innerHTML = "You don't have any recommended items yet... Get bidding!";
       }
