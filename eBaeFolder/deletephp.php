@@ -14,7 +14,7 @@ if (isset($_POST['submit']))
   
 
  
-  $sql = "DELETE product FROM product INNER JOIN auction ON product.productID = auction.productID WHERE product.productID = auction.productID = "$_SESSION['productID'];
+  $sql = "DELETE product FROM product INNER JOIN auction ON product.productID = auction.productID WHERE product.productID = auction.productID = 61";
        
       
   mysqli_query($sql, $conn);
