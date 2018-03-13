@@ -67,9 +67,6 @@ $mail->SMTPOptions = array(
     )
 );
 
-
-
-
 while( $row = mysqli_fetch_array($result)) { 
   $productName = $row["productName"];
   $mail->Subject = 'UCL Databases';
