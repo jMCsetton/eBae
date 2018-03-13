@@ -11,15 +11,6 @@ $dbname     = "auction37gc06";
     die("Connection failed: ".$conn->connect_error);
   }
 
-  // gets buyer emails
-/*$sql = "SELECT u.email_ID, a.userID, a.auctionDate, p.productName
-FROM user u, auction a, product p
-WHERE a.auctionDate = curdate()-1
-AND u.userID = a.userID
-AND p.productID = a.productID";
-
-$result = $conn->query($sql);*/
-
 // gets seller emails
 $sql2 = "SELECT u.email_ID, a.productID, p.userID, a.auctionDate, p.productName, a.auctionPrice
 FROM user u, auction a, product p
@@ -28,12 +19,6 @@ AND u.userID = p.userID
 AND p.productID = a.productID";
 
 $result2 = $conn->query($sql2);
-
-/*if ($conn->query($sql) === TRUE) {
-  echo "date added successfully!";
-} else {
-  echo "Error: " . $sql . "<br>" . $conn->error;
-}*/
 
 if ($conn->query($sql2) === TRUE) {
   echo "date added successfully!";
@@ -66,26 +51,6 @@ $mail->SMTPOptions = array(
     'allow_self_signed' => true
     )
 );
-
-/*while( $row = mysqli_fetch_array($result)) { 
-  $productName = $row["productName"];
-  $mail->Subject = 'UCL Databases';
-  $mail->Debugoutput = 'html';
-  $mail->setFrom('ebaeauction@gmail.com', 'eBae Auction');
-  $mail->addAddress($row['email_ID'], 'Buyers');
-  $mail->Subject = 'Auction Successful!';
-  $mail->Debugoutput = 'html';
-  $mail->Body = 'Hi, 
-                You have successfuly bought product: '.$productName.' 
-                Come back soon!';
-
-  if ($mail->send()){
-      echo 'Message sent';
-  }
-
-    echo json_encode($mail);
-
-}*/
 
 while( $row2 = mysqli_fetch_array($result2)) { 
   $productName = $row2["productName"];
