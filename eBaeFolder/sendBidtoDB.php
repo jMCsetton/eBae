@@ -70,7 +70,7 @@ WHERE productID = $productID_page) r
     $mail2->Debugoutput = 'html';
     $mail2->setFrom('ebaeauction@gmail.com', 'eBae Auction');
     $mail2->addAddress($row2['email_ID'], 'Buyer');
-    $mail2->Subject = 'Auction Successful!';
+    $mail2->Subject = 'You have been outbid suckaaa!';
     $mail2->Debugoutput = 'html';
     $mail2->Body = 'Hi, 
                   You have been unfortunately outbid on: '.$productName.' 
