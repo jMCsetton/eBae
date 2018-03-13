@@ -17,7 +17,7 @@ $conn =  new mysqli($host, $username, $password, $dbname);
 
 $sql = "SELECT productImage, productName, reservePrice, date_format(enddate, '%d-%m-%Y') enddate, category, quantity, conditions, productInfo, productID
 FROM product
-ORDER BY YEAR(enddate) ASC, MONTH(enddate) ASC, DAY(enddate) ASC";
+ORDER BY YEAR(enddate) DESC, MONTH(enddate) DESC, DAY(enddate) DESC";
 
 
 $result = $conn->query($sql);
@@ -77,7 +77,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
     <span class="w3-button w3-hide-large w3-xxlarge w3-hover-text-grey" onclick="w3_open()"><i class="fa fa-bars"></i></span>
     <div class="w3-container">
     <h1><b>Welcome to eBae!</b></h1>
-    <h2><b>Showing all auctions, including expired:</b></h2>
+    <h2><b>Showing all auctions, including expired (Date descending):</b></h2>
     <div class="w3-section w3-bottombar w3-padding-16">
       <span class="w3-margin-right">Filter:</span> 
       <a href = "homepage.php" class="w3-button w3-black">All</a>
@@ -93,10 +93,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
     </div>
   </header>
   
-  <!-- Live Auctions -->
-  <div class="topPicks" style="font-size: 25px; font-weight: bold; padding-left: 30px;">
-  <h1>Live Auctions:</h1>
- </div>
+ 
   <div class="w3-container">
   <?php
         ob_start();
