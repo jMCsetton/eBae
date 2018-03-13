@@ -148,8 +148,13 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
 
 
         }
+
+
         if(isset($_POST['submit'])) {
-        $query = mysql_query("DELETE FROM product WHERE productID = $productID");
+        $query = mysql_query("DELETE product
+        FROM product
+        INNER JOIN auction ON product.productID = auction.productID
+        WHERE product.productID = auction.productID = $productID");
         if(!$sql) {
         echo ("Could not delete rows" .mysql_error());
         }
