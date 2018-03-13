@@ -231,11 +231,10 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
 
 </div>
 
-<div class="recommendationZ" style="font-size: 25px; font-weight: bold; padding-left: 30px;">
- <h1>Recommended picks for you:</h1>
- <h2>(based on your bid activity)</h2>
+<div id="rectitle" class="recommendationZ" style="font-size: 25px; font-weight: bold; padding-left: 30px;">
+ <h1>Recommended for you:</h1>
  </div>
- <div style="overflow-x: scroll; overflow: auto; overflow-y: hidden; white-space: nowrap;">
+ <div id="recitems" style="overflow-x: scroll; overflow: auto; overflow-y: hidden; white-space: nowrap;">
 
  <?php
         ob_start();
