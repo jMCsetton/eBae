@@ -46,7 +46,7 @@ $sql2 = "SELECT p.productName, p.productid, p.userid as sellerid, u.username  se
          when a.userID is NULL and p.endDate < curdate() then 'Not sold'
         else 'Auction Still Open'
  end) buyerid,
-(select case when a.auctionPrice is not NULL and p.endDate < curdate() then a.auctionPrice
+(select case when a.auctionPrice is not NULL and p.endDate < curdate() then concat('£', a.auctionPrice )
          when a.auctionPrice is NULL and p.endDate < curdate() then 'Not sold'
         else 'Auction Still Open'
  end) auctionprice,
