@@ -72,5 +72,12 @@ while( $row = mysqli_fetch_array($result)) {
     echo json_encode($mail2);
 
 }
+
+$sql5 = "UPDATE system SET system.buyerNotificationsSent=TRUE WHERE system.date = curdate()-1";
+if ($conn->query($sql5) === TRUE) {
+  //echo "date added successfully!";
+  } else {
+      echo "Error: " . $sql5 . "<br>" . $conn->error;
+  }
   
 ?>
