@@ -275,7 +275,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
 }
 }
 else {
-  echo 'You haven\'t bid on enuff items for recommendations you lazy thug';
+  echo '<p>You haven\'t bid on enuff items for recommendations you lazy thug</p><br>';
 }
 ?>
 
