@@ -256,7 +256,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
           echo "<a href='auctionDetails.php?id=".$row['productID']."' class=' w3-container'><b>".$row["productName"]."</b> </a> 
           ";
           echo '<div>
-              <label>Reserve Price: '.$row["reservePrice"].'</label>         
+              <label>Reserve Price: £'.$row["reservePrice"].'</label>         
               <br>
             </div>
               ';
