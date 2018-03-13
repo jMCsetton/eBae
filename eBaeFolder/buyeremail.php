@@ -20,26 +20,11 @@ AND p.productID = a.productID";
 
 $result = $conn->query($sql);
 
-// gets seller emails
-/*$sql2 = "SELECT u.email_ID, a.productID, p.userID, a.auctionDate, p.productName, a.auctionPrice
-FROM user u, auction a, product p
-WHERE a.auctionDate = curdate()-1
-AND u.userID = p.userID
-AND p.productID = a.productID";
-
-$result2 = $conn->query($sql2);*/
-
 if ($conn->query($sql) === TRUE) {
   echo "date added successfully!";
 } else {
   //echo "Error: " . $sql . "<br>" . $conn->error;
 }
-
-/*if ($conn->query($sql2) === TRUE) {
-  echo "date added successfully!";
-} else {
-  echo "Error: " . $sql2 . "<br>" . $conn->error;
-}*/
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
@@ -88,33 +73,11 @@ while( $row = mysqli_fetch_array($result)) {
 
 }
 
-/*while( $row2 = mysqli_fetch_array($result2)) { 
-  $productName = $row2["productName"];
-  $mail2
-->Subject = 'UCL Databases';
-  $mail2
-->Debugoutput = 'html';
-  $mail2
-->setFrom('ebaeauction@gmail.com', 'eBae Auction');
-  $mail2
-->addAddress($row2['email_ID'], 'Sellers');
-  $mail2
-->Subject = 'Auction Successful';
-  $mail2
-->Debugoutput = 'html';
-  $mail2
-->Body = 'Hi, 
-                You have successfuly sold product: '.$productName.' 
-                Come back soon!';
-
-  if ($mail2
-->send()){
-      echo 'Message sent';
+$sql5 = "UPDATE system SET system.buyerNotificationsSent=TRUE WHERE system.date = curdate()-1";
+if ($conn->query($sql5) === TRUE) {
+  //echo "date added successfully!";
+  } else {
+      echo "Error: " . $sql5 . "<br>" . $conn->error;
   }
-
-    echo json_encode($mail2
-);
-  
-  }*/
   
 ?>
