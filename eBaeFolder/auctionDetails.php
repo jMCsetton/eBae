@@ -80,7 +80,7 @@ if ($conn->query($sql4) === TRUE) {
 
 $result4 = $conn->query($sql4);
 $row4 = mysqli_fetch_assoc($result4);
-echo $row4['bidPriceHighest'];
+//echo $row4['bidPriceHighest'];
 
 ?>
 
