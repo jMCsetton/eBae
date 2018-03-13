@@ -236,7 +236,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
                        <td>'.$row2["endDate"].'</td>
                        <td>'.$row2["traffic_count"].'</td>
                        <td>£'.$row2["reservePrice"].'</td>
-                       <td>£'.$row2["auctionprice"].'</td>
+                       <td>'.$row2["auctionprice"].'</td>
                        <td>'.$row2["buyername"].'</td>
                      
                        ';
