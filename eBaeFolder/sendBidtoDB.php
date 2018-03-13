@@ -45,7 +45,7 @@ WHERE productID = $productID_page) r
   
   //Server settings
   $mail2->isSMTP();
-  $mail2->SMTPDebug = 2;
+  //$mail2->SMTPDebug = 2;
   $mail2->Host = 'smtp.gmail.com';
   $mail2->Port = 587;
   $mail2->SMTPSecure = 'tls'; // enable 'tls'  to prevent security issues
@@ -67,7 +67,7 @@ WHERE productID = $productID_page) r
     $productName = $row2["productName"];
     $mail2->ClearAllRecipients();
     $mail2->Subject = 'UCL Buyer Databases';
-    //$mail2->Debugoutput = 'html';
+    $mail2->Debugoutput = 'html';
     $mail2->setFrom('ebaeauction@gmail.com', 'eBae Auction');
     $mail2->addAddress($row2['email_ID'], 'Buyer');
     $mail2->Subject = 'You have been outbid suckaaa!';
