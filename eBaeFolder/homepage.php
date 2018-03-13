@@ -335,12 +335,12 @@ function w3_close() {
 }
 window.onload = hiderec();
 function hiderec() {
-      if (document.getElementById("capt").innerHTML == "") {
+      if (document.getElementById("recitems").innerHTML == "") {
         alert("i did it!!!");
         document.getElementById("msg").innerHTML = "You don't have any recommended items yet... Get bidding!";
       }
       else {
-        alert("hello i've put this here to be annoying");
+        alert("hello i've put this here to be annyong");
       }
 }
 </script>
