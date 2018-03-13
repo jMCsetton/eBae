@@ -126,7 +126,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
           if ($delete_query) {
            echo 'product with id ' . $delete . ' is removed from your table ';
           }
-
+}
           echo '
             <div style= "bg-colour:white" class="w3-twothird w3-container">
             
