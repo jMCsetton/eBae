@@ -353,7 +353,7 @@ function lengther(stringy){
 function hiderec() {
       if (lengther(document.getElementById("capt").innerHTML) == "good") {
         alert("i did it!!!");
-        document.getElementById("msg").innerHTML = "You don't have any recommended items yet... Get bidding!";
+        document.getElementById("msg").innerHTML = document.getElementById("capt").innerHTML;
       }
       else {
         alert("hello i've put this here to be annyong");
