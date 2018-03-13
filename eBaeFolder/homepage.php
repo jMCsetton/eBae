@@ -232,7 +232,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
 </div>
 
 <div id="rectitle" class="recommendationZ" style="font-size: 25px; font-weight: bold; padding-left: 30px;" onload="hiderec()">
- <h1>Recommended for you:</h1>
+ <h1 id='mseg'>Recommended for you:</h1>
  </div>
  <div id="recitems" style="overflow-x: scroll; overflow: auto; overflow-y: hidden; white-space: nowrap;">
 
@@ -336,8 +336,9 @@ function w3_close() {
 
 <script>
   function hiderec(){
-    if (document.getElementById("recitems") == null) {
+    if (document.getElementById("recitems").is(':empty')) {
       document.getElementById("rectitle").style.display = 'block';
+      document.getElementById("mseg").style.display = 'none';
     }
   }
 </script>
