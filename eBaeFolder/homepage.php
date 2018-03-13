@@ -356,15 +356,15 @@ function hiderec() {
         document.getElementById("msg").innerHTML = document.getElementById("capt").innerHTML;
       }
       else if ((lengther(document.getElementById("capt").innerHTML) == "bad") {
-        alert("hello i've put this here to be annyong");
+        alert("hello ive put this here to be annyong");
         document.getElementById("msg").innerHTML = lengther(document.getElementById("capt").innerHTML);
       }
       else if (document.getElementById("capt").innerHTML == "") {
-        alert("hello i've put this here to be annyong");
+        alert("hello ive put this here to be annyong");
         document.getElementById("msg").innerHTML = lengther(document.getElementById("capt").innerHTML);
       }
       else {
-        alert("hello i've put this here to be annyang");
+        alert("hello ive put this here to be annyang");
       }
 }
 </script>
