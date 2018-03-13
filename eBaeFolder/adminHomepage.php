@@ -53,7 +53,6 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
     </a>
     <img src="/w3images/avatar_g2.jpg" style="width:45%;" class="w3-round"><br><br>
     <h4><b>eBae</b></h4>
-    <p class="w3-text-grey">Template by W3.CSS</p>
   </div>
   <div class="w3-bar-block">
     
