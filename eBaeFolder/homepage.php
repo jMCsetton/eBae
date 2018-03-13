@@ -341,7 +341,7 @@ function adder() {
   counter = counter + 1;
 }
 function hiderec() {
-      if (counter > 0) {
+      if (counter == 0) {
         alert("i did it!!!");
         document.getElementById("msg").innerHTML = "You don't have any recommended items yet... Get bidding!";
       }
