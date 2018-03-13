@@ -107,7 +107,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
   <h1>Live Auctions:</h1>
  </div>
   <div class="w3-container">
-  <form action='' method='POST'>
+  <form action='' method='POST' onsubmit="return validationform()">
   <?php
         ob_start();
         // Fetching data from database
@@ -148,15 +148,14 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
 
 
         }
-
-
-       if (isset($_POST['delete'])) {
+        if(isset($_POST['submit'])) {
         $delete = $_POST['delete'];
-        $delete_query = mysql_query("DELETE FROM product WHERE productID = $delete ") or die(mysql_error());
-        if ($delete_query) {
-        echo 'product with id ' . $delete . ' is removed from your table ';
-                  }
+        $query = mysql_query("DELETE FROM prodcut WHERE productID = $delete");
+        if(!$sql) {
+        echo ("Could not delete rows" .mysql_error());
         }
+        }
+      
         ?>
         </form>
   <!--form action="" method="post" enctype="multipart/form-data" >
