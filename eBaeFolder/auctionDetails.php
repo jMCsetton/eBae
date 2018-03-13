@@ -75,8 +75,12 @@ WHERE productID = $productID_page";
 if ($conn->query($sql4) === TRUE) {
   echo "bid found successfully!";
 } else {
-  echo "Error: " . $sql4 . "<br>" . $conn->error;
+  //echo "Error: " . $sql4 . "<br>" . $conn->error;
 }
+
+$result4 = $conn->query($sql4);
+$row4 = mysqli_fetch_assoc($result4);
+echo $row4['bidPriceHighest'];
 
 ?>
 
@@ -314,16 +318,6 @@ function w3_close() {
     document.getElementById("myOverlay").style.display = "none";
 }
 
-<?php 
-
-$result4 = $conn->query($sql4);
-
-echo $row4['bidPriceHighest'];
-
-$row4 = mysqli_fetch_assoc($result4)
-
-?>
-
 
 function validateForm() {
     var x = document.forms["bidForm"]["bidPrice"].value;
@@ -336,7 +330,7 @@ function validateForm() {
     } else if(x<=0.00) {
       alert("Please choose a valid bid price greater than 0");
       return false;
-    } else if(x<=$row4['bidPriceHighest']) {
+    } else if(x<=.$row4['bidPriceHighest'].) {
       alert("Please choose a valid bid price greater than 0");
       return false;
     }
