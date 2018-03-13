@@ -15,7 +15,7 @@ $dbname     = "auction37gc06";
 
 $date = date("Y/m/d");
 $sql = "INSERT INTO system (date)
-VALUES ('$date')";
+VALUES (curdate()-1)";
 
 if ($conn->query($sql) === TRUE) {
     echo "date added successfully!";
