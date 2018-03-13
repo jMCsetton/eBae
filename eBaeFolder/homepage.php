@@ -239,7 +239,6 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
 
  <?php
         ob_start();
-        $row = mysqli_fetch_assoc($resultAJ);
         $count = mysqli_num_rows($resultAJ);
         if ($count > 0) {
         while ($row = mysqli_fetch_assoc($resultAJ)) {
