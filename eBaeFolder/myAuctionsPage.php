@@ -166,9 +166,9 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
                      
                        <tr>
                        <td>'.$row["productName"].'</td> 
-                       <td>'.$row["reservePrice"].'</td>
+                       <td>£'.$row["reservePrice"].'</td>
                        <td>'.$row["bidderUsername"].'</td>
-                       <td>'.$row["bidPrice"].'</td>
+                       <td>£'.$row["bidPrice"].'</td>
                        <td>'.$row["bidDate"].'</td>
                        <td>'.$row["endDate"].'</td>
                      </tr>
@@ -235,8 +235,8 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
                        <td>'.$row2["productName"].'</td> 
                        <td>'.$row2["endDate"].'</td>
                        <td>'.$row2["traffic_count"].'</td>
-                       <td>'.$row2["reservePrice"].'</td>
-                       <td>'.$row2["auctionprice"].'</td>
+                       <td>£'.$row2["reservePrice"].'</td>
+                       <td>£'.$row2["auctionprice"].'</td>
                        <td>'.$row2["buyername"].'</td>
                      
                        ';
