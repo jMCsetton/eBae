@@ -75,7 +75,7 @@ WHERE productID = $productID_page";
 if ($conn->query($sql4) === TRUE) {
   echo "bid found successfully!";
 } else {
-  echo "Error: " . $sql4 . "<br>" . $conn->error;
+  //echo "Error: " . $sql4 . "<br>" . $conn->error;
 }
 
 $result4 = $conn->query($sql4);
