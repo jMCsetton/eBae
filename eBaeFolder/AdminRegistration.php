@@ -35,7 +35,7 @@
                     <span class="navbar-toggler-bar"></span>
                     <span class="navbar-toggler-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.php">Back to Log in page</a>
+                <a class="navbar-brand" href="index.php">Back to Admin Homepage</a>
             </div>
     </nav>
 
@@ -48,8 +48,8 @@
                     <div class="row">
                         <div class="col-lg-4 ml-auto mr-auto">
                             <div class="card card-register">
-                                <h3 class="title">Please fill out the form below to register:</h3>
-                              <form action="Registrationphp.php" method="post" name="cruciform" onsubmit="return validationform()"> 
+                                <h3 class="title">Admin Registration form:</h3>
+                              <form action="adminRegistrationphp.php" method="post" name="cruciform" onsubmit="return validationform()"> 
                                    
                                     <label>First Name</label>
                                     <input type="text" class="form-control" placeholder="First Name" name="firstName"/>
@@ -59,20 +59,7 @@
                                   
                                     <label>Date of Birth</label>
                                     <input type="text" class="form-control" placeholder="mm/dd/yyyy" name="DOB">
-                                   
-
-                                    <label>Address:</label>
-                                    <input type="text" class="form-control" placeholder="House Number" name="doorNumber">
-
-                                    <input type="text" class="form-control" placeholder="Street" name="street">
-
-                                    <input type="text" class="form-control" placeholder="Town/City" name="city">
-
-                                    <input type="text" class="form-control" placeholder="County" name="county">
-
-                                    <input type="text" class="form-control" placeholder="Post Code" name="postCode">
-                                   
-
+                                
                                     <label>Gender</label>
                                     <input type="text" class="form-control" placeholder="Gender" name="gender">
                                    
@@ -173,31 +160,6 @@ function validationform() {
     return false;
   }
 
-  var dnum = document.forms["cruciform"]["doorNumber"].value;
-  if (dnum == "") {
-    alert("Please enter your house number!")
-    return false;
-  }
-  var strt = document.forms["cruciform"]["street"].value;
-  if (strt == "") {
-    alert("Please enter your street!")
-    return false;
-  }
-  var cty = document.forms["cruciform"]["city"].value;
-  if (cty == "") {
-    alert("Please enter your town or city!")
-    return false;
-  }
-  var cnty = document.forms["cruciform"]["county"].value;
-  if (cnty == "") {
-    alert("Please enter your county!")
-    return false;
-  }
-  var pstcd = document.forms["cruciform"]["postCode"].value;
-  if (pstcd == "") {
-    alert("Please enter your postcode!")
-    return false;
-  }
   var gen = document.forms["cruciform"]["gender"].value;
   if (gen == "") {
     alert("Please enter your gender!")
