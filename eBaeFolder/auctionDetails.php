@@ -326,7 +326,7 @@ function validateForm() {
     var product_userID = "<?php echo $row['userID'] ?>"; 
     x = parseFloat(x)
     
-    if (current_userID=product_userID ){
+    if (current_userID==product_userID ){
       alert("You cannot bid on your own auction!");
       return false;
     }
