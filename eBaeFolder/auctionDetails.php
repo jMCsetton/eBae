@@ -321,6 +321,7 @@ function w3_close() {
 
 function validateForm() {
     var x = document.forms["bidForm"]["bidPrice"].value;
+    var y = "<?php echo $row4['bidPriceHighest'] ?>"; 
     x = parseFloat(x)
     if(isNaN(x))
     {
@@ -330,8 +331,8 @@ function validateForm() {
     } else if(x<=0.00) {
       alert("Please choose a valid bid price greater than 0");
       return false;
-    } else if(x<=.$row4['bidPriceHighest'].) {
-      alert("Please choose a valid bid price greater than 0");
+    } else if(x<=y) {
+      alert("Please choose a valid bid price greater than the current highest bid");
       return false;
     }
     } 
