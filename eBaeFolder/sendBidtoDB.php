@@ -78,10 +78,10 @@ WHERE productID = $productID_page) r
                   Come back soon!';
   
     if ($mail2->send()){
-        echo 'Message sent';
+        //echo 'Message sent';
     }
   
-      echo json_encode($mail2);
+      //echo json_encode($mail2);
     }
   }
 
