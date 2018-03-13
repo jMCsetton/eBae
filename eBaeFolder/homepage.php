@@ -69,7 +69,7 @@ $resultAJ = $conn->query($sqlAJ);
 <style>
 body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
 </style>
-<body class="w3-light-grey w3-content" style="max-width:1600px">
+<body class="w3-light-grey w3-content" style="max-width:1600px" onload="hiderec()">
 
 <!-- Sidebar/menu -->
 <nav class="w3-sidebar w3-collapse w3-white w3-animate-left" style="z-index:3;width:300px;" id="mySidebar"><br>
@@ -231,7 +231,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
 
 </div>
 
-<div id="rectitle" class="recommendationZ" style="font-size: 25px; font-weight: bold; padding-left: 30px;" onload="hiderec()">
+<div id="rectitle" class="recommendationZ" style="font-size: 25px; font-weight: bold; padding-left: 30px;">
  <h1 id='mseg'>Recommended for you:</h1>
  </div>
  <div id="recitems" style="overflow-x: scroll; overflow: auto; overflow-y: hidden; white-space: nowrap;">
@@ -334,6 +334,7 @@ function w3_close() {
 
 function hiderec(){
       document.getElementById("mseg").innerHTML = "banana bread!!";
+      alert("hello i've put this here to be annoying");
   }
 }
 </script>
