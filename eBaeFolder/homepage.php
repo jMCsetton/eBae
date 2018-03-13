@@ -338,10 +338,11 @@ window.onload = hiderec();
 document.getElementById("ims").onload = adder();
 
 function adder() {
-  counter = counter + 1;
+  counter++;
+  return counter;
 }
 function hiderec() {
-      if (counter == 0) {
+      if (adder() == 0) {
         alert("i did it!!!");
         document.getElementById("msg").innerHTML = "You don't have any recommended items yet... Get bidding!";
       }
