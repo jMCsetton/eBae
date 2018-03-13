@@ -336,13 +336,7 @@ function w3_close() {
 
 <script>
   function hiderec(){
-    if (document.getElementById("recitems").is(':empty')) {
-      document.getElementById("rectitle").style.display = 'block';
-      document.getElementById("mseg").style.display = 'none';
-    }
-    else {
       document.getElementById("mseg").innerHTML = "banana bread!!";
-    }
   }
 </script>
 
