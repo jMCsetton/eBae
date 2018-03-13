@@ -27,6 +27,9 @@ GROUP BY viewingtraffic.productID
 ORDER BY trafficFrequencyPerItem desc
 LIMIT 5 ";
 
+$sqlA = "DELETE from product
+WHERE productName = ";
+
 $result = $conn->query($sql);
 $resultJA = $conn->query($sqlJA);
 
@@ -115,6 +118,15 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
           echo '<img src="data:image/jpeg;base64,'.base64_encode( $row["productImage"] ).'" style="width:30%; height:30%" class="w3-third w3-container"/>';
           $_SESSION['productID'] = $row['productID'];
           $productID = $_SESSION['productID'];
+          echo "<b>".$row['productID']."</b>' <input type='submit' name='delete' value=' style='background-color:black; width:9%; color:white'><b>Delete<b></a> 
+          ";
+          if (isset($_POST['delete'])) {
+           $delete = $_POST['delete'];
+            $delete_query = mysql_query("DELETE FROM product WHERE productID = $delete ") or die(mysql_error());
+          if ($delete_query) {
+           echo 'product with id ' . $delete . ' is removed from your table ';
+          }
+
           echo '
             <div style= "bg-colour:white" class="w3-twothird w3-container">
             
