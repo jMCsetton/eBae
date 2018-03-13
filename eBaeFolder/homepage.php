@@ -340,6 +340,9 @@ function w3_close() {
       document.getElementById("rectitle").style.display = 'block';
       document.getElementById("mseg").style.display = 'none';
     }
+    else {
+      document.getElementById("mseg").innerHTML = "banana bread!!";
+    }
   }
 </script>
 
