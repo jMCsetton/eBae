@@ -103,6 +103,9 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
   </header>
   
   <!-- Live Auctions -->
+  <div class="topPicks" style="font-size: 25px; font-weight: bold; padding-left: 30px;">
+  <h1>Live Auctions:</h1>
+ </div>
   <div class="w3-container">
   <?php
         ob_start();
@@ -115,8 +118,6 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
           echo '<img src="data:image/jpeg;base64,'.base64_encode( $row["productImage"] ).'" style="width:30%; height:30%" class="w3-third w3-container"/>';
           $_SESSION['productID'] = $row['productID'];
           $productID = $_SESSION['productID'];
-          echo "<a href='auctionDetails.php?id=".$row['productID']."' class='w3-third w3-container' style='background-color:black; width:9%; color:white'><b>View Bid<b></a> 
-          ";
           echo '
             <div style= "bg-colour:white" class="w3-twothird w3-container">
             
@@ -183,7 +184,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
              <?php
           $_SESSION['productID'] = $row['productID'];
           $productID = $_SESSION['productID'];
-          echo "<a href='auctionDetails.php?id=".$row['productID']."' class=' w3-container'><b>".$row["productName"]."</b> </a> 
+          echo "<a' class=' w3-container'><b>".$row["productName"]."</b> </a> 
           ";
           echo '<div>
               <label>Number of views: '.$row["trafficFrequencyPerItem"].'</label>         
