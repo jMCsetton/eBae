@@ -335,7 +335,6 @@ function w3_close() {
     document.getElementById("myOverlay").style.display = "none";
 }
 window.onload = hiderec();
-document.getElementById("capt").onload = lengther();
 
 /*function adder() {
   counter++;
@@ -352,13 +351,13 @@ function lengther(stringy){
   }
 }
 function hiderec() {
-      if (lengther() == "good") {
+      if (lengther(document.getElementById("capt").innerHTML) == "good") {
         alert("i did it!!!");
-        document.getElementById("msg").innerHTML = "You don't have any recommended items yet... Get bidding!";
+        document.getElementById("msg").innerHTML = document.getElementById("capt").innerHTML;
       }
       else {
         alert("hello i've put this here to be annyong");
-        document.getElementById("msg").innerHTML = counter;
+        document.getElementById("msg").innerHTML = lengther(document.getElementById("capt").innerHTML);
       }
 }
 </script>
