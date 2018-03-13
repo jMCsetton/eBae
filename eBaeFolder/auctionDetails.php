@@ -26,7 +26,7 @@ if ($conn->query($sql3) === TRUE) {
   echo "Error: " . $sql3 . "<br>" . $conn->error;
 }
 
-$sql = "SELECT p.productImage, p.productName, p.reservePrice, date_format(p.enddate, '%d-%m-%Y') enddate, p.category, p.quantity, p.conditions, p.productInfo,
+$sql = "SELECT p.productImage, p.userID, p.productName, p.reservePrice, date_format(p.enddate, '%d-%m-%Y') enddate, p.category, p.quantity, p.conditions, p.productInfo,
   (select case when rating is not NULL then rating
   ELSE 'User not rated yet'
   END) rating2
@@ -322,8 +322,15 @@ function w3_close() {
 function validateForm() {
     var x = document.forms["bidForm"]["bidPrice"].value;
     var y = "<?php echo $row4['bidPriceHighest'] ?>"; 
+    var current_userID=  "<?php echo $userID?>"; 
+    var product_userID = "<?php echo $row['userID'] ?>"; 
     x = parseFloat(x)
-    if(isNaN(x))
+    
+    if (current_userID=product_userID ){
+      alert("You cannot bid on your own auction!");
+      return false;
+    }
+    else if(isNaN(x))
     {
       alert("Please choose a valid bid price");
       return false;
