@@ -239,7 +239,9 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
 
  <?php
         ob_start();
-
+        $row = mysqli_fetch_assoc($resultAJ);
+        $count = mysqli_num_rows($resultAJ);
+        if ($count > 0) {
         while ($row = mysqli_fetch_assoc($resultAJ)) {
         ?>
 
@@ -271,6 +273,10 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
        
 
 <?php
+}
+}
+else {
+  echo 'You haven\'t bid on enuff items for recommendations you lazy thug';
 }
 ?>
 
@@ -351,14 +357,13 @@ function lengther(stringy){
   }
 }
 function hiderec() {
-      document.getElementById("msg").innerHTML = lengther(document.getElementById("capt").innerHTML);
-      if (lengther(document.getElementById("capt").innerHTML) == "good") {
+      /*if (lengther(document.getElementById("capt").innerHTML) == "good") {
         alert("i did it!!!");
         document.getElementById("msg").innerHTML = document.getElementById("capt").innerHTML;
       }
       else if (lengther(document.getElementById("capt").innerHTML) != "good") {
         alert("hello ive put this here to be annyang");
-      }
+      }*/
       /*else if ((lengther(document.getElementById("capt").innerHTML) == "bad") {
         alert("hello ive put this here to be annyong");
         document.getElementById("msg").innerHTML = lengther(document.getElementById("capt").innerHTML);
