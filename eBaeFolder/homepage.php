@@ -15,6 +15,8 @@ $conn =  new mysqli($host, $username, $password, $dbname);
 
 //$sql = "SELECT productImage, productName, reservePrice, date_format(enddate, '%d-%m-%Y') enddate, category, quantity, conditions, productInfo, productID FROM product ORDER BY YEAR(enddate) ASC, MONTH(enddate) ASC, DAY(enddate) ASC";
 
+$user = $_SESSION['userID'];
+
 $sql = "SELECT productImage, productName, reservePrice, date_format(enddate, '%d-%m-%Y') enddate, category, quantity, conditions, productInfo, productID
 FROM product
 WHERE enddate >= CURDATE()
@@ -27,8 +29,32 @@ GROUP BY viewingtraffic.productID
 ORDER BY trafficFrequencyPerItem desc
 LIMIT 5 ";
 
+$sqlAJ = "SELECT productName, productImage, productID, reservePrice
+FROM product
+WHERE productID IN (
+ 	 SELECT productID
+ 	 FROM bid
+  	WHERE productID NOT IN (
+   		 SELECT productID
+   		 FROM bid
+    		WHERE userID = '$user'
+    		GROUP BY productID)
+  	AND userID in (
+  		 SELECT userID
+    		FROM bid
+    		WHERE productID IN (
+     			  SELECT productID
+      			FROM bid
+        		WHERE userID = '$user'
+     			  GROUP BY productID)
+        GROUP BY userID
+        HAVING (COUNT(userID) > 1)
+ 	 )
+)";
+
 $result = $conn->query($sql);
 $resultJA = $conn->query($sqlJA);
+$resultAJ = $conn->query($sqlAJ);
 
 
 ?>
@@ -204,7 +230,50 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
 ?>
 
 </div>
-      
+
+<div class="recommendationZ" style="font-size: 25px; font-weight: bold; padding-left: 30px;">
+ <h1>Our current top picks:</h1>
+ </div>
+ <div style="overflow-x: scroll; overflow: auto; overflow-y: hidden; white-space: nowrap;">
+
+ <?php
+        ob_start();
+
+        while ($row = mysqli_fetch_assoc($resultAJ)) {
+        ?>
+
+         <div style="display: inline-block; white-space: nowrap;">
+           <figure>
+           <div class="image" style="display: inline; float:left;">
+             <?php
+           echo '<img src="data:image/jpeg;base64,'.base64_encode( $row["productImage"] ).'" style=" width:150px; height:22%; vertical-align: top; class="w3-container"/>';
+           ?>
+           </div>
+           <figcaption style="font-weight:bold; width:100px; word-wrap:break-word; text-align: center;">
+             <?php
+          $_SESSION['productID'] = $row['productID'];
+          $productID = $_SESSION['productID'];
+          echo "<a href='auctionDetails.php?id=".$row['productID']."' class=' w3-container'><b>".$row["productName"]."</b> </a> 
+          ";
+          echo '<div>
+              <label>Reserve Price: '.$row["reservePrice"].'</label>         
+              <br>
+            </div>
+              ';
+              //$_SESSION['productID'] = $row['productID'];
+              //$productID = $_SESSION['productID'];
+              //echo $productID ;
+              ?>
+            </figcaption>
+        </figure>
+        </div>
+       
+
+<?php
+}
+?>
+
+</div>
        
 
 
