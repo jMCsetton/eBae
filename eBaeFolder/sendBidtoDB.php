@@ -2,6 +2,10 @@
 session_start();
 ob_start();
 //$user = $_SESSION['userID'];
+
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
 if (isset($_POST['Bid']))
 {
   require "config.php";
@@ -17,6 +21,62 @@ if (isset($_POST['Bid']))
   $date = date("Y/m/d");
   $productID_page = $_SESSION['productID_page'];
 
+  // send notification to people who are outbid
+  $sql2 = "SELECT u.email_ID
+  FROM user u, bid b
+  WHERE productID = $productID_page
+  AND u.userID = b.userID
+  GROUP BY email_ID";
+
+  $result2 = $conn->query($sql2);
+  if ($conn->query($sql2) === TRUE) {
+    echo "emails sent successfully!";
+  } else {
+    echo "Error: " . $sql2 . "<br>" . $conn->error;
+  }
+  
+  require_once('./vendor/autoload.php');
+  
+  $mail2 = new phpmailer(true);
+  
+  //Server settings
+  $mail2->isSMTP();
+  $mail2->SMTPDebug = 2;
+  $mail2->Host = 'smtp.gmail.com';
+  $mail2->Port = 587;
+  $mail2->SMTPSecure = 'tls'; // enable 'tls'  to prevent security issues
+  $mail2->SMTPAuth = true;
+  $mail2->Username = 'ebaeauction@gmail.com';
+  $mail2->Password = 'Databases37!';
+  // walkaround to bypass server errors
+  $mail2->SMTPOptions = array(
+  'ssl' => array(
+      'verify_peer' => false,
+      'verify_peer_name' => false,
+      'allow_self_signed' => true
+      )
+  );
+  
+  while( $row2 = mysqli_fetch_array($result2)) { 
+    $productName = $row["productName"];
+    $mail2->ClearAllRecipients();
+    $mail2->Subject = 'UCL Buyer Databases';
+    $mail2->Debugoutput = 'html';
+    $mail2->setFrom('ebaeauction@gmail.com', 'eBae Auction');
+    $mail2->addAddress($row2['email_ID'], 'Buyer');
+    $mail2->Subject = 'Auction Successful!';
+    $mail2->Debugoutput = 'html';
+    $mail2->Body = 'Hi, 
+                  You have successfuly bought product: '.$productName.' 
+                  Come back soon!';
+  
+    if ($mail2->send()){
+        echo 'Message sent';
+    }
+  
+      echo json_encode($mail2);
+  
+  }
 
   $sql = "INSERT INTO bid (bidPrice, userID, productID, bidDate)
   VALUES ('".$_POST["bidPrice"]."', '$userID', '$productID_page', '$date')";
