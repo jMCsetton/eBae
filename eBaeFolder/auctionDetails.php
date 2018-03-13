@@ -311,8 +311,10 @@ WHERE productID = $productID_page";
 
 $result4 = $conn->query($sql4);
 
+echo $row4['bidPriceHighest'];
+
 if ($conn->query($sql4) === TRUE) {
-  echo "date added successfully!";
+  echo "bid found successfully!";
 } else {
   echo "Error: " . $sql4 . "<br>" . $conn->error;
 }
