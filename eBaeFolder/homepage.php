@@ -355,6 +355,9 @@ function hiderec() {
         alert("i did it!!!");
         document.getElementById("msg").innerHTML = document.getElementById("capt").innerHTML;
       }
+      else if (lengther(document.getElementById("capt").innerHTML) != "good") {
+        alert("hello ive put this here to be annyang");
+      }
       /*else if ((lengther(document.getElementById("capt").innerHTML) == "bad") {
         alert("hello ive put this here to be annyong");
         document.getElementById("msg").innerHTML = lengther(document.getElementById("capt").innerHTML);
