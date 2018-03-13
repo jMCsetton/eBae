@@ -18,7 +18,7 @@ if (isset($_POST['submit']))
   '".$_POST["gender"]."', '".$_POST["email_ID"]."', 'null', 'admin', '".$_POST["password"]."')";
   mysqli_query($sql2, $conn);
 
-  if (($conn->query($sql) === TRUE) && ($conn->query($sql2) === TRUE)) {
+  if ($conn->query($sql2) === TRUE) {
     echo "New admin created created successfully";
 } else {
     echo "Error: " . $sql . "<br>" . $conn->error;
