@@ -355,7 +355,7 @@ function hiderec() {
         alert("i did it!!!");
         document.getElementById("msg").innerHTML = document.getElementById("capt").innerHTML;
       }
-      else if ((lengther(document.getElementById("capt").innerHTML) == "bad") {
+      /*else if ((lengther(document.getElementById("capt").innerHTML) == "bad") {
         alert("hello ive put this here to be annyong");
         document.getElementById("msg").innerHTML = lengther(document.getElementById("capt").innerHTML);
       }
@@ -365,7 +365,7 @@ function hiderec() {
       }
       else {
         alert("hello ive put this here to be annyang");
-      }
+      }*/
 }
 </script>
 
