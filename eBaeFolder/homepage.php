@@ -335,7 +335,6 @@ function w3_close() {
     document.getElementById("myOverlay").style.display = "none";
 }
 window.onload = hiderec();
-document.getElementById("capt").onload = lengther();
 
 /*function adder() {
   counter++;
