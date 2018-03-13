@@ -90,12 +90,6 @@ WHERE productID = $productID_page) r
 
   if ($conn->query($sql) === TRUE) {
     echo "Bid added successfully!";
-    $sql5 = "UPDATE system SET system.bidNotificationsSent=TRUE WHERE system.date = curdate()-1";
-    if ($conn->query($sql5) === TRUE) {
-      //echo "date added successfully!";
-      } else {
-          echo "Error: " . $sql5 . "<br>" . $conn->error;
-      }
 } else {
     echo "Error: " . $sql . "<br>" . $conn->error;
 }
