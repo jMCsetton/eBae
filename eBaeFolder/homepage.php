@@ -351,6 +351,7 @@ function lengther(stringy){
   }
 }
 function hiderec() {
+      document.getElementById("msg").innerHTML = lengther(document.getElementById("capt").innerHTML);
       if (lengther(document.getElementById("capt").innerHTML) == "good") {
         alert("i did it!!!");
         document.getElementById("msg").innerHTML = document.getElementById("capt").innerHTML;
