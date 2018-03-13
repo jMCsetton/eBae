@@ -67,7 +67,7 @@ WHERE productID = $productID_page) r
     $productName = $row2["productName"];
     $mail2->ClearAllRecipients();
     $mail2->Subject = 'UCL Buyer Databases';
-    $mail2->Debugoutput = 'html';
+    //$mail2->Debugoutput = 'html';
     $mail2->setFrom('ebaeauction@gmail.com', 'eBae Auction');
     $mail2->addAddress($row2['email_ID'], 'Buyer');
     $mail2->Subject = 'You have been outbid suckaaa!';
