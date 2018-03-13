@@ -335,11 +335,8 @@ function w3_close() {
 }
 window.onload = hiderec();
 function hiderec() {
-  if document.getElementById("recitems").is(':empty') {
-    document.getElementById("msg").innerHTML = "You don't have any recommended items yet... Get bidding!";
-    alert("hello i've put this here to be annoying");
-  }
-  alert("if yr reading this, I (Jake) messed up the code");
+      document.getElementById("msg").innerHTML = "You don't have any recommended items yet... Get bidding!";
+      alert("hello i've put this here to be annoying");
   }
 </script>
 
