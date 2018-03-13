@@ -107,6 +107,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
   <h1>Live Auctions:</h1>
  </div>
   <div class="w3-container">
+  <form action='' method='POST'>
   <?php
         ob_start();
         // Fetching data from database
@@ -118,15 +119,8 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
           echo '<img src="data:image/jpeg;base64,'.base64_encode( $row["productImage"] ).'" style="width:30%; height:30%" class="w3-third w3-container"/>';
           $_SESSION['productID'] = $row['productID'];
           $productID = $_SESSION['productID'];
-          echo "<b>".$row['productID']."</b>' <input type='submit' name='delete' value=' style='background-color:black; width:9%; color:white'><b>Delete<b></a> 
-          ";
-          if (isset($_POST['delete'])) {
-           $delete = $_POST['delete'];
-            $delete_query = mysql_query("DELETE FROM product WHERE productID = $delete ") or die(mysql_error());
-          if ($delete_query) {
-           echo 'product with id ' . $delete . ' is removed from your table ';
-          }
-}
+          echo "  To delete product   <b>" . $row['productName'] . "</b>  <input type='submit' name='delete' value='" . $row['productID'] . "' /><br/>";
+         
           echo '
             <div style= "bg-colour:white" class="w3-twothird w3-container">
             
@@ -152,7 +146,17 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
 
 
         }
+
+
+       if (isset($_POST['delete'])) {
+        $delete = $_POST['delete'];
+        $delete_query = mysql_query("DELETE FROM product WHERE productID = $delete ") or die(mysql_error());
+        if ($delete_query) {
+        echo 'product with id ' . $delete . ' is removed from your table ';
+                  }
+        }
         ?>
+        </form>
   <!--form action="" method="post" enctype="multipart/form-data" >
       <div class="w3-section">
         <label>Item Name</label>
