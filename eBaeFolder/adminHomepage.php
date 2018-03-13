@@ -107,7 +107,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
   <h1>Live Auctions:</h1>
  </div>
   <div class="w3-container">
-  <form action='' method='POST' onsubmit="return validationform()">
+  <form action='' method='POST'">
   <?php
         ob_start();
         // Fetching data from database
