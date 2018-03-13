@@ -107,7 +107,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
   <h1>Live Auctions:</h1>
  </div>
   <div class="w3-container">
-  <form action='' method='POST'">
+  <form action="deletephp.php" method="post">
   <?php
         ob_start();
         // Fetching data from database
@@ -150,16 +150,6 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
         }
 
 
-        if(isset($_POST['submit'])) {
-        $query = mysql_query("DELETE product
-        FROM product
-        INNER JOIN auction ON product.productID = auction.productID
-        WHERE product.productID = auction.productID = $productID");
-        if(!$sql) {
-        echo ("Could not delete rows" .mysql_error());
-        }
-        }
-      
         ?>
         </form>
   <!--form action="" method="post" enctype="multipart/form-data" >
