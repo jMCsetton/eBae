@@ -336,6 +336,7 @@ function hiderec() {
       document.getElementById("mseg").innerHTML = "banana bread!!";
       alert("hello i've put this here to be annoying");
   }
+  window.onload = hiderec;
 }
 </script>
 
