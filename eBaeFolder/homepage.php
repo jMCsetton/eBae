@@ -243,11 +243,11 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
         while ($row = mysqli_fetch_assoc($resultAJ)) {
         ?>
 
-         <div id="ims" style="display: inline-block; white-space: nowrap;">
+         <div style="display: inline-block; white-space: nowrap;">
            <figure>
            <div class="image" style="display: inline; float:left;">
              <?php
-           echo '<img src="data:image/jpeg;base64,'.base64_encode( $row["productImage"] ).'" style=" width:150px; height:22%; vertical-align: top; class="w3-container"/>';
+           echo '<img id="ims" src="data:image/jpeg;base64,'.base64_encode( $row["productImage"] ).'" style=" width:150px; height:22%; vertical-align: top; class="w3-container"/>';
            ?>
            </div>
            <figcaption id="capt" style="font-weight:bold; width:100px; word-wrap:break-word; text-align: center;">
