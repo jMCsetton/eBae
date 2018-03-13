@@ -119,8 +119,8 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
           echo '<img src="data:image/jpeg;base64,'.base64_encode( $row["productImage"] ).'" style="width:30%; height:30%" class="w3-third w3-container"/>';
           $_SESSION['productID'] = $row['productID'];
           $productID = $_SESSION['productID'];
-            echo "<a href='auctionDetails.php?id=".$row['productID']."' class='w3-third w3-container' style='background-color:black; width:9%; color:white'><b>View Bid<b></a> 
-          ";
+            echo "<input type ='submit' name='delete'><b>Delete<b>";
+            echo "<a href='auctionDetails.php?id=".$row['productID']."' class='w3-third w3-container' style='background-color:black; width:9%; color:white'><b>View Bid<b></a>";
           echo '
             <div style= "bg-colour:white" class="w3-twothird w3-container">
             
