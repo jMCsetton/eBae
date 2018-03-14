@@ -124,7 +124,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
           // ";
           echo '
             <div style= "bg-colour:white" class="w3-twothird w3-container">
-            <button type="submit" name="submit" class="btn btn-danger btn-block btn-round">Delete</button>
+            <button type="submit" name="submit" class="btn btn-danger btn-block btn-round" id="'.$row['productID']'">Delete</button>
 
               <h1>'.$row["productName"].'</h1>
               <label>Reserve Price: £'.$row["reservePrice"].'</label> 
