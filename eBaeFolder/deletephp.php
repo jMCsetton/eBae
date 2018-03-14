@@ -14,12 +14,7 @@ if (isset($_POST['submit']))
   
   $_SESSION['productID_page'] = $_GET['id'];
   $productID_page = $_SESSION['productID_page'];
- 
-  // $sql1 = "DELETE from auction WHERE productID ='".$_SESSION["productID"]."'";
-  // $sql2 = "DELETE from viewingtraffic WHERE productID ='".$_SESSION["productID"]."'";
-  // $sql3 = "DELETE from bid WHERE productID ='".$_SESSION["productID"]."'";
-  // $sql4 = "DELETE from feedback WHERE productID ='".$_SESSION["productID"]."'";
-  // $sql5 = "DELETE from product WHERE productID ='".$_SESSION["productID"]."'";
+
 
   $sql1 = "DELETE from auction WHERE productID = '$productID_page'";
   $sql2 = "DELETE from viewingtraffic WHERE productID = '$productID_page'";
