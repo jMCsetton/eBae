@@ -96,11 +96,11 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
                   
                      
                        <tr>
-                       <td>£'.$row2["username"].'</td>  
-                       <td>'.$row2["firstName"].'</td>
-                       <td>'.$row2["lastName"].'</td>
-                       <td>'.$row2["email_ID"].'</td>
-                       <td>'.$row2["role"].'</td>
+                       <td>£'.$row["username"].'</td>  
+                       <td>'.$row["firstName"].'</td>
+                       <td>'.$row["lastName"].'</td>
+                       <td>'.$row["email_ID"].'</td>
+                       <td>'.$row["role"].'</td>
                      </tr>
                      
                        ';
