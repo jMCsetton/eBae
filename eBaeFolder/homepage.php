@@ -159,7 +159,7 @@ $(document).ready(function(){
           echo '
             <div style= "bg-colour:white" class="w3-twothird w3-container">
             
-              <h1>'.$row["productName"].'<a href="auctionDetails.php?id='.$row["productID"].'</a></h1>
+              <h1>'.$row["productName"].' <a href="auctionDetails.php?id='.$row["productID"].'"></a></h1>
               <label>Reserve Price: £'.$row["reservePrice"].'</label> 
               <br><label>End Date: '.$row["enddate"].'</label>
               <br><label>Category: '.$row["category"].'</label>
