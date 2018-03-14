@@ -122,7 +122,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
             <td>'.$row["date"].'</td> 
             <td>'.$row["auctionDone"].'</td>
             <td>'.$row["bNotiDone"].'</td>
-            <td>£'.$row["sNotiDone"].'</td>
+            <td>'.$row["sNotiDone"].'</td>
 
              </tr>
              '; 
