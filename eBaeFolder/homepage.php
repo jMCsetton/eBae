@@ -141,8 +141,8 @@ $(document).ready(function(){
 
   <!-- Live Auctions -->
 
-   <input id="myInput" type="text" placeholder="Search for items 80.." class="w3-third w3-container" style = "position: relative;
-    left: 80px;">
+   <input id="myInput" type="text" placeholder="Search for items 20.." class="w3-third w3-container" style = "position: relative;
+    right: 20px;">
   <br><br>
   <div class="w3-container" id="myDIV">
   <?php
