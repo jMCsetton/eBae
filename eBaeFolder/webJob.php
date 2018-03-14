@@ -15,7 +15,7 @@ $dbname     = "auction37gc06";
 
 $date = date("Y/m/d");
 $sql = "INSERT INTO system (date)
-VALUES (curdate()-3)";
+VALUES (curdate()-1)";
 
 if ($conn->query($sql) === TRUE) {
     echo "date added successfully!";
@@ -37,7 +37,7 @@ if ($conn->query($sql) === TRUE) {
   ) r, product p, bid b
     WHERE p.productID = b.productID
     AND r.productID = b.productID
-    AND endDate = CURDATE()-3
+    AND endDate = CURDATE()-1
     GROUP BY productID;"; 
     $result3 = $conn->query($sql3);
 
