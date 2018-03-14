@@ -107,7 +107,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
   <h1>Live Auctions:</h1>
  </div>
   <div class="w3-container">
- <form action="deletephp.php" method="post" onsubmit="return confirmDelete()"> 
+ <form action="deletephp.php" method="post"> 
   <?php
         ob_start();
         // Fetching data from database
@@ -124,7 +124,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
           // ";
           echo '
             <div style= "bg-colour:white" class="w3-twothird w3-container">
-            <a href="deletephp.php?id='.$row["productID"].'"type="submit" name="submit" class="btn btn-danger btn-block btn-round" onclick="return confirmDelete()">Delete</a>
+            <a href="deletephp.php?id='.$row["productID"].'"type="submit" name="submit" class="btn btn-danger btn-block btn-round" onClick='return confirm("Delete This account?")'>Delete</a>
 
               <h1>'.$row["productName"].'</h1>
               <label>Reserve Price: £'.$row["reservePrice"].'</label> 
@@ -213,7 +213,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
 ?>
 
 </div>
-<script>
+<!-- <script>
 function confirmDelete() {
   var answer = confirm("Are you sure you want to delete this product?")
   if (answer) {
@@ -224,7 +224,7 @@ function confirmDelete() {
   }
   }
       
-</script>
+</script> -->
        
 
 
