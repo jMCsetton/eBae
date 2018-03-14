@@ -141,7 +141,7 @@ $(document).ready(function(){
 
   <!-- Live Auctions -->
 
-   <input id="myInput" type="text" placeholder="Search for items padding.." class="w3-third w3-container" style = "padding-left: 50px; position: relative;
+   <input id="myInput" type="text" placeholder="Search for items position SILLY.." class="w3-third w3-container" style = "position: relative;
     left: -50px;">
   <br><br>
   <div class="w3-container" id="myDIV">
