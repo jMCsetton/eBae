@@ -28,7 +28,7 @@ ob_start();
   if (($conn->query($sql1) === TRUE) && ($conn->query($sql2) === TRUE) && ($conn->query($sql3) === TRUE) && ($conn->query($sql4) === TRUE) && ($conn->query($sql5) === TRUE)) {
     echo "Product deleted successfully";
 } else {
-    echo "Error: " . $sql . "<br>" . $conn->error;
+    echo "Error: " . $sql1 . "<br>" . $conn->error;
 }
 
   //}
