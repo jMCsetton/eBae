@@ -141,7 +141,7 @@ $(document).ready(function(){
 
   <!-- Live Auctions -->
 
-  <input id="myInput" type="text" placeholder="Search for items OK.." class="w3-black w3-center w3-padding-24">
+   <input id="myInput" type="text" placeholder="Search for items OK.." class="w3-third w3-container" style = "padding-left: 30px;">
   <br><br>
   <div class="w3-container" id="myDIV">
   <?php
