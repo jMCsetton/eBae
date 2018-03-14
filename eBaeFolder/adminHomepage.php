@@ -107,14 +107,13 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
   <h1>Live Auctions:</h1>
  </div>
   <div class="w3-container">
- 
+ <!--  <form action="deletephp.php" method="post"> -->
   <?php
         ob_start();
         // Fetching data from database
         //header("Content-type: image/png"); 
        
-        while ($row = mysqli_fetch_assoc($result)) {  
-          echo '<form action="deletephp.php?id='.$row['productID'].'method="post">' 
+        while ($row = mysqli_fetch_assoc($result)) {          
           //echo "<img src='picture/".$row2["productImage"]."' width='300' height='300'/>";
           //echo "<img src = '".base64_encode($row2["productImage"])."' width='300' height='300'/>";
           echo '<img src="data:image/jpeg;base64,'.base64_encode( $row["productImage"] ).'" style="width:30%; height:30%" class="w3-third w3-container"/>';
@@ -125,7 +124,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
           // ";
           echo '
             <div style= "bg-colour:white" class="w3-twothird w3-container">
-            <button type="submit" name="submit" class="btn btn-danger btn-block btn-round">Delete</button>
+            <a href="deletephp.php?id='.$row["productID"].'type="submit" name="submit" class="btn btn-danger btn-block btn-round">Delete</a>
 
               <h1>'.$row["productName"].'</h1>
               <label>Reserve Price: £'.$row["reservePrice"].'</label> 
