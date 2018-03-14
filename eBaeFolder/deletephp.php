@@ -2,8 +2,8 @@
 session_start();
 ob_start();
 //$user = $_SESSION['userID'];
-if (isset($_POST['submit']))
-{
+// if (isset($_POST['submit']))
+// {
   require "config.php";
   $conn =  new mysqli($host, $username, $password, $dbname);
 
@@ -12,22 +12,28 @@ if (isset($_POST['submit']))
     die("Connection failed: ".$conn->connect_error);
   }
   
+  $_SESSION['productID_page'] = $_GET['id'];
+  $productID_page = $_SESSION['productID_page'];
 
- 
-  $sql = "DELETE product FROM product INNER JOIN auction ON product.productID = auction.productID WHERE product.productID = auction.productID = 61";
+
+  $sql1 = "DELETE from auction WHERE productID = '$productID_page'";
+  $sql2 = "DELETE from viewingtraffic WHERE productID = '$productID_page'";
+  $sql3 = "DELETE from bid WHERE productID = '$productID_page'";
+  $sql4 = "DELETE from feedback WHERE productID = '$productID_page'";
+  $sql5 = "DELETE from product WHERE productID = '$productID_page'";
        
       
   mysqli_query($sql, $conn);
 
-  if (($conn->query($sql) === TRUE)) {
+  if (($conn->query($sql1) === TRUE) && ($conn->query($sql2) === TRUE) && ($conn->query($sql3) === TRUE) && ($conn->query($sql4) === TRUE) && ($conn->query($sql5) === TRUE)) {
     echo "Product deleted successfully";
 } else {
-    echo "Error: " . $sql . "<br>" . $conn->error;
+    echo "Error: " . $sql1 . "<br>" . $conn->error;
 }
 
   //}
 
-}
+// }
 
 
  ?>
