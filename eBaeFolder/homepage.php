@@ -132,7 +132,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
 $(document).ready(function(){
   $("#myInput").on("keyup", function() {
     var value = $(this).val().toLowerCase();
-    $("#myDIV *").filter(function() {
+    $("#myDIV div").filter(function() {
       $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
     });
   });
@@ -142,7 +142,7 @@ $(document).ready(function(){
   <!-- Live Auctions -->
 
   <input id="myInput" type="text" placeholder="Search..">
-  <div class="w3-container" >
+  <div class="w3-container" id="myDIV">
   <?php
         ob_start();
         // Fetching data from database
@@ -157,7 +157,7 @@ $(document).ready(function(){
           //echo "<a href='auctionDetails.php?id=".$row['productID']."' class='w3-third w3-container' style='background-color:black; width:9%; color:white'><b>View Bid<b></a> 
           //";
           echo '
-            <div style= "bg-colour:white" class="w3-twothird w3-container" id="myDIV">
+            <div style= "bg-colour:white" class="w3-twothird w3-container">
             
               <a href="auctionDetails.php?id='.$row["productID"].'"><h1>'.$row["productName"].'</h1></a>
               <label>Reserve Price: £'.$row["reservePrice"].'</label> 
