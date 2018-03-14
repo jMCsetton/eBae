@@ -114,8 +114,8 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
     <h2><b>Showing all live auctions</b></h2>
     <div class="w3-section w3-bottombar w3-padding-16">
       <span class="w3-margin-right">Filter:</span> 
-      <a href = "homepage.php" class="w3-button w3-black">All</a>
-      <a href = "appsGames.php" class="w3-button w3-white"><i class="fa fa-gamepad w3-margin-right"></i>Apps and Games</a>
+      <a href = "homepage.php" class="w3-button w3-white">All</a>
+      <a href = "appsGames.php" class="w3-button w3-black"><i class="fa fa-gamepad w3-margin-right"></i>Apps and Games</a>
       <a href = "beauty.php" class="w3-button w3-white w3-hide-small"><i class="fa fa-photo w3-margin-right"></i>Beauty</a>
       <a href = "books.php" class="w3-button w3-white w3-hide-small"><i class="fa fa-book w3-margin-right"></i>Books</a>
       <a href = "clothing.php" class="w3-button w3-white w3-hide-small"><i class="fa fa-users w3-margin-right"></i>Clothing</a>
