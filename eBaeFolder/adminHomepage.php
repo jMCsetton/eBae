@@ -124,7 +124,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
           // ";
           echo '
             <div style= "bg-colour:white" class="w3-twothird w3-container">
-            <a href="deletephp.php?id='.$row["productID"].'"type="submit" name="submit" class="btn btn-danger btn-block btn-round">Delete</a>
+            <a href="deletephp.php?id='.$row["productID"].'"type="submit" name="submit" class="btn btn-danger btn-block btn-round" onclick="return confirmDelete()">Delete</a>
 
               <h1>'.$row["productName"].'</h1>
               <label>Reserve Price: £'.$row["reservePrice"].'</label> 
@@ -213,7 +213,18 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
 ?>
 
 </div>
+<script>
+function confirmDelete() {
+  var answer = confirm("Are you sure you want to delete this product?")
+  if (answer) {
+    reuturn true;
+  }
+  else {
+    reuturn false;
+  }
+  }
       
+</script>
        
 
 
