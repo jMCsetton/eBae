@@ -2,8 +2,8 @@
 session_start();
 ob_start();
 //$user = $_SESSION['userID'];
-if (isset($_POST['submit']))
-{
+// if (isset($_POST['submit']))
+// {
   require "config.php";
   $conn =  new mysqli($host, $username, $password, $dbname);
 
@@ -33,7 +33,7 @@ if (isset($_POST['submit']))
 
   //}
 
-}
+// }
 
 
  ?>
