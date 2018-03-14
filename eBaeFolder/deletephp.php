@@ -12,7 +12,7 @@ if (isset($_POST['submit']))
     die("Connection failed: ".$conn->connect_error);
   }
   
-  $productID = $_SESSION['productID'];
+  $_SESSION['productID'] = $_GET['id'];
  
   // $sql1 = "DELETE from auction WHERE productID ='".$_SESSION["productID"]."'";
   // $sql2 = "DELETE from viewingtraffic WHERE productID ='".$_SESSION["productID"]."'";
