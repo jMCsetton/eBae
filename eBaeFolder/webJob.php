@@ -15,7 +15,7 @@ $dbname     = "auction37gc06";
 
 $date = date("Y/m/d");
 $sql = "INSERT INTO system (date)
-VALUES (curdate()-1)";
+VALUES (curdate()-3)";
 
 if ($conn->query($sql) === TRUE) {
     echo "date added successfully!";
@@ -25,10 +25,10 @@ if ($conn->query($sql) === TRUE) {
 
   // checking end dates of auctions
 
-    $sql2 = "SELECT endDate, productID
+    /*$sql2 = "SELECT endDate, productID
     FROM product
     WHERE endDate = CURDATE()";
-    $result2 = $conn->query($sql2);
+    $result2 = $conn->query($sql2);*/
 
     $sql3 = "SELECT p.endDate, p.productID, b.userID, b.bidID, bidPriceHighest as bidPrice , p.reservePrice
     FROM (SELECT productID, MAX(bidPrice) AS bidPriceHighest, date_format(bidDate, '%d-%m-%Y') bidDate
