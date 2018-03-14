@@ -132,7 +132,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
 $(document).ready(function(){
   $("#myInput").on("keyup", function() {
     var value = $(this).val().toLowerCase();
-    $("#myDIV div").filter(function() {
+    $("#myDIV div2").filter(function() {
       $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
     });
   });
@@ -141,7 +141,7 @@ $(document).ready(function(){
 
   <!-- Live Auctions -->
 
-  <input id="myInput" type="text" placeholder="Search for item..">
+  <input id="myInput" type="text" placeholder="Search...">
   <div class="w3-container" id="myDIV">
   <?php
         ob_start();
@@ -151,6 +151,7 @@ $(document).ready(function(){
 				while ($row = mysqli_fetch_assoc($result)) {          
           //echo "<img src='picture/".$row2["productImage"]."' width='300' height='300'/>";
           //echo "<img src = '".base64_encode($row2["productImage"])."' width='300' height='300'/>";
+          echo '<div id="div2">';
           echo '<img src="data:image/jpeg;base64,'.base64_encode( $row["productImage"] ).'" style="width:30%; height:30%" class="w3-third w3-container"/>';
           $_SESSION['productID'] = $row['productID'];
           $productID = $_SESSION['productID'];
@@ -173,6 +174,7 @@ $(document).ready(function(){
             </div>
             
               ';
+          echo '</div>';
 
 
 				}
