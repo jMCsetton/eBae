@@ -69,7 +69,9 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
 
  
   
- 
+ <div class="topPicks" style="font-size: 25px; font-weight: bold; padding-left: 30px;">
+  <h1>List of accounts registered with eBae:</h1>
+ </div>
   
   <div class="w3-container">
  <div class="table-responsive" style="width: 80%">
