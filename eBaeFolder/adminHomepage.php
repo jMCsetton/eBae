@@ -278,4 +278,3 @@ function w3_close() {
 </html>
 
 
-s

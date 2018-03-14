@@ -17,7 +17,7 @@ $conn =  new mysqli($host, $username, $password, $dbname);
           FROM user
           ORDER BY role";
 
-$result = $conn->query($sql);
+  $result = $conn->query($sql);
 
 
   ?>
@@ -48,7 +48,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
     <a href="adminRegistration.php" onclick="w3_close()" class="w3-bar-item w3-button w3-padding"><i class="fa fa-th-large fa-fw w3-margin-right"></i>CREATE NEW ADMIN ACCOUNT</a> 
     <a href="adminHomepage.php" onclick="w3_close()" class="w3-bar-item w3-button w3-padding"><i class="fa fa-user fa-fw w3-margin-right"></i>LIVE AUCTIONS</a> 
     <a href="adminAllAuctions.php" onclick="w3_close()" class="w3-bar-item w3-button w3-padding"><i class="fa fa-user fa-fw w3-margin-right"></i>ALL AUCTIONS</a> 
-    <a href="users.php" onclick="w3_close()" class="w3-bar-item w3-button w3-padding"><i class="fa fa-user fa-fw w3-margin-right"></i>VIEW ALL USERS</a> 
+     <a href="users.php" onclick="w3_close()" class="w3-bar-item w3-button w3-padding"><i class="fa fa-user fa-fw w3-margin-right"></i>VIEW ALL USERS</a> 
     <a href="logout.php" onclick="w3_close()" class="w3-bar-item w3-button w3-padding" style="color: #ff0000"><i class="fa fa-close fa-fw w3-margin-right"></i>Log Out</a>
   </div>
   <div class="w3-panel w3-large">
@@ -67,30 +67,12 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
 <!-- !PAGE CONTENT! -->
 <div class="w3-main" style="margin-left:300px">
 
-  <!-- Header -->
-  <header id="portfolio">
-    <a href="#"><img src="/w3images/avatar_g2.jpg" style="width:65px;" class="w3-circle w3-right w3-margin w3-hide-large w3-hover-opacity"></a>
-    <span class="w3-button w3-hide-large w3-xxlarge w3-hover-text-grey" onclick="w3_open()"><i class="fa fa-bars"></i></span>
-    <div class="w3-container">
-    <h1><b>Welcome to eBae!</b></h1>
-    <h2><b>Showing all live auctions</b></h2>
-    <div class="w3-section w3-bottombar w3-padding-16">
-      <span class="w3-margin-right">Filter:</span> 
-      <a href = "adminHomepage.php" class="w3-button w3-black">All</a>
-      <a href = "AappsGames.php" class="w3-button w3-white"><i class="fa fa-gamepad w3-margin-right"></i>Apps and Games</a>
-      <a href = "Abeauty.php" class="w3-button w3-white w3-hide-small"><i class="fa fa-photo w3-margin-right"></i>Beauty</a>
-      <a href = "Abooks.php" class="w3-button w3-white w3-hide-small"><i class="fa fa-book w3-margin-right"></i>Books</a>
-      <a href = "Aclothing.php" class="w3-button w3-white w3-hide-small"><i class="fa fa-users w3-margin-right"></i>Clothing</a>
-      <a href = "Aelectronics.php" class="w3-button w3-white w3-hide-small"><i class="fa fa-laptop w3-margin-right"></i>Electronics</a>
-      <a href = "Ahome.php" class="w3-button w3-white w3-hide-small"><i class="fa fa-home w3-margin-right"></i>Home</a>
-      <a href = "Amusic.php" class="w3-button w3-white w3-hide-small"><i class="fa fa-music w3-margin-right"></i>Music</a>
-      <a href = "Amiscellaneous.php" class="w3-button w3-white w3-hide-small"><i class="fa fa-diamond w3-margin-right"></i>Miscellaneous</a>
-    </div>
-    </div>
-  </header>
-  </div>
-
-<div class="table-responsive" style="width: 80%">
+ 
+  
+ 
+  
+  <div class="w3-container">
+ <div class="table-responsive" style="width: 80%">
       <table id="bid_data" class="table table-striped table-bordered">
         <thead>
           <tr>
@@ -117,7 +99,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
                        <td>£'.$row2["username"].'</td>  
                        <td>'.$row2["firstName"].'</td>
                        <td>'.$row2["lastName"].'</td>
-                       <td>'.$row2["email"].'</td>
+                       <td>'.$row2["email_ID"].'</td>
                        <td>'.$row2["role"].'</td>
                      </tr>
                      
@@ -129,13 +111,15 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
                          }
 
         ?>
-        <tbody>
-        </tbody>
+        
 
       </table>
  
+  
   </div>
-  </div>
+  
+  
+
 
 
 
@@ -185,6 +169,8 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
 
 <!-- End page content -->
 </div>
+
+
 </body>
 </html>
 
