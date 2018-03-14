@@ -13,7 +13,6 @@ $conn =  new mysqli($host, $username, $password, $dbname);
     die("Connection failed: ".$conn->connect_error);
   }
 
-//$sql = "SELECT productImage, productName, reservePrice, date_format(enddate, '%d-%m-%Y') enddate, category, quantity, conditions, productInfo, productID FROM product ORDER BY YEAR(enddate) ASC, MONTH(enddate) ASC, DAY(enddate) ASC";
 
 $user = $_SESSION['userID'];
 
@@ -130,6 +129,10 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
   
   <!-- Live Auctions -->
   <div class="w3-container">
+  <form>
+  <input type="text" size="30" onkeyup="showResult(this.value)">
+  <div id="livesearch"></div>
+  </form>
   <?php
         ob_start();
         // Fetching data from database
@@ -160,29 +163,10 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
             </div>
             
               ';
-         
-              //$_SESSION['productID'] = $row['productID'];
-              //$productID = $_SESSION['productID'];
-              //echo $productID ;
-
 
 
 				}
 				?>
-  <!--form action="" method="post" enctype="multipart/form-data" >
-      <div class="w3-section">
-        <label>Item Name</label>
-        <input class="w3-input w3-border" type="text" name="productName" required/>
-      </div>
-      <div class="w3-section">
-        <label>Quantity</label>
-        <input class="w3-input w3-border" type="text" name="quantity" required/>
-      </div>
-      <div class="w3-section">
-        <label>Item Category</label>
-        <input class="w3-input w3-border" type="text" name="categories" required/>
-      </div>
-  </form-->
   </div>
   <div> 
   </div>
@@ -339,6 +323,29 @@ function w3_open() {
 function w3_close() {
     document.getElementById("mySidebar").style.display = "none";
     document.getElementById("myOverlay").style.display = "none";
+}
+</script>
+<script>
+function showResult(str) {
+  if (str.length==0) { 
+    document.getElementById("livesearch").innerHTML="";
+    document.getElementById("livesearch").style.border="0px";
+    return;
+  }
+  if (window.XMLHttpRequest) {
+    // code for IE7+, Firefox, Chrome, Opera, Safari
+    xmlhttp=new XMLHttpRequest();
+  } else {  // code for IE6, IE5
+    xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  }
+  xmlhttp.onreadystatechange=function() {
+    if (this.readyState==4 && this.status==200) {
+      document.getElementById("livesearch").innerHTML=this.responseText;
+      document.getElementById("livesearch").style.border="1px solid #A5ACB2";
+    }
+  }
+  xmlhttp.open("GET","livesearch.php?q="+str,true);
+  xmlhttp.send();
 }
 </script>
 
