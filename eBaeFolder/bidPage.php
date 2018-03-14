@@ -15,37 +15,6 @@ $conn =  new mysqli($host, $username, $password, $dbname);
 
   $userID = $_SESSION['userID'];
 
-  //$sql = "SELECT p.productName, b.bidPrice, p.reservePrice, date_format(b.bidDate, '%d-%m-%Y') bidDate
-  //FROM product p, bid b
-  //WHERE b.userID = $userID
-  //AND p.productID = b.productID
-  //ORDER BY bidDate ASC";
-
-/*$sql = "SELECT p.productName, r.maxprice, p.reservePrice, date_format(b.bidDate, '%d-%m-%Y') bidDate
-  FROM (SELECT MAX(bidPrice) AS maxprice, productID
-  FROM bid
-  GROUP BY productID) r, product p, bid b
-  WHERE b.userID = $userID
-  AND p.productID = b.productID
-  AND r.maxprice = b.bidPrice
-  ORDER BY bidDate ASC";*/
-
-  /*$sql = "SELECT p.productName, r.maxprice, g.bidPriceHighest, p.reservePrice, date_format(b.bidDate, '%d-%m-%Y') bidDate
-  FROM (SELECT MAX(bidPrice) AS maxprice, productID
-  FROM bid
-  GROUP BY productID) r,
-    (SELECT productID, MAX(bidPrice) AS bidPriceHighest, date_format(bidDate, '%d-%m-%Y') bidDate
-   FROM bid
-   WHERE userID = $userID
-   GROUP BY productID
-  ORDER BY bidDate ASC) g,
-    product p, bid b
-  WHERE b.userID = $userID
-  AND p.productID = b.productID
-  AND r.maxprice = b.bidPrice
-  AND p.productID = g.productID
-  ORDER BY bidDate ASC";*/
-
   $sql = "select
   p2.productName, p2.productid, a.bidid, p2.reservePrice, a.bidPrice as userPrice,maxbid.maxprice winningprice, a.userID ,  date_format(a.bidDate, '%d-%m-%Y') bidDate, date_format(p2.enddate, '%d-%m-%Y') enddate,
   (select case when r.productid is not NULL and p2.endDate < curdate() then 'Yes'
