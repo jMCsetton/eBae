@@ -37,7 +37,7 @@ if ($conn->query($sql) === TRUE) {
   ) r, product p, bid b
     WHERE p.productID = b.productID
     AND r.productID = b.productID
-    AND endDate = CURDATE()-1
+    AND endDate = CURDATE()-3
     GROUP BY productID;"; 
     $result3 = $conn->query($sql3);
 
