@@ -142,7 +142,7 @@ $(document).ready(function(){
   <!-- Live Auctions -->
 
   <input id="myInput" type="text" placeholder="Search..">
-  <div class="w3-container" id="myDIV">
+  <div class="w3-container" >
   <?php
         ob_start();
         // Fetching data from database
@@ -157,7 +157,7 @@ $(document).ready(function(){
           //echo "<a href='auctionDetails.php?id=".$row['productID']."' class='w3-third w3-container' style='background-color:black; width:9%; color:white'><b>View Bid<b></a> 
           //";
           echo '
-            <div style= "bg-colour:white" class="w3-twothird w3-container">
+            <div style= "bg-colour:white" class="w3-twothird w3-container" id="myDIV">
             
               <a href="auctionDetails.php?id='.$row["productID"].'"><h1>'.$row["productName"].'</h1></a>
               <label>Reserve Price: £'.$row["reservePrice"].'</label> 
