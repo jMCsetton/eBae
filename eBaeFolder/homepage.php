@@ -127,12 +127,22 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
     </div>
   </header>
   
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+  $("#myInput").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+    $("#myDIV *").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
+});
+</script>
+
   <!-- Live Auctions -->
-  <div class="w3-container">
-  <form>
-  <input type="text" size="30" onkeyup="showResult(this.value)">
-  <div id="livesearch"></div>
-  </form>
+
+  <input id="myInput" type="text" placeholder="Search..">
+  <div class="w3-container" id="myDIV">
   <?php
         ob_start();
         // Fetching data from database
