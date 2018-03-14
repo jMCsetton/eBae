@@ -141,7 +141,7 @@ $(document).ready(function(){
 
   <!-- Live Auctions -->
 
-  <input id="myInput" type="text" placeholder="Search...">
+  <input id="myInput" type="text" placeholder="Search">
   <div class="w3-container" id="myDIV">
   <?php
         ob_start();
