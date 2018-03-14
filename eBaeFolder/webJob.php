@@ -48,7 +48,7 @@ if ($conn->query($sql) === TRUE) {
    GROUP BY productID
   ) r ON r.productID = p.productID
   LEFT JOIN user u ON p.userID = u.userID
-  WHERE endDate = '2018-03-08'
+  WHERE endDate = CURDATE()-1
 GROUP BY p.productID";
 
     $result3 = $conn->query($sql3);
