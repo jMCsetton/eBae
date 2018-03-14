@@ -27,8 +27,6 @@ GROUP BY viewingtraffic.productID
 ORDER BY trafficFrequencyPerItem desc
 LIMIT 5 ";
 
-$sqlA = "DELETE from product
-WHERE productName = ";
 
 $result = $conn->query($sql);
 $resultJA = $conn->query($sqlJA);
