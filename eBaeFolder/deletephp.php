@@ -39,5 +39,5 @@ ob_start();
  ?>
 
  <div>
- <a href="index.php"><button class="button button-block"/>Home</button></a>
+ <a href="AdminHomepage.php"><button class="button button-block"/>Back to homepage</button></a>
  </div>
