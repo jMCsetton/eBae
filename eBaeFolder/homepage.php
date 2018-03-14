@@ -132,7 +132,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
 $(document).ready(function(){
   $("#myInput").on("keyup", function() {
     var value = $(this).val().toLowerCase();
-    $("#myDIV div2").filter(function() {
+    $("#myDIV #div2").filter(function() {
       $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
     });
   });
@@ -141,7 +141,7 @@ $(document).ready(function(){
 
   <!-- Live Auctions -->
 
-  <input id="myInput" type="text" placeholder="Search...">
+  <input id="myInput" type="text" placeholder="Search">
   <div class="w3-container" id="myDIV">
   <?php
         ob_start();
@@ -151,14 +151,14 @@ $(document).ready(function(){
 				while ($row = mysqli_fetch_assoc($result)) {          
           //echo "<img src='picture/".$row2["productImage"]."' width='300' height='300'/>";
           //echo "<img src = '".base64_encode($row2["productImage"])."' width='300' height='300'/>";
-          echo '<div id="div2">';
-          echo '<img src="data:image/jpeg;base64,'.base64_encode( $row["productImage"] ).'" style="width:30%; height:30%" class="w3-third w3-container"/>';
+          //echo '<div id="div2">';
+          echo '<img src="data:image/jpeg;base64,'.base64_encode( $row["productImage"] ).'" style="width:30%; height:30%" class="w3-third w3-container" id="div2"/>';
           $_SESSION['productID'] = $row['productID'];
           $productID = $_SESSION['productID'];
           //echo "<a href='auctionDetails.php?id=".$row['productID']."' class='w3-third w3-container' style='background-color:black; width:9%; color:white'><b>View Bid<b></a> 
           //";
           echo '
-            <div style= "bg-colour:white" class="w3-twothird w3-container">
+            <div style= "bg-colour:white" class="w3-twothird w3-container" id = "div2">
             
               <a href="auctionDetails.php?id='.$row["productID"].'"><h1>'.$row["productName"].'</h1></a>
               <label>Reserve Price: £'.$row["reservePrice"].'</label> 
@@ -174,7 +174,7 @@ $(document).ready(function(){
             </div>
             
               ';
-          echo '</div>';
+          //echo '</div>';
 
 
 				}
