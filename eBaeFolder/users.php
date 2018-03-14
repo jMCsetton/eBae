@@ -96,7 +96,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
                   
                      
                        <tr>
-                       <td>£'.$row["username"].'</td>  
+                       <td>'.$row["username"].'</td>  
                        <td>'.$row["firstName"].'</td>
                        <td>'.$row["lastName"].'</td>
                        <td>'.$row["email_ID"].'</td>
