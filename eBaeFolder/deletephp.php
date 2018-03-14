@@ -20,11 +20,11 @@ if (isset($_POST['submit']))
   // $sql4 = "DELETE from feedback WHERE productID ='".$_SESSION["productID"]."'";
   // $sql5 = "DELETE from product WHERE productID ='".$_SESSION["productID"]."'";
 
-  $sql1 = "DELETE from auction WHERE productID = '69'";
-  $sql2 = "DELETE from viewingtraffic WHERE productID = '69'";
-  $sql3 = "DELETE from bid WHERE productID = '69'";
-  $sql4 = "DELETE from feedback WHERE productID = '69'";
-  $sql5 = "DELETE from product WHERE productID = '69'";
+  $sql1 = "DELETE from auction WHERE productID = "$productID"";
+  $sql2 = "DELETE from viewingtraffic WHERE productID = "$productID"";
+  $sql3 = "DELETE from bid WHERE productID = "$productID"";
+  $sql4 = "DELETE from feedback WHERE productID = "$productID"";
+  $sql5 = "DELETE from product WHERE productID = "$productID"";
        
       
   mysqli_query($sql, $conn);
