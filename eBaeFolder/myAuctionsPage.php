@@ -191,7 +191,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
       </div>
 
       <div class="table-responsive" style="width: 80%">
-    <h2> Selling Activity: </h2>
+    <h2> Your Selling Activity: </h2>
 			<table id="selling_activity" class="table table-striped table-bordered">
 				<thead>
 					<tr>
