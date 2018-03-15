@@ -121,7 +121,7 @@ $(document).ready(function(){
   <div class="topPicks" style="font-size: 25px; font-weight: bold; padding-left: 30px;">
   <h1>Live Auctions:</h1>
  </div>
-  <div class="w3-container">
+  <div class="w3-container" id="myDIV">
  <form action="deletephp.php" method="post"> 
   <?php
         ob_start();
