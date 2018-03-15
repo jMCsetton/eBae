@@ -50,7 +50,8 @@ WHERE productID IN (
         GROUP BY userID
         HAVING (COUNT(userID) > 1)
  	 )
-)";
+)
+AND enddate >= CURDATE()";
 
 $result = $conn->query($sql);
 $resultJA = $conn->query($sqlJA);
