@@ -98,7 +98,6 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
     </a>
     <!--img src="/w3images/avatar_g2.jpg" style="width:45%;" class="w3-round"><br><br-->
     <h4><b>eBae</b></h4>
-    <p class="w3-text-grey">Template by W3.CSS</p>
   </div>
   <div class="w3-bar-block">
     
@@ -289,6 +288,9 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
 		});  
 
 	 </script>
+
+
+  <div class="w3-black w3-center w3-padding-24">Powered by <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank" class="w3-hover-opacity">w3.css</a></div>
 
 <!-- End page content -->
 </div>
