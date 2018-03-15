@@ -169,10 +169,6 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
                                    
                                </form>
   <?php
-  if ($count5 < 1 ){
-    echo "<a href='addToWatchlist.php?id=".$row['productID']."' class='w3-third w3-container' style='background-color:black; width:9%; color:white'><b>Add to Watchlist<b></a> 
-    ";
-    }
         ob_start();
         // Fetching data from database
         //header("Content-type: image/png"); 
@@ -196,6 +192,11 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
             </div>
             
               ';
+
+              if ($count5 < 1 ){
+                echo "<a href='addToWatchlist.php?id=".$row['productID']."' class='w3-third w3-container' style='background-color:black; width:9%; color:white'><b>Add to Watchlist<b></a> 
+                ";
+                }
 				
 				?>
         </div>

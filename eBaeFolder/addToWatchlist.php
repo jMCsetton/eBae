@@ -17,28 +17,10 @@ if (isset($_POST['Bid']))
   $productID_page = $_GET['id'];
   $date = date("Y/m/d");
   $productID_page = $_SESSION['productID_page'];
-
-  // send notification to people who are outbid
-  $sql2 = "SELECT u.email_ID, p.productName, b.userID,
-(select MAX(bidPrice) AS bidPriceHighest
-FROM bid
-WHERE productID = $productID_page) r
-  FROM user u, bid b, product p
-  WHERE p.productID = $productID_page
-  AND u.userID = b.userID
-  AND b.productID = p.productID
-  GROUP BY email_ID";
-
-  $result2 = $conn->query($sql2);
-  if ($conn->query($sql2) === TRUE) {
-    //echo "emails sent successfully!";
-  } else {
-    //echo "Error: " . $sql2 . "<br>" . $conn->error;
-  }
   
 
-  $sql = "INSERT INTO bid (bidPrice, userID, productID, bidDate)
-  VALUES ('".$_POST["bidPrice"]."', '$userID', '$productID_page', '$date')";
+  $sql = "INSERT INTO watchlist (userID, productID)
+  VALUES (''$userID', '$productID_page')";
 
   if ($conn->query($sql) === TRUE) {
     echo "Bid added successfully!";
