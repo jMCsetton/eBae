@@ -25,6 +25,7 @@ ORDER BY YEAR(enddate) ASC, MONTH(enddate) ASC, DAY(enddate) ASC";
 $sqlJA = "SELECT viewingtraffic.productID, COUNT(viewingtraffic.productID) AS trafficFrequencyPerItem, product.productImage, product.productName
 FROM product, viewingtraffic
 WHERE viewingtraffic.productID = product.productID
+AND enddate >= CURDATE()
 GROUP BY viewingtraffic.productID
 ORDER BY trafficFrequencyPerItem desc
 LIMIT 5 ";
