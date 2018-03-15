@@ -15,10 +15,10 @@ $conn =  new mysqli($host, $username, $password, $dbname);
 
   $userID = $_SESSION['userID'];
 
-  $sql = "SELECT p.productName
-  from product p, watchlist w
-  WHERE p.productID = w.productID
-  AND w.userID = $userID";
+  $sql = "SELECT p.productName, date_format(p.enddate, '%d-%m-%Y') enddate
+from product p, watchlist w
+WHERE p.productID = w.productID
+AND w.userID = $userID";
  
     $result = $conn->query($sql);
 
@@ -95,6 +95,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
 				<thead>
 					<tr>
             <th>Product Name</th>
+            <th>End Date</th>
 
 				</tr>
 				</thead>
@@ -107,6 +108,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
 					echo '
           <tr>
              <td>'.$row["productName"].'</td>
+             <td>'.$row["enddate"].'</td>
              '; 
           
         

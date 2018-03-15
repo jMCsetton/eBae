@@ -39,10 +39,11 @@ WHERE productID = $productID_page) r
     //echo "Error: " . $sql2 . "<br>" . $conn->error;
   }
 
-  $sql3 = "SELECT w.userID, u.email_ID
-  FROM watchlist w, user u
+  $sql3 = "SELECT w.userID, u.email_ID, p.productName
+  FROM watchlist w, user u, product p
   WHERE w.productID = $productID_page
-  AND u.userID = w.userID";
+  AND u.userID = w.userID
+and p.productID = w.productID";
 
 $result3 = $conn->query($sql3);
 if ($conn->query($sql3) === TRUE) {
@@ -127,8 +128,7 @@ $mail3->SMTPOptions = array(
 );
 
 while ($row3 = mysqli_fetch_array($result3)) {
-  $row4 = mysqli_fetch_array($result2);
-  $productName = $row4["productName"];
+  $productName2 = $row3["productName"];
   $mail3->ClearAllRecipients();
   $mail3->Subject = 'UCL Buyer Databases';
   $mail3->Debugoutput = 'html';
@@ -137,7 +137,7 @@ while ($row3 = mysqli_fetch_array($result3)) {
   $mail3->Subject = 'Someone has bid on your watched product!';
   $mail3->Debugoutput = 'html';
   $mail3->Body = 'Hi, 
-                Someone has bid on product: '.$productName.' 
+                Someone has bid on product: '.$productName2.' 
                 The highest bid is now: £'.$_POST["bidPrice"].'
                 Come back soon!';
 
