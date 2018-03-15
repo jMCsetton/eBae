@@ -52,7 +52,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     //echo "entering if, connection not failed ";
     
     $myusername = $_POST['username'];
-    $mypassword = $_POST['password']; 
+    $mypassword = $_POST['password'];
+    $enc_mypassword =  md5( $mypassword);
     
    
     $sql = "SELECT * FROM user WHERE username = '$myusername' and password = '$mypassword' and role = 'admin'  ";
@@ -73,7 +74,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
        
     
         
-    $sql2 = "SELECT * FROM user WHERE username = '$myusername' and password = '$mypassword' and role = 'buyer_seller'  ";
+    $sql2 = "SELECT * FROM user WHERE username = '$myusername' and password = '$enc_mypassword' and role = 'buyer_seller'  ";
     $result2 = $conn->query($sql2);
     $row2 = mysqli_fetch_array($result2);
     $count2 = mysqli_num_rows($result2);
