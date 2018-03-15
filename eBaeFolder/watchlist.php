@@ -23,9 +23,9 @@ AND w.userID = $userID";
     $result = $conn->query($sql);
 
 if ($conn->query($sql) === TRUE) {
-    echo "date added successfully!";
+    //echo "date added successfully!";
   } else {
-    echo "Error for sql: " . $sql . "<br>" . $conn->error;
+    //echo "Error for sql: " . $sql . "<br>" . $conn->error;
   }
 
 ?>
