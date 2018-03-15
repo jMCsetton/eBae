@@ -128,25 +128,25 @@
 </body>
 
 <script>
-function isValidDate(date)
-{
-    var matches = /^(\d{1,2})[-\/](\d{1,2})[-\/](\d{4})$/.exec(date);
-    if (matches == null) return false;
-    var dd = matches[2];
-    var mm = matches[1] - 1;
-    var yyyy = matches[3];
-    var composedDate = new Date(mm, dd, yyyy);
-    return composedDate.getDate() == dd &&
-            composedDate.getMonth() == mm &&
-            composedDate.getFullYear() == yyyy;
-}
-function inpast(input){
-  var a = new Date();
-  var b = new Date(input);
-  if(a <= b) {
-    return false;
-  }
-}
+// function isValidDate(date)
+// {
+//     var matches = /^(\d{1,2})[-\/](\d{1,2})[-\/](\d{4})$/.exec(date);
+//     if (matches == null) return false;
+//     var d = matches[2];
+//     var m = matches[1] - 1;
+//     var y = matches[3];
+//     var composedDate = new Date(y, m, d);
+//     return composedDate.getDate() == d &&
+//             composedDate.getMonth() == m &&
+//             composedDate.getFullYear() == y;
+// }
+// function inpast(input){
+//   var a = new Date();
+//   var b = new Date(input);
+//   if(a <= b) {
+//     return false;
+//   }
+// }
 
 function validationform() {
   var fname = document.forms["cruciform"]["firstName"].value;
@@ -164,14 +164,14 @@ function validationform() {
     alert("Please enter your date of birth!")
     return false;
   }
-  if (isValidDate(dbirth) == false) {
-    alert("Please enter a valid date of birth! (mm/dd/yyyy)");
-    return false;
-  }
-  if (inpast(dbirth) == false) {
-    alert("Hello time traveller! Tell us how you did it or you're not allowed to use our site. Or please enter a valid date of birth! (mm/dd/yyyy)");
-    return false;
-  }
+  // if (isValidDate(dbirth) == false) {
+  //   alert("Please enter a valid date of birth! (mm/dd/yyyy)");
+  //   return false;
+  // }
+  // if (inpast(dbirth) == false) {
+  //   alert("Hello time traveller! Tell us how you did it or you're not allowed to use our site. Or please enter a valid date of birth! (mm/dd/yyyy)");
+  //   return false;
+  // }
 
   var dnum = document.forms["cruciform"]["doorNumber"].value;
   if (dnum == "") {
