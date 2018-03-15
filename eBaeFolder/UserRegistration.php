@@ -136,9 +136,10 @@ function isValidDate(date)
     var m = matches[1] - 1;
     var y = matches[3];
     var composedDate = new Date(y, m, d);
-    return composedDate.getDate() == d &&
-            composedDate.getMonth() == m &&
-            composedDate.getFullYear() == y;
+    d = composedDate.getDate();
+    m = composedDate.getMonth();
+    y = composedDate.getFullYear();
+    return composedDate;
 }
 function inpast(input){
   var a = new Date();
