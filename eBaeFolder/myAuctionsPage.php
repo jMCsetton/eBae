@@ -129,7 +129,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
     <span class="w3-button w3-hide-large w3-xxlarge w3-hover-text-grey" onclick="w3_open()"><i class="fa fa-bars"></i></span>
     <div class="w3-container">
     <h1><b>Welcome to eBae!</b></h1>
-    <h2><b>Showing all your auctions</b></h2>
+    <h2><b>Auctions You've Created</h2>
     <div class="w3-section w3-bottombar w3-padding-16">
 
       </div>
@@ -191,7 +191,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
       </div>
 
       <div class="table-responsive" style="width: 80%">
-    <h2> Selling Activity: </h2>
+    <h2> Your Selling Activity: </h2>
 			<table id="selling_activity" class="table table-striped table-bordered">
 				<thead>
 					<tr>
@@ -200,7 +200,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
             <th>Viewing Traffic</th>  
             <th>Reserve Price</th>
             <th>Auction Price</th>
-            <th>Bidder Username</th> 
+            <th>Buyer Username</th> 
             <th> Rate User </th>     
 
 
