@@ -278,7 +278,7 @@ $(document).ready(function(){
 }
 else {
   echo '<div>
-  <p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspYou haven\'t bid on enuff items for recommendations you lazy thug brehh</p><br>
+  <p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspYou haven\'t bid on enough items for recommendations yet - get buying!</p><br>
   </div>';
 }
 ?>
