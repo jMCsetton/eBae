@@ -87,6 +87,12 @@ FROM watchlist
 WHERE productID = $productID_page
 and userID = $userID;";
 
+if ($conn->query($sql5) === TRUE) {
+  echo "bid found successfully!";
+} else {
+  echo "Error: " . $sql5 . "<br>" . $conn->error;
+}
+
 $result5 = $conn->query($sql5);
 $row5 = mysqli_fetch_assoc($result5);
 $count5 = mysqli_num_rows($result5);
