@@ -111,7 +111,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
     <span class="w3-button w3-hide-large w3-xxlarge w3-hover-text-grey" onclick="w3_open()"><i class="fa fa-bars"></i></span>
     <div class="w3-container">
     <h1><b>Welcome to eBae!</b></h1>
-    <h2><b>Showing all your bids</b></h2>
+    <h2><b>Showing your Watchlist</b></h2>
     <div class="w3-section w3-bottombar w3-padding-16">
 
       </div>

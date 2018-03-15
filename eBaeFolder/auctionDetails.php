@@ -177,26 +177,8 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
             </div>
             
               ';
-
-              
-              /*while ($row2 = mysqli_fetch_assoc($result2)) {          
-     
-        
-                echo '
-               
-                  
-                    <tr>
-                    <td>'.$row2["bidPrice"].'</tb> 
-                    <td>'.$row2["username"].'</td>
-                    <td>'.$row2["bidDate"].'</td>
-                  </tr>
-                  
-                    ';
-
-        
-        
-        
-                      }*/
+              echo "<a href='addToWatchlist.php?id=".$row['productID']."' class='w3-third w3-container' style='background-color:black; width:9%; color:white'><b>View Bid<b></a> 
+              ";
 				
 				?>
         </div>
