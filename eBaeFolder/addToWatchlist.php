@@ -17,7 +17,7 @@ ob_start();
   
 
   $sql = "INSERT INTO watchlist (userID, productID)
-  VALUES (''$userID', '$productID_page')";
+  VALUES ('$userID', '$productID_page')";
 
   if ($conn->query($sql) === TRUE) {
     echo "Bid added successfully!";
