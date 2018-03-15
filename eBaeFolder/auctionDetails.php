@@ -90,7 +90,7 @@ and userID = $userID;";
 if ($conn->query($sql5) === TRUE) {
   echo "bid found successfully!";
 } else {
-  echo "Error: " . $sql5 . "<br>" . $conn->error;
+ // echo "Error: " . $sql5 . "<br>" . $conn->error;
 }
 
 $result5 = $conn->query($sql5);
@@ -192,7 +192,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
             </div>
             
               ';
-              if ($count5 = 0 ){
+              if ($count5 < 1 ){
               echo "<a href='addToWatchlist.php?id=".$row['productID']."' class='w3-third w3-container' style='background-color:black; width:9%; color:white'><b>Add to Watchlist<b></a> 
               ";
               }
