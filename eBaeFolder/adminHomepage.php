@@ -117,7 +117,7 @@ $(document).ready(function(){
   
   <!-- Live Auctions -->
   <input id="myInput" type="text" placeholder="Search for items.." class="w3-third w3-container" style = "position: relative;
-    left:20px;">
+    left:20px;"><br><br>
   <div class="topPicks" style="font-size: 25px; font-weight: bold; padding-left: 30px;">
   <h1>Live Auctions:</h1>
  </div>
