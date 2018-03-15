@@ -58,7 +58,7 @@
                                     <input type="text" class="form-control" placeholder="Last Name" name="lastName">
                                   
                                     <label>Date of Birth</label>
-                                    <input type="text" class="form-control" placeholder="mm/dd/yyyy" name="DOB">
+                                    <input type="text" class="form-control" placeholder="yyyy/mm/dd" name="DOB">
                                    
 
                                     <label>Address:</label>
