@@ -158,7 +158,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
              <td>'.$row["bidDate"].'</td>
              <td>&nbsp&nbsp&nbsp£'.$row["reservePrice"].'</td>
              <td>£'.$row["userPrice"].'</td> 
-             <td>&nbsp&nbsp&nbsp£'.$row["winningprice"].'</td> 
+             <td>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp£'.$row["winningprice"].'</td> 
              <td>'.$row["enddate"].'</td> 
              <td>'.$row["YorN"].'</td> 
              '; 
