@@ -135,7 +135,7 @@ function isValidDate(date)
     var dd = matches[2];
     var mm = matches[1] - 1;
     var yyyy = matches[3];
-    var composedDate = new Date(mm, '/' dd, '/', yyyy);
+    var composedDate = new Date(mm, dd, yyyy);
     return composedDate.getDate() == dd &&
             composedDate.getMonth() == mm &&
             composedDate.getFullYear() == yyyy;
