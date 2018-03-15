@@ -200,7 +200,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
             <th>Viewing Traffic</th>  
             <th>Reserve Price</th>
             <th>Auction Price</th>
-            <th>Bidder Username</th> 
+            <th>Buyer Username</th> 
             <th> Rate User </th>     
 
 
