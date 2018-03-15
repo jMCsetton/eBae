@@ -42,8 +42,7 @@ WHERE productID = $productID_page) r
   $sql3 = "SELECT w.userID, u.email_ID
   FROM watchlist w, user u
   WHERE w.productID = $productID_page
-  AND u.userID = w.userID
-  and w.userID = $userID;";
+  AND u.userID = w.userID";
 
 $result3 = $conn->query($sql3);
 if ($conn->query($sql3) === TRUE) {
