@@ -52,7 +52,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
     <a href="#" onclick="w3_close()" class="w3-hide-large w3-right w3-jumbo w3-padding w3-hover-grey" title="close menu">
       <i class="fa fa-remove"></i>
     </a>
-    <img src="/w3images/avatar_g2.jpg" style="width:45%;" class="w3-round"><br><br>
+    <!--img src="/w3images/avatar_g2.jpg" style="width:45%;" class="w3-round"><br><br-->
     <h4><b>eBae</b></h4>
   </div>
   <div class="w3-bar-block">
@@ -85,10 +85,10 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
     <a href="#"><img src="/w3images/avatar_g2.jpg" style="width:65px;" class="w3-circle w3-right w3-margin w3-hide-large w3-hover-opacity"></a>
     <span class="w3-button w3-hide-large w3-xxlarge w3-hover-text-grey" onclick="w3_open()"><i class="fa fa-bars"></i></span>
     <div class="w3-container">
-    <h1><b>Welcome to eBae!</b></h1>
+    <h1><b>Welcome to eBae Admin!</b></h1>
     <h2><b>Showing all live auctions</b></h2>
     <div class="w3-section w3-bottombar w3-padding-16">
-      <span class="w3-margin-right">Filter:</span> 
+      <!--span class="w3-margin-right">Filter:</span> 
       <a href = "adminHomepage.php" class="w3-button w3-black">All</a>
       <a href = "AappsGames.php" class="w3-button w3-white"><i class="fa fa-gamepad w3-margin-right"></i>Apps and Games</a>
       <a href = "Abeauty.php" class="w3-button w3-white w3-hide-small"><i class="fa fa-photo w3-margin-right"></i>Beauty</a>
@@ -97,12 +97,27 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
       <a href = "Aelectronics.php" class="w3-button w3-white w3-hide-small"><i class="fa fa-laptop w3-margin-right"></i>Electronics</a>
       <a href = "Ahome.php" class="w3-button w3-white w3-hide-small"><i class="fa fa-home w3-margin-right"></i>Home</a>
       <a href = "Amusic.php" class="w3-button w3-white w3-hide-small"><i class="fa fa-music w3-margin-right"></i>Music</a>
-      <a href = "Amiscellaneous.php" class="w3-button w3-white w3-hide-small"><i class="fa fa-diamond w3-margin-right"></i>Miscellaneous</a>
+      <a href = "Amiscellaneous.php" class="w3-button w3-white w3-hide-small"><i class="fa fa-diamond w3-margin-right"></i>Miscellaneous</a-->
     </div>
     </div>
   </header>
+
+  <!-- search function -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+  $("#myInput").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+    $("#myDIV #div2").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
+});
+</script>
   
   <!-- Live Auctions -->
+  <input id="myInput" type="text" placeholder="Search for items.." class="w3-third w3-container" style = "position: relative;
+    left:20px;">
   <div class="topPicks" style="font-size: 25px; font-weight: bold; padding-left: 30px;">
   <h1>Live Auctions:</h1>
  </div>
@@ -116,13 +131,15 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
         while ($row = mysqli_fetch_assoc($result)) {          
           //echo "<img src='picture/".$row2["productImage"]."' width='300' height='300'/>";
           //echo "<img src = '".base64_encode($row2["productImage"])."' width='300' height='300'/>";
-          echo '<img src="data:image/jpeg;base64,'.base64_encode( $row["productImage"] ).'" style="width:30%; height:30%" class="w3-third w3-container"/>';
+          //echo '<img src="data:image/jpeg;base64,'.base64_encode( $row["productImage"] ).'" style="width:30%; height:30%" class="w3-third w3-container"/>';
           $_SESSION['productID'] = $row['productID'];
           $productID = $_SESSION['productID'];
           
           //   echo "<a id=".$row['productID']."' class='w3-third w3-container' style='background-color:black; width:9%; color:white name='delete'><b>Delete<b></a> 
           // ";
           echo '
+          <div id = "div2">
+          <img src="data:image/jpeg;base64,'.base64_encode( $row["productImage"] ).'" style="width:30%; height:30%" class="w3-third w3-container" />
             <div style= "bg-colour:white" class="w3-twothird w3-container">
             <td><a href="deletephp.php?id='.$row["productID"].'" type="submit" name="submit" class="btn btn-danger btn-block btn-round" onClick="return confirm(\'You are about to delete this product, press OK to continue:\')";>Delete</a>
 
@@ -137,6 +154,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
               <br>
               <br>
               <br>
+            </div>
             </div>
             
               ';
