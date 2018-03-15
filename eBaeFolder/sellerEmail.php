@@ -75,7 +75,7 @@ while( $row2 = mysqli_fetch_array($result2)) {
 
   $sql5 = "UPDATE system SET system.sellerNotificationsSent=TRUE WHERE system.date = curdate()-1";
   if ($conn->query($sql5) === TRUE) {
-    //echo "date added successfully!";
+    //echo "email sent to the seller for a successful auction ";
     } else {
         echo "Error: " . $sql5 . "<br>" . $conn->error;
     }

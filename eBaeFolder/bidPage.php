@@ -15,37 +15,6 @@ $conn =  new mysqli($host, $username, $password, $dbname);
 
   $userID = $_SESSION['userID'];
 
-  //$sql = "SELECT p.productName, b.bidPrice, p.reservePrice, date_format(b.bidDate, '%d-%m-%Y') bidDate
-  //FROM product p, bid b
-  //WHERE b.userID = $userID
-  //AND p.productID = b.productID
-  //ORDER BY bidDate ASC";
-
-/*$sql = "SELECT p.productName, r.maxprice, p.reservePrice, date_format(b.bidDate, '%d-%m-%Y') bidDate
-  FROM (SELECT MAX(bidPrice) AS maxprice, productID
-  FROM bid
-  GROUP BY productID) r, product p, bid b
-  WHERE b.userID = $userID
-  AND p.productID = b.productID
-  AND r.maxprice = b.bidPrice
-  ORDER BY bidDate ASC";*/
-
-  /*$sql = "SELECT p.productName, r.maxprice, g.bidPriceHighest, p.reservePrice, date_format(b.bidDate, '%d-%m-%Y') bidDate
-  FROM (SELECT MAX(bidPrice) AS maxprice, productID
-  FROM bid
-  GROUP BY productID) r,
-    (SELECT productID, MAX(bidPrice) AS bidPriceHighest, date_format(bidDate, '%d-%m-%Y') bidDate
-   FROM bid
-   WHERE userID = $userID
-   GROUP BY productID
-  ORDER BY bidDate ASC) g,
-    product p, bid b
-  WHERE b.userID = $userID
-  AND p.productID = b.productID
-  AND r.maxprice = b.bidPrice
-  AND p.productID = g.productID
-  ORDER BY bidDate ASC";*/
-
   $sql = "select
   p2.productName, p2.productid, a.bidid, p2.reservePrice, a.bidPrice as userPrice,maxbid.maxprice winningprice, a.userID ,  date_format(a.bidDate, '%d-%m-%Y') bidDate, date_format(p2.enddate, '%d-%m-%Y') enddate,
   (select case when r.productid is not NULL and p2.endDate < curdate() then 'Yes'
@@ -108,17 +77,16 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
     <a href="#" onclick="w3_close()" class="w3-hide-large w3-right w3-jumbo w3-padding w3-hover-grey" title="close menu">
       <i class="fa fa-remove"></i>
     </a>
-    <img src="/w3images/avatar_g2.jpg" style="width:45%;" class="w3-round"><br><br>
+    <!--img src="/w3images/avatar_g2.jpg" style="width:45%;" class="w3-round"><br><br-->
     <h4><b>eBae</b></h4>
     <p class="w3-text-grey">Template by W3.CSS</p>
   </div>
   <div class="w3-bar-block">
     
-    <a href="#portfolio" onclick="w3_close()" class="w3-bar-item w3-button w3-padding"><i class="fa fa-th-large fa-fw w3-margin-right"></i>MY AUCTIONS</a> 
+    <a href="myAuctionsPage.php" onclick="w3_close()" class="w3-bar-item w3-button w3-padding"><i class="fa fa-th-large fa-fw w3-margin-right"></i>MY AUCTIONS</a> 
     <a href="homepage.php" onclick="w3_close()" class="w3-bar-item w3-button w3-padding"><i class="fa fa-user fa-fw w3-margin-right"></i>LIVE AUCTIONS</a> 
-    <a href="#contact" onclick="w3_close()" class="w3-bar-item w3-button w3-padding"><i class="fa fa-envelope fa-fw w3-margin-right"></i>MY BIDS</a>
+    <a href="bidPage.php" onclick="w3_close()" class="w3-bar-item w3-button w3-padding"><i class="fa fa-envelope fa-fw w3-margin-right"></i>MY BIDS</a>
     <a href="createAuction.php" onclick="w3_close()" class="w3-bar-item w3-button w3-padding"><i class="fa fa-envelope fa-fw w3-margin-right"></i>CREATE AUCTION</a>
-    <a href="#contact" onclick="w3_close()" class="w3-bar-item w3-button w3-padding"><i class="fa fa-envelope fa-fw w3-margin-right"></i>WATCHLIST</a>
     <a href="logout.php" onclick="w3_close()" class="w3-bar-item w3-button w3-padding" style="color: #ff0000"><i class="fa fa-close fa-fw w3-margin-right"></i>Log Out</a>
   </div>
   <div class="w3-panel w3-large">
