@@ -13,7 +13,7 @@ if (isset($_POST['submit']))
   }
 
   $pword = $_POST["password"];
-  //$enc_pword = md5($pword);
+  $enc_pword = md5($pword);
   
 
 
