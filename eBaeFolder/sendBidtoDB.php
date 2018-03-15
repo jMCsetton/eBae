@@ -128,7 +128,7 @@ $mail3->SMTPOptions = array(
 
 while ($row3 = mysqli_fetch_array($result3)) {
   $row4 = mysqli_fetch_array($result2);
-  $productName = $row3["productName"];
+  $productName = $row4["productName"];
   $mail3->ClearAllRecipients();
   $mail3->Subject = 'UCL Buyer Databases';
   $mail3->Debugoutput = 'html';
