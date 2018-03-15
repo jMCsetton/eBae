@@ -136,10 +136,9 @@ function isValidDate(date)
     var m = matches[1] - 1;
     var y = matches[3];
     var composedDate = new Date(y, m, d);
-    d = composedDate.getDate();
-    m = composedDate.getMonth();
-    y = composedDate.getFullYear();
-    return composedDate;
+    return composedDate.getDate() == d &&
+            composedDate.getMonth() == m &&
+            composedDate.getFullYear() == y;
 }
 function inpast(input){
   var a = new Date();
@@ -152,7 +151,7 @@ function inpast(input){
 function validationform() {
   var fname = document.forms["cruciform"]["firstName"].value;
   if (fname == "") {
-    alert("Please enter your first name!");
+    alert("Please enter a first name you fool!");
     return false;
   }
   var lname = document.forms["cruciform"]["lastName"].value;
