@@ -2,9 +2,6 @@
 session_start();
 ob_start();
 //$user = $_SESSION['userID'];
-
-if (isset($_POST['Bid']))
-{
   require "config.php";
   $conn =  new mysqli($host, $username, $password, $dbname);
 
@@ -26,8 +23,6 @@ if (isset($_POST['Bid']))
     echo "Bid added successfully!";
 } else {
     //echo "Error: " . $sql . "<br>" . $conn->error;
-}
-  
 }
 
 
