@@ -40,7 +40,7 @@ if ($conn->query($sql) === TRUE) {
     AND endDate = CURDATE()-1
     GROUP BY productID;"; */
 
-    $sql3="SELECT p.endDate, p.productID, p.userID, b.bidID, bidPriceHighest as bidPrice , p.reservePrice, u.email_ID, p.productName
+    $sql3="SELECT p.endDate, p.productID, p.userID, b.bidID, bidPriceHighest as bidPrice , p.reservePrice, u.email_ID, p.productName, b.userID as buyerID
     from product p
    LEFT OUTER JOIN bid b ON p.productID = b.productID
   LEFT OUTER JOIN (SELECT productID, MAX(bidPrice) AS bidPriceHighest, date_format(bidDate, '%d-%m-%Y') bidDate
@@ -89,7 +89,7 @@ GROUP BY p.productID";
     if ( ($row3['reservePrice']) <= ($row3['bidPrice']) ){
 
         $sql4 = "INSERT INTO auction (productID, userID, auctionDate, auctionPrice, bidID)
-        VALUES ('" .$row3["productID"]."', '" .$row3["userID"]."', '" .$row3["endDate"]."','" .$row3["bidPrice"]."','" .$row3["bidID"]."')";    
+        VALUES ('" .$row3["productID"]."', '" .$row3["buyerID"]."', '" .$row3["endDate"]."','" .$row3["bidPrice"]."','" .$row3["bidID"]."')";    
 
     if ($conn->query($sql4) === TRUE) {
     //echo "date added successfully!";
