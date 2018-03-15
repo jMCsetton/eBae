@@ -82,6 +82,15 @@ $result4 = $conn->query($sql4);
 $row4 = mysqli_fetch_assoc($result4);
 //echo $row4['bidPriceHighest'];
 
+$sql5 = "SELECT productID, userID
+FROM watchlist
+WHERE productID = $productID_page
+and userID = $userID;";
+
+$result5 = $conn->query($sql5);
+$row5 = mysqli_fetch_assoc($result5);
+$count5 = mysqli_num_rows($result5);
+
 ?>
 
 <html>
@@ -177,8 +186,10 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
             </div>
             
               ';
-              echo "<a href='addToWatchlist.php?id=".$row['productID']."' class='w3-third w3-container' style='background-color:black; width:9%; color:white'><b>View Bid<b></a> 
+              if ($count5 = 0 ){
+              echo "<a href='addToWatchlist.php?id=".$row['productID']."' class='w3-third w3-container' style='background-color:black; width:9%; color:white'><b>Add to Watchlist<b></a> 
               ";
+              }
 				
 				?>
         </div>
