@@ -38,6 +38,19 @@ WHERE productID = $productID_page) r
   } else {
     //echo "Error: " . $sql2 . "<br>" . $conn->error;
   }
+
+  $sql3 = "SELECT w.userID, u.email_ID
+  FROM watchlist w, user u
+  WHERE w.productID = $productID_page
+  AND u.userID = w.userID
+  and w.userID = $userID;";
+
+$result3 = $conn->query($sql3);
+if ($conn->query($sql3) === TRUE) {
+  echo "emails sent successfully!";
+} else {
+  echo "Error: " . $sql3 . "<br>" . $conn->error;
+}
   
   require_once('./vendor/autoload.php');
   
@@ -45,7 +58,7 @@ WHERE productID = $productID_page) r
   
   //Server settings
   $mail2->isSMTP();
-  //$mail2->SMTPDebug = 2;
+  $mail2->SMTPDebug = 2;
   $mail2->Host = 'smtp.gmail.com';
   $mail2->Port = 587;
   $mail2->SMTPSecure = 'tls'; // enable 'tls'  to prevent security issues
@@ -93,8 +106,30 @@ WHERE productID = $productID_page) r
 } else {
     //echo "Error: " . $sql . "<br>" . $conn->error;
 }
-  
+
+while ($row3 = mysqli_fetch_array($result3)) {
+  $productName = $row2["productName"];
+  $mail2->ClearAllRecipients();
+  $mail2->Subject = 'UCL Buyer Databases';
+  $mail2->Debugoutput = 'html';
+  $mail2->setFrom('ebaeauction@gmail.com', 'eBae Auction');
+  $mail2->addAddress($row3['email_ID'], 'Watchers');
+  $mail2->Subject = 'Someone has bid on your watched product!';
+  $mail2->Debugoutput = 'html';
+  $mail2->Body = 'Hi, 
+                Someone has bid on product: '.$productName.' 
+                The highest bid is now: £'.$_POST["bidPrice"].'
+                Come back soon!';
+
+  if ($mail2->send()){
+      echo 'Message sent';
+  }
+
+    echo json_encode($mail2);
+  }
 }
+  
+
 
 
  ?> 

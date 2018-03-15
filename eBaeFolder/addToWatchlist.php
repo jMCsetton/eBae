@@ -20,7 +20,7 @@ ob_start();
   VALUES ('$userID', '$productID_page')";
 
   if ($conn->query($sql) === TRUE) {
-    echo "Bid added successfully!";
+    echo "Added to Watchlist successfully!";
 } else {
     //echo "Error: " . $sql . "<br>" . $conn->error;
 }
