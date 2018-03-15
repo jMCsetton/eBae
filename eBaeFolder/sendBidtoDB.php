@@ -58,7 +58,7 @@ if ($conn->query($sql3) === TRUE) {
   
   //Server settings
   $mail2->isSMTP();
-  $mail2->SMTPDebug = 2;
+  //$mail2->SMTPDebug = 2;
   $mail2->Host = 'smtp.gmail.com';
   $mail2->Port = 587;
   $mail2->SMTPSecure = 'tls'; // enable 'tls'  to prevent security issues
@@ -107,25 +107,45 @@ if ($conn->query($sql3) === TRUE) {
     //echo "Error: " . $sql . "<br>" . $conn->error;
 }
 
+$mail3 = new phpmailer(true);
+
+//Server settings
+$mail3->isSMTP();
+$mail3->SMTPDebug = 2;
+$mail3->Host = 'smtp.gmail.com';
+$mail3->Port = 587;
+$mail3->SMTPSecure = 'tls'; // enable 'tls'  to prevent security issues
+$mail3->SMTPAuth = true;
+$mail3->Username = 'ebaeauction@gmail.com';
+$mail3->Password = 'Databases37!';
+// walkaround to bypass server errors
+$mail3->SMTPOptions = array(
+'ssl' => array(
+    'verify_peer' => false,
+    'verify_peer_name' => false,
+    'allow_self_signed' => true
+    )
+);
+
 while ($row3 = mysqli_fetch_array($result3)) {
   $productName = $row2["productName"];
-  $mail2->ClearAllRecipients();
-  $mail2->Subject = 'UCL Buyer Databases';
-  $mail2->Debugoutput = 'html';
-  $mail2->setFrom('ebaeauction@gmail.com', 'eBae Auction');
-  $mail2->addAddress($row3['email_ID'], 'Watchers');
-  $mail2->Subject = 'Someone has bid on your watched product!';
-  $mail2->Debugoutput = 'html';
-  $mail2->Body = 'Hi, 
+  $mail3->ClearAllRecipients();
+  $mail3->Subject = 'UCL Buyer Databases';
+  $mail3->Debugoutput = 'html';
+  $mail3->setFrom('ebaeauction@gmail.com', 'eBae Auction');
+  $mail3->addAddress($row3['email_ID'], 'Watchers');
+  $mail3->Subject = 'Someone has bid on your watched product!';
+  $mail3->Debugoutput = 'html';
+  $mail3->Body = 'Hi, 
                 Someone has bid on product: '.$productName.' 
                 The highest bid is now: £'.$_POST["bidPrice"].'
                 Come back soon!';
 
-  if ($mail2->send()){
+  if ($mail3->send()){
       echo 'Message sent';
   }
 
-    echo json_encode($mail2);
+    echo json_encode($mail3);
   }
 }
   
