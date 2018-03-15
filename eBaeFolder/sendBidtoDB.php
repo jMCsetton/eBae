@@ -49,7 +49,7 @@ $result3 = $conn->query($sql3);
 if ($conn->query($sql3) === TRUE) {
   echo "emails sent successfully!";
 } else {
-  echo "Error: " . $sql3 . "<br>" . $conn->error;
+  //echo "Error: " . $sql3 . "<br>" . $conn->error;
 }
   
   require_once('./vendor/autoload.php');
@@ -111,7 +111,7 @@ $mail3 = new phpmailer(true);
 
 //Server settings
 $mail3->isSMTP();
-$mail3->SMTPDebug = 2;
+//$mail3->SMTPDebug = 2;
 $mail3->Host = 'smtp.gmail.com';
 $mail3->Port = 587;
 $mail3->SMTPSecure = 'tls'; // enable 'tls'  to prevent security issues
@@ -142,10 +142,10 @@ while ($row3 = mysqli_fetch_array($result3)) {
                 Come back soon!';
 
   if ($mail3->send()){
-      echo 'Message sent';
+      //echo 'Message sent';
   }
 
-    echo json_encode($mail3);
+    //echo json_encode($mail3);
   }
 }
   
