@@ -56,7 +56,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     $enc_mypassword =  md5( $mypassword);
     
    
-    $sql = "SELECT * FROM user WHERE username = '$myusername' and password = '$mypassword' and role = 'admin'  ";
+    $sql = "SELECT * FROM user WHERE username = '$myusername' and password = '$enc_mypassword' and role = 'admin'  ";
     $result = $conn->query($sql);
     $row = mysqli_fetch_array($result);
     $count = mysqli_num_rows($result);
