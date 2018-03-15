@@ -151,7 +151,7 @@ function inpast(input){
 function validationform() {
   var fname = document.forms["cruciform"]["firstName"].value;
   if (fname == "") {
-    alert("Please enter a first name you fool!");
+    alert("Please enter your first name!");
     return false;
   }
   var lname = document.forms["cruciform"]["lastName"].value;
