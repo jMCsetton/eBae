@@ -86,7 +86,7 @@ GROUP BY p.productID";
       );
 
     while( $row3 = mysqli_fetch_array($result3)) { 
-    if ( ($row3['reservePrice']) <= ($row3['bidPrice']) ){
+    if ( ($row3['reservePrice']) <= ($row3['bidPriceHighest']) ){
 
         $sql4 = "INSERT INTO auction (productID, userID, auctionDate, auctionPrice, bidID)
         VALUES ('" .$row3["productID"]."', '" .$row3["buyerID"]."', '" .$row3["endDate"]."','" .$row3["bidPriceHighest"]."','" .$row3["bidID"]."')";    
